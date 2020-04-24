@@ -107,8 +107,8 @@ d: UI页面按如下方式转换：
 
 <onekit-button/>
 
-并在每个页面的json文件按以下设置：
-{
+并在每个页面的json文件按以下设置：<br/>
+{<br/>
 	"usingComponents":{
 		"onekit-ad":"/onekit/ui/ad/ad",
 

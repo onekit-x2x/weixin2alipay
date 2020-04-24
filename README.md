@@ -109,25 +109,24 @@ d: UI页面按如下方式转换：
 
 并在每个页面的json文件按以下设置：
 
-	"usingComponents":{
-	
-		"onekit-ad":"/onekit/ui/ad/ad",
-		"onekit-button":"/onekit/ui/button/button",
-		
-		"onekit-checkbox":"/onekit/ui/checkbox/checkbox",
-		
-		"onekit-editor":"/onekit/ui/editor/editor",
-		
-		"onekit-icon":"/onekit/ui/icon/icon",
-		
-		"onekit-map":"/onekit/ui/map/map",
-		
-		"onekit-modal":"/onekit/ui/modal/modal",
-		
-		"onekit-open-data":"/onekit/ui/open-data/open-data",
-		
-		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
-		
-		"onekit-video":"/onekit/ui/video/video"
-		
-	}
+"usingComponents":{
+"onekit-ad":"/onekit/ui/ad/ad",
+"onekit-button":"/onekit/ui/button/button",
+
+"onekit-checkbox":"/onekit/ui/checkbox/checkbox",
+
+"onekit-editor":"/onekit/ui/editor/editor",
+
+"onekit-icon":"/onekit/ui/icon/icon",
+
+"onekit-map":"/onekit/ui/map/map",
+
+"onekit-modal":"/onekit/ui/modal/modal",
+
+"onekit-open-data":"/onekit/ui/open-data/open-data",
+
+"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
+
+"onekit-video":"/onekit/ui/video/video"
+
+}

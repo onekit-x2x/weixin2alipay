@@ -34,9 +34,9 @@ app.json 转换
 app.json文件为整个小程序配置文件，不过微信小程序app.json和支付宝小程序在app.json配置文件支持的能力不完全一致，部分一致的但名称不一致的配置，转换工具会分析并转换出来。
 
 转换方式：
-navigationBarTitleText -->defaultTitle**
-enablePullDownRefresh -->pullRefresh**
-navigationBarBackgroundColor -->titleBarColor**
+navigationBarTitleText -->defaultTitle**<br/>
+enablePullDownRefresh -->pullRefresh**<br/>
+navigationBarBackgroundColor -->titleBarColor**<br/>
 ...等
 其中微信小程序支持，支付宝小程序不支持的，需要开发者自己手动修改，如：networkTimeout、functionalPages、workers等
 

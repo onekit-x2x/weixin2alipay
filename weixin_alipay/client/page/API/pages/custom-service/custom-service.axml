@@ -1,0 +1,14 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="btn-area">
+      <onekit-button type="primary">联系客服</onekit-button>
+    </view>
+  </view>
+
+  
+</view>

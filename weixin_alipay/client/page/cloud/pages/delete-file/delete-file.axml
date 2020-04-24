@@ -1,0 +1,42 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="page-section">
+      <block a:if="{{!fileId}}">
+        <view class="page-section-ctn">
+          <text class="page-body-text">还未上传过文件，请先点击按钮上传</text>
+        </view>
+        
+        <view class="btn-area">
+          <navigator url="/page/cloud/pages/upload-file/upload-file?from=delete-file">
+            <onekit-button type="primary" size="40">上传文件</onekit-button>
+          </navigator>
+        </view>
+      </block>
+
+      <block a:else>
+        <view class="weui-cells__title">点击按钮即可删除指定文件</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">文件 ID</view>
+            </view>
+            <view class="weui-cell__bd">
+              <textarea class="weui-textarea" value="{{fileId}}" style="height: 3.3em" disabled=""></textarea>
+            </view>
+          </view>
+        </view>
+
+        <view class="btn-area">
+          <onekit-button type="primary" size="40" onTap="deleteFile" loading="{{loading}}">删除文件</onekit-button>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  
+</view>

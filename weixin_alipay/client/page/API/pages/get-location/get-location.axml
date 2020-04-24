@@ -1,0 +1,29 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <text class="page-body-text-small">当前位置经纬度</text>
+        <block a:if="{{hasLocation === false}}">
+          <text class="page-body-text">未获取</text>
+        </block>
+        <block a:if="{{hasLocation === true}}">
+          <view class="page-body-text-location">
+            <text>E: {{location.longitude[0]}}°{{location.longitude[1]}}′</text>
+            <text>N: {{location.latitude[0]}}°{{location.latitude[1]}}′</text>
+          </view>
+        </block>
+      </view>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="getLocation">获取位置</onekit-button>
+        <onekit-button onTap="clear">清空</onekit-button>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

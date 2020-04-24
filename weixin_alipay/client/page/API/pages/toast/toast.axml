@@ -1,0 +1,25 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="btn-area">
+      <view class="body-view">
+        <onekit-button type="default" onTap="toast1Tap">点击弹出默认toast</onekit-button>
+      </view>
+      <view class="body-view">
+        <onekit-button type="default" onTap="toast2Tap">点击弹出设置duration的toast</onekit-button>
+      </view>
+      <view class="body-view">
+        <onekit-button type="default" onTap="toast3Tap">点击弹出显示loading的toast</onekit-button>
+      </view>
+      <view class="body-view">
+        <onekit-button type="default" onTap="hideToast">点击隐藏toast</onekit-button>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

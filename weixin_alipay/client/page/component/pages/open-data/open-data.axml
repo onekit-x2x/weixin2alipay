@@ -1,0 +1,66 @@
+
+
+
+
+<view class="container">
+  
+  <view class="page-body">
+    <view class="avatar">
+      <onekit-open-data class="avatar-img" type="userAvatarUrl" lang="zh_CN"></onekit-open-data>
+    </view>
+    <form>
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">昵称</view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="weui-input">
+                <onekit-open-data type="userNickName" lang="zh_CN"></onekit-open-data>
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">性别</view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="weui-input">
+                <onekit-open-data type="userGender" lang="zh_CN"></onekit-open-data>
+              </view>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">地区</view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="weui-input">
+                <onekit-open-data class="country" type="userCountry" lang="zh_CN"></onekit-open-data>
+                <onekit-open-data class="province" type="userProvince" lang="zh_CN"></onekit-open-data>
+                <onekit-open-data class="city" type="userCity" lang="zh_CN"></onekit-open-data>
+              </view>
+            </view>
+          </view>
+
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">语言</view>
+            </view>
+            <view class="weui-cell__bd">
+              <view class="weui-input">
+                <onekit-open-data type="userLanguage" lang="zh_CN"></onekit-open-data>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </form>
+
+  </view>
+  
+</view>

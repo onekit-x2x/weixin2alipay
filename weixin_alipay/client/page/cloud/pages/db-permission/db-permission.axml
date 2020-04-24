@@ -1,0 +1,153 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body" a:if="{{openid}}">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">权限类型</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker onChange="onPermissionChange" value="{{currentPermissionIndex}}" range="{{permissions}}">
+              <view class="weui-select permission-select" weui-select_in-select-after="">{{permissions[currentPermissionIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-panel">
+        <view class="weui-panel__bd">
+
+          <block a:if="{{currentPermissionIndex === 0}}">
+            <view class="weui-tab">
+              <view class="weui-navbar">
+                <block a:for="{{tabs[currentPermissionIndex]}}">
+                  <view id="{{index}}" class="weui-navbar__item {{activeTabIndex === index ? 'weui-bar__item_on' : ''}}" onTap="onTabClick">
+                    <view class="weui-navbar__title">{{item}}</view>
+                  </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+              </view>
+              <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeTabIndex !== 0}}">
+                  <view class="weui-cells weui-cells_after-title input-area">
+                    <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入个性签名" value="{{myWhatsUp}}" focus="{{!hasMyWhatsUp}}" data-name="myWhatsUp" onInput="bindInput" onConfirm="updateMyWhatsUp"></input>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="btn-area">
+                    <onekit-button type="primary" onTap="updateMyWhatsUp" loading="{{updating}}">设置个性签名</onekit-button>
+                    <onekit-button onTap="queryMyWhatsUp" loading="{{querying}}">获取个性签名</onekit-button>
+                  </view>
+                </view>
+
+                <view class="weui-tab__content" hidden="{{activeTabIndex !== 1}}">
+                  <view class="weui-cells weui-cells_after-title input-area">
+                    <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入个性签名" value="{{adminWhatsUp}}" data-name="adminWhatsUp" onInput="bindInput"></input>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="btn-area">
+                    <onekit-button type="primary" onTap="updateAdminWhatsUp" loading="{{updating}}">设置个性签名</onekit-button>
+                    <onekit-button onTap="queryAdminWhatsUp" loading="{{querying}}">获取个性签名</onekit-button>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+
+          <block a:elif="{{currentPermissionIndex === 1}}">
+            <view class="weui-tab">
+              <view class="weui-navbar">
+                <block a:for="{{tabs[currentPermissionIndex]}}">
+                  <view id="{{index}}" class="weui-navbar__item {{activeTabIndex === index ? 'weui-bar__item_on' : ''}}" onTap="onTabClick">
+                    <view class="weui-navbar__title">{{item}}</view>
+                  </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+              </view>
+              <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeTabIndex !== 0}}">
+                  <view class="weui-cells weui-cells_after-title input-area">
+                    <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入邮箱" value="{{myEmail}}" data-name="myEmail" onInput="bindInput"></input>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="btn-area">
+                    <onekit-button type="primary" onTap="updateMyEmail" loading="{{updating}}">设置邮箱</onekit-button>
+                    <onekit-button onTap="queryMyEmail" loading="{{querying}}">获取邮箱</onekit-button>
+                  </view>
+                </view>
+
+                <view class="weui-tab__content" hidden="{{activeTabIndex !== 1}}">
+                  <view class="weui-cells weui-cells_after-title input-area">
+                    <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入邮箱" value="{{adminEmail}}" data-name="adminEmail" onInput="bindInput"></input>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="btn-area">
+                    <onekit-button type="primary" onTap="updateAdminEmail" loading="{{updating}}">设置邮箱</onekit-button>
+                    <onekit-button onTap="queryAdminEmail" loading="{{querying}}">获取邮箱</onekit-button>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+
+          <block a:elif="{{currentPermissionIndex === 2}}">
+            <view>
+              <view class="weui-cells weui-cells_after-title input-area">
+                <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入商品价格" value="{{product.price}}" data-name="product.price" onInput="bindInput"></input>
+                  </view>
+                </view>
+              </view>
+
+              <view class="btn-area">
+                <onekit-button type="primary" onTap="updateProductPrice" loading="{{updating}}">设置商品价格</onekit-button>
+                <onekit-button onTap="queryProduct" loading="{{querying}}">获取商品价格</onekit-button>
+              </view>
+            </view>
+          </block>
+
+          <block a:elif="{{currentPermissionIndex === 3}}">
+            <view>
+              <view class="weui-cells weui-cells_after-title input-area">
+                <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入后台流水数据" value="{{serverData}}" data-name="serverData" onInput="bindInput"></input>
+                  </view>
+                </view>
+              </view>
+
+              <view class="btn-area">
+                <onekit-button type="primary" onTap="updateServerData" loading="{{updating}}">设置后台流水数据</onekit-button>
+                <onekit-button onTap="queryServerData" loading="{{querying}}">获取后台流水数据</onekit-button>
+              </view>
+            </view>
+          </block>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

@@ -1,0 +1,18 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="desc">请在下方输入电话号码</view>
+      <input class="input" type="number" name="input" onInput="bindInput"></input>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="makePhoneCall" disabled="{{disabled}}">拨打</onekit-button>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

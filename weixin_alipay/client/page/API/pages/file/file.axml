@@ -1,0 +1,34 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <block a:if="{{tempFilePath != ''}}">
+          <image src="{{tempFilePath}}" class="image" mode="aspectFit"></image>
+        </block>
+        <block a:if="{{tempFilePath === '' && savedFilePath != ''}}">
+          <image src="{{savedFilePath}}" class="image" mode="aspectFit"></image>
+        </block>
+        <block a:if="{{tempFilePath === '' && savedFilePath === ''}}">
+          <view class="image-plus image-plus-nb" onTap="chooseImage">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="image-plus-text">请选择文件</view>
+        </block>
+      </view>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="saveFile">保存文件</onekit-button>
+        <onekit-button onTap="clear">删除文件</onekit-button>
+      </view>
+    </view>
+  </view>
+
+  <onekit-modal title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel="" onConfirm="confirm">{{dialog.content}}</onekit-modal>
+
+  
+</view>

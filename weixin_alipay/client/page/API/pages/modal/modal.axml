@@ -1,0 +1,15 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="btn-area">
+      <onekit-button type="default" onTap="modalTap">有标题的modal</onekit-button>
+      <onekit-button type="default" onTap="noTitlemodalTap">无标题的modal</onekit-button>
+    </view>
+  </view>
+
+  
+</view>

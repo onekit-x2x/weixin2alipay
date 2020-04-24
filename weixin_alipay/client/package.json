@@ -1,0 +1,9 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "@alicloud/mpserverless-sdk": "^1.0.3"
+  }
+}

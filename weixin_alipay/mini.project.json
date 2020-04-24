@@ -1,0 +1,9 @@
+{
+  "cloud": {
+    "type": "miniappServerless"
+  },
+  "miniprogramRoot": "client",
+  "axmlStrictCheck": true,
+  "component2": true,
+  "enableParallelLoader": true
+}

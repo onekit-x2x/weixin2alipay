@@ -1,0 +1,34 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Copy</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="text" name="key" value="{{value}}" onInput="valueChanged"></input>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Paste</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="text" value="{{pasted}}"></input>
+        </view>
+      </view>
+    </view>
+
+    <view class="btn-area">
+      <onekit-button type="primary" onTap="copy">复制</onekit-button>
+      <onekit-button onTap="paste">粘贴</onekit-button>
+    </view>
+  </view>
+
+  
+</view>

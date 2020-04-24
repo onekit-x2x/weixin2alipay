@@ -1,0 +1,9 @@
+<view>
+<checkbox 
+  value="{{value}}" 
+  disabled="{{disabled}}"
+  checked="{{checked}}"
+  color="{{color}}"
+  onChange="{{onChange}}}"/>
+<slot/>
+</view>

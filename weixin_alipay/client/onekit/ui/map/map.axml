@@ -1,0 +1,12 @@
+<map id="map" style="{{style}}"
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  scale="{{scale}}"
+  markers="{{markers}}"
+  polyline="{{polyline}}"
+  circles="{{circles}}"
+  controls="{{controls}}"
+  polygon="{{polygon}}"
+  include-points="{{include-points}}"
+  show-location="{{show-location}}"
+></map>

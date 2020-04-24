@@ -1,0 +1,35 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <camera flash="off" device-position="{{position}}" onError="error">
+      </camera>
+      <view class="btn-area first-btn">
+      <onekit-button type="primary" onTap="togglePosition">切换摄像头</onekit-button>
+      </view>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="takePhoto">拍照</onekit-button>
+      </view>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="startRecord">开始录像</onekit-button>
+      </view>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="stopRecord">结束录像</onekit-button>
+      </view>
+      <view class="btn-area">
+        <navigator url="/page/component/pages/camera-scan-code/camera-scan-code">
+          <onekit-button type="primary">扫描一维码</onekit-button>
+        </navigator>
+      </view>
+      <view class="preview-tips">预览</view>
+      <image a:if="{{src}}" mode="widthFix" class="photo" src="{{src}}"></image>
+      <onekit-video a:if="{{videoSrc}}" class="video" src="{{videoSrc}}"></onekit-video>
+    </view>
+  </view>
+
+  
+</view>

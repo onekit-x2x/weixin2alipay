@@ -1,0 +1,38 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">key</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入key" name="key" value="{{key}}" onInput="keyChange"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">value</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="请输入value" name="data" value="{{data}}" onInput="dataChange"></input>
+          </view>
+        </view>
+      </view>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="setStorage">存储数据</onekit-button>
+        <onekit-button onTap="getStorage">读取数据</onekit-button>
+        <onekit-button onTap="clearStorage">清理数据</onekit-button>
+      </view>
+    </view>
+  </view>
+
+  <onekit-modal title="{{dialog.title}}" hidden="{{dialog.hidden}}" no-cancel="" onConfirm="confirm">{{dialog.content}}</onekit-modal>
+
+  
+</view>

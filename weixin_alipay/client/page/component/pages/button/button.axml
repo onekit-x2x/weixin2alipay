@@ -1,0 +1,34 @@
+
+
+
+<view class="container">
+  
+
+  <view class="page-body">
+    <view class="btn-area" id="buttonContainer">
+      <onekit-button type="primary">页面主操作 Normal</onekit-button>
+      <onekit-button type="primary" loading="true">页面主操作 Loading</onekit-button>
+      <onekit-button type="primary" disabled="true">页面主操作 Disabled</onekit-button>
+
+      <onekit-button type="default">页面次要操作 Normal</onekit-button>
+      <onekit-button type="default" disabled="true">页面次要操作 Disabled</onekit-button>
+
+      <onekit-button type="warn">警告类操作 Normal</onekit-button>
+      <onekit-button type="warn" disabled="true">警告类操作 Disabled</onekit-button>
+
+      <view class="button-sp-area">
+        <onekit-button type="primary" plain="true">按钮</onekit-button>
+        <onekit-button type="primary" disabled="true" plain="true">不可点击的按钮</onekit-button>
+
+        <onekit-button type="default" plain="true">按钮</onekit-button>
+        <onekit-button type="default" disabled="true" plain="true">按钮</onekit-button>
+
+        <onekit-button class="mini-btn" type="primary" size="mini">按钮</onekit-button>
+        <onekit-button class="mini-btn" type="default" size="mini">按钮</onekit-button>
+        <onekit-button class="mini-btn" type="warn" size="mini">按钮</onekit-button>
+      </view>
+    </view>
+  </view>
+
+  
+</view>

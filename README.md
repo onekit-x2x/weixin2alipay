@@ -112,7 +112,6 @@ d: UI页面按如下方式转换：
 	"usingComponents":{
 	
 		"onekit-ad":"/onekit/ui/ad/ad",
-		
 		"onekit-button":"/onekit/ui/button/button",
 		
 		"onekit-checkbox":"/onekit/ui/checkbox/checkbox",

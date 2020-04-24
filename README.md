@@ -46,7 +46,7 @@ navigationBarBackgroundColor -->titleBarColor**
 wxml文件转换
 转换逻辑是以wx:xxx开头的，替换为a:xxx方式。
 
-a. 事件相关的转换，微信中 bindeventname **或 bind:eventname** 转换为 onEventname， 如下：
+a. 事件相关的转换，微信中 bindeventname 或 bind:eventname 转换为 onEventname， 如下：
 
 转换前：
 

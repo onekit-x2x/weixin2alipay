@@ -107,18 +107,20 @@ d: UI页面按如下方式转换：
 
 <onekit-button/>
 
-并在每个页面的json文件按以下设置：<br/>
-{<br/>
-	"usingComponents":{<br/>
-		"onekit-ad":"/onekit/ui/ad/ad",<br/>
-		"onekit-button":"/onekit/ui/button/button",<br/>
-		"onekit-checkbox":"/onekit/ui/checkbox/checkbox",<br/>
-		"onekit-editor":"/onekit/ui/editor/editor",<br/>
-		"onekit-icon":"/onekit/ui/icon/icon",<br/>
-		"onekit-map":"/onekit/ui/map/map",<br/>
-		"onekit-modal":"/onekit/ui/modal/modal",<br/>
-		"onekit-open-data":"/onekit/ui/open-data/open-data",<br/>
-		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",<br/>
-		"onekit-video":"/onekit/ui/video/video"<br/>
-	}<br/>
+并在每个页面的json文件按以下设置：
+```
+{
+	"usingComponents":{
+		"onekit-ad":"/onekit/ui/ad/ad",
+		"onekit-button":"/onekit/ui/button/button",
+		"onekit-checkbox":"/onekit/ui/checkbox/checkbox",
+		"onekit-editor":"/onekit/ui/editor/editor",
+		"onekit-icon":"/onekit/ui/icon/icon",
+		"onekit-map":"/onekit/ui/map/map",
+		"onekit-modal":"/onekit/ui/modal/modal",
+		"onekit-open-data":"/onekit/ui/open-data/open-data",
+		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
+		"onekit-video":"/onekit/ui/video/video"
+	}
 }
+```

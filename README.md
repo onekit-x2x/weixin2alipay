@@ -10,8 +10,10 @@
 
 本项目是可直接演示demo。其中的client文件夹中的onekit文件夹为本框架，若想在项目中使用本框架，请按以下步骤:
 1.把onekit文件夹复制到app.js同级目录。
-2.在每一个需要使用本框架的所有js文件第一行插入一行代码：import wx from "/onekit/wx";
-
+2.在每一个需要使用本框架的所有js文件第一行插入一行代码：
+```
+import wx from "/onekit/wx";
+```
 微信小程序工程师啊\~你们已经是个大孩子了\~请开始你们的支付宝小程序之旅吧！o(*￣▽￣*)ブ 奥利给~~~
 
 
@@ -49,64 +51,71 @@ wxml文件转换
 a. 事件相关的转换，微信中 bindeventname 或 bind:eventname 转换为 onEventname， 如下：
 
 转换前：
-
+```
 <page
   bindtap="showName"
   bind:input = "actionName"
   catchchange="catchchange"
   bindtouchend="onTouchEnd"
 ></page>
+```
 转换后：
-
+```
 <page
   onTap="showName"
   onInput = "actionName"
   catchChange="catchchange"
   onTouchEnd="onTouchEnd"
 ></page>
+```
 b: 循环语句转换， 如下：
 
 转换前：
-
+```
 <view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique">
   {{idx}}: {{itemName.message}}
 </view>
+```
 转换后：
-
+```
 <view a:for="{{array}}" a:for-index="idx" a:for-item="itemName" a:key="unique">
   {{idx}}: {{itemName.message}}
 </view>
+```
 c: wxs代码转换，微信小程序中的wxs功能对应支付宝小程序中的sjs功能，微信wxml中支持引用外部wxs文件和内联wxs代码，支付宝中只支持引用外部文件方式使用sjs，不支持内联sjs代码。
 
 转换前：
-
+```
 <wxs src="../wxs/utils.wxs" module="utils" />
 <wxs src="../wxs/utils.wxs" module="utils"> </wxs>
 
 <wxs module="parse">
   module.exports.getMax = getMax;
 </wxs>
+```
 转换后：
-
+```
 <import-sjs from="../wxs/utils.sjs" name="utils" />
 <import-sjs from="../wxs/utils.sjs" name="utils"/>
 
 <import-sjs from="./parse.sjs" name="sjsTest" />
+```
 并在同级目录下创建了 parse.sjs 文件，并转换wxs的CommonJS为ESM
 
 parse.sjs文件内容：
-
+```
  export default { getMax };
-
+```
 d: UI页面按如下方式转换：
 
 转换前：
-
+```
 <buton/>
+```
 转换后：
-
+```
 <onekit-button/>
-
+```
 并在每个页面的json文件按以下设置：
 ```
 {

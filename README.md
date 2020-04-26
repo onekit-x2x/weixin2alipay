@@ -27,8 +27,6 @@ import wx from "/onekit/wx";
  样式文件.wxss 转 .acss
  模板文件.wxml 转 .axml
  文件.wxs 转 .sjs
- api使用wx2my.js文件桥接函数转换
- todo.html 转换结果报告，方便开发者查找检查
 详细介绍
 app.json 转换
 app.json文件为整个小程序配置文件，不过微信小程序app.json和支付宝小程序在app.json配置文件支持的能力不完全一致，部分一致的但名称不一致的配置，转换工具会分析并转换出来。
@@ -41,7 +39,7 @@ navigationBarBackgroundColor -->titleBarColor**<br/>
 其中微信小程序支持，支付宝小程序不支持的，需要开发者自己手动修改，如：networkTimeout、functionalPages、workers等
 
 全局组件转换
-1.微信小程序支持全局组件，即在app.json中添加usingComponents字段，这样在小程序内的页面或自定义组件中可以直接使用全局组件而无需再声明。
+1.微信小程序支持全局组件，即在app.json中添加usingComponents字段，这样在小程序内的页面或自定义组件中可以直接使用全局组件而无需再声明。<br/>
 2.需要在微信小程序全局css即app.wxss中第一行加入如下代码：
 ```
 @import "/onekit/onekit.acss";

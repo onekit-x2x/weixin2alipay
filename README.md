@@ -41,7 +41,11 @@ navigationBarBackgroundColor -->titleBarColor**<br/>
 其中微信小程序支持，支付宝小程序不支持的，需要开发者自己手动修改，如：networkTimeout、functionalPages、workers等
 
 全局组件转换
-微信小程序支持全局组件，即在app.json中添加usingComponents字段，这样在小程序内的页面或自定义组件中可以直接使用全局组件而无需再声明。
+1.微信小程序支持全局组件，即在app.json中添加usingComponents字段，这样在小程序内的页面或自定义组件中可以直接使用全局组件而无需再声明。
+2.需要在微信小程序全局css即app.wxss中第一行加入如下代码：
+```
+@import "/onekit/onekit.acss";
+```
 
 转换方式： 转换工具会分析小程序中所有页面和组件，找到那些使用了全局组件的页面和组件，并把全局组件声明在页面或组件的json文件中，当做普通组件引用和使用。同时把全局组件的声明删除。
 

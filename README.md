@@ -27,7 +27,7 @@
 @import "/onekit/onekit.acss";
 ```
 5. 全局配置，请参考以下官方链接自行处理：
-支付宝小程序：https://opendocs.alipay.com/mini/framework/app
+支付宝小程序：https://opendocs.alipay.com/mini/framework/app<br/>
 微信小程序：https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html
 
 # 页面axml文件

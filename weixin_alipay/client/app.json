@@ -1,6 +1,8 @@
 {
 	"pages":[
 		"page/component/index",
+		"page/component/pages/canvas/canvas",
+		"page/component/pages/video/video",
 		"page/component/pages/editor/editor",
 		"page/component/pages/view/view",
 		"page/component/pages/scroll-view/scroll-view",
@@ -23,9 +25,7 @@
 		"page/component/pages/navigator/redirect",
 		"page/component/pages/image/image",
 		"page/component/pages/audio/audio",
-		"page/component/pages/video/video",
 		"page/component/pages/map/map",
-		"page/component/pages/canvas/canvas",
 		"page/component/pages/ad/ad",
 		"page/component/pages/movable-view/movable-view",
 		"page/component/pages/cover-view/cover-view",

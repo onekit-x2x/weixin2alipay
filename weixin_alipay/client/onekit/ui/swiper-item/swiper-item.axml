@@ -1,0 +1,8 @@
+<swiper>
+ <swiper-item 
+class="onekit-swiper-item {{Class}}"
+style="{{Style}}"
+>
+<slot></slot>
+</swiper-item>
+</swiper>

@@ -1,4 +1,9 @@
+
 import CanvasContext from "./api/CanvasContext";
+import VideoContext from "./api/VideoContext";
+
+import Context from "./api/Context";
+
 import wx_cloud from "./wx.cloud";
 import onekit from "./onekit";
 export default class wx {
@@ -189,11 +194,14 @@ export default class wx {
     canvasContext.draw();
   }
   static createContext() {
-    var context = new CanvasContext();
+    var context = new Context();
     return context;
   }
-  static createCanvasContext(object) {
-    return my.createCanvasContext(object);
+  static createCanvasContext(canvasId) {
+    return new CanvasContext(my.createCanvasContext(canvasId));
+  } 
+  static createVideoContext(videoId,ui) { 
+    return new VideoContext(my.createVideoContext(videoId)); 
   }
   static canvasToTempFilePath(object) {
     var object2 = {
@@ -786,7 +794,7 @@ export default class wx {
   }
   static saveVideoToPhotosAlbum(object) { return my.saveVideoToPhotosAlbum(object); }
   static chooseVideo(object) { return my.chooseVideo(object); }
-  static createVideoContext(object) { return my.createVideoContext(object); }
+  static createVideoContext(videoId,ui) { return new VideoContext(my.createVideoContext(videoId)); }
   static stopVoice(object) { return my.stopVoice(object); }
   static pauseVoice(object) { return my.pauseVoice(object); }
   static playVoice(object) { return my.playVoice(object); }
@@ -865,7 +873,7 @@ export default class wx {
   static uploadFile(object) {
     my.uploadFile({
       url: object.url,
-      filePath: object.filePath,
+      filePath: object.filePath, 
       fileName: object.name,
       fileType: "image",
       header: object.header,
@@ -896,7 +904,7 @@ export default class wx {
   // /////// Open Interface //////////
  static _checkSession(){
       var now = new Date().getTime();
-        return getApp().onekit._jscode && getApp().onekit._login && now<= getApp().onekit._login + 1000*60 *60*24*3;
+        return getApp().onekitwx._jscode && getApp().onekitwx._login && now<= getApp().onekitwx._login + 1000*60 *60*24*3;
   }
   static checkSession(object) {
    if(this._checkSession()){
@@ -917,17 +925,34 @@ export default class wx {
    }
 
    /*
-	 * var url = getApp().onekit.server + "userinfo"; my.httpRequest({ url:
-	 * url, header: { 'Content-Type': 'application/x-www-form-urlencoded' },
-	 * method: "POST", data: { nickname: res.nickName, avatarUrl: res.avatar,
-	 * js_code: jscode }, success(res) { if (object.success) {
-	 * object.success(res.data); } if (object.complete) {
-	 * object.complete(res.data); } }, fail(res) { console.log(res.data); } }); }
-	 */
+      var url = getApp().onekitwx.server + "userinfo";
+      my.httpRequest({
+            url: url,
+            header: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            method: "POST",
+            data: {
+              nickname: res.nickName,
+              avatarUrl: res.avatar,
+              js_code: jscode
+            },
+            success(res) {
+              if (object.success) {
+                object.success(res.data);
+              }
+              if (object.complete) {
+                object.complete(res.data);
+              }
+            }, fail(res) {
+              console.log(res.data);
+            }
+          });
+    }*/
     
   }
 
-  static login(object) {
+  static login = function(object) {
     var that = this;
     if (!object) {
       return my.getAuthCode(object);
@@ -936,8 +961,8 @@ export default class wx {
       scopes: "auth_user"
     };
     object2.success = function(res) {
-      getApp().onekit._jscode = res.authCode;
-      getApp().onekit._login = new Date().getTime();
+      getApp().onekitwx._jscode = res.authCode;
+      getApp().onekitwx._login = new Date().getTime();
       var result = { code: res.authCode };
       if (object.success) {
         object.success(result);
@@ -945,7 +970,7 @@ export default class wx {
       if (object.complete) {
         object.complete(complete);
       }
-    };
+    }
     object2.fail = function(res) {
       if (object.fail) {
         object.fail(res);
@@ -953,13 +978,13 @@ export default class wx {
       if (object.complete) {
         object.complete(res);
       }
-    };
-if(this._checkSession()){
-      object2.success({authCode:getApp().onekit._jscode});
+    }
+if(wx._checkSession()){
+      object2.success({authCode:getApp().onekitwx._jscode});
     } else {
       my.getAuthCode(object2);
     }
-  }
+  };
   static getUserInfo(object) {
    
 
@@ -970,7 +995,8 @@ if(this._checkSession()){
            my.getAuthUserInfo({
         success(res) {
           console.log(res);
-          var url = getApp().onekit.server + "userinfo";
+          var url = getApp().onekit.server + "api/userinfo";
+          console.log(url);
           my.httpRequest({
             url: url,
             header: {
@@ -982,6 +1008,7 @@ if(this._checkSession()){
               js_code: jscode
             },
             success(res) {
+              console.log(res.data);
               if (object.success) {
                 object.success(res.data);
               }

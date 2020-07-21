@@ -1,0 +1,12 @@
+<image
+class="onekit_image {{Class}}"
+style="{{Style}}"
+mode="{{mode}}"
+src="{{src}}"
+webp="{{webp}}"
+lazy-load="{{lazyLoad}}"
+onError="image_error"
+onLoad="image_load"
+>
+<slot></slot>
+</image>

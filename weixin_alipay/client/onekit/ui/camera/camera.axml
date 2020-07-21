@@ -1,0 +1,10 @@
+<camera
+class="onekit-camera {{Class}}"
+style="{{Style}}"
+device-position="{{devicePosition}}"
+flash="{{flash}}"
+onstop="camera_stop"
+onerror="camera_error"
+>
+    <slot></slot>
+</camera>

@@ -1,4 +1,6 @@
-<video  
+<video
+class="onekit-video {{Class}}"
+style="{{Style}}"
 id="video"
 src="{{src}}" 
 duration="{{duration}}" 
@@ -36,6 +38,3 @@ onWaiting="{{onWaiting}}"
 onError="{{onError}}" 
 onProgress="{{onProgress}}" 
 />
-<cover-view id="cover">
-  <canvas id="canvas"/>
-</cover-view>

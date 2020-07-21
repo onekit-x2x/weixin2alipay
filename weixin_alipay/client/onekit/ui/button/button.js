@@ -16,11 +16,24 @@ Component({
   },
   didUpdate() { },
   didUnmount() { },
-  props: {},
+  props: {
+    size:"default",
+    type:"default",
+    plain:"false",
+    disabled:false,
+    loading:false,
+    formType:"",
+    openType:"",
+    hoverClass:"button-hover",
+    hoverStopPropagation:false,
+    hoverStartTime:20,
+    hoverStayTime:70,
+  },
   methods: {
     contactBG_tap() {
       this.setData({ hideContact: true });
     },
+
               /*getAuthorize(){
  switch (this.props.scope) {
           case "phoneNumber":
@@ -80,10 +93,10 @@ Component({
               },
     button_onTap(e) {
       var that = this;
-      if (this.props.openType) {
-        switch (this.props.openType) {
+      if (that.props.openType) {
+        switch (that.props.openType) {
           case "contact":
-            this.setData({ hideContact: false });
+            that.setData({ hideContact: false });
             break;
           case "share":
             wx.showShareMenu({
@@ -138,7 +151,10 @@ Component({
           throw new Error(this.props.openType);
         }
       }
-      if (this.props.onTap) { this.props.onTap(e); }
+      if (that.props.onTap) {
+        ///console.log("xxxxxxxxxxxx",e)
+        that.props.onTap(e)
+        }
     },
   },
 });

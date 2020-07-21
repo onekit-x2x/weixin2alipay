@@ -1,0 +1,9 @@
+<voip-room
+class="onekit-voip-room {{Class}}"
+style="{{Style}}"
+openid="{{openid}}"
+mode="{{mode}}"
+device-position="{{devicePosition}}"
+>
+
+</voip-room>

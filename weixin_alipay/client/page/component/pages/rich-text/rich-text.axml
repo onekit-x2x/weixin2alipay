@@ -1,32 +1,30 @@
 
 
 
-<view class="container">
+<onekit-view Class="container">
   
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-section-title">通过HTML String渲染</view>
-      <view class="page-content">
-        <scroll-view scroll-y="">{{htmlSnip}}</scroll-view>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-section-title">通过HTML String渲染</onekit-view>
+      <onekit-view Class="page-content">
+        <onekit-scroll-view scroll-y="">{{htmlSnip}}</onekit-scroll-view>
         <onekit-button type="primary" onTap="renderHtml">渲染HTML</onekit-button>
         <block a:if="{{renderedByHtml}}">
           <onekit-rich-text nodes="{{htmlSnip}}"></onekit-rich-text>
         </block>
-      </view>
-    </view>
+      </onekit-view>
+    </onekit-view>
 
-    <view class="page-section">
-      <view class="page-section-title">通过节点渲染</view>
-      <view class="page-content">
-        <scroll-view scroll-y="">{{nodeSnip}}</scroll-view>
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-section-title">通过节点渲染</onekit-view>
+      <onekit-view Class="page-content">
+        <onekit-scroll-view scroll-y="">{{nodeSnip}}</onekit-scroll-view>
         <onekit-button type="primary" onTap="renderNode">渲染Node</onekit-button>
         <block a:if="{{renderedByNode}}">
           <onekit-rich-text nodes="{{nodes}}"></onekit-rich-text>
         </block>
-      </view>
-    </view>
-  </view>
-
-  
-</view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
+</onekit-view>

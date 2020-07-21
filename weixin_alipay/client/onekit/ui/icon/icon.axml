@@ -1,2 +1,8 @@
-<view class="onekit_icon-{{type}}" style="color:{{color}};font-size:{{size}}px;">
+<view 
+class="onekit_icon-{{type}} {{Class}}"
+style="color:{{color}};font-size:{{size}}px; {{Style}}"
+type="{{type}}"
+size="{{size}}"
+color="{{color}}"
+>
 </view>

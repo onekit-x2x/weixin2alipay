@@ -1,0 +1,11 @@
+<form
+class="onekit-form {{Class}}"
+style="{{Style}}"
+report-submit="{{reportSubmit}}"
+report-submit-timeout="{{reportSubmitTimeout}}"
+onReset="form_Reset"
+onSubmit="form_Submit"
+>
+<slot>
+</slot>
+</form>

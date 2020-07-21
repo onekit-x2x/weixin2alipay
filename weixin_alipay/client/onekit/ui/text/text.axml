@@ -1,0 +1,10 @@
+<text
+class="onekit_text {{Class}}"
+style="{{Style}}"
+selectable="{{selectable}}"
+space="{{space}}"
+decode="{{decode}}"
+>
+<slot>
+</slot>
+</text>

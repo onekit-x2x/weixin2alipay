@@ -4,6 +4,6 @@
   disabled="{{disabled}}"
   checked="{{checked}}"
   color="{{color}}"
-  onChange="{{onChange}}}"/>
+  onChange="checkbox_Change"/>
 <slot/>
 </view>

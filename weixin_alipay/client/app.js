@@ -3,6 +3,9 @@ const config = require('./config')
 
 global.isDemo = true
 App({
+  onekit : {
+    server : "http://localhost/weixin2alipay/"
+  },
   onLaunch(opts) {
     console.log('App Launch', opts)
     if (!wx.cloud) {

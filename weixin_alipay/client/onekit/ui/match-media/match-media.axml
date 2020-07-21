@@ -1,0 +1,14 @@
+<match-media
+class="onekit-match-media {{Class}}"
+style="{{Style}}"
+min-width="{{minWidth}}"
+max-width="{{maxWidth}}"
+width="{{width}}"
+min-height="{{minHeight}}"
+max-height="{{maxHeight}}"
+height="{{height}}"
+orientation="{{orientation}}"
+>
+<slot>
+</slot>
+</match-media>

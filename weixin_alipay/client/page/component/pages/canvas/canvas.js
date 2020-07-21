@@ -17,7 +17,10 @@ Page({
     }
 
     this.drawBall()
-    this.interval = setInterval(this.drawBall, 17)
+    var that = this;
+    this.interval = setInterval(function () {
+      that.drawBall();
+    }, 17)
   },
 
   drawBall() {
@@ -38,7 +41,8 @@ Page({
     }
 
     const context = wx.createCanvasContext('canvas')
-
+    console.log(context)
+    context.rect(50, 50, 100, 100);
     function ball(x, y) {
       context.beginPath(0)
       context.arc(x, y, 5, 0, Math.PI * 2)

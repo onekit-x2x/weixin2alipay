@@ -6,17 +6,17 @@ page {
   font-size: 32rpx;
   line-height: 1.6;
 }
-checkbox, radio{
+.onekit-checkbox, .onekit-radio{
   margin-right: 10rpx;
 }
-button{
+.onekit-button{
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-form{
+.onekit-form{
   width: 100%;
 }
-input {
+.onekit-input {
   width: 100%;
 }
 
@@ -112,7 +112,7 @@ input {
   width: 100%;
   margin-bottom: 60rpx;
 }
-.page-section_center{
+.page-section-center{
   display: flex;
   flex-direction: column;
   align-items: center;

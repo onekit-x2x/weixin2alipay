@@ -1,23 +1,23 @@
 if(!self.__appxInited) {
 self.__appxInited = 1;
-
+require('@alipay/appx-compiler/lib/sjsEnvInit');
 
 require('./config$');
 
 
-var AFAppX = self.AFAppX.getAppContext
-  ? self.AFAppX.getAppContext().AFAppX
-  : self.AFAppX;
-self.getCurrentPages = AFAppX.getCurrentPages;
-self.getApp = AFAppX.getApp;
-self.Page = AFAppX.Page;
-self.App = AFAppX.App;
-self.my = AFAppX.bridge || AFAppX.abridge;
-self.abridge = self.my;
-self.Component = AFAppX.WorkerComponent || function(){};
-self.$global = AFAppX.$global;
-self.requirePlugin = AFAppX.requirePlugin;
-        
+  var AFAppX = self.AFAppX.getAppContext
+    ? self.AFAppX.getAppContext().AFAppX
+    : self.AFAppX;
+  self.getCurrentPages = AFAppX.getCurrentPages;
+  self.getApp = AFAppX.getApp;
+  self.Page = AFAppX.Page;
+  self.App = AFAppX.App;
+  self.my = AFAppX.bridge || AFAppX.abridge;
+  self.abridge = self.my;
+  self.Component = AFAppX.WorkerComponent || function(){};
+  self.$global = AFAppX.$global;
+  self.requirePlugin = AFAppX.requirePlugin;
+          
 
 if(AFAppX.registerApp) {
   AFAppX.registerApp({
@@ -25,7 +25,7 @@ if(AFAppX.registerApp) {
   });
 }
 
-
+if(AFAppX.compilerConfig){ AFAppX.compilerConfig.component2 = true; }
 
 function success() {
 require('../../client/app');
@@ -39,35 +39,71 @@ require('../../client/onekit/ui/modal/modal?hash=05d2a9730dd6009bf9446182f9c985f
 require('../../client/onekit/ui/open-data/open-data?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../client/onekit/ui/rich-text/rich-text?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../client/onekit/ui/video/video?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/canvas/canvas?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/audio/audio?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/camera/camera?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/checkbox-group/checkbox-group?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/cover-image/cover-image?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/cover-view/cover-view?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/form/form?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/functional-page-navigator/functional-page-navigator?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/image/image?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/input/input?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/label/label?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/live-player/live-player?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/live-pusher/live-pusher?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/movable-area/movable-area?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/movable-view/movable-view?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/navigation-bar/navigation-bar?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/navigator/navigator?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/official-account/official-account?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/page-meta/page-meta?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/picker/picker?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/picker-view/picker-view?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/picker-view-column/picker-view-column?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/progress/progress?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/radio/radio?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/radio-group/radio-group?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/scroll-view/scroll-view?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/slider/slider?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/swiper/swiper?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/swiper-item/swiper-item?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/switch/switch?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/text/text?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/textarea/textarea?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/view/view?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/voip-room/voip-room?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../client/onekit/ui/web-view/web-view?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../client/page/component/index?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/view/view?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/scroll-view/scroll-view?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/swiper/swiper?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/text/text?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/canvas/canvas?hash=f93f0d943630cb8dc8e0e00384ef2d125bca6984');
+require('../../client/page/component/pages/video/video?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
+require('../../client/page/component/pages/editor/editor?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/view/view?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
+require('../../client/page/component/pages/scroll-view/scroll-view?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
+require('../../client/page/component/pages/swiper/swiper?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
+require('../../client/page/component/pages/text/text?hash=4fc3c21e530bda37463edb94eaed7745de2d678d');
 require('../../client/page/component/pages/icon/icon?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/progress/progress?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/button/button?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/checkbox/checkbox?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/form/form?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/progress/progress?hash=fac37decbf60fe78859c6b93a844cadd8c67a94e');
+require('../../client/page/component/pages/button/button?hash=21f17a5cf9a2c58eac2ea6532369ac47acb5324e');
+require('../../client/page/component/pages/checkbox/checkbox?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
+require('../../client/page/component/pages/form/form?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
 require('../../client/page/component/pages/input/input?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/label/label?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/label/label?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
 require('../../client/page/component/pages/picker/picker?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/component/pages/radio/radio?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/component/pages/slider/slider?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/component/pages/switch/switch?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/component/pages/textarea/textarea?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/navigator/navigator?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/navigator/navigator?hash=c9d88627a35021ea7993232a1adb73d99e3a098e');
 require('../../client/page/component/pages/navigator/navigate?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/component/pages/navigator/redirect?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/image/image?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/image/image?hash=e2a537845ca4fcd8a75ec93a822ae244ab8eee3f');
 require('../../client/page/component/pages/audio/audio?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/video/video?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/map/map?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/canvas/canvas?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/map/map?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
 require('../../client/page/component/pages/ad/ad?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/movable-view/movable-view?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/cover-view/cover-view?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/rich-text/rich-text?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
+require('../../client/page/component/pages/movable-view/movable-view?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
+require('../../client/page/component/pages/cover-view/cover-view?hash=96d3d26be3e57bf240ef82d8fa156b65c4bd0bc6');
+require('../../client/page/component/pages/rich-text/rich-text?hash=5c2f1f48d8076201818617e49de5d7e176c27e58');
 require('../../client/page/API/index?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/API/pages/login/login?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/API/pages/get-user-info/get-user-info?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
@@ -146,7 +182,6 @@ require('../../client/page/cloud/pages/scf-openapi/scf-openapi?hash=ae77da124748
 require('../../client/page/component/pages/doc-web-view/doc-web-view?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/API/pages/doc-web-view/doc-web-view?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 require('../../client/page/cloud/pages/doc-web-view/doc-web-view?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
-require('../../client/page/component/pages/editor/editor?hash=ae77da12474846fbf0eabb2ca353444bdd6f1174');
 }
 self.bootstrapApp ? self.bootstrapApp({ success }) : success();
 }

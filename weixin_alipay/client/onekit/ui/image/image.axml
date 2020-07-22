@@ -6,7 +6,7 @@ src="{{src}}"
 webp="{{webp}}"
 lazy-load="{{lazyLoad}}"
 onError="image_error"
-onLoading="image_load"
+onLoad="image_load"
 >
 <slot></slot>
 </image>

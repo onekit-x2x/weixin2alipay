@@ -7,7 +7,7 @@
   <view class="page-body">
     <view class="page-section page-section-spacing">
       <view class="text-box" scroll-y="true" scroll-top="{{scrollTop}}">
-        <onekit_text>{{text}}</onekit_text>
+        <onekit-text>{{text}}</onekit-text>
       </view>
       <onekit-button disabled="{{!canAdd}}" onTap="add">add line</onekit-button>
       <onekit-button disabled="{{!canRemove}}" onTap="remove">remove line</onekit-button>

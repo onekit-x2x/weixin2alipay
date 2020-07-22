@@ -15,6 +15,7 @@
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
 		"onekit-video":"/onekit/ui/video/video",
+		"onekit-view":"/onekit/ui/view/view",
 		"onekit-navigator":"/onekit/ui/navigator/navigator"
 	}
 }

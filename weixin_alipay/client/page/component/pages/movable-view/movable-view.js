@@ -22,6 +22,7 @@ Page({
   },
 
   tap2() {
+    console.log("放大三倍")
     this.setData({
       scale: 3
     })

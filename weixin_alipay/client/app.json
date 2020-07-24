@@ -1,5 +1,6 @@
 {
 	"pages":[
+		"page/component/pages/ad/ad",
 		"page/component/pages/video/video",
 		"page/component/pages/image/image",
 		"page/component/index",
@@ -26,7 +27,6 @@
 		"page/component/pages/navigator/redirect",
 		"page/component/pages/audio/audio",
 		"page/component/pages/map/map",
-		"page/component/pages/ad/ad",
 		"page/component/pages/movable-view/movable-view",
 		"page/component/pages/cover-view/cover-view",
 		"page/component/pages/rich-text/rich-text",

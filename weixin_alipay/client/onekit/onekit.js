@@ -53,4 +53,11 @@ onekit.color.array2str = function(array) {
   var str= "#"+f(array[0])+f(array[1])+f(array[2])+f(array[3]);
   return str;
 };
+onekit.OnekitApp = function(data){
+  return App(data);
+};
+onekit.OnekitPage = function(data){
+  data.animate = function(){};
+  return Page(data);
+};
 export default onekit;

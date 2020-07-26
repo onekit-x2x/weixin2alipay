@@ -1,19 +1,31 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
+  <template is="head" data="{{title: 'image'}}">
+</template>
+
   <view class="page-body">
     <view class="page-section page-section-gap">
       <view class="page-section-title">Local Image</view>
       <view class="page-section-ctn">
-        <onekit-image Class="image" src="../../resources/pic/1.jpg"></onekit-image>
+        <image class="image" src="../../resources/pic/1.jpg"></image>
       </view>
     </view>
     <view class="page-section page-section-gap">
       <view class="page-section-title">Internet Image</view>
       <view class="page-section-ctn">
-        <onekit-image Class="image" src="{{imageUrl}}"></onekit-image>
+        <image class="image" src="{{imageUrl}}"></image>
+      </view>
+    </view>
+     <view class="page-section page-section-gap">
+      <view class="page-section-title">Webp Image</view>
+      <view class="page-section-ctn">
+        <image class="image" webp src="{{webpImageUrl}}" mode="aspectFit"></image>
       </view>
     </view>
   </view>
+
+  <template is="foot">
+</template>
 </view>

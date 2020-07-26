@@ -1,0 +1,18 @@
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
+
+<view class="container">
+  <template is="head" data="{{title: '双向绑定'}}">
+</template>
+
+  <view class="page-body">
+    <view class="page-section">
+      <input class="input" model:value="{{value}}" placeholder="请输入"></input>
+      <view class="text">这是你输入的数据：{{value}}</view>
+    </view>
+   
+  </view>
+
+  <template is="foot">
+</template>
+</view>

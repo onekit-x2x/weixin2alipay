@@ -1,0 +1,31 @@
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'live-pusher'}}">
+</template>
+  <view class="page-body">
+    	<view class="page-section">
+		<live-pusher id="pusher" url="{{ videoSrc }}" mode="RTC" autopush onStatechange="handleLivePusherStateChange" onError="handleLivePusherError"></live-pusher>
+	</view>
+
+	<view class="page-section">
+		<view class="page-url">视频地址 (支持rtmp):</view>
+		<input name="input" placeholder="视频推送链接" value="{{ videoSrc }}" onInput="handleVideoSrcInput"></input>
+     <onekit-button type="primary" onTap="handleScanQRCode">
+        扫码
+      </onekit-button>
+	</view>
+
+	<view class="page-section">
+		<onekit-button onTap="handleStart" class="page-body-button" type="primary">开始</onekit-button>
+		<onekit-button onTap="handlePause" class="page-body-button" type="primary">暂停</onekit-button>
+		<onekit-button onTap="handleStop" class="page-body-button" type="primary">停止</onekit-button>
+		<onekit-button onTap="handleResume" class="page-body-button" type="primary">恢复</onekit-button>
+		<onekit-button onTap="handleSwitchCamera" class="page-body-button" type="primary">切换摄像头</onekit-button>
+	</view>
+  </view>
+
+  <template is="foot">
+</template>
+</view>

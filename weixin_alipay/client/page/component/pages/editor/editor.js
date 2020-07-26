@@ -1,149 +1,150 @@
-import wx from '/onekit/wx';
-global = {};
-function Onekit_context(PAGE, e, callback) {
-  if (callback) {
-    var id = "onekit_" + e.selector.value.substring(1);
-    setTimeout(function () {
-      var context = getApp()[id];
-      callback({ context });
-    }, 1000)
-  }
-  return e;
-}
-const util = require('../../../../util/util.js')
-
-const compareVersion = util.compareVersion
-
-Page({
-  onShareAppMessage() {
-    return {
-      title: 'editor',
-      path: 'page/component/pages/editor/editor'
+import {OnekitApp,OnekitPage} from "../../../../onekit/onekit.js";
+import wx from "../../../../onekit/wx.js";
+OnekitPage({
+    onShareAppMessage:function(){
+        return {
+            title:'editor',
+            path:'page/component/pages/editor/editor'
+        };
+    },
+    data:{
+        formats:{},
+        readOnly:false,
+        placeholder:'开始输入...',
+        editorHeight:300,
+        keyboardHeight:0,
+        isIOS:false,
+        safeHeight:0,
+        toolBarHeight:50
+    },
+    readOnlyChange:function(){
+        this.setData({
+            readOnly:!this.data.readOnly
+        });
+    },
+    onLoad:function(){
+        const {platform,safeArea,model,screenHeight} = wx.getSystemInfoSync();
+        var safeHeight;
+        if(safeArea){
+            safeHeight = screenHeight - safeArea.bottom;
+        } else {
+            safeHeight = 32;
+        }
+        this._safeHeight = safeHeight;
+        var isIOS = platform === 'ios';
+        this.setData({
+            isIOS:isIOS,
+            safeHeight:safeHeight,
+            toolBarHeight:isIOS?safeHeight + 50:50
+        });
+        const that = this;
+        this.updatePosition(0);
+        var keyboardHeight = 0;
+        wx.onKeyboardHeightChange((res)=>{
+            if(res.height === keyboardHeight){
+                return;
+            }
+            const duration = res.height > 0?res.duration * 1000:0;
+            keyboardHeight = res.height;
+            setTimeout(()=>{
+                wx.pageScrollTo({
+                    scrollTop:0,
+                    success:function(){
+                        that.updatePosition(keyboardHeight);
+                        that.editorCtx.scrollIntoView();
+                    }
+                });
+            },duration);
+        });
+    },
+    updatePosition:function(keyboardHeight){
+        const toolbarHeight = 50;
+        const {windowHeight,platform} = wx.getSystemInfoSync();
+        var editorHeight = keyboardHeight > 0?windowHeight - keyboardHeight - toolbarHeight:windowHeight;
+        if(keyboardHeight === 0){
+            this.setData({
+                editorHeight:editorHeight,
+                keyboardHeight:keyboardHeight,
+                toolBarHeight:this.data.isIOS?50 + this._safeHeight:50,
+                safeHeight:this._safeHeight
+            });
+        } else {
+            this.setData({
+                editorHeight:editorHeight,
+                keyboardHeight:keyboardHeight,
+                toolBarHeight:50,
+                safeHeight:0
+            });
+        }
+    },
+    calNavigationBarAndStatusBar:function(){
+        const systemInfo = wx.getSystemInfoSync();
+        const {statusBarHeight,platform} = systemInfo;
+        const isIOS = platform === 'ios';
+        const navigationBarHeight = isIOS?44:48;
+        return statusBarHeight + navigationBarHeight;
+    },
+    onEditorReady:function(){
+        const that = this;
+        wx.createSelectorQuery().select('#editor').context(function(res){
+    that.editorCtx = res.context;
+}).exec();
+    },
+    blur:function(){
+        this.editorCtx.blur();
+    },
+    format:function(e){
+        var {name,value} = e.target.dataset;
+        if(!name)return
+        this.editorCtx.format(name,value);
+    },
+    onStatusChange:function(e){
+        const formats = e.detail;
+        this.setData({
+            formats:formats
+        });
+    },
+    insertDivider:function(){
+        this.editorCtx.insertDivider({
+            success:function(){
+                console.log('insert divider success');
+            }
+        });
+    },
+    clear:function(){
+        this.editorCtx.clear({
+            success:function(res){
+                console.log("clear success");
+            }
+        });
+    },
+    removeFormat:function(){
+        this.editorCtx.removeFormat();
+    },
+    insertDate:function(){
+        const date = new Date();
+        const formatDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+        this.editorCtx.insertText({
+            text:formatDate
+        });
+    },
+    insertImage:function(){
+        const that = this;
+        wx.chooseImage({
+            count:1,
+            success:function(res){
+                that.editorCtx.insertImage({
+                    src:res.tempFilePaths[0],
+                    data:{
+                        id:'abcd',
+                        role:'god'
+                    },
+                    width:'80%',
+                    success:function(){
+                        console.log('insert image success');
+                    }
+                });
+            }
+        });
     }
-  },
-
-  data: {
-    formats: {},
-    bottom: 0,
-    readOnly: false,
-    placeholder: '开始输入...',
-    showImgSize: false,
-  },
-  readOnlyChange() {
-    this.setData({
-      readOnly: !this.data.readOnly
-    })
-  },
-  onLoad() {
-    this.canUse = true
-    wx.loadFontFace({
-      family: 'Pacifico',
-      source: 'url("https://sungd.github.io/Pacifico.ttf")',
-      success: console.log
-    })
-    const { SDKVersion } = wx.getSystemInfoSync()
-
-    if (compareVersion(SDKVersion, '2.7.0') >= 0) {
-      //
-    } else {
-      this.canUse = false
-      // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
-      wx.showModal({
-        title: '提示',
-        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
-      })
-    }
-  },
-
-  onEditorReady() {
-    console.log("ddddd")
-    const that = this
-    /*
-    wx.createSelectorQuery().select('#editor').context(function (res) {
-      that.editorCtx = res.context
-         that.editorCtx.insertText({text:"xxxx"});
-    }).exec()*/
-    Onekit_context(this, wx.createSelectorQuery().select('#editor'), function (res) {
-      that.editorCtx = res.context
-      that.editorCtx.insertText({ text: "xxxx" });
-    }).exec()
-  },
-
-  editor_focus() {
-   // console.log("editor_focus");
-  },
-  editor_blur(){
-   // console.log("editor_blur");
-  },
-  editor_input(e){
-    console.log("editor_input",e);
-  },
-  // enditor_statuschange() {
-  //   console.log("enditor_statuschange");
-  // },
-
-  undo() {
-    this.editorCtx.undo()
-  },
-  redo() {
-    this.editorCtx.redo()
-  },
-  format(e) {
-    if (!this.canUse) return
-    const { name, value } = e.target.dataset
-    if (!name) return
-    // console.log('format', name, value)
-    this.editorCtx.format(name, value)
-  },
-
-  onStatusChange(e) {
-    const formats = e.detail
-    console.log(formats);
-    this.setData({ formats })
-  },
-  insertDivider() {
-    this.editorCtx.insertDivider({
-      success() {
-        console.log('insert divider success')
-      }
-    })
-  },
-  clear() {
-    this.editorCtx.clear({
-      success() {
-        console.log('clear success')
-      }
-    })
-  },
-  removeFormat() {
-    this.editorCtx.removeFormat()
-  },
-  insertDate() {
-    const date = new Date()
-    const formatDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
-    this.editorCtx.insertText({
-      text: formatDate
-    })
-  },
-  insertImage() {
-    const that = this
-    wx.chooseImage({
-      count: 1,
-      success() {
-        that.editorCtx.insertImage({
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1543767268337&di=5a3bbfaeb30149b2afd33a3c7aaa4ead&imgtype=0&src=http%3A%2F%2Fimg02.tooopen.com%2Fimages%2F20151031%2Ftooopen_sy_147004931368.jpg',
-          data: {
-            id: 'abcd',
-            role: 'god'
-          },
-          success() {
-            console.log('insert image success')
-          }
-        })
-      }
-    })
-  },
-  onekit_ref_editor(ref) {
-    getApp().onekit_editor = ref;
-  }
-})
+});

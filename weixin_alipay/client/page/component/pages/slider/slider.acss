@@ -1,1 +1,5 @@
 /* page/component/pages/slider/slider.acss */
+
+slider {
+  margin: 0;
+}

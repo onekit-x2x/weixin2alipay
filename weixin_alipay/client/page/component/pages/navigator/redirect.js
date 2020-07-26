@@ -1,17 +1,16 @@
-import wx from '/onekit/wx';
-global = {};
-Page({
-  onShareAppMessage() {
-    return {
-      title: 'redirectPage',
-      path: 'page/component/pages/navigator/redirect'
+import {OnekitApp,OnekitPage} from "../../../../onekit/onekit.js";
+import wx from "../../../../onekit/wx.js";
+OnekitPage({
+    onShareAppMessage:function(){
+        return {
+            title:'redirectPage',
+            path:'page/component/pages/navigator/redirect'
+        };
+    },
+    onLoad:function(options){
+        console.log(options);
+        this.setData({
+            title:options.title
+        });
     }
-  },
-
-  onLoad(options) {
-    console.log(options)
-    this.setData({
-      title: options.title
-    })
-  }
-})
+});

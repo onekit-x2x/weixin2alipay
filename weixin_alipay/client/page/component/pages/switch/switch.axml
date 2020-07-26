@@ -1,14 +1,15 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'switch'}}">
+</template>
 
   <view class="page-body">
     <view class="page-section page-section-gap">
       <view class="page-section-title">默认样式</view>
       <view class="body-view">
-        <switch checked="" onChange="switch1Change"></switch>
+        <switch checked onChange="switch1Change"></switch>
         <switch onChange="switch2Change"></switch>
       </view>
     </view>
@@ -19,7 +20,7 @@
         <view class="weui-cell weui-cell_switch">
           <view class="weui-cell__bd">开启中</view>
           <view class="weui-cell__ft">
-            <switch checked=""></switch>
+            <switch checked></switch>
           </view>
         </view>
         <view class="weui-cell weui-cell_switch">
@@ -32,5 +33,6 @@
     </view>
   </view>
 
-  
+  <template is="foot">
+</template>
 </view>

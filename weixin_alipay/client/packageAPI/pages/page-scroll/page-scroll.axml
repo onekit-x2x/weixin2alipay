@@ -1,0 +1,22 @@
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'pageScrollTo'}}">
+</template>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="scrollToBottom">滚动到页面底部</onekit-button>
+      </view>
+      <view class="filling-area"></view>
+      <view class="btn-area">
+        <onekit-button type="primary" onTap="scrollToTop">返回顶部</onekit-button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot">
+</template>
+</view>

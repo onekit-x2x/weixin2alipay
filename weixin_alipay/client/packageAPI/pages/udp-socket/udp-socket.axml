@@ -1,0 +1,46 @@
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'startSoterAuthentication'}}">
+</template>
+
+  <view class="page-body">
+    <view a:if="{{startUDP}}" style="text-align: center">
+        本机port: {{port}} 模拟远程port: {{remote_port}}
+    </view>
+    <view a:if="{{!startUDP}}" class="btn-area">
+      <onekit-button type="primary" disabled="{{!canIUse}}" on:tap="handleCreateUDPTap">
+        开启 UDPSocket
+      </onekit-button>
+    </view>
+    <block a:else>
+      <view class="btn-area">
+        <onekit-button type="primary" on:tap="handleSendMessage">
+          本机发送测试
+        </onekit-button>
+      </view>
+      <view class="btn-area">
+        <onekit-button type="primary" on:tap="changeMode">
+          远程发送测试
+        </onekit-button>
+      </view>
+      <block a:if="{{mode === 'remote'}}">
+        <input placeholder="请输入目标主机 IP 地址 默认: 127.0.0.1" on:input="handleInputChange"></input>
+        <view class="btn-area">
+          <onekit-button type="primary" on:tap="handleSendRemoteMessage">
+            发送
+          </onekit-button>
+        </view>
+      </block>
+      <view class="btn-area">
+        <onekit-button type="primary" on:tap="handleCloseUDPTap">
+          关闭 UDPSocket
+        </onekit-button>
+      </view>
+    </block>
+  </view>
+
+  <template is="foot">
+</template>
+</view>

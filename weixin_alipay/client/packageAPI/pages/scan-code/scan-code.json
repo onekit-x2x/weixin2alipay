@@ -1,0 +1,15 @@
+{
+	"navigationBarTitleText":"扫码",
+	"usingComponents":{
+		"onekit-open-data":"/onekit/ui/open-data/open-data",
+		"onekit-ad":"/onekit/ui/ad/ad",
+		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
+		"onekit-icon":"/onekit/ui/icon/icon",
+		"onekit-checkbox":"/onekit/ui/checkbox/checkbox",
+		"onekit-button":"/onekit/ui/button/button",
+		"onekit-map":"/onekit/ui/map/map",
+		"onekit-video":"/onekit/ui/video/video",
+		"onekit-editor":"/onekit/ui/editor/editor",
+		"onekit-modal":"/onekit/ui/modal/modal"
+	}
+}

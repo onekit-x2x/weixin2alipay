@@ -1,14 +1,15 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'textarea'}}">
+</template>
 
   <view class="page-body">
     <view class="page-section">
       <view class="page-section-title">输入区域高度自适应，不会出现滚动条</view>
       <view class="textarea-wrp">
-        <textarea onBlur="bindTextAreaBlur" auto-height=""></textarea>
+        <textarea onBlur="bindTextAreaBlur" auto-height></textarea>
       </view>
     </view>
 
@@ -20,5 +21,6 @@
     </view>
   </view>
 
-  
+  <template is="foot">
+</template>
 </view>

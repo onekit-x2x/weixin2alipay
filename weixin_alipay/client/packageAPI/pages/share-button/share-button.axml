@@ -1,0 +1,23 @@
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'share-button'}}">
+</template>
+
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <text class="page-body-title">
+        轻触下方图标即可转发
+      </text>
+      <view class="page-body-line">
+        <onekit-button onTap="handleTapShareButton" open-type="share" class="button-share" id="share-button">
+        </onekit-button>
+        <label for="share-button"><image style="width: 27px; height: 27px" src="/image/share.png"></image></label>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot">
+</template>
+</view>

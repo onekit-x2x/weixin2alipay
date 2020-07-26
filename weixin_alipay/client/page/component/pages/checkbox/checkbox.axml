@@ -1,34 +1,36 @@
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
+<view class="container">
+  <template is="head" data="{{title: 'checkbox'}}">
+</template>
 
-
-<onekit-view Class="container">
-  
-
-  <onekit-view Class="page-body">
-    <onekit-view Class="page-section page-section-gap">
-      <onekit-view Class="page-section-title">默认样式</onekit-view>
-      <onekit-label Class="checkbox">
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">默认样式</view>
+      <label class="checkbox">
         <onekit-checkbox value="cb" checked="true"></onekit-checkbox>选中
-      </onekit-label>
-      <onekit-label Class="checkbox">
+      </label>
+      <label class="checkbox">
         <onekit-checkbox value="cb"></onekit-checkbox>未选中
-      </onekit-label>
-    </onekit-view>
+      </label>
+    </view>
 
-    <onekit-view Class="page-section">
-      <onekit-view Class="page-section-title">推荐展示样式</onekit-view>
-      <onekit-view Class="weui-cells weui-cells_after-title">
+    <view class="page-section">
+      <view class="page-section-title">推荐展示样式</view>
+      <view class="weui-cells weui-cells_after-title">
         <checkbox-group onChange="checkboxChange">
-          <onekit-label a:for="{{items}}" a:key="value" Class="weui-cell weui-check__label">
-            <onekit-view Class="weui-cell__hd">
+          <label a:for="{{items}}" a:key="value" class="weui-cell weui-check__label">
+            <view class="weui-cell__hd">
               <onekit-checkbox value="{{item.value}}" checked="{{item.checked}}"></onekit-checkbox>
-            </onekit-view>
-            <onekit-view Class="weui-cell__bd">{{item.name}}</onekit-view>
-          </onekit-label>
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </label>
         </checkbox-group>
-      </onekit-view>
-    </onekit-view>
-  </onekit-view>
+      </view>
+    </view>
+  </view>
 
-  
-</onekit-view>
+  <template is="foot">
+</template>
+</view>

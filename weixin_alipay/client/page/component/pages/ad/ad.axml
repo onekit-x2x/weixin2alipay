@@ -1,8 +1,9 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'ad'}}">
+</template>
 
   <view class="page-body">
     <view class="page-section page-section-gap">
@@ -39,5 +40,6 @@
     </view>
   </view>
 
-  
+  <template is="foot">
+</template>
 </view>

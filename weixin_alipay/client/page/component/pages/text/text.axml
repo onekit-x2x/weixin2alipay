@@ -1,16 +1,20 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'text'}}">
+</template>
 
   <view class="page-body">
     <view class="page-section page-section-spacing">
       <view class="text-box" scroll-y="true" scroll-top="{{scrollTop}}">
-        <onekit-text>{{text}}</onekit-text>
+        <text>{{text}}</text>
       </view>
       <onekit-button disabled="{{!canAdd}}" onTap="add">add line</onekit-button>
       <onekit-button disabled="{{!canRemove}}" onTap="remove">remove line</onekit-button>
     </view>
   </view>
+
+  <template is="foot">
+</template>
 </view>

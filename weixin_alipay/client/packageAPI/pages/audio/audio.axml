@@ -1,0 +1,8 @@
+<view>
+  <audio src="{{src}}" id="myAudio"></audio>
+
+  <onekit-button type="primary" onTap="audioPlay">播放</onekit-button>
+  <onekit-button type="primary" onTap="audioPause">暂停</onekit-button>
+  <onekit-button type="primary" onTap="audio14">设置当前播放时间为14秒</onekit-button>
+  <onekit-button type="primary" onTap="audioStart">回到开头</onekit-button>
+</view>

@@ -1,0 +1,34 @@
+	<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'live-player'}}">
+</template>
+
+  <view class="page-body">
+
+    <view class="page-section">
+      <live-player id="player" src="{{ videoSrc }}" mode="RTC" autoplay onStatechange="handleLivePlayerStateChange" onError="handleLivePlayerError"></live-player>
+    </view>
+
+    <view class="page-section">
+      <view class="page-url">视频地址 (支持flv, rtmp):</view>
+      <input class="input" name="input" placeholder="视频播放链接" value="{{ videoSrc }}" onInput="handleVideoSrcInput"></input>
+      <onekit-button type="primary" onTap="handleScanQRCode">
+        扫码
+      </onekit-button>
+    </view>
+    <view class="page-section">
+      <onekit-button onTap="handlePlay" class="page-body-button" type="primary">播放</onekit-button>
+      <onekit-button onTap="handlePause" class="page-body-button" type="primary">暂停</onekit-button>
+      <onekit-button onTap="handleStop" class="page-body-button" type="primary">停止</onekit-button>
+      <onekit-button onTap="handleResume" class="page-body-button" type="primary">恢复</onekit-button>
+      <onekit-button onTap="handleMute" class="page-body-button" type="primary">静音</onekit-button>
+    </view>
+  </view>
+  <template is="foot">
+</template>
+</view>
+
+  
+  

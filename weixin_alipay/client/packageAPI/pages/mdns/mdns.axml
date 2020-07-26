@@ -1,0 +1,24 @@
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
+
+<view class="container">
+  <template is="head" data="{{title: 'mDNS'}}">
+</template>
+  <view class="page-body">
+    <view class="page-section">
+      <onekit-button type="primary" on:tap="startDiscovery">
+        开始搜索 mDNS
+      </onekit-button>
+      <onekit-button type="primary" on:tap="stopDiscovery">
+        停止搜索 mDNS
+      </onekit-button>
+      <view>
+        <view a:for="{{serviceList}}" a:key="index" class="row">
+          <text>设备服务名：{{item.serviceName}}</text>
+          <text>ip地址：{{item.ip}}:{{item.port}}</text>
+          <text>当前服务类型：{{item.serviceType}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

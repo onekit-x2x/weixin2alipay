@@ -1,16 +1,14 @@
-import wx from '/onekit/wx';
-global = {};
-const info = wx.getSystemInfoSync()
-
-Page({
-  onShareAppMessage() {
-    return {
-      title: 'ad',
-      path: 'page/component/pages/ad/ad'
+import {OnekitApp,OnekitPage} from "../../../../onekit/onekit.js";
+import wx from "../../../../onekit/wx.js";
+const info = wx.getSystemInfoSync();
+OnekitPage({
+    onShareAppMessage:function(){
+        return {
+            title:'ad',
+            path:'page/component/pages/ad/ad'
+        };
+    },
+    data:{
+        platform:info.platform
     }
-  },
-
-  data: {
-    platform: info.platform
-  }
-})
+});

@@ -1,14 +1,27 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'camera'}}">
+</template>
 
   <view class="page-body">
     <view class="page-body-wrapper">
+    <view style="margin-bottom: 10px"> camera 组件 </view>
       <camera flash="off" device-position="{{position}}" onError="error">
       </camera>
+       <view a:if="{{showCanvas}}" class="info-container">
+          <view style="margin: 10px 0">使用实时数据帧在 canvas 组件的展示</view>
+          <view>
+            帧高度：{{ frameHeight }}  帧宽度：{{ frameWidth }}
+          </view>
+          <canvas id="webgl" type="webgl" canvas-id="canvas" style="width: {{width}}px; height: {{height}}px;">
+          </canvas>
+        </view>
       <view class="btn-area first-btn">
+        <onekit-button onTap="handleShowCanvas" type="primary">{{showCanvas ? "关闭实时帧数据模式": "开启实时帧数据模式"}}</onekit-button>
+      </view>
+      <view class="btn-area">
       <onekit-button type="primary" onTap="togglePosition">切换摄像头</onekit-button>
       </view>
       <view class="btn-area">
@@ -21,15 +34,16 @@
         <onekit-button type="primary" onTap="stopRecord">结束录像</onekit-button>
       </view>
       <view class="btn-area">
-        <navigator url="/page/component/pages/camera-scan-code/camera-scan-code">
+        <navigator url="/page/component/pages/camera-scan-code/camera-scan-code" hover-class="none">
           <onekit-button type="primary">扫描一维码</onekit-button>
         </navigator>
       </view>
-      <view class="preview-tips">预览</view>
+      <view class="preview-tips">点击录像或拍照即可在下方预览效果</view>
       <image a:if="{{src}}" mode="widthFix" class="photo" src="{{src}}"></image>
       <onekit-video a:if="{{videoSrc}}" class="video" src="{{videoSrc}}"></onekit-video>
     </view>
   </view>
 
-  
+  <template is="foot">
+</template>
 </view>

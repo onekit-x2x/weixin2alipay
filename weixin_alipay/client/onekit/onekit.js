@@ -54,10 +54,11 @@ onekit.color.array2str = function(array) {
   return str;
 };
 onekit.OnekitApp = function(data){
+  my.hideAllFavoriteMenu();
   return App(data);
-};
+}
 onekit.OnekitPage = function(data){
   data.animate = function(){};
   return Page(data);
-};
-export default onekit;
+}
+module.exports =  onekit;

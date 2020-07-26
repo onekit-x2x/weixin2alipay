@@ -1,8 +1,9 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'icon'}}">
+</template>
 
   <view class="icon-box">
     <onekit-icon class="icon-box-img" type="success" size="93"></onekit-icon>
@@ -112,5 +113,6 @@
     </view>
   </view>
 
-  
+  <template is="foot">
+</template>
 </view>

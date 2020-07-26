@@ -1,0 +1,41 @@
+<import src="../../../../common/head.axml"/>
+<import src="../../../../common/foot.axml"/>
+
+
+<view class="container">
+  <template is="head" data="{{title: 'bluetooth'}}">
+</template>
+  <view class="page-body" style="display: flex; flex-direction: column">
+    <text style="text-align: center; margin: 16px">当前 serverId {{serverId}}</text>
+    <view class="action-area">
+      <onekit-button type="primary" onTap="openBluetoothAdapter">创建server</onekit-button>
+      <onekit-button type="primary" onTap="closeServer">关闭server</onekit-button>
+    </view>
+    <view class="action-area">
+      <onekit-button type="primary" onTap="addService">创建服务</onekit-button>
+      <onekit-button type="primary" onTap="removeService">关闭服务</onekit-button>
+    </view>
+    <view class="action-area">
+      <onekit-button type="primary" onTap="startAdvertising">开启广播</onekit-button>
+      <onekit-button type="primary" onTap="stopAdvertising">关闭广播</onekit-button>
+    </view>
+    <view class="action-area">
+      <onekit-button type="primary" onTap="showInput">写数据</onekit-button>
+      <onekit-button type="primary" onTap="closeBluetoothAdapter">结束流程</onekit-button>
+    </view>
+    <onekit-button type="primary" onTap="chaneMode">返回主机模式</onekit-button>
+    <block a:if="{{input}}">
+      <input style="width: 200px;margin: 0 auto;background: var(--weui-BG-2);padding: 5px;" placeholder="写个数字" onConfirm="onConfirm"></input>
+    </block>
+    <view>
+      <view a:for="{{connects}}" a:if="{{connects.length > 0}}">
+        <view>
+          <text>{{item.deviceId}} : {{item.serverId}}</text>
+          <text>{{item.connected ? "已连接" : "断开"}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="foot">
+</template>
+</view>

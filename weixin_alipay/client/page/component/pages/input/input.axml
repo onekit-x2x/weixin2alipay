@@ -1,15 +1,16 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'input'}}">
+</template>
 
   <view class="page-body">
     <view class="page-section">
       <view class="weui-cells__title">可以自动聚焦的input</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" auto-focus="" placeholder="将会获取焦点"></input>
+          <input class="weui-input" auto-focus placeholder="将会获取焦点"></input>
         </view>
       </view>
     </view>
@@ -57,7 +58,7 @@
       <view class="weui-cells__title">密码输入的input</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" password="" type="text" placeholder="这是一个密码输入框"></input>
+          <input class="weui-input" password type="text" placeholder="这是一个密码输入框"></input>
         </view>
       </view>
     </view>
@@ -87,5 +88,6 @@
     </view>
   </view>
 
-  
+  <template is="foot">
+</template>
 </view>

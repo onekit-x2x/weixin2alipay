@@ -2,6 +2,7 @@
 	"defaultTitle":"form",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
+		"onekit-scroll-view":"/onekit/ui/scroll-view/scroll-view",
 		"onekit-ad":"/onekit/ui/ad/ad",
 		"onekit-rich-text":"/onekit/ui/rich-text/rich-text",
 		"onekit-icon":"/onekit/ui/icon/icon",

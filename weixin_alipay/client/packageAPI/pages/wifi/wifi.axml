@@ -7,7 +7,7 @@
 
   <view class="page-body">
     <view class="page-body-info">
-      <scroll-view class="device-list" scroll-y>
+      <onekit-scroll-view class="device-list" scroll-y>
         <view a:for="{{wifiList}}" a:key="index" class="item">
           <view class="list">
             <text>{{ item.SSID }}</text>
@@ -20,7 +20,7 @@
             </span>
           </view>
         </view>
-      </scroll-view>
+      </onekit-scroll-view>
     </view>
     <view class="btn-area">
       <onekit-button type="primary" onTap="startSearch">搜索Wi-Fi</onekit-button>

@@ -9,7 +9,7 @@
     <view class="page-section">
       <view class="page-section-title">通过HTML String渲染</view>
       <view class="page-content">
-        <scroll-view scroll-y>{{htmlSnip}}</scroll-view>
+        <onekit-scroll-view scroll-y>{{htmlSnip}}</onekit-scroll-view>
         <onekit-button type="primary" onTap="renderHtml">渲染HTML</onekit-button>
         <block a:if="{{renderedByHtml}}">
           <onekit-rich-text nodes="{{htmlSnip}}"></onekit-rich-text>
@@ -20,7 +20,7 @@
     <view class="page-section">
       <view class="page-section-title">通过节点渲染</view>
       <view class="page-content">
-        <scroll-view scroll-y>{{nodeSnip}}</scroll-view>
+        <onekit-scroll-view scroll-y>{{nodeSnip}}</onekit-scroll-view>
         <onekit-button type="primary" onTap="renderNode">渲染Node</onekit-button>
         <block a:if="{{renderedByNode}}">
           <onekit-rich-text nodes="{{nodes}}"></onekit-rich-text>

@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"下载文件",
+	"defaultTitle":"下载文件",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

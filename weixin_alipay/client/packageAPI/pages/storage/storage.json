@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"数据存储",
+	"defaultTitle":"数据存储",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

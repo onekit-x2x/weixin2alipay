@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"收货地址",
+	"defaultTitle":"收货地址",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

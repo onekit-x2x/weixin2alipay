@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"WXML节点布局相交状态",
+	"defaultTitle":"WXML节点布局相交状态",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

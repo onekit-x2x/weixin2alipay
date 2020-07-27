@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"新增联系人",
+	"defaultTitle":"新增联系人",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

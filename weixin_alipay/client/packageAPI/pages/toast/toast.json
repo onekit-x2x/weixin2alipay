@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"消息提示框",
+	"defaultTitle":"消息提示框",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

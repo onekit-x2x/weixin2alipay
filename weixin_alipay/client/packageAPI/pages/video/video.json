@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"拍摄/选择视频",
+	"defaultTitle":"拍摄/选择视频",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

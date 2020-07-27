@@ -1,6 +1,6 @@
 {
 	"pageOrientation":"auto",
-	"navigationBarTitleText":"屏幕旋转",
+	"defaultTitle":"屏幕旋转",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

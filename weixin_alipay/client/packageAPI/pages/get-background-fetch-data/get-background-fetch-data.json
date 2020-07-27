@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"周期性更新数据",
+	"defaultTitle":"周期性更新数据",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"动态加载字体",
+	"defaultTitle":"动态加载字体",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

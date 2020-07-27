@@ -1,4 +1,4 @@
-import {OnekitApp,OnekitPage} from "../../../../onekit/onekit.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from "../../../../onekit/onekit.js";
 import wx from "../../../../onekit/wx.js";
 import {compareVersion} from "../../../../util/util";
 const vs = `

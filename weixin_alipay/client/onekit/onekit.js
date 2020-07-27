@@ -61,4 +61,7 @@ onekit.OnekitPage = function(data){
   data.animate = function(){};
   return Page(data);
 }
+onekit.OnekitComponent = function(data){
+  return Component(data);
+}
 module.exports =  onekit;

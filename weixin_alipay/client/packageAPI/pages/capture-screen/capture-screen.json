@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"用户截屏事件",
+	"defaultTitle":"用户截屏事件",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

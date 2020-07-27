@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"图片",
+	"defaultTitle":"图片",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

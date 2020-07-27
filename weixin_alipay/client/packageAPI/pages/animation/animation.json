@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"动画",
+	"defaultTitle":"动画",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"基本操作",
+	"defaultTitle":"基本操作",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

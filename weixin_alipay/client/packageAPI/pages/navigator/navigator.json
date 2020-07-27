@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"页面跳转",
+	"defaultTitle":"页面跳转",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

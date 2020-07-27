@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"two-way-bindings",
+	"defaultTitle":"two-way-bindings",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"转发",
+	"defaultTitle":"转发",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

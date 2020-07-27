@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"组件支持",
+	"defaultTitle":"组件支持",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

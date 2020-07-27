@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"movable-view",
+	"defaultTitle":"movable-view",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

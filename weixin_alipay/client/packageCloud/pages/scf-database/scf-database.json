@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"云函数操作数据库",
+	"defaultTitle":"云函数操作数据库",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

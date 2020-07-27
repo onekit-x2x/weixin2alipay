@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"数据预拉取",
+	"defaultTitle":"数据预拉取",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

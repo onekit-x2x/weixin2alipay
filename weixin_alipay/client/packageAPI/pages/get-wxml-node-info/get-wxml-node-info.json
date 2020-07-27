@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"获取WXML节点信息",
+	"defaultTitle":"获取WXML节点信息",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

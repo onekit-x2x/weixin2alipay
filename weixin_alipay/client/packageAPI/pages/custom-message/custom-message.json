@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"客服消息",
+	"defaultTitle":"客服消息",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

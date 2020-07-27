@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"发起支付",
+	"defaultTitle":"发起支付",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

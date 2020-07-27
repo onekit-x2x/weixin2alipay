@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"canvas 2d",
+	"defaultTitle":"canvas 2d",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

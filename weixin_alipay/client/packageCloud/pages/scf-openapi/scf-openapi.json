@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"云调用",
+	"defaultTitle":"云调用",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

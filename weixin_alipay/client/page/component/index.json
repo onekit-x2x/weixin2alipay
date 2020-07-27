@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"小程序官方组件展示",
+	"defaultTitle":"小程序官方组件展示",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

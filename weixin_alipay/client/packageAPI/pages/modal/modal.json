@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"模态弹窗",
+	"defaultTitle":"模态弹窗",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

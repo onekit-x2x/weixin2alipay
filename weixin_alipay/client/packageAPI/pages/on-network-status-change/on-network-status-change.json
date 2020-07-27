@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"监听手机网络变化",
+	"defaultTitle":"监听手机网络变化",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"下拉刷新",
+	"defaultTitle":"下拉刷新",
 	"enablePullDownRefresh":true,
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",

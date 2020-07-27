@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"服务端时间",
+	"defaultTitle":"服务端时间",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

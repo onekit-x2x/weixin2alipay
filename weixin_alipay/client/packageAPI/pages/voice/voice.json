@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"录音",
+	"defaultTitle":"录音",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

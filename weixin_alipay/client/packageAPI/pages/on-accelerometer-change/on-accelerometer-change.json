@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"监听重力感应数据",
+	"defaultTitle":"监听重力感应数据",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

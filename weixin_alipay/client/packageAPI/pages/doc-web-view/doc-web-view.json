@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText":"小程序接口文档",
+	"defaultTitle":"小程序接口文档",
 	"usingComponents":{
 		"onekit-open-data":"/onekit/ui/open-data/open-data",
 		"onekit-ad":"/onekit/ui/ad/ad",

@@ -14,3 +14,9 @@ $RECYCLE.BIN/
 node_modules/
 
 .tea/
+weixin_alipay/.tea/workbench.json
+weixin_alipay/.tea/entryFiles-development/index$.worker.js
+weixin_alipay/.tea/entryFiles-development/index$.web.js
+weixin_alipay/.tea/entryFiles-development/importScripts$.js
+weixin_alipay/.tea/entryFiles-development/config$.js
+weixin_alipay/.tea/configuration/mini-program.json

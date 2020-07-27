@@ -6,7 +6,7 @@ const defaultTabBarStyle = {
     backgroundColor:'#ffffff'
 };
 const defaultItemName = '接口';
-Component({
+OnekitComponent({
     data:{
         hasSetTabBarBadge:false,
         hasShownTabBarRedDot:false,

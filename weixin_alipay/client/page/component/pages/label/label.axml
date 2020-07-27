@@ -31,8 +31,8 @@
     <view class="page-section page-section-gap">
       <view class="page-section-title">label内有多个时选中第一个</view>
       <label class="label-3">
-        <onekit-checkbox class="checkbox-3">选项一</onekit-checkbox>
-        <onekit-checkbox class="checkbox-3">选项二</onekit-checkbox>
+        <onekit-checkbox Class="checkbox-3">选项一</onekit-checkbox>
+        <onekit-checkbox Class="checkbox-3">选项二</onekit-checkbox>
         <view class="label-3-text">点击该label下的文字默认选中第一个checkbox</view>
       </label>
     </view>

@@ -10,7 +10,7 @@
     <view class="page-section">
       <view class="page-body-info">
         <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
-        <onekit-scroll-view class="device_list" scroll-y scroll-with-animation>
+        <onekit-scroll-view Class="device_list" scroll-y scroll-with-animation>
           <view a:for="{{devices}}" a:key="index" data-device-id="{{item.deviceId}}" data-name="{{item.name || item.localName}}" onTap="createBLEConnection" class="device_item" hover-class="device_item_hover">
             <view style="font-size: 16px;">{{item.name}}</view>
             <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>

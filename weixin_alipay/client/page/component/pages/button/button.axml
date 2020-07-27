@@ -24,9 +24,9 @@
         <onekit-button type="default" plain="true">按钮</onekit-button>
         <onekit-button type="default" disabled="true" plain="true">按钮</onekit-button>
 
-        <onekit-button class="mini-btn" type="primary" size="mini">按钮</onekit-button>
-        <onekit-button class="mini-btn" type="default" size="mini">按钮</onekit-button>
-        <onekit-button class="mini-btn" type="warn" size="mini">按钮</onekit-button>
+        <onekit-button Class="mini-btn" type="primary" size="mini">按钮</onekit-button>
+        <onekit-button Class="mini-btn" type="default" size="mini">按钮</onekit-button>
+        <onekit-button Class="mini-btn" type="warn" size="mini">按钮</onekit-button>
       </view>
       <onekit-button type="primary" open-type="contact" onContact="handleContact" show-message-card="{{true}}" send-message-title="临时会话">打开客服会话</onekit-button>
       <onekit-button type="primary" open-type="share">触发用户转发</onekit-button>

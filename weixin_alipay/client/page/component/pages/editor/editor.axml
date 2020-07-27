@@ -1,5 +1,5 @@
 <view class="container" style="height:{{editorHeight}}px;">
-	<onekit-editor id="editor" class="ql-container" placeholder="{{placeholder}}" onStatuschange="onStatusChange" onReady="onEditorReady">
+	<onekit-editor id="editor" Class="ql-container" placeholder="{{placeholder}}" onStatuschange="onStatusChange" onReady="onEditorReady">
 	</onekit-editor>
 </view>
 

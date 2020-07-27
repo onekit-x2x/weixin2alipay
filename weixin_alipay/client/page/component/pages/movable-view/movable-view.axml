@@ -13,7 +13,7 @@
       </movable-area>
     </view>
     <view class="btn-area">
-      <onekit-button onTap="tap" class="page-body-button" type="primary">点击移动到 (30px, 30px)</onekit-button>
+      <onekit-button onTap="tap" Class="page-body-button" type="primary">点击移动到 (30px, 30px)</onekit-button>
     </view>
 
     <view class="page-section">
@@ -59,7 +59,7 @@
     </view>
 
     <view class="btn-area">
-      <onekit-button onTap="tap2" class="page-body-button" type="primary">点击放大3倍</onekit-button>
+      <onekit-button onTap="tap2" Class="page-body-button" type="primary">点击放大3倍</onekit-button>
     </view>
   </view>
 

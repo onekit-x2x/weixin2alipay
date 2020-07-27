@@ -25,11 +25,11 @@
         </view>
       </view>
       <view class="btn-area">
-        <onekit-button onTap="bindSendDanmu" class="page-body-button" type="primary" formType="submit">发送弹幕</onekit-button>
+        <onekit-button onTap="bindSendDanmu" Class="page-body-button" type="primary" formType="submit">发送弹幕</onekit-button>
       </view>
       <view class="btn-area">
         <navigator url="picture-in-picture" hover-class="other-navigator-hover">
-          <onekit-button type="primary" class="page-body-button" onTap="bindPlayVideo">小窗模式</onekit-button>
+          <onekit-button type="primary" Class="page-body-button" onTap="bindPlayVideo">小窗模式</onekit-button>
         </navigator>
       </view>
       

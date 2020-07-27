@@ -14,7 +14,7 @@
 
       <view class="progress-box">
         <progress percent="40" active stroke-width="3"></progress>
-        <onekit-icon class="progress-cancel" type="cancel"></onekit-icon>
+        <onekit-icon Class="progress-cancel" type="cancel"></onekit-icon>
       </view>
 
       <view class="progress-box">

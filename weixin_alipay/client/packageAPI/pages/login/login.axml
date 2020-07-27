@@ -13,7 +13,7 @@
       </block>
       <block a:if="{{hasLogin === false}}">
         <text class="page-body-text">每个微信号中仅需登录一次</text>
-        <onekit-button class="page-body-button" type="primary" onTap="login">微信登录</onekit-button>
+        <onekit-button Class="page-body-button" type="primary" onTap="login">微信登录</onekit-button>
       </block>
     </view>
   </view>

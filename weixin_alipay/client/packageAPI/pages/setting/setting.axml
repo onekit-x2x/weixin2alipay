@@ -14,7 +14,7 @@
               <view class="weui-label">用户信息</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.userInfo']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.userInfo']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 
@@ -23,7 +23,7 @@
               <view class="weui-label">地理位置</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.userLocation']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.userLocation']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 
@@ -32,7 +32,7 @@
               <view class="weui-label">通讯地址</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.address']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.address']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 
@@ -42,7 +42,7 @@
               <view class="weui-label">发票抬头</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.invoiceTitle']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.invoiceTitle']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 
@@ -51,7 +51,7 @@
               <view class="weui-label">微信运动步数</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.werun']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.werun']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 
@@ -60,7 +60,7 @@
               <view class="weui-label">录音功能</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.record']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.record']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 
@@ -69,7 +69,7 @@
               <view class="weui-label">保存到相册</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.writePhotosAlbum']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.writePhotosAlbum']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 
@@ -78,7 +78,7 @@
               <view class="weui-label">摄像头</view>
             </view>
             <view class="weui-cell__bd">
-              <onekit-icon a:if="{{setting['scope.camera']}}" class="icon-small" type="success_no_circle" size="23"></onekit-icon>
+              <onekit-icon a:if="{{setting['scope.camera']}}" Class="icon-small" type="success_no_circle" size="23"></onekit-icon>
             </view>
           </view>
 

@@ -49,7 +49,7 @@
           <view class="image-plus-text">添加视频</view>
         </block>
         <block a:if="{{src != ''}}">
-          <onekit-video src="{{src}}" class="video"></onekit-video>
+          <onekit-video src="{{src}}" Class="video"></onekit-video>
         </block>
       </view>
     </view>

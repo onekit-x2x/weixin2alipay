@@ -40,7 +40,7 @@
       </view>
       <view class="preview-tips">点击录像或拍照即可在下方预览效果</view>
       <image a:if="{{src}}" mode="widthFix" class="photo" src="{{src}}"></image>
-      <onekit-video a:if="{{videoSrc}}" class="video" src="{{videoSrc}}"></onekit-video>
+      <onekit-video a:if="{{videoSrc}}" Class="video" src="{{videoSrc}}"></onekit-video>
     </view>
   </view>
 

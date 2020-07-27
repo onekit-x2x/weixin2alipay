@@ -19,11 +19,11 @@
       </onekit-button>
     </view>
     <view class="page-section">
-      <onekit-button onTap="handlePlay" class="page-body-button" type="primary">播放</onekit-button>
-      <onekit-button onTap="handlePause" class="page-body-button" type="primary">暂停</onekit-button>
-      <onekit-button onTap="handleStop" class="page-body-button" type="primary">停止</onekit-button>
-      <onekit-button onTap="handleResume" class="page-body-button" type="primary">恢复</onekit-button>
-      <onekit-button onTap="handleMute" class="page-body-button" type="primary">静音</onekit-button>
+      <onekit-button onTap="handlePlay" Class="page-body-button" type="primary">播放</onekit-button>
+      <onekit-button onTap="handlePause" Class="page-body-button" type="primary">暂停</onekit-button>
+      <onekit-button onTap="handleStop" Class="page-body-button" type="primary">停止</onekit-button>
+      <onekit-button onTap="handleResume" Class="page-body-button" type="primary">恢复</onekit-button>
+      <onekit-button onTap="handleMute" Class="page-body-button" type="primary">静音</onekit-button>
     </view>
   </view>
   <template is="foot">

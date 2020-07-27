@@ -280,6 +280,17 @@ export default class wx {
         console.log(res)
       }
     })
+     my_object.success = function (wx_res) {
+      var wx_res ={
+        errMsg: "getBackgroundFetchToken:ok"
+      };
+      if (wx_success) {
+        quick_success(wx_res);
+      }
+      if (wx_success) {
+        quick_complete(wx_res);
+      }
+    };
   };
 
   static onAccelerometerChange(callback) {

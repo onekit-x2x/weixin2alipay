@@ -1,4 +1,4 @@
-var touch, moved, startY, diff, moveDiff = 60,
+var touch, moved, startY, diff,
   pagePull = true;
 var refresher;
 Component({
@@ -64,7 +64,7 @@ Component({
       moved = true;
       diff = touchesDiff;
       var distance = 0;
-      if (diff <= moveDiff) {
+      if (diff <= this.props.refresherThreshold) {
         //moveDiff至少要等于loading的高度
         //当滑动小于规定的临界值时
         distance = diff;
@@ -72,10 +72,10 @@ Component({
       } else {
         //  '释放可刷新';
         //弹性
-        if (touchesDiff <= (2 * moveDiff)) {
-          distance = moveDiff + 0.5 * (touchesDiff - moveDiff);
+        if (touchesDiff <= (2 * this.props.refresherThreshold)) {
+          distance = this.props.refresherThreshold + 0.5 * (touchesDiff - this.props.refresherThreshold);
         } else {
-          distance = moveDiff + 0.1 * (touchesDiff - moveDiff) + 0.05 * (touchesDiff - 2 * moveDiff);
+          distance = this.props.refresherThreshold + 0.1 * (touchesDiff - this.props.refresherThreshold) + 0.05 * (touchesDiff - 2 * this.props.refresherThreshold);
         }
       }
       if (distance > 0) {
@@ -100,10 +100,10 @@ Component({
       }
       this.css(refresher, 300);
       pagePull = false;
-      if (diff > moveDiff) {
+      if (diff > this.props.refresherThreshold) {
         //  '刷新中';
 
-        this.setData({ refresher_height: moveDiff });
+        this.setData({ refresher_height: this.props.refresherThreshold });
         setTimeout(() => {
 
           this.css(refresher, 300);

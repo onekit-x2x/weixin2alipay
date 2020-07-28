@@ -11,6 +11,6 @@
 		"onekit-map":"/onekit/ui/map/map",
 		"onekit-video":"/onekit/ui/video/video",
 		"onekit-editor":"/onekit/ui/editor/editor",
-		"onekit-modal":"/onekit/ui/modal/modal"
+		"onekit-navigator":"/onekit/ui/navigator/navigator"
 	}
 }

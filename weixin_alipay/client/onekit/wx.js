@@ -247,7 +247,6 @@ export default class wx {
   static connectWifi(object) { return my.connectWifi(object); }
   // ///////////////////////////////////////////
   static setBackgroundFetchToken(my_object) {
-    console.log(my_object)
     var wx_token = my_object.token;
     var wx_success = my_object.success;
     var wx_fail = my_object.fail;
@@ -255,35 +254,40 @@ export default class wx {
     /////////////////
     my.setStorage({
       key: "wx_token",
-      data: wx_token,
+      data: {
+        wx_token:wx_token,
+      },
     })
     my_object.success = function (wx_res) {
-      var wx_res ={
+      console.log("XXXXXXXXXXXXXXX", wx_res)
+      var wx_res = {
         errMsg: "setBackgroundFetchToken:ok"
       };
       if (wx_success) {
-        quick_success(wx_res);
+        wx_success(wx_res);
       }
       if (wx_success) {
-        quick_complete(wx_res);
+        wx_complete(wx_res);
       }
     };
   };
   static getBackgroundFetchToken(my_object) {
-    console.log(my_object)
     var quick_success = my_object.success;
     var quick_fail = my_object.fail;
     var quick_complete = my_object.complete;
+    console.log(quick_success)
     my.getStorage({
       key: 'wx_token',
       success(res) {
-        console.log(res)
+        console.log(res.data)
       }
     })
-     my_object.success = function (wx_res) {
-      var wx_res ={
+    my_object.success = function (wx_res) {
+      var wx_res = {
         errMsg: "getBackgroundFetchToken:ok"
       };
+      console.log("", wx_res)
+
       if (wx_success) {
         quick_success(wx_res);
       }
@@ -292,6 +296,9 @@ export default class wx {
       }
     };
   };
+  static onBackgroundFetchData(callback) {
+
+  }
 
   static onAccelerometerChange(callback) {
     my.onAccelerometerChange(function (res) {

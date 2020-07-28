@@ -11,7 +11,7 @@
         轻触下方图标即可转发
       </text>
       <view class="page-body-line">
-        <onekit-button onTap="handleTapShareButton" open-type="share" Class="button-share" id="share-button">
+        <onekit-button onTap="handleTapShareButton" open-type="share" Class="button-share" Id="share-button">
         </onekit-button>
         <label for="share-button"><image style="width: 27px; height: 27px" src="/image/share.png"></image></label>
       </view>

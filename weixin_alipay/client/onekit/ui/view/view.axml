@@ -1,4 +1,5 @@
 <view 
+id="{{Id}}"
 class="onkit-view {{Class}}"
 style="{{Style}}"
 >

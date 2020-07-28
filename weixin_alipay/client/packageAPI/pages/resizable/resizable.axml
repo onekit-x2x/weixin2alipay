@@ -2,6 +2,7 @@
 <import src="../../../common/foot.axml"/>
 <import-sjs name="resizable" from="./resizable.wxs">
 </import-sjs>
+
 <view class="container">
   <template is="head" data="{{title: '屏幕旋转'}}">
 </template>

@@ -31,7 +31,7 @@ Component({
   methods: {
     css(ele, t) {
       //var transition = "all " + t + "ms";
-      //    this.setData({transition});
+      //this.setData({transition});
     },
     on_Touchstart(e) {
       if (!this.props.refresherEnabled) {
@@ -68,7 +68,7 @@ Component({
         //moveDiff至少要等于loading的高度
         //当滑动小于规定的临界值时
         distance = diff;
-        // '下拉可刷新';
+        this.setData({text:'zzzzzzz'})
       } else {
         //  '释放可刷新';
         //弹性
@@ -83,14 +83,12 @@ Component({
           this.props.onRefresherpulling();
         }
         //  e.preventDefault();
-
         //滑动的距离
         this.css(refresher, 0);
         this.setData({ refresher_height: distance });
       }
     },
     on_Touchend(e) {
-      // console.log('on_Touchend:', e);
       if (!this.props.refresherEnabled) {
         return;
       }

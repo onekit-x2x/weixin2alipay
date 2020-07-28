@@ -259,7 +259,6 @@ export default class wx {
       },
     })
     my_object.success = function (wx_res) {
-      console.log("XXXXXXXXXXXXXXX", wx_res)
       var wx_res = {
         errMsg: "setBackgroundFetchToken:ok"
       };

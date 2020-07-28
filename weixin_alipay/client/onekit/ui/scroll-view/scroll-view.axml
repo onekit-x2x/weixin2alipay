@@ -1,3 +1,4 @@
+<view style="height:{{refresher_height}}px;"><slot name="refresher"/></view>
 <scroll-view 
 class="onekit-scroll-view {{Class}}"
 style="{{Style}}"
@@ -13,6 +14,10 @@ enable-back-to-top ="{{EnableBackToTop}}"
 onScrollToUpper="on_toupper"
 onScrollToLower="on_tolower"
 onScroll="on_scroll"
+onTouchEnd="on_Touchend"
+onTouchMove="on_Touchmove"
+onTouchStart="on_Touchstart"
+onTouchCancel="on_Touchcancel"
 >
 <slot>
 </slot>

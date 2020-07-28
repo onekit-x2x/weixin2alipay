@@ -1,6 +1,7 @@
 <import-sjs name="test" from="./nearby.wxs">
 </import-sjs>
 
+
 <swiper class="swiper" data-width="{{windowWidth}}" data-imgsize="{{imgSize}}" onChange="{{test.change}}" onAnimationfinish="{{test.animationFinish}}" onTransition="{{test.func}}" indicator-dots="{{indicatorDots}}" autoplay="{{true}}" interval="{{interval}}" circular duration="{{duration}}">
   <block a:for="{{imgUrls}}">
     <swiper-item style="height:100%;">

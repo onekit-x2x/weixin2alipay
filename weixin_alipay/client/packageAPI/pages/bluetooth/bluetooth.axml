@@ -3,6 +3,7 @@
 
 <import-sjs name="utils" from="./bluetooth.utils.sjs">
 </import-sjs>
+
 <view class="container">
   <template is="head" data="{{title: 'bluetooth'}}">
 </template>

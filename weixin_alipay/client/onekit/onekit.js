@@ -1,3 +1,4 @@
+import TheKit from "./TheKit.js"
 var onekit = {};
 onekit.trim = function (str) {
     return str.replace(/^\s+|\s+$/gm,'');
@@ -54,7 +55,7 @@ onekit.color.array2str = function(array) {
   return str;
 };
 onekit.OnekitApp = function(data){
-  my.hideAllFavoriteMenu();
+ // my.hideAllFavoriteMenu();
   return App(data);
 }
 onekit.OnekitPage = function(data){
@@ -62,6 +63,14 @@ onekit.OnekitPage = function(data){
   return Page(data);
 }
 onekit.OnekitComponent = function(data){
+  var methods = data.methods || {};
+  methods.triggerEvent = function(name,data,options){
+    var funcName = `on${TheKit.firstUpper(name)}`;
+    if(this.props[funcName]){
+      this.props[funcName](data);
+    }
+  }
+  data.methods = methods;
   return Component(data);
 }
 module.exports =  onekit;

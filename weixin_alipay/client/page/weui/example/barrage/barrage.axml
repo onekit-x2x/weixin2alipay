@@ -1,0 +1,14 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+  <onekit-video Id="myVideo" Class="video" src="{{src}}" loop controls onFullscreenchange="fullscreenchange" vslide-gesture vslide-gesture-in-fullscreen autoplay enable-play-gesture>
+    <barrage class="barrage" a:if="{{toggle}}"></barrage>
+  </onekit-video>
+  <onekit-button type="primary" on:tap="handleOpenClick">开启弹幕</onekit-button>
+  <onekit-button type="primary" on:tap="handleCloseClick">关闭弹幕</onekit-button>
+  <block a:if="{{showBarrage}}">
+    <input style="width: 80%;margin: 30px auto;border-bottom: 1px grey solid" onInput="handleInput" placeholder="请输入弹幕信息" value="{{barrageValue}}"></input>
+    <onekit-button type="primary" on:tap="handleAddClick">发送弹幕</onekit-button>
+    <onekit-button type="primary" on:tap="handleTunnelShowClick">显示弹道</onekit-button>
+      <onekit-button type="primary" on:tap="handleTunnelHideClick">隐藏弹道</onekit-button>
+  </block>
+</view>

@@ -1,0 +1,2 @@
+@import '../common.acss';
+page{height:100%;}

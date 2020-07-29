@@ -1,0 +1,24 @@
+
+
+<view class="weui-vtabs">
+  <view class="weui-vtabs-bar__wrp {{tabBarClass}}">
+    <onekit-scroll-view scroll-y Class="weui-vtabs-bar__scrollview" scroll-into-view="weui-vtabs-item__{{currentView}}">
+      <view class="weui-vtabs-bar__content">
+        <block a:for="{{vtabs}}" a:key="title">
+          <view id="weui-vtabs-item__{{index}}" class="{{activeTab === index ? 'weui-vtabs-bar__activeitem' : ''}} weui-vtabs-bar__item" data-index="{{index}}" onTap="handleTabClick">
+            <view class="weui-vtabs-bar__title {{activeTab === index ? activeClass : ''}}">
+              <text class>{{item.title}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </onekit-scroll-view>
+  </view>
+  <view class="weui-vtabs-content__wrp">
+    <onekit-scroll-view scroll-y Class="weui-vtabs-content__scrollview" scroll-top="{{contentScrollTop}}" scroll-with-animation="{{animation}}" onScroll="handleContentScroll">
+      <view class="weui-vtabs-content">
+        <slot></slot>
+      </view>
+    </onekit-scroll-view>
+  </view>
+</view>

@@ -1,0 +1,55 @@
+import {OnekitApp,OnekitPage,OnekitComponent} from "../../../../onekit/onekit.js";
+import wx from "../../../../onekit/wx.js";
+OnekitComponent({
+    properties:{
+        space:{
+            type:String,
+            value:''
+        },
+        decode:{
+            type:Boolean,
+            value:false
+        },
+        placement:{
+            type:String,
+            value:'top'
+        },
+        showCopyBtn:{
+            type:Boolean,
+            value:false
+        },
+        value:{
+            type:String,
+            value:''
+        }
+    },
+    observers:{
+        onDocumentTap:function(){
+            this.setData({
+                showToolTip:false
+            });
+        }
+    },
+    data:{
+        showToolTip:false
+    },
+    methods:{
+        handleLongPress:function(){
+            if(!this.data.showCopyBtn)return
+            this.setData({
+                showToolTip:true
+            });
+        },
+        handleCopy:function(){
+            this.setData({
+                showToolTip:false
+            });
+            wx.setClipboardData({
+                data:this.data.value
+            });
+            this.triggerEvent('copy',{});
+        },
+        stopPropagation:function(e){
+        }
+    }
+});

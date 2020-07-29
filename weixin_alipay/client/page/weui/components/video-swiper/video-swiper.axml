@@ -1,0 +1,9 @@
+<view class="container">
+  <swiper class="video-swiper" circular="{{circular}}" easing-function="{{easingFunction}}" vertical current="1" duration="{{duration}}" onAnimationfinish="animationfinish">
+    
+    <swiper-item a:for="{{curQueue}}">
+      <onekit-video Id="video_{{index}}" Class="video_item" loop="{{loop}}" enable-play-gesture enable-progress-gesture show-center-play-btn="{{false}}" controls="{{false}}" src="{{item.url}}" data-id="{{item.id}}" object-fit="{{item.objectFit || 'cover'}}" data-index="{{index}}" onPlay="onPlay" onPause="onPause" onEnded="onEnded" onError="onError" onTimeupdate="onTimeUpdate" onWaiting="onWaiting" onProgress="onProgress" onLoadedmetadata="onLoadedMetaData">
+      </onekit-video>
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,6 @@
+<view class="weui-toptips {{className}} {{extClass}} {{show ? 'weui-toptips_show' :  ''}}">
+    <block a:if="{{msg}}">{{msg}}</block>
+    <block a:else>
+        <slot></slot>
+    </block>
+</view>

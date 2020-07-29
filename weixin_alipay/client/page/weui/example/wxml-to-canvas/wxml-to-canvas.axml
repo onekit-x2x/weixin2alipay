@@ -1,0 +1,12 @@
+<view class="page">
+  <view>WXML</view>
+  <onekit-scroll-view scroll-y scroll-x Class="scroll-view-wxml">{{wxmlTemplate}}</onekit-scroll-view>
+  <onekit-button type="primary" onTap="renderToCanvas">渲染到canvas</onekit-button>
+  <onekit-button type="primary" onTap="extraImage">导出图片</onekit-button>
+  <view style="margin: 5px">canvas</view>
+  <view class="center">
+  <wxml-to-canvas class="widget" height="200" width="200"></wxml-to-canvas>
+  </view>
+  <view style="margin: 5px">图片</view>
+  <image wx:id="{{src}}" src="{{src}}" style="width: {{width}}px; height: {{height}}px"></image>
+</view>

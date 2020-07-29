@@ -1,0 +1,20 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+<mp-vtabs vtabs="{{vtabs}}" activeTab="{{activeTab}}" onTabclick="onTabClick" onChange="onChange" class="test">
+  <block a:for="{{vtabs}}" a:key="title">
+    <mp-vtabs-content tabIndex="{{index}}">
+      <view class="vtabs-content-item" style="margin-bottom: {{vtabs.length - 1 === index ? 600 : 0}}px" onTap="handleClick">
+        <image src="{{item.img}}" mode="widthFix"></image>
+        <view class="item-title">
+          {{item.title2}}
+        </view>
+        <view class="item-desc">
+          {{item.desc}}
+        </view>
+      </view>
+    </mp-vtabs-content>
+  </block>
+  <view style="height: 1px;width: 100%"></view>
+
+</mp-vtabs>
+</view>

@@ -1,0 +1,36 @@
+<view class="weui-uploader {{extClass}}">
+    <view class="weui-uploader__hd">
+      <view class="weui-uploader__overview">
+          <view class="weui-uploader__title">{{title}}</view>
+          <view class="weui-uploader__info" a:if="{{maxCount > 1}}">{{currentFiles.length}}/{{maxCount}}</view>
+
+      </view>
+        <view a:if="{{tips}}" class="weui-uploader__tips">{{tips}}</view>
+        <view a:else><slot name="tips"></slot></view>
+    </view>
+    <view class="weui-uploader__bd">
+        <view class="weui-uploader__files">
+            <block a:for="{{currentFiles}}">
+                <view a:if="{{item.error}}" data-index="{{index}}" onTap="previewImage" class="weui-uploader__file weui-uploader__file_status">
+                    <image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill"></image>
+                    <view class="weui-uploader__file-content">
+                        <onekit-icon type="warn" size="23" color="#F43530"></onekit-icon>
+                    </view>
+                </view>
+                <view a:elif="{{item.loading}}" data-index="{{index}}" onTap="previewImage" class="weui-uploader__file weui-uploader__file_status">
+                    <image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill"></image>
+                    <view class="weui-uploader__file-content">
+                    <view class="weui-loading"></view>
+                    </view>
+                </view>
+                <view a:else class="weui-uploader__file" data-index="{{index}}" onTap="previewImage">
+                    <image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill"></image>
+                </view>
+            </block>
+        </view>
+        <view a:if="{{currentFiles.length < maxCount}}" class="weui-uploader__input-box">
+            <view class="weui-uploader__input" onTap="chooseImage"></view>
+        </view>
+    </view>
+</view>
+<mp-gallery hide-on-click="{{true}}" show-delete="{{showDelete}}" show="{{showPreview}}" onDelete="deletePic" img-urls="{{previewImageUrls}}" current="{{previewCurrent}}"></mp-gallery>

@@ -1,0 +1,4 @@
+
+
+<mp-video-swiper class="video-swiper" video-list="{{videoList}}" onPlay="onPlay" onPause="onPause" onTimeupdate="onTimeUpdate" onEnded="onEnded" onError="onError" onWaiting="onWaiting" onProgress="onProgress" onLoadedmetadata="onLoadedMetaData"></mp-video-swiper>
+

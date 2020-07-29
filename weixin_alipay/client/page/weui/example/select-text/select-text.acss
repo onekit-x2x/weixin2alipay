@@ -1,0 +1,15 @@
+@import '../common.acss';
+
+page{
+    height: 100%;
+}
+
+.demo-block {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.list-item {
+    text-align: center;
+    margin: 50px;
+}

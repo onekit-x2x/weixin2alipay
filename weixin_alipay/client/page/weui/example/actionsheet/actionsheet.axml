@@ -1,0 +1,22 @@
+<view class="page" data-weui-theme="{{theme}}">
+    <view class="page__hd">
+        <view class="page__title">ActionSheet</view>
+        <view class="page__desc">弹出式菜单</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-btn-area">
+            
+            <onekit-button Class="weui-btn" type="default" onTap="openDialog">模拟 ActionSheet</onekit-button>
+        </view>
+    </view>
+    <mp-actionSheet onActiontap="btnClick" show="{{showDialog}}" actions="{{groups}}" title="这是一个标题，可以为一行或者两行。">
+        <view slot="{{'actionSlot' + '1'}}" class="custom-action">
+            <view class="custom-action_desc">前往图中包含的小程序：</view>
+            <view class="custom-action_content">
+                <mp-icon icon="qr-code" size="{{20}}"></mp-icon>
+                <text class="custom-action_name">小程序名称</text>
+                <mp-icon icon="arrow" size="{{12}}"></mp-icon>
+            </view>
+        </view>
+    </mp-actionSheet>
+</view>

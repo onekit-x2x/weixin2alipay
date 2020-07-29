@@ -1,15 +1,26 @@
-
-
+<import src="../../../common/head.axml"/>
+<import src="../../../common/foot.axml"/>
 
 <view class="container">
-  
+  <template is="head" data="{{title: 'canvas'}}">
+</template>
 
   <view class="page-body">
-    <view class="page-body-wrapper">
-      <onekit-canvas canvas-id="canvas" width="300" height="300" Class="canvas"></onekit-canvas>
+    <block a:if="{{canIUse}}">
+      <view class="page-section">
+        <view class="page-section-spacing">
+          <view class="page-body-wrapper">
+            <canvas canvas-id="canvas" class="canvas"></canvas>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view a:else style="margin: 15px; text-align:center">
+      微信版本过低，暂不支持本功能
     </view>
   </view>
 
-  
+  <template is="foot">
+</template>
 </view>
 

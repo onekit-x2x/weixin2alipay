@@ -1,0 +1,16 @@
+<view class="page" data-weui-theme="{{theme}}">
+
+<view on:tap="handleTap">
+  <view class="demo-block">
+    <block a:for="{{arr}}" a:key="placement">
+      <view class="list-item">
+        <mp-select-text show-copy-btn placement="{{item.placement}}" value="{{item.value}}" data-id="{{index}}" onCopy="onCopy" on-document-tap="{{evt}}">
+        </mp-select-text>
+      </view>
+    </block>
+    <view class="list-item">
+      <mp-select-text value="默认的长按效果与浏览器一致"></mp-select-text>
+    </view>
+  </view>
+</view>
+</view>

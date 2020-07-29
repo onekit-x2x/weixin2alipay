@@ -1,0 +1,29 @@
+<onekit-scroll-view Class="page page-select-city" Style="height: {{windowHeight}}px;" enable-back-to-top scroll-into-view="{{intoView}}" scroll-y onScroll="onScroll">
+  <view>
+    <slot></slot>
+  </view>
+  <view a:for="{{list}}" a:key="alpha" class="city_list_item" id="{{item.alpha}}">
+    <view class="city-group__title font-size-26 tips-color">{{item.alpha}}</view>
+    <view class="city-group__content">
+      <view class="city-group__list">
+        <block a:for="{{item.subItems}}" a:key="name" a:for-item="subItem">
+          <view class="city-group__item thin-border-bottom" hover-class="bg-highlight" data-item="{{subItem}}" onTap="choose">
+              {{subItem.name}}
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</onekit-scroll-view>
+<view class="anchor-bar__wrp wx-flex" catchtouchstart="scrollTo" catchtouchmove="scrollTo" catchtouchend="removeTouching">
+  <view class="anchor-bar wx-flex__item">
+    <view class="anchor-list">
+      <block a:for="{{alphabet}}" a:for-item="alpha">
+        <view class="anchor-item {{current == alpha ? ( touching ? 'selected tapped' : 'selected' ): ''}}" data-alpha="{{alpha}}">
+          <view class="anchor-item__inner">{{alpha}}</view>
+          <view class="anchor-item__pop">{{alpha}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

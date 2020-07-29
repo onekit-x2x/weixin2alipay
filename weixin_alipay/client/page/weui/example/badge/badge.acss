@@ -1,0 +1,6 @@
+/* example/badge/badge.acss */
+@import '../common.acss';
+
+.blue {
+  background: blue;
+}

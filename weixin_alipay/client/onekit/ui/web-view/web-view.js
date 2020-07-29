@@ -3,6 +3,8 @@ Component({
   data: {},
   props: {
     Id:"",
+    Class:"",
+    Style:"",
     src:"",
   },
   didMount() {},

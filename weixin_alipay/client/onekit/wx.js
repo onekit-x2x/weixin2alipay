@@ -11,6 +11,10 @@ export default class wx {
   static createAnimation(object) {
     return my.createAnimation(object);
   }
+  //////////////////onKeyboardHeightChange//////////////////
+  static onKeyboardHeightChange(object){
+    return
+  }
   // /////////////// basic ////////////////////////////////
   static canIUse(object) { return true; }
   static _getSystemInfo(result) {

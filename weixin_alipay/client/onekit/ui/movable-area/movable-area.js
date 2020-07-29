@@ -2,6 +2,7 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Id:"",
     scaleArea:false,
   },
   didMount() {},

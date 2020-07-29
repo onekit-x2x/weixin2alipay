@@ -1,5 +1,6 @@
 <view>
-<checkbox 
+<checkbox
+  id="{{Id}}"
   value="{{value}}" 
   disabled="{{disabled}}"
   checked="{{checked}}"

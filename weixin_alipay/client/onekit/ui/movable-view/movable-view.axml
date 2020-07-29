@@ -1,4 +1,5 @@
 <movable-view
+id="{{Id}}"
 class="onekit-movable-view {{Class}}"
 style="{{Style}}"
 direction="{{direction}}"

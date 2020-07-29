@@ -1,4 +1,5 @@
 <image
+id="{{Id}}"
 class="onekit_image {{Class}}"
 style="{{Style}}"
 mode="{{mode}}"

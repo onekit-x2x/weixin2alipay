@@ -2,6 +2,7 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Id:"",
     indicatorDots:false,
     indicatorColor:"rgba(0, 0, 0, .3)",
     indicatorActiveColor:"#000000",

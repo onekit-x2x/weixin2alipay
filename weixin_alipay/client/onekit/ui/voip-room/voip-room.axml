@@ -1,4 +1,5 @@
 <voip-room
+id="{{Id}}"
 class="onekit-voip-room {{Class}}"
 style="{{Style}}"
 openid="{{openid}}"

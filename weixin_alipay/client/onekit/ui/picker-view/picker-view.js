@@ -2,6 +2,7 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Id:"",
     value:"",
     indicatorStyle:"",
     indicatorClass:"",

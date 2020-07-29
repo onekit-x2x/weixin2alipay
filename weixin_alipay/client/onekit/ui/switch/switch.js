@@ -2,6 +2,7 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Id:"",
     checked:false,
     disabled:false,
     type:"switch",

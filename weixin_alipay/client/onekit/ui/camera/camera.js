@@ -3,7 +3,8 @@ Component({
   data: {},
   props: {
     devicePosition:"back",
-    flash:"auto"
+    flash:"auto",
+    Id:""
     },
   didMount() {},
   didUpdate() {},

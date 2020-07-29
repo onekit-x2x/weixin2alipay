@@ -7,6 +7,7 @@ Component({
     refresher_height: 0
   },
   props: {
+    Id:"", 
     scrollX: false,
     scrollY: false,
     UpperThreshold: 50,

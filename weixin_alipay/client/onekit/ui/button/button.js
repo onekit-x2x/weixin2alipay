@@ -17,6 +17,7 @@ Component({
   didUpdate() { },
   didUnmount() { },
   props: {
+    Id:"",
     size:"default",
     type:"default",
     plain:"false",

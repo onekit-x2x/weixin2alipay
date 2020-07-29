@@ -1,4 +1,5 @@
 <live-player
+id="{{Id}}"
 class="onekit-live-player {{Class}}"
 style="{{Style}}"
 src="{{src}}"

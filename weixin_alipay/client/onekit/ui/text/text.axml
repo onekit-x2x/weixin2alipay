@@ -1,4 +1,5 @@
 <text
+id="{{Id}}"
 class="onekit_text {{Class}}"
 style="{{Style}}"
 selectable="{{selectable}}"

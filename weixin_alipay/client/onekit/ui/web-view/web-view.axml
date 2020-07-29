@@ -1,4 +1,5 @@
 <web-view
+id="{{Id}}"
 class="onekit-web-view {{Class}}"
 style="{{Style}}"
 src="{{src}}"

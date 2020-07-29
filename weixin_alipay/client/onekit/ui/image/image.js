@@ -6,6 +6,7 @@ Component({
     mode: "",
     webp: false,
     lazyLoad: false,
+    Id:""
   },
   didMount() { },
   didUpdate() { },

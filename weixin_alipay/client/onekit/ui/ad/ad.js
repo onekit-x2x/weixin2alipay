@@ -3,7 +3,8 @@ Component({
   data: {},
   props: {
     Class:"",
-    Style:""
+    Style:"",
+    Id:""
   },
   didMount() {},
   didUpdate() {},

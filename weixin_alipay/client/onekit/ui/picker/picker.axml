@@ -1,4 +1,5 @@
 <picker
+id="{{Id}}"
 class="onekit-picker {{Class}}"
 style="{{Style}}"
 title="{{headerText}}"

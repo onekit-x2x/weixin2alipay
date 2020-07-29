@@ -5,6 +5,7 @@ Component({
     type:"",
     size:24,
     color:"",
+    Id:""
   },
   didMount() {},
   didUpdate() {

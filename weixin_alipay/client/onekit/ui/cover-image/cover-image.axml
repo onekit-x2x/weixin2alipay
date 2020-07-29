@@ -1,4 +1,5 @@
 <cover-image
+id="Id"
 class="onekit-cover-image {{Class}}"
 style="{{Style}}"
 src="{{src}}"

@@ -1,4 +1,5 @@
 <navigator
+id="{{Id}}"
 class="onekit-navigator {{Class}}"
 style="{{Style}}"
 url="{{url}}"

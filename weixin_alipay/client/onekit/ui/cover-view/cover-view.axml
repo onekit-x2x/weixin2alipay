@@ -1,4 +1,5 @@
 <cover-view
+id="{{Id}}"
 class="onekit_cover-view {{Class}}"
 style="{{Style}}"
 >

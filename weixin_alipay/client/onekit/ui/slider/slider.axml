@@ -1,4 +1,5 @@
 <slider
+id="{{Id}}"
 class="onekit-slider {{Class}}"
 style="Style"
 min="{{min}}"

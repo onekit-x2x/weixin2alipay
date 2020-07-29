@@ -1,4 +1,5 @@
 <input
+id="{{Id}}"
 class="onekit-input {{Class}}"
 style="{{Style}}"
 value="{{value}}"

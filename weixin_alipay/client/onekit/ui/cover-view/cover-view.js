@@ -3,6 +3,7 @@ Component({
   data: {},
   props: {
     scrollTop:"",
+    Id:""
   },
   didMount() {},
   didUpdate() {},

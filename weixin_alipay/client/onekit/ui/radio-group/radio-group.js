@@ -1,7 +1,9 @@
 Component({
   mixins: [],
   data: {},
-  props: {},
+  props: {
+    view_id:""
+  },
   didMount() {},
   didUpdate() {},
   didUnmount() {},

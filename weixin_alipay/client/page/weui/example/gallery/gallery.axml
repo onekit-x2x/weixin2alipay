@@ -1,7 +1,0 @@
-<view class="page" data-weui-theme="{{theme}}">
-    <view class="page__hd">
-        <view class="page__title">Gallery</view>
-        <view class="page__desc">画廊，类似原生的wx.previewImage的展示。</view>
-    </view>
-    <mp-gallery show="{{show}}" onChange="change" onDelete="delete" onHide="hide" img-urls="{{imgUrls}}" delete hide-on-click="{{true}}" current="1"></mp-gallery>
-</view>

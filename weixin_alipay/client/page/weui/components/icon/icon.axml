@@ -1,5 +1,0 @@
-<import-sjs name="utils" from="./icon.utils.sjs">
-</import-sjs>
-
-
-<view class="{{extClass}} weui-icon" style="background:{{color}};width:{{size}}px;height:{{ utils.ifSpecialIcon(icon) ? utils.double(size) : size}}px;mask-image:url({{src}});-webkit-mask-image:url({{src}});-moz-mask-image:url({{src}})"></view>

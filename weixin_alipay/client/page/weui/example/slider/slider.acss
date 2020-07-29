@@ -1,5 +1,0 @@
-@import '../common.acss';
-
-slider{
-    margin-bottom: 30px;
-}

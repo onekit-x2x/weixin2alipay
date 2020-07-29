@@ -1,6 +1,4 @@
 @import "./page/common/lib/weui.acss";
-
-
 /* reset */
 page {
   background-color: var(--weui-BG-1);

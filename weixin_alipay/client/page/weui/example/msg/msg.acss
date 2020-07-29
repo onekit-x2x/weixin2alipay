@@ -1,5 +1,0 @@
-@import '../common.acss';
-
-page{
-    /* background-color: #FFFFFF; */
-}

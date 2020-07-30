@@ -15,8 +15,8 @@
           <view>
             帧高度：{{ frameHeight }}  帧宽度：{{ frameWidth }}
           </view>
-          <canvas id="webgl" type="webgl" canvas-id="canvas" style="width: {{width}}px; height: {{height}}px;">
-          </canvas>
+          <onekit-canvas Id="webgl" type="webgl" canvas-id="canvas" Style="width: {{width}}px; height: {{height}}px;">
+          </onekit-canvas>
         </view>
       <view class="btn-area first-btn">
         <onekit-button onTap="handleShowCanvas" type="primary">{{showCanvas ? "关闭实时帧数据模式": "开启实时帧数据模式"}}</onekit-button>

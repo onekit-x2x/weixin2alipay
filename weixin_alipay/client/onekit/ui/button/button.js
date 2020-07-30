@@ -17,6 +17,9 @@ Component({
   didUpdate() { },
   didUnmount() { },
   props: {
+    Style:"",
+    Class:"",
+    name:"",
     Id:"",
     size:"default",
     type:"default",

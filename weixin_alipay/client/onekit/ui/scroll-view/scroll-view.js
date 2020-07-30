@@ -7,6 +7,8 @@ Component({
     refresher_height: 0
   },
   props: {
+    Style:"",
+    Class:"",
     Id:"", 
     scrollX: false,
     scrollY: false,

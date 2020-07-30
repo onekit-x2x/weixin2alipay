@@ -2,7 +2,11 @@ import wx from "/onekit/wx";
 Component({
   mixins: [],
   data: {},
-  props: {},
+  props: {
+    Style:"",
+    Class:"",
+    Id:"",
+    },
 
   didMount() {
     var that = this;

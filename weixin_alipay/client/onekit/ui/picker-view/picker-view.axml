@@ -1,5 +1,6 @@
 <picker-view
 id="{{Id}}"
+name="{{name}}"
 class="onekit-picker-view {{Class}}"
 style="{{Style}}"
 value="{{value}}"

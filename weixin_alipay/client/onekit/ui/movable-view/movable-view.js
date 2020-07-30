@@ -2,6 +2,8 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Style:"",
+    Class:"",
     Id: "",
     direction: "none",
     inertia: false,

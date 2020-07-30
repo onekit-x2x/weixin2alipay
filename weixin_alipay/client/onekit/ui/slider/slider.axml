@@ -1,5 +1,6 @@
 <slider
 id="{{Id}}"
+name="{{name}}"
 class="onekit-slider {{Class}}"
 style="Style"
 min="{{min}}"

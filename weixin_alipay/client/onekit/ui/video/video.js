@@ -1,6 +1,9 @@
 Component({
   
   props: {
+    Style:"",
+    Class:"",
+    Id:"",
     src:"",
     autoplay:true,
     poster:"",

@@ -1,7 +1,7 @@
 <video
 class="onekit-video {{Class}}"
 style="{{Style}}"
-id="video"
+id="{{Id}}"
 src="{{src}}" 
 duration="{{duration}}" 
 autoplay="{{autoplay}}" 

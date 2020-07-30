@@ -1,5 +1,6 @@
 <radio
 id="{{Id}}"
+name="{{name}}"
 class="onekit-radio {{Class}}"
 style="{{Style}}"
 value="{{value}}"

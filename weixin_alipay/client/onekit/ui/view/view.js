@@ -1,7 +1,9 @@
 Component({
   mixins: [],
   data: {},
-  props: {Id:""},
+  props: {
+    Style:"",
+    Class:"",Id:""},
   didMount() {},
   didUpdate() {},
   didUnmount() {},

@@ -1,5 +1,6 @@
 <textarea
 id="{{Id}}"
+name="{{name}}"
 class="onekit-textarea {{Class}}"
 style="{{Style}}"
 value="{{value}}"

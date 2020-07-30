@@ -2,6 +2,7 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Id:"",
     Class:"",
     Style:"",
     canvasId:"",

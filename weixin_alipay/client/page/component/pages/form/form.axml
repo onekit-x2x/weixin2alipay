@@ -6,10 +6,10 @@
 </template>
 
   <view class="page-body">
-    <form catchsubmit="formSubmit" catchreset="formReset">
+    <form onSubmit="formSubmit" catchreset="formReset">
       <view class="page-section page-section-gap">
         <view class="page-section-title">switch</view>
-        <switch name="switch"></switch>
+        <onekit-switch name="switch" onChange="xx"></onekit-switch>
       </view>
 
       <view class="page-section page-section-gap">

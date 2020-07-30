@@ -2,6 +2,9 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Style:"",
+    Class:"",
+    name:"",
     Id:"",
     min:0,
     max:100,

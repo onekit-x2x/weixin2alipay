@@ -1,6 +1,8 @@
 <picker-view >
   <picker-view-column 
   id="{{Id}}"
+name="{{name}}"
+style="{{Style}}"
   class="onekit-picker-view-column {{Class}}" style="{{Style}}">
   <slot>
   </slot>

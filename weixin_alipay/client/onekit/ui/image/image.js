@@ -2,6 +2,8 @@ Component({
   mixins: [],
   data: {},
   props: {
+    Style:"",
+    Class:"",
     src: "",
     mode: "",
     webp: false,

@@ -10,6 +10,7 @@
 		"onekit-map":"/onekit/ui/map/map",
 		"onekit-video":"/onekit/ui/video/video",
 		"onekit-editor":"/onekit/ui/editor/editor",
-		"onekit-modal":"/onekit/ui/modal/modal"
+		"onekit-modal":"/onekit/ui/modal/modal",
+		"onekit-canvas":"/onekit/ui/canvas/canvas"
 	}
 }

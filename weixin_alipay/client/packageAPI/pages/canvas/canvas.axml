@@ -7,7 +7,7 @@
 
   <view class="page-body">
     <view class="page-section">
-      <canvas class="canvas-element" canvas-id="canvas"></canvas>
+      <onekit-canvas Class="canvas-element" canvas-id="canvas"></onekit-canvas>
       <onekit-scroll-view Class="canvas-buttons" scroll-y="true">
         <block a:for="{{methods}}" a:for-item="method">
           <onekit-button Class="canvas-button" onTap="{{method}}">{{method}}</onekit-button>

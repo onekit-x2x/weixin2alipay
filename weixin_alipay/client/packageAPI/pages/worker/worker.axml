@@ -7,7 +7,7 @@
   
   <view class="page-body">
     <view class="page-body-wrapper">
-      <canvas canvas-id="canvas" class="canvas"></canvas>
+      <onekit-canvas canvas-id="canvas" Class="canvas"></onekit-canvas>
     </view>
   </view>
 

@@ -9,7 +9,7 @@
     <block a:if="{{canIUse}}">
       <view class="page-section">
         <view class="page-body-wrapper">
-          <canvas class="canvas" type="webgl" id="canvasWebGL"></canvas>
+          <onekit-canvas Class="canvas" type="webgl" Id="canvasWebGL"></onekit-canvas>
         </view>
       </view>
     </block>

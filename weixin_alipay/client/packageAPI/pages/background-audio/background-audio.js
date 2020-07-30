@@ -94,7 +94,11 @@ OnekitPage({
                 formatedPlayTime:util.formatTime(backgroundAudioManager.currentTime + 1)
             });
         };
-        updateInterval = setInterval(update,1000);
+        updateInterval = setInterval(()=>{
+update();
+},()=>{
+1000();
+});
     },
     onUnload:function(){
         clearInterval(updateInterval);

@@ -26,7 +26,11 @@ OnekitPage({
                 vy:2
             };
             this.drawBall();
-            this.interval = setInterval(this.drawBall,17);
+            this.interval = setInterval(()=>{
+this.drawBall();
+},()=>{
+17();
+});
         }
     },
     init:function(res){

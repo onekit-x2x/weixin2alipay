@@ -11,10 +11,8 @@ OnekitPage({
         captured:false
     },
     onLoad:function(){
-        wx.onUserCaptureScreen(()=>{
-            this.setData({
-                captured:true
-            });
-        });
+        wx.onUserCaptureScreen(()=>{this.setData({
+            captured:true
+        })});
     }
 });

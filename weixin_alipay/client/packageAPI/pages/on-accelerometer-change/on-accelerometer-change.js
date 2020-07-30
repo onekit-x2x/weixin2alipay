@@ -30,8 +30,8 @@ OnekitPage({
                 y:res.y.toFixed(2),
                 z:res.z.toFixed(2)
             });
-            that.position.ax = Math.sin(res.x * Math.PI / 2);
-            that.position.ay = -Math.sin(res.y * Math.PI / 2);
+            that.position.ax = Math.sin((res.x * Math.PI) / 2);
+            that.position.ay = -Math.sin((res.y * Math.PI) / 2);
         });
         this.interval = setInterval(function(){
             that.drawSmallBall();
@@ -57,16 +57,16 @@ OnekitPage({
         p.vx += p.ax;
         p.vy += p.ay;
         if(Math.sqrt(Math.pow(Math.abs(p.x) - 151,2) + Math.pow(Math.abs(p.y) - 151,2)) >= 115){
-            if(p.x > 151 && p.vx > 0){
+            if((p.x > 151) && (p.vx > 0)){
                 p.vx = 0;
             }
-            if(p.x < 151 && p.vx < 0){
+            if((p.x < 151) && (p.vx < 0)){
                 p.vx = 0;
             }
-            if(p.y > 151 && p.vy > 0){
+            if((p.y > 151) && (p.vy > 0)){
                 p.vy = 0;
             }
-            if(p.y < 151 && p.vy < 0){
+            if((p.y < 151) && (p.vy < 0)){
                 p.vy = 0;
             }
             strokeStyle = '#ff0000';

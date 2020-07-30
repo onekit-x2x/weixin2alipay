@@ -31,52 +31,32 @@ OnekitPage({
     },
     handlePlay:function(){
         this.ctx.play({
-            success:(res)=>{
-                console.log('play success');
-            },
-            fail:(res)=>{
-                console.log('play fail');
-            }
+            success:(res)=>{console.log('play success')},
+            fail:(res)=>{console.log('play fail')}
         });
     },
     handlePause:function(){
         this.ctx.pause({
-            success:(res)=>{
-                console.log('pause success');
-            },
-            fail:(res)=>{
-                console.log('pause fail');
-            }
+            success:(res)=>{console.log('pause success')},
+            fail:(res)=>{console.log('pause fail')}
         });
     },
     handleStop:function(){
         this.ctx.stop({
-            success:(res)=>{
-                console.log('stop success');
-            },
-            fail:(res)=>{
-                console.log('stop fail');
-            }
+            success:(res)=>{console.log('stop success')},
+            fail:(res)=>{console.log('stop fail')}
         });
     },
     handleResume:function(){
         this.ctx.resume({
-            success:(res)=>{
-                console.log('resume success');
-            },
-            fail:(res)=>{
-                console.log('resume fail');
-            }
+            success:(res)=>{console.log('resume success')},
+            fail:(res)=>{console.log('resume fail')}
         });
     },
     handleMute:function(){
         this.ctx.mute({
-            success:(res)=>{
-                console.log('mute success');
-            },
-            fail:(res)=>{
-                console.log('mute fail');
-            }
+            success:(res)=>{console.log('mute success')},
+            fail:(res)=>{console.log('mute fail')}
         });
     },
     handleVideoSrcInput:function(e){

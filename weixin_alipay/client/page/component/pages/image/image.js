@@ -20,9 +20,7 @@ OnekitPage({
     this.setData({
         webpImageUrl:res.fileList[0].tempFileURL
     });
-}).catch((error)=>{
-            console.log('CLOUD：image 临时链接获取失败');
-        });
+}).catch((error)=>{console.log('CLOUD：image 临时链接获取失败')});
     },
     data:{
         imageUrl:'cloud://release-b86096.7265-release-b86096-1258211818/demo.jpg',

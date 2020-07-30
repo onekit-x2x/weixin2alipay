@@ -104,9 +104,7 @@ OnekitPage({
         innerAudioContext.src = this.data.tempFilePath;
         this.setData({
             playing:true
-        },()=>{
-            innerAudioContext.play();
-        });
+        },()=>{innerAudioContext.play()});
     },
     pauseVoice:function(){
         clearInterval(playTimeInterval);

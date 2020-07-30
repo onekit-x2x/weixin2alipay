@@ -46,21 +46,19 @@ OnekitPage({
             }
             const duration = res.height > 0?res.duration * 1000:0;
             keyboardHeight = res.height;
-            setTimeout(()=>{
-                wx.pageScrollTo({
-                    scrollTop:0,
-                    success:function(){
-                        that.updatePosition(keyboardHeight);
-                        that.editorCtx.scrollIntoView();
-                    }
-                });
-            },duration);
+            setTimeout(()=>{wx.pageScrollTo({
+                scrollTop:0,
+                success:function(){
+                    that.updatePosition(keyboardHeight);
+                    that.editorCtx.scrollIntoView();
+                }
+            })},duration);
         });
     },
     updatePosition:function(keyboardHeight){
         const toolbarHeight = 50;
         const {windowHeight,platform} = wx.getSystemInfoSync();
-        var editorHeight = keyboardHeight > 0?windowHeight - keyboardHeight - toolbarHeight:windowHeight;
+        var editorHeight = keyboardHeight > 0?(windowHeight - keyboardHeight) - toolbarHeight:windowHeight;
         if(keyboardHeight === 0){
             this.setData({
                 editorHeight:editorHeight,

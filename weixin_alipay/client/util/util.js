@@ -1,7 +1,7 @@
 import {OnekitApp,OnekitPage,OnekitComponent} from "../onekit/onekit.js";
 import wx from "../onekit/wx.js";
 function formatTime(time){
-    if(typeof time !== 'number' || time < 0){
+    if((typeof time !== 'number') || (time < 0)){
         return time;
     }
     const hour = parseInt(time / 3600,10);
@@ -19,7 +19,7 @@ function formatTime(time){
 }).join(':');
 };
 function formatLocation(longitude,latitude){
-    if(typeof longitude === 'string' && typeof latitude === 'string'){
+    if((typeof longitude === 'string') && (typeof latitude === 'string')){
         longitude = parseFloat(longitude);
         latitude = parseFloat(latitude);
     }
@@ -48,19 +48,15 @@ function formatDateTime(date,withMs){
     const minute = date.getMinutes();
     const second = date.getSeconds();
     const ms = date.getMilliseconds();
-    var ret = [
+    var ret = ([
     year,
     month,
     day
-].map((value)=>{
-    formatLeadingZeroNumber(value,2);
-}).join('-') + ' ' + [
+].map((value)=>{formatLeadingZeroNumber(value,2)}).join('-') + ' ') + [
     hour,
     minute,
     second
-].map((value)=>{
-    formatLeadingZeroNumber(value,2);
-}).join(':');
+].map((value)=>{formatLeadingZeroNumber(value,2)}).join(':');
     if(withMs){
         ret += '.' + formatLeadingZeroNumber(ms,3);
     }

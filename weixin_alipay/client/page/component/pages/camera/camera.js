@@ -144,7 +144,7 @@ OnekitPage({
         this.listener = this.ctx.onCameraFrame((frame)=>{
             render(new Uint8Array(frame.data),frame.width,frame.height);
             const {frameWidth,frameHeight} = this.data;
-            if(frameWidth === frame.width && frameHeight == frame.height)return
+            if((frameWidth === frame.width) && (frameHeight == frame.height))return
             this.setData({
                 frameWidth:frame.width,
                 frameHeight:frame.height
@@ -155,28 +155,22 @@ OnekitPage({
     takePhoto:function(){
         this.ctx.takePhoto({
             quality:'high',
-            success:(res)=>{
-                this.setData({
-                    src:res.tempImagePath
-                });
-            }
+            success:(res)=>{this.setData({
+                src:res.tempImagePath
+            })}
         });
     },
     startRecord:function(){
         this.ctx.startRecord({
-            success:()=>{
-                console.log('startRecord');
-            }
+            success:()=>{console.log('startRecord')}
         });
     },
     stopRecord:function(){
         this.ctx.stopRecord({
-            success:(res)=>{
-                this.setData({
-                    src:res.tempThumbPath,
-                    videoSrc:res.tempVideoPath
-                });
-            }
+            success:(res)=>{this.setData({
+                src:res.tempThumbPath,
+                videoSrc:res.tempVideoPath
+            })}
         });
     },
     togglePosition:function(){
@@ -191,11 +185,9 @@ OnekitPage({
         const that = this;
         this.setData({
             showCanvas:!this.data.showCanvas
-        },()=>{
-            if(this.data.showCanvas){
-                const selector = wx.createSelectorQuery();
-                selector.select('#webgl').node(this.init).exec();
-            }
-        });
+        },()=>{if(this.data.showCanvas){
+            const selector = wx.createSelectorQuery();
+            selector.select('#webgl').node(this.init).exec();
+        }});
     }
 });

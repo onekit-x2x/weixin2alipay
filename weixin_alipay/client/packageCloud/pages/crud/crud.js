@@ -92,11 +92,9 @@ OnekitPage({
                 });
                 console.error('[数据库] [新增记录] 失败：',err);
             },
-            complete:()=>{
-                this.setData({
-                    loading:false
-                });
-            }
+            complete:()=>{this.setData({
+                loading:false
+            })}
         });
     },
     queryTodoList:function(){
@@ -122,9 +120,7 @@ OnekitPage({
                 });
                 console.error('[数据库] [查询记录] 失败：',err);
             },
-            complete:()=>{
-                wx.hideLoading();
-            }
+            complete:()=>{wx.hideLoading()}
         });
     },
     searchTodo:function(){
@@ -163,9 +159,7 @@ OnekitPage({
                 });
                 console.error('[数据库] [查询记录] 失败：',err);
             },
-            complete:()=>{
-                wx.hideLoading();
-            }
+            complete:()=>{wx.hideLoading()}
         });
     },
     toggleComplete:function(e){
@@ -182,11 +176,9 @@ OnekitPage({
             data:{
                 done:!todo.done
             },
-            success:()=>{
-                this.setData({
-                    [`todoList[${index}].done`]:!todo.done
-                });
-            },
+            success:()=>{this.setData({
+                [`todoList[${index}].done`]:!todo.done
+            })},
             fail:(err)=>{
                 wx.showToast({
                     icon:'none',
@@ -194,11 +186,9 @@ OnekitPage({
                 });
                 console.error('[数据库] [更新记录] 失败：',err);
             },
-            complete:()=>{
-                this.setData({
-                    loading:false
-                });
-            }
+            complete:()=>{this.setData({
+                loading:false
+            })}
         });
     },
     toDetail:function(e){

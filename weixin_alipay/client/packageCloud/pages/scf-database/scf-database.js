@@ -21,11 +21,9 @@ OnekitPage({
             theme:wx.getSystemInfoSync().theme || 'light'
         });
         if(wx.onThemeChange){
-            wx.onThemeChange(({theme})=>{
-                this.setData({
-                    theme:theme
-                });
-            });
+            wx.onThemeChange(({theme})=>{this.setData({
+                theme:theme
+            })});
         }
     },
     queryServerDataViaClient:function(){
@@ -39,7 +37,7 @@ OnekitPage({
     _openid:'server'
 }).get({
             success:(res)=>{
-                const resFirstData = res.data && res.data[0] || {};
+                const resFirstData = (res.data && res.data[0]) || {};
                 this.setData({
                     serverDataClient:resFirstData.data
                 });
@@ -51,11 +49,9 @@ OnekitPage({
                 });
                 console.error('[数据库] [查询记录] 失败：',err);
             },
-            complete:()=>{
-                this.setData({
-                    clientLoading:false
-                });
-            }
+            complete:()=>{this.setData({
+                clientLoading:false
+            })}
         });
     },
     queryServerDataViaCloudFunction:function(){
@@ -69,7 +65,7 @@ OnekitPage({
             data:{},
             success:(res)=>{
                 console.log('[云函数] [getServerDataDemo] res: ',res.result);
-                const resFirstData = res.result.data && res.result.data[0] || {};
+                const resFirstData = (res.result.data && res.result.data[0]) || {};
                 this.setData({
                     serverDataCloud:resFirstData.data
                 });
@@ -80,11 +76,9 @@ OnekitPage({
                 });
                 console.error('[云函数] [getServerDataDemo] 调用失败',err);
             },
-            complete:()=>{
-                this.setData({
-                    cloudLoading:false
-                });
-            }
+            complete:()=>{this.setData({
+                cloudLoading:false
+            })}
         });
     }
 });

@@ -97,11 +97,9 @@ OnekitPage({
             theme:wx.getSystemInfoSync().theme || 'light'
         });
         if(wx.onThemeChange){
-            wx.onThemeChange(({theme})=>{
-                this.setData({
-                    theme:theme
-                });
-            });
+            wx.onThemeChange(({theme})=>{this.setData({
+                theme:theme
+            })});
         }
     },
     kindToggle:function(e){

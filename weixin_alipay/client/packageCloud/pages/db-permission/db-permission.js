@@ -87,8 +87,8 @@ OnekitPage({
         wx.getSystemInfo({
             success:function(res){
                 that.setData({
-                    sliderLeft:res.windowWidth / tabLength - sliderWidth / 2,
-                    sliderOffset:res.windowWidth / tabLength * that.data.activeTabIndex
+                    sliderLeft:((res.windowWidth / tabLength) - sliderWidth) / 2,
+                    sliderOffset:(res.windowWidth / tabLength) * that.data.activeTabIndex
                 });
             }
         });
@@ -141,7 +141,7 @@ OnekitPage({
             success:(res)=>{
                 console.log('[数据库] [查询记录] 成功: ',res);
                 const resFirstData = res.data[0] || {};
-                if(resFirstData._openid && resFirstData._openid !== _openid){
+                if(resFirstData._openid && (resFirstData._openid !== _openid)){
                     const err = new Error('database permission denied');
                     if(showError)this.showErrorModal('获取',err)
                     if(failCallback)failCallback.call(this,err)
@@ -154,13 +154,11 @@ OnekitPage({
                 console.error('[数据库] [查询记录] 失败：',err);
                 if(failCallback)failCallback.call(this,err)
             },
-            complete:()=>{
-                if(showLoading){
-                    this.setData({
-                        querying:false
-                    });
-                }
-            }
+            complete:()=>{if(showLoading){
+                this.setData({
+                    querying:false
+                });
+            }}
         });
     },
     updateOneByOpenId:function(collection,openid,data,options){
@@ -172,60 +170,54 @@ OnekitPage({
         }
         const db = wx.cloud.database();
         this.queryOneByOpenId(collection,openid || '',{
-            success:(dbData)=>{
-                if(dbData){
-                    db.collection(collection).doc(dbData._id).update({
-                        data:data,
-                        success:(res)=>{
-                            console.log('[数据库] [更新记录] 成功: ',res);
-                            if(successCallback)successCallback.call(this,res.stats)
-                        },
-                        fail:(err)=>{
-                            if(showError)this.showErrorModal('设置',err)
-                            console.error('[数据库] [更新记录] 失败：',err);
-                            if(failCallback)failCallback.call(this,err)
-                        },
-                        complete:()=>{
-                            if(showLoading){
-                                this.setData({
-                                    updating:false
-                                });
-                            }
-                        }
-                    });
-                } else if(!openid || openid === this.data.openid){
-                    db.collection(collection).add({
-                        data:data,
-                        success:(res)=>{
-                            console.log('[数据库] [新增记录] 成功：',res);
-                            if(successCallback)successCallback.call(this,{
-                                _id:res._id
-                            })
-                        },
-                        fail:(err)=>{
-                            if(showError)this.showErrorModal('设置',err)
-                            console.error('[数据库] [新增记录] 失败：',err);
-                            if(failCallback)failCallback.call(this,err)
-                        },
-                        complete:()=>{
-                            if(showLoading){
-                                this.setData({
-                                    updating:false
-                                });
-                            }
-                        }
-                    });
-                } else {
-                    const err = new Error('database permission denied');
-                    if(showError)this.showErrorModal('设置',err)
-                    if(failCallback)failCallback.call(this,err)
-                    if(showLoading){
+            success:(dbData)=>{if(dbData){
+                db.collection(collection).doc(dbData._id).update({
+                    data:data,
+                    success:(res)=>{
+                        console.log('[数据库] [更新记录] 成功: ',res);
+                        if(successCallback)successCallback.call(this,res.stats)
+                    },
+                    fail:(err)=>{
+                        if(showError)this.showErrorModal('设置',err)
+                        console.error('[数据库] [更新记录] 失败：',err);
+                        if(failCallback)failCallback.call(this,err)
+                    },
+                    complete:()=>{if(showLoading){
                         this.setData({
                             updating:false
                         });
-                    }
+                    }}
+                });
+            } else if(!openid || (openid === this.data.openid)){
+                db.collection(collection).add({
+                    data:data,
+                    success:(res)=>{
+                        console.log('[数据库] [新增记录] 成功：',res);
+                        if(successCallback)successCallback.call(this,{
+                            _id:res._id
+                        })
+                    },
+                    fail:(err)=>{
+                        if(showError)this.showErrorModal('设置',err)
+                        console.error('[数据库] [新增记录] 失败：',err);
+                        if(failCallback)failCallback.call(this,err)
+                    },
+                    complete:()=>{if(showLoading){
+                        this.setData({
+                            updating:false
+                        });
+                    }}
+                });
+            } else {
+                const err = new Error('database permission denied');
+                if(showError)this.showErrorModal('设置',err)
+                if(failCallback)failCallback.call(this,err)
+                if(showLoading){
+                    this.setData({
+                        updating:false
+                    });
                 }
-            },
+            }},
             fail:(err)=>{
                 if(showError)this.showErrorModal('设置',err)
                 if(failCallback)failCallback.call(this,err)
@@ -242,7 +234,7 @@ OnekitPage({
             showLoading:true,
             showError:true,
             success:(data)=>{
-                const content = data && data.whatsUp || '';
+                const content = (data && data.whatsUp) || '';
                 wx.showModal({
                     title:'获取成功',
                     content:content?'个性签名为：' + content:'个性签名为空',
@@ -275,7 +267,7 @@ OnekitPage({
             showLoading:true,
             showError:true,
             success:(data)=>{
-                const content = data && data.whatsUp || '';
+                const content = (data && data.whatsUp) || '';
                 wx.showModal({
                     title:'获取成功',
                     content:content?'个性签名为：' + content:'个性签名为空',
@@ -291,20 +283,18 @@ OnekitPage({
         this.updateOneByOpenId('perm1','kiki',data,{
             showLoading:true,
             showError:true,
-            success:(res)=>{
-                if(res.updated === 0){
-                    wx.showModal({
-                        content:'设置失败：无权限操作',
-                        showCancel:false
-                    });
-                } else {
-                    app.globalData.adminWhatsUp = this.data.adminWhatsUp;
-                    wx.showModal({
-                        content:'设置成功',
-                        showCancel:false
-                    });
-                }
-            }
+            success:(res)=>{if(res.updated === 0){
+                wx.showModal({
+                    content:'设置失败：无权限操作',
+                    showCancel:false
+                });
+            } else {
+                app.globalData.adminWhatsUp = this.data.adminWhatsUp;
+                wx.showModal({
+                    content:'设置成功',
+                    showCancel:false
+                });
+            }}
         });
     },
     queryMyEmail:function(){
@@ -312,7 +302,7 @@ OnekitPage({
             showLoading:true,
             showError:true,
             success:(data)=>{
-                const content = data && data.email || '';
+                const content = (data && data.email) || '';
                 wx.showModal({
                     title:'获取成功',
                     content:content?'邮箱为：' + content:'邮箱为空',
@@ -342,7 +332,7 @@ OnekitPage({
             showLoading:true,
             showError:true,
             success:(data)=>{
-                const content = data && data.email || '';
+                const content = (data && data.email) || '';
                 wx.showModal({
                     title:'获取成功',
                     content:content?'邮箱为：' + content:'邮箱为空',
@@ -372,7 +362,7 @@ OnekitPage({
             showLoading:true,
             showError:true,
             success:(data)=>{
-                const price = data && data.price || null;
+                const price = (data && data.price) || null;
                 wx.showModal({
                     title:'获取成功',
                     content:price !== null?'商品价格为：' + price:'商品价格暂未设置',
@@ -388,12 +378,10 @@ OnekitPage({
         this.updateOneByOpenId('perm3','admin',data,{
             showLoading:true,
             showError:true,
-            success:()=>{
-                wx.showModal({
-                    content:'设置成功',
-                    showCancel:false
-                });
-            }
+            success:()=>{wx.showModal({
+                content:'设置成功',
+                showCancel:false
+            })}
         });
     },
     queryServerData:function(){
@@ -401,7 +389,7 @@ OnekitPage({
             showLoading:true,
             showError:true,
             success:(data)=>{
-                const content = data && data.serverData || '';
+                const content = (data && data.serverData) || '';
                 wx.showModal({
                     title:'获取成功',
                     content:content?'后台流水数据为：' + content:'后台流水数据为空',
@@ -417,12 +405,10 @@ OnekitPage({
         this.updateOneByOpenId('perm4','server',data,{
             showLoading:true,
             showError:true,
-            success:()=>{
-                wx.showModal({
-                    content:'设置成功',
-                    showCancel:false
-                });
-            }
+            success:()=>{wx.showModal({
+                content:'设置成功',
+                showCancel:false
+            })}
         });
     }
 });

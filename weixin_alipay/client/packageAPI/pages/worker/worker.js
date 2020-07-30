@@ -63,16 +63,14 @@ OnekitPage({
                 this.data.input
             ]
         });
-        this._worker.onMessage((res)=>{
-            if(res.type === 'execFunc_fib'){
-                wx.hideLoading();
-                const t1 = +Date.now();
-                this.setData({
-                    res:res.result,
-                    time:t1 - t0
-                });
-            }
-        });
+        this._worker.onMessage((res)=>{if(res.type === 'execFunc_fib'){
+            wx.hideLoading();
+            const t1 = +Date.now();
+            this.setData({
+                res:res.result,
+                time:t1 - t0
+            });
+        }});
     },
     onReady:function(){
         this.position = {

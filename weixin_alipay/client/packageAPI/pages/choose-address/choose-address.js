@@ -12,11 +12,9 @@ OnekitPage({
     },
     chooseAddress:function(){
         wx.chooseAddress({
-            success:(res)=>{
-                this.setData({
-                    addressInfo:res
-                });
-            },
+            success:(res)=>{this.setData({
+                addressInfo:res
+            })},
             fail:function(err){
                 console.log(err);
             }

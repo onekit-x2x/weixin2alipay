@@ -27,9 +27,7 @@ OnekitPage({
                     loading:false
                 });
             },
-            fail:(err)=>{
-                console.error('[云函数] [wxContext] 调用失败',err);
-            }
+            fail:(err)=>{console.error('[云函数] [wxContext] 调用失败',err)}
         });
     },
     clear:function(){

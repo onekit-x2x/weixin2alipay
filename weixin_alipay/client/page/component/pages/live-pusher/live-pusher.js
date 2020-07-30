@@ -21,12 +21,8 @@ OnekitPage({
     },
     handleStart:function(){
         this.ctx.start({
-            success:(res)=>{
-                console.log('start success');
-            },
-            fail:(res)=>{
-                console.log('start fail');
-            }
+            success:(res)=>{console.log('start success')},
+            fail:(res)=>{console.log('start fail')}
         });
     },
     handleScanQRCode:function(){
@@ -41,42 +37,26 @@ OnekitPage({
     },
     handlePause:function(){
         this.ctx.pause({
-            success:(res)=>{
-                console.log('pause success');
-            },
-            fail:(res)=>{
-                console.log('pause fail');
-            }
+            success:(res)=>{console.log('pause success')},
+            fail:(res)=>{console.log('pause fail')}
         });
     },
     handleStop:function(){
         this.ctx.stop({
-            success:(res)=>{
-                console.log('stop success');
-            },
-            fail:(res)=>{
-                console.log('stop fail');
-            }
+            success:(res)=>{console.log('stop success')},
+            fail:(res)=>{console.log('stop fail')}
         });
     },
     handleResume:function(){
         this.ctx.resume({
-            success:(res)=>{
-                console.log('resume success');
-            },
-            fail:(res)=>{
-                console.log('resume fail');
-            }
+            success:(res)=>{console.log('resume success')},
+            fail:(res)=>{console.log('resume fail')}
         });
     },
     handleSwitchCamera:function(){
         this.ctx.switchCamera({
-            success:(res)=>{
-                console.log('switch camera success');
-            },
-            fail:(res)=>{
-                console.log('switch camera fail');
-            }
+            success:(res)=>{console.log('switch camera success')},
+            fail:(res)=>{console.log('switch camera fail')}
         });
     },
     handleVideoSrcInput:function(e){

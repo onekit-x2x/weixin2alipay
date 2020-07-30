@@ -38,7 +38,7 @@ OnekitPage({
                     title:'上传中'
                 });
                 app.getUserOpenIdViaCloud().then((openid)=>{
-    const cloudPath = 'upload/' + openid + filePath.match(new RegExp("\.[^.]+?$",""))[0];
+    const cloudPath = ('upload/' + openid) + filePath.match(new RegExp("\.[^.]+?$",""))[0];
     console.log('cloudPath',cloudPath);
     wx.cloud.uploadFile({
         cloudPath:cloudPath,

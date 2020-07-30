@@ -35,11 +35,9 @@ OnekitPage({
                             package:`prepay_id=${data.prepay_id}`,
                             signType:'MD5',
                             paySign:data.sign,
-                            success:()=>{
-                                wx.showToast({
-                                    title:'支付成功'
-                                });
-                            }
+                            success:()=>{wx.showToast({
+                                title:'支付成功'
+                            })}
                         });
                     },
                     fail:(err)=>{

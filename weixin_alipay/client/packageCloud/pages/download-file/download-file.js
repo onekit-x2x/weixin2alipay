@@ -38,14 +38,10 @@ OnekitPage({
                     filePath:res.tempFilePath
                 });
             },
-            fail:(err)=>{
-                console.error('[下载文件] 失败：',err);
-            },
-            complete:()=>{
-                self.setData({
-                    loading:false
-                });
-            }
+            fail:(err)=>{console.error('[下载文件] 失败：',err)},
+            complete:()=>{self.setData({
+                loading:false
+            })}
         });
     }
 });

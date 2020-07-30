@@ -57,29 +57,23 @@ OnekitPage({
         });
     },
     handleExport:function(){
-        if(this.data.one === '' || this.data.two === ''){
+        if((this.data.one === '') || (this.data.two === '')){
             wx.showToast({
                 title:'请先选择源视频',
                 icon:"none"
             });
         } else {
             console.log(this.mediaTrackOne,this.mediaTrackTwo);
-            const [trackMedia] = this.mediaTrackOne.tracks.filter((item)=>{
-                item.kind === 'video';
-            });
-            const [trackAudio] = this.mediaTrackTwo.tracks.filter((item)=>{
-                item.kind === 'audio';
-            });
+            const [trackMedia] = this.mediaTrackOne.tracks.filter((item)=>item.kind === 'video');
+            const [trackAudio] = this.mediaTrackTwo.tracks.filter((item)=>item.kind === 'audio');
             console.log(trackMedia,trackAudio);
             this.mediaContainer.addTrack(trackMedia);
             this.mediaContainer.addTrack(trackAudio);
             const that = this;
             this.mediaContainer.export({
-                success:(res)=>{
-                    that.setData({
-                        targetSrc:res.tempFilePath
-                    });
-                }
+                success:(res)=>{that.setData({
+                    targetSrc:res.tempFilePath
+                })}
             });
         }
     }

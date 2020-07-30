@@ -24,7 +24,7 @@ OnekitPage({
                 const metrics = [
                 ];
                 for(const key in rect){
-                        if(key !== 'id' && key !== 'dataset'){
+                        if((key !== 'id') && (key !== 'dataset')){
                             const val = rect[key];
                             metrics.push({
                                 key:key,

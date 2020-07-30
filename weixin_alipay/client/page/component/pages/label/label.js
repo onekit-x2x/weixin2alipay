@@ -37,9 +37,9 @@ OnekitPage({
         const changed = {};
         for(var i = 0;i < this.data.checkboxItems.length;i++){
             if(checked.indexOf(this.data.checkboxItems[i].name) !== -1){
-                changed['checkboxItems[' + i + '].checked'] = true;
+                changed[('checkboxItems[' + i) + '].checked'] = true;
             } else {
-                changed['checkboxItems[' + i + '].checked'] = false;
+                changed[('checkboxItems[' + i) + '].checked'] = false;
             }
         };
         this.setData(changed);
@@ -49,9 +49,9 @@ OnekitPage({
         const changed = {};
         for(var i = 0;i < this.data.radioItems.length;i++){
             if(checked.indexOf(this.data.radioItems[i].name) !== -1){
-                changed['radioItems[' + i + '].checked'] = true;
+                changed[('radioItems[' + i) + '].checked'] = true;
             } else {
-                changed['radioItems[' + i + '].checked'] = false;
+                changed[('radioItems[' + i) + '].checked'] = false;
             }
         };
         this.setData(changed);

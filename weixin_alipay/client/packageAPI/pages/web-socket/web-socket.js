@@ -35,9 +35,9 @@ OnekitPage({
     },
     toggleSocket:function(e){
         const turnedOn = e.detail.value;
-        if(turnedOn && this.data.socketStatus === 'closed'){
+        if(turnedOn && (this.data.socketStatus === 'closed')){
             this.openSocket();
-        } else if(!turnedOn && this.data.socketStatus === 'connected'){
+        } else if(!turnedOn && (this.data.socketStatus === 'connected')){
             const showSuccess = true;
             this.closeSocket(showSuccess);
         }

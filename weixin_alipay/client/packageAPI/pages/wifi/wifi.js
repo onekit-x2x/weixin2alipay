@@ -15,36 +15,28 @@ OnekitPage({
         this.stopSearch();
     },
     startSearch:function(){
-        const getWifiList = ()=>{
-            wx.getWifiList({
-                success:()=>{
-                    wx.onGetWifiList((res)=>{
-                        const wifiList = res.wifiList.sort((a,b)=>{
-    b.signalStrength - a.signalStrength;
-}).map((wifi)=>{
-                            const strength = Math.ceil(wifi.signalStrength * 4);
-                            return Object.assign(wifi,{
-                                strength:strength
-                            });
-                        });
-                        this.setData({
-                            wifiList:wifiList
-                        });
+        const getWifiList = ()=>{wx.getWifiList({
+            success:()=>{wx.onGetWifiList((res)=>{
+                const wifiList = res.wifiList.sort((a,b)=>b.signalStrength - a.signalStrength).map((wifi)=>{
+                    const strength = Math.ceil(wifi.signalStrength * 4);
+                    return Object.assign(wifi,{
+                        strength:strength
                     });
-                },
-                fail:function(err){
-                    console.error(err);
-                }
-            });
-        };
-        const startWifi = ()=>{
-            wx.startWifi({
-                success:getWifiList,
-                fail:function(err){
-                    console.error(err);
-                }
-            });
-        };
+                });
+                this.setData({
+                    wifiList:wifiList
+                });
+            })},
+            fail:function(err){
+                console.error(err);
+            }
+        })};
+        const startWifi = ()=>{wx.startWifi({
+            success:getWifiList,
+            fail:function(err){
+                console.error(err);
+            }
+        })};
         wx.getSystemInfo({
             success:function(res){
                 const isIOS = res.platform === 'ios';

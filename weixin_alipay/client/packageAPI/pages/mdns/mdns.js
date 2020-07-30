@@ -39,9 +39,7 @@ OnekitPage({
                 });
                 console.log(err);
             },
-            complete:()=>{
-                console.log('startDiscovery: complete');
-            }
+            complete:()=>{console.log('startDiscovery: complete')}
         });
     },
     stopDiscovery:function(){
@@ -72,9 +70,7 @@ OnekitPage({
                     duration:2000
                 });
             },
-            complete:()=>{
-                console.log('stopDIscovery: complete');
-            }
+            complete:()=>{console.log('stopDIscovery: complete')}
         });
     },
     onLocalService:function(){

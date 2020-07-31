@@ -5,7 +5,7 @@ Component({
     Style:"",
     Class:"",
     src: "",
-    mode: "",
+    mode: "scaleToFill",
     webp: false,
     lazyLoad: false,
     Id:""

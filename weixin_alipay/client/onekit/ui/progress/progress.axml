@@ -5,7 +5,7 @@ style="{{Style}}"
 percent="{{percent}}"
 show-info="{{showInfo}}"
 stroke-width="{{strokeWidth}}"
-active-color="{{activeColor}}"
+active-color="{{color}}"
 background-color="{{backgroundColor}}"
 active="{{active}}"
 >

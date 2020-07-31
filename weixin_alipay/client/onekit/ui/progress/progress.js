@@ -8,7 +8,7 @@ Component({
     percent:"",
     showInfo:false,
     strokeWidth:2,
-    activeColor:"#09BB07",
+    color:"#09BB07",
     backgroundColor:"#EBEBEB",
     active:false
   },

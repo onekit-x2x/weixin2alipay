@@ -7,7 +7,7 @@
 
   <view class="page-body">
     <view class="page-section page-section-gap">
-      <onekit-map Style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}">
+      <onekit-map Style="width: 100%; height: 300px;" skew="10" scale="5" latitude="{{latitude}}" longitude="{{longitude}}">
         <cover-view class="cover-view">
           <cover-view class="container">
             <cover-view class="flex-wrp" style="flex-direction:row;">

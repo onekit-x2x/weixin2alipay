@@ -9,7 +9,7 @@
     <view class="page-section">
       <onekit-canvas Class="canvas-element" canvas-id="canvas"></onekit-canvas>
       <onekit-scroll-view Class="canvas-buttons" scroll-y="true">
-        <block a:for="{{methods}}" a:for-item="method">
+        <block a:for="{{methods}}" a:for-item='method'>
           <onekit-button Class="canvas-button" onTap="{{method}}">{{method}}</onekit-button>
         </block>
         <onekit-button Class="canvas-button" onTap="toTempFilePath" type="primary">toTempFilePath</onekit-button>

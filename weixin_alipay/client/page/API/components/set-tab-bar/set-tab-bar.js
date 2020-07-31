@@ -1,5 +1,5 @@
-import {OnekitApp,OnekitPage,OnekitComponent} from "../../../../onekit/onekit.js";
-import wx from "../../../../onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
+import wx from '../../../../onekit/wx.js';
 const defaultTabBarStyle = {
     color:'#7A7E83',
     selectedColor:'#3cc51f',

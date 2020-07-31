@@ -1,5 +1,5 @@
-import {OnekitApp,OnekitPage,OnekitComponent} from "../../../onekit/onekit.js";
-import wx from "../../../onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from '../../../onekit/onekit.js';
+import wx from '../../../onekit/wx.js';
 const AB2String = (arrayBuffer)=>{
     var unit8Arr = new Uint8Array(arrayBuffer);
     var encodedString = String.fromCharCode.apply(null,unit8Arr),decodedString = decodeURIComponent(escape(encodedString));

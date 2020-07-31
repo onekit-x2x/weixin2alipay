@@ -1,5 +1,5 @@
-import {OnekitApp,OnekitPage,OnekitComponent} from "../../../../onekit/onekit.js";
-import wx from "../../../../onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
+import wx from '../../../../onekit/wx.js';
 const texts = [
     '2011年1月，微信1.0发布',
     '同年5月，微信2.0语音对讲发布',

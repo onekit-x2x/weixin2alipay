@@ -21,7 +21,7 @@
       <view class="page-section-title">推荐展示样式</view>
       <view class="weui-cells weui-cells_after-title">
         <radio-group onChange="radioChange">
-          <label a:for="{{items}}" a:key="value" class="weui-cell weui-check__label">
+          <label a:for="{{items}}" a:key='value' class="weui-cell weui-check__label">
 
             <view class="weui-cell__hd">
               <radio value="{{item.value}}" checked="true"></radio>

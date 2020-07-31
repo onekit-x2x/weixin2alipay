@@ -1,5 +1,5 @@
-import {OnekitApp,OnekitPage,OnekitComponent} from "../../../../onekit/onekit.js";
-import wx from "../../../../onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from '../../../../onekit/onekit.js';
+import wx from '../../../../onekit/wx.js';
 const uuid3 = '0C76801A-62EB-45E5-96A8-37C8882ABB2B';
 const serviceId = 'D0611E78-BBB4-4591-A5F8-487910AE4366';
 const characteristicId = '8667556C-9A37-4C91-84ED-54EE27D90049';

@@ -11,7 +11,7 @@
     <view class="page-nav-list"><text>运营专区</text></view>
     <view class="page-nav-list"><text>我的</text></view>
   </view>
-  <block a:for="{{tabs}}" a:key="title">
+  <block a:for="{{tabs}}" a:key='title'>
     <view class="goods-list" on:tap="handleClick">
       <image src="{{item.img}}" mode="widthFix"></image>
       <view class="item-title">

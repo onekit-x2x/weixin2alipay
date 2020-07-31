@@ -16,7 +16,7 @@
 
     <view class="page-section">
       <view class="metric">
-        <view a:for="{{ metrics }}" a:key="key">
+        <view a:for="{{ metrics }}" a:key='key'>
           <text class="b">{{ item.key }}</text>
           <text class="span">{{ item.val }}</text>
         </view>

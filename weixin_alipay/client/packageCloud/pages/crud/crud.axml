@@ -20,7 +20,7 @@
 
       <view class="weui-cells__title">Todo List</view>
       <view class="weui-cells weui-cells_after-title" a:if="{{openid}}">
-        <view a:for="{{todoList}}" a:key="_id" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-id="{{item._id}}" onTap="toDetail">
+        <view a:for="{{todoList}}" a:key='_id' class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-id="{{item._id}}" onTap="toDetail">
           <view class="weui-cell__hd" data-id="{{item._id}}" data-index="{{index}}" catchTap="toggleComplete" style="margin-right: 10rpx">
             <onekit-icon type="circle" a:if="{{!item.done}}"></onekit-icon>
             <onekit-icon type="success" a:else></onekit-icon>

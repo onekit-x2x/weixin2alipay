@@ -1,5 +1,5 @@
-import {OnekitApp,OnekitPage,OnekitComponent} from "../../onekit/onekit.js";
-import wx from "../../onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from '../../onekit/onekit.js';
+import wx from '../../onekit/wx.js';
 function fib(n){
     if(n < 1)return 0
     if(n <= 2)return 1

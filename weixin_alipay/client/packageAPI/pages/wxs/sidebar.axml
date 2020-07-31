@@ -21,7 +21,7 @@
   </view> 
   <view data-width="{{windowWidth}}" catch:touchmove="{{test.touchmove}}" on:touchend="{{test.touchend}}" on:touchstart="{{test.touchstart}}" class="page-top">
     <view style="margin: 10px 10px;"> >>> 右滑出现侧边菜单</view>
-      <block a:for="{{tabs}}" a:key="title">
+      <block a:for="{{tabs}}" a:key='title'>
         <view style="display: flex; align-items: center; flex-direction: column;">
           <image src="{{item.img}}" mode="widthFix"></image>
          

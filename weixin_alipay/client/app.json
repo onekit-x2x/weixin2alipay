@@ -1,6 +1,5 @@
 {
 	"pages":[
-		"page/component/pages/form/form",
 		"page/component/index",
 		"page/component/pages/view/view",
 		"page/component/pages/scroll-view/scroll-view",
@@ -10,6 +9,7 @@
 		"page/component/pages/progress/progress",
 		"page/component/pages/button/button",
 		"page/component/pages/checkbox/checkbox",
+		"page/component/pages/form/form",
 		"page/component/pages/input/input",
 		"page/component/pages/label/label",
 		"page/component/pages/picker/picker",

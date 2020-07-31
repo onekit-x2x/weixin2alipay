@@ -83,7 +83,7 @@ Component({
       }
       if (distance > 0) {
         if (this.props.onRefresherpulling) {
-          this.props.onRefresherpulling();
+          this.props.onRefresherpulling(e);
         }
         //  e.preventDefault();
         //滑动的距离
@@ -120,7 +120,7 @@ Component({
     },
     on_Touchcancel(e) {
       console.log('on_Touchcancel:', e);
-      this.props.onRefresherabort()
+      this.props.onRefresherabort({})
     },
     ////////////////////////////
     on_toupper(e) {

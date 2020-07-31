@@ -1,5 +1,5 @@
 @import "./page/common/lib/weui.acss";
-
+@import "./onekit/onekit.acss";
 
 /* reset */
 page {

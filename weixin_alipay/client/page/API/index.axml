@@ -6,7 +6,7 @@
   </view>
   <view class="index-bd">
     <view class="kind-list">
-      <block a:for="{{list}}" a:key="id">
+      <block a:for="{{list}}" a:key='id'>
         <view class="kind-list-item">
           <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" onTap="kindToggle">
             <view class="kind-list-text">{{item.name}}</view>
@@ -15,7 +15,7 @@
           </view>
           <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
             <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
-              <block a:for="{{item.pages}}" a:for-item="page">
+              <block a:for="{{item.pages}}" a:for-item='page'>
                 <navigator url="../../packageAPI/pages/{{page.url}}" class="navigator" a:if="{{page.url !== '@set-tab-bar'}}">
                   <view class="navigator-text">{{page.zh}}</view>
                   <view class="navigator-arrow"></view>

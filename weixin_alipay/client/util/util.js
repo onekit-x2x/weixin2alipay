@@ -1,5 +1,5 @@
-import {OnekitApp,OnekitPage,OnekitComponent} from "../onekit/onekit.js";
-import wx from "../onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from '../onekit/onekit.js';
+import wx from '../onekit/wx.js';
 function formatTime(time){
     if((typeof time !== 'number') || (time < 0)){
         return time;

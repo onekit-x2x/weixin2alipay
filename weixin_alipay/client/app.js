@@ -1,6 +1,6 @@
 global = {};
-import {OnekitApp,OnekitPage,OnekitComponent} from "./onekit/onekit.js";
-import wx from "./onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from './onekit/onekit.js';
+import wx from './onekit/wx.js';
 const config = require('./config');
 const themeListeners = [
 ];

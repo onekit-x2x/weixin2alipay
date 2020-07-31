@@ -1,5 +1,5 @@
-import {OnekitApp,OnekitPage,OnekitComponent} from "./onekit/onekit.js";
-import wx from "./onekit/wx.js";
+import {OnekitApp,OnekitPage,OnekitComponent} from './onekit/onekit.js';
+import wx from './onekit/wx.js';
 const host = '14592619.qcloud.la';
 const config = {
     requestUrl:'https://mp.weixin.qq.com',

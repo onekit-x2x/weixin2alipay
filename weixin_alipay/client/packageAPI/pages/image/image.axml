@@ -53,7 +53,7 @@
                 </view>
                 <view class="weui-uploader__bd">
                   <view class="weui-uploader__files">
-                    <block a:for="{{imageList}}" a:for-item="image">
+                    <block a:for="{{imageList}}" a:for-item='image'>
                       <view class="weui-uploader__file">
                         <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" onTap="previewImage"></image>
                       </view>

@@ -12,6 +12,6 @@
 		"onekit-video":"/onekit/ui/video/video",
 		"onekit-editor":"/onekit/ui/editor/editor",
 		"onekit-modal":"/onekit/ui/modal/modal",
-		"onekit-switch":"/onekit/ui/switch/switch"
+		"onekit-canvas":"/onekit/ui/canvas/canvas"
 	}
-} 
+}

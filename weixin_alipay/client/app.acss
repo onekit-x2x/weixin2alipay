@@ -1,3 +1,4 @@
+@import '/onekit/onekit.acss';
 @import "./page/common/lib/weui.acss";
 @import "./onekit/onekit.acss";
 

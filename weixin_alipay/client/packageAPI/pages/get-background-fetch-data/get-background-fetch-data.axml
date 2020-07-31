@@ -1,33 +1,33 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'getBackgroundFetchData'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
       <block a:if="{{canIUse}}">
-        <view class="page-body-info">
-          <view class="page-body-title">周期性缓存数据</view>
+        <onekit-view Class="page-body-info">
+          <onekit-view Class="page-body-title">周期性缓存数据</onekit-view>
           <block a:if="{{appid}}">
             <block>
-              <text class="page-body-text">OpenID</text>
-              <text class="context-value">{{openid}}</text>
+              <onekit-text Class="page-body-text">OpenID</onekit-text>
+              <onekit-text Class="context-value">{{openid}}</onekit-text>
             </block>
             <block>
-              <text class="page-body-text">AppID</text>
-              <text class="context-value">{{appid}}</text>
+              <onekit-text Class="page-body-text">AppID</onekit-text>
+              <onekit-text Class="context-value">{{appid}}</onekit-text>
             </block>
           </block>
           <block>
-            <text class="page-body-text">微信客户端每隔 12 个小时才会发起一次请求</text>
-            <text class="page-body-text">为了方便调试周期性数据，可以在 工具 -> 拉取周期性缓存数据 开启</text>
+            <onekit-text Class="page-body-text">微信客户端每隔 12 个小时才会发起一次请求</onekit-text>
+            <onekit-text Class="page-body-text">为了方便调试周期性数据，可以在 工具 -> 拉取周期性缓存数据 开启</onekit-text>
           </block>
-        </view>
+        </onekit-view>
       </block>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
   <template is="foot">
 </template>
-</view>
+</onekit-view>

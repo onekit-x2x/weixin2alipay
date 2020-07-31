@@ -1,29 +1,29 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'User Authentication'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-body-info">
-        <view class="page-body-title">OpenID</view>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-body-info">
+        <onekit-view Class="page-body-title">OpenID</onekit-view>
         <block a:if="{{!openid}}">
-          <text class="page-body-text">点击绿色按钮可通过云开发获取用户 OpenID</text>
-          <text class="page-body-text">使用云开发，无需自己部署服务端并维护复杂的鉴权机制，在小程序端简单调用即可通过云端获取天然可信任的用户登录态</text>
+          <onekit-text Class="page-body-text">点击绿色按钮可通过云开发获取用户 OpenID</onekit-text>
+          <onekit-text Class="page-body-text">使用云开发，无需自己部署服务端并维护复杂的鉴权机制，在小程序端简单调用即可通过云端获取天然可信任的用户登录态</onekit-text>
         </block>
         <block a:else>
-          <text class="openid">{{openid}}</text>
+          <onekit-text Class="openid">{{openid}}</onekit-text>
         </block>
-      </view>
-      <view class="btn-area">
+      </onekit-view>
+      <onekit-view Class="btn-area">
         <onekit-button type="primary" onTap="onGetOpenid" loading="{{loading}}">获取 OpenID</onekit-button>
         <onekit-button onTap="clear">清空</onekit-button>
-      </view>
-    </view>
-  </view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

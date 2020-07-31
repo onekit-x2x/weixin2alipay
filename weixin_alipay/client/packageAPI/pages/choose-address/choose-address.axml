@@ -1,80 +1,80 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'chooseAddress'}}">
 </template>
 
   <form>
-    <view class="page-section">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">收货人姓名</view>
-          </view>
-          <view class="weui-cell__bd">
+    <onekit-view Class="page-section">
+      <onekit-view Class="weui-cells weui-cells_after-title">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">收货人姓名</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
             {{ addressInfo.userName }}
-          </view>
-        </view>
+          </onekit-view>
+        </onekit-view>
 
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">邮编</view>
-          </view>
-          <view class="weui-cell__bd">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">邮编</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
             {{ addressInfo.postalCode }}
-          </view>
-        </view>
+          </onekit-view>
+        </onekit-view>
 
-        <view class="weui-cell weui-cell_input region">
-          <view class="weui-cell__hd">
-            <view class="weui-label">地区</view>
-          </view>
-          <view class="weui-cell__bd">
+        <onekit-view Class="weui-cell weui-cell_input region">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">地区</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
             {{ addressInfo.provinceName }}
             {{ addressInfo.cityName }}
             {{ addressInfo.countyName }}
-          </view>
-        </view>
+          </onekit-view>
+        </onekit-view>
 
 
-        <view class="weui-cell weui-cell_input detail">
-          <view class="weui-cell__hd">
-            <view class="weui-label">收货地址</view>
-          </view>
-          <view class="weui-cell__bd">
+        <onekit-view Class="weui-cell weui-cell_input detail">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">收货地址</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
             {{ addressInfo.detailInfo }}
-          </view>
-        </view>
+          </onekit-view>
+        </onekit-view>
 
-          <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">国家码</view>
-          </view>
-          <view class="weui-cell__bd">
+          <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">国家码</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
             {{ addressInfo.nationalCode }}
-          </view>
-        </view>
+          </onekit-view>
+        </onekit-view>
 
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">手机号码</view>
-          </view>
-          <view class="weui-cell__bd">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">手机号码</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
             {{ addressInfo.telNumber }}
-          </view>
-        </view>
+          </onekit-view>
+        </onekit-view>
 
-      </view>
-    </view>
+      </onekit-view>
+    </onekit-view>
   </form>
   
-  <view class="page-body">
-    <view class="btn-area">
+  <onekit-view Class="page-body">
+    <onekit-view Class="btn-area">
     <onekit-button type="primary" onTap="chooseAddress">获取收货地址</onekit-button>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

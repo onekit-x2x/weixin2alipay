@@ -1,42 +1,42 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: '音视频合成'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-section-title">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-section-title">
        源视频
-      </view>
-    </view>
-    <view class="page-section">
+      </onekit-view>
+    </onekit-view>
+    <onekit-view Class="page-section">
      <onekit-button type="primary" onTap="handleChooseVideo" data-video="one">选择源视频1</onekit-button>
      <onekit-video a:if="{{one}}" src="{{one}}"></onekit-video>
-    </view>
-    <view class="page-section">
+    </onekit-view>
+    <onekit-view Class="page-section">
       <onekit-button type="primary" onTap="handleChooseVideo" data-video="two">选择源视频2</onekit-button>
       <onekit-video a:if="{{two}}" src="{{two}}"></onekit-video>
-    </view>
-    <view class="btn-area">
+    </onekit-view>
+    <onekit-view Class="btn-area">
       <onekit-button disabled="{{!canIUse}}" type="primary" on:tap="handleExport">合成</onekit-button>
-    </view> 
+    </onekit-view> 
     <block a:if="{{targetSrc}}">
-      <view class="page-section">
-        <view class="page-section-title">
-           <text>合成视频</text>
-        </view>
-        <view class="page-section-title">
-           <text>合成视频轨道为：源视频1视频轨道 + 源视频2音频轨道</text>
-        </view>
-      </view>
-      <view class="page-section">
+      <onekit-view Class="page-section">
+        <onekit-view Class="page-section-title">
+           <onekit-text>合成视频</onekit-text>
+        </onekit-view>
+        <onekit-view Class="page-section-title">
+           <onekit-text>合成视频轨道为：源视频1视频轨道 + 源视频2音频轨道</onekit-text>
+        </onekit-view>
+      </onekit-view>
+      <onekit-view Class="page-section">
         <onekit-video src="{{targetSrc}}">
         </onekit-video>
-      </view>
+      </onekit-view>
     </block>
-  </view>
+  </onekit-view>
   <template is="foot">
 </template>
-</view>
+</onekit-view>

@@ -1,56 +1,56 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'picker'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="weui-cells__title">地区选择器</view>
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">当前选择</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
-              <view class="weui-input">{{array[index]}}</view>
-            </picker>
-          </view>
-        </view>
-      </view>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="weui-cells__title">地区选择器</onekit-view>
+      <onekit-view Class="weui-cells weui-cells_after-title">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">当前选择</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
+            <onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <onekit-view Class="weui-input">{{array[index]}}</onekit-view>
+            </onekit-picker>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
 
-      <view class="weui-cells__title">时间选择器</view>
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">当前选择</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker mode="time" value="{{time}}" start="09:01" end="21:01" onChange="bindTimeChange">
-              <view class="weui-input">{{time}}</view>
-            </picker>
-          </view>
-        </view>
-      </view>
+      <onekit-view Class="weui-cells__title">时间选择器</onekit-view>
+      <onekit-view Class="weui-cells weui-cells_after-title">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">当前选择</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
+            <onekit-picker mode="time" value="{{time}}" start="09:01" end="21:01" onChange="bindTimeChange">
+              <onekit-view Class="weui-input">{{time}}</onekit-view>
+            </onekit-picker>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
 
-      <view class="weui-cells__title">日期选择器</view>
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">当前选择</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" onChange="bindDateChange">
-              <view class="weui-input">{{date}}</view>
-            </picker>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
+      <onekit-view Class="weui-cells__title">日期选择器</onekit-view>
+      <onekit-view Class="weui-cells weui-cells_after-title">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">当前选择</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
+            <onekit-picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" onChange="bindDateChange">
+              <onekit-view Class="weui-input">{{date}}</onekit-view>
+            </onekit-picker>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

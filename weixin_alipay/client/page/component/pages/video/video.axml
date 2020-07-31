@@ -1,41 +1,41 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'video'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section tc">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section tc">
       <onekit-video Id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" onError="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-casting-button show-screen-lock-button show-center-play-btn="{{false}}" show-play-btn="{{true}}" controls picture-in-picture-mode="{{['push', 'pop']}}" onEnterpictureinpicture="bindVideoEnterPictureInPicture" onLeavepictureinpicture="bindVideoLeavePictureInPicture" enable-auto-rotation="{{enableAutoRotation}}"></onekit-video>
-      <view class="auto-rotate-container">
-        <view>开启自动旋转</view>
-        <view>
-          <switch model:checked="{{ enableAutoRotation }}" onChange="handleSwitchChange"></switch>
-        </view>
-      </view>
-      <view class="weui-cells">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">弹幕内容</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input onBlur="bindInputBlur" class="weui-input" type="text" placeholder="在此处输入弹幕内容"></input>
-          </view>
-        </view>
-      </view>
-      <view class="btn-area">
+      <onekit-view Class="auto-rotate-container">
+        <onekit-view>开启自动旋转</onekit-view>
+        <onekit-view>
+          <onekit-switch model:checked="{{ enableAutoRotation }}" onChange="handleSwitchChange"></onekit-switch>
+        </onekit-view>
+      </onekit-view>
+      <onekit-view Class="weui-cells">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">弹幕内容</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
+            <onekit-input onBlur="bindInputBlur" Class="weui-input" type="text" placeholder="在此处输入弹幕内容"></onekit-input>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
+      <onekit-view Class="btn-area">
         <onekit-button onTap="bindSendDanmu" Class="page-body-button" type="primary" formType="submit">发送弹幕</onekit-button>
-      </view>
-      <view class="btn-area">
-        <navigator url="picture-in-picture" hover-class="other-navigator-hover">
+      </onekit-view>
+      <onekit-view Class="btn-area">
+        <onekit-navigator url="picture-in-picture" hover-class="other-navigator-hover">
           <onekit-button type="primary" Class="page-body-button" onTap="bindPlayVideo">小窗模式</onekit-button>
-        </navigator>
-      </view>
+        </onekit-navigator>
+      </onekit-view>
       
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

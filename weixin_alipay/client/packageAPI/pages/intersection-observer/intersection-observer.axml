@@ -1,30 +1,30 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'intersectionObserver'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section message">
-      <text a:if="{{appear}}">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section message">
+      <onekit-text a:if="{{appear}}">
         小球出现
-      </text>
-      <text a:else>
+      </onekit-text>
+      <onekit-text a:else>
         小球消失
-      </text>
-    </view>
-    <view class="page-section">
+      </onekit-text>
+    </onekit-view>
+    <onekit-view Class="page-section">
       <onekit-scroll-view Class="scroll-view" scroll-y>
-        <view class="scroll-area" style="{{appear ? 'background: #ccc' : ''}}">
-          <text class="notice">向下滚动让小球出现</text>
-          <view class="filling"></view>
-          <view class="ball"></view>
-        </view>
+        <onekit-view Class="scroll-area" Style="{{appear ? 'background: #ccc' : ''}}">
+          <onekit-text Class="notice">向下滚动让小球出现</onekit-text>
+          <onekit-view Class="filling"></onekit-view>
+          <onekit-view Class="ball"></onekit-view>
+        </onekit-view>
       </onekit-scroll-view>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

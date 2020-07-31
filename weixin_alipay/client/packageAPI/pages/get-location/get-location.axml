@@ -1,31 +1,31 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'getLocation'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-body-info">
-        <text class="page-body-text-small">当前位置经纬度</text>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-body-info">
+        <onekit-text Class="page-body-text-small">当前位置经纬度</onekit-text>
         <block a:if="{{hasLocation === false}}">
-          <text class="page-body-text">未获取</text>
+          <onekit-text Class="page-body-text">未获取</onekit-text>
         </block>
         <block a:if="{{hasLocation === true}}">
-          <view class="page-body-text-location">
-            <text>E: {{location.longitude[0]}}°{{location.longitude[1]}}′</text>
-            <text>N: {{location.latitude[0]}}°{{location.latitude[1]}}′</text>
-          </view>
+          <onekit-view Class="page-body-text-location">
+            <onekit-text>E: {{location.longitude[0]}}°{{location.longitude[1]}}′</onekit-text>
+            <onekit-text>N: {{location.latitude[0]}}°{{location.latitude[1]}}′</onekit-text>
+          </onekit-view>
         </block>
-      </view>
-      <view class="btn-area">
+      </onekit-view>
+      <onekit-view Class="btn-area">
         <onekit-button type="primary" onTap="getLocation">获取位置</onekit-button>
         <onekit-button onTap="clear">清空</onekit-button>
-      </view>
-    </view>
-  </view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

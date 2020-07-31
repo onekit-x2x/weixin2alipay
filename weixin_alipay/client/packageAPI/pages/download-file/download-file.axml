@@ -1,24 +1,24 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'downloadFile'}}">
 </template>
 
-  <view class="page-body">
-    <image a:if="{{imageSrc}}" src="{{imageSrc}}" mode="center"></image>
+  <onekit-view Class="page-body">
+    <onekit-image a:if="{{imageSrc}}" src="{{imageSrc}}" mode="center"></onekit-image>
     <block a:else>
-      <view class="page-body-wording">
-        <text class="page-body-text">
+      <onekit-view Class="page-body-wording">
+        <onekit-text Class="page-body-text">
           点击按钮下载服务端示例图片
-        </text>
-      </view>
-      <view class="btn-area">
+        </onekit-text>
+      </onekit-view>
+      <onekit-view Class="btn-area">
         <onekit-button onTap="downloadImage" type="primary">下载</onekit-button>
-      </view>
+      </onekit-view>
     </block>
-  </view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

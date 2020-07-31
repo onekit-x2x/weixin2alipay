@@ -3,21 +3,21 @@
 <import-sjs name="resizable" from="./resizable.wxs">
 </import-sjs>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: '屏幕旋转'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view style="text-align:center">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Style="text-align:center">
         
         旋转屏幕
-      </view>
-      <image src="http://mmbiz.qpic.cn/sz_mmbiz_png/GEWVeJPFkSHALb0g5rCc4Jf5IqDfdwhWJ43I1IvriaV5uFr9fLAuv3uxHR7DQstbIxhNXFoQEcxGzWwzQUDBd6Q/0?wx_fmt=png" mode="aspectFit" style="width: 100%"></image>
+      </onekit-view>
+      <onekit-image src="http://mmbiz.qpic.cn/sz_mmbiz_png/GEWVeJPFkSHALb0g5rCc4Jf5IqDfdwhWJ43I1IvriaV5uFr9fLAuv3uxHR7DQstbIxhNXFoQEcxGzWwzQUDBd6Q/0?wx_fmt=png" mode="aspectFit" Style="width: 100%"></onekit-image>
       
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

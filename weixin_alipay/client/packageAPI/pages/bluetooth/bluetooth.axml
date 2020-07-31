@@ -4,48 +4,48 @@
 <import-sjs name="utils" from="./bluetooth.utils.sjs">
 </import-sjs>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'bluetooth'}}">
 </template>
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-body-info">
-        <view class="devices_summary">已发现 {{devices.length}} 个外围设备：</view>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-body-info">
+        <onekit-view Class="devices_summary">已发现 {{devices.length}} 个外围设备：</onekit-view>
         <onekit-scroll-view Class="device_list" scroll-y scroll-with-animation>
-          <view a:for="{{devices}}" a:key='index' data-device-id="{{item.deviceId}}" data-name="{{item.name || item.localName}}" onTap="createBLEConnection" class="device_item" hover-class="device_item_hover">
-            <view style="font-size: 16px;">{{item.name}}</view>
-            <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
-            <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
-            <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view>
-          </view>
+          <onekit-view a:for="{{devices}}" a:key='index' data-device-id="{{item.deviceId}}" data-name="{{item.name || item.localName}}" onTap="createBLEConnection" Class="device_item" hover-class="device_item_hover">
+            <onekit-view Style="font-size: 16px;">{{item.name}}</onekit-view>
+            <onekit-view Style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</onekit-view>
+            <onekit-view Style="font-size: 10px">UUID: {{item.deviceId}}</onekit-view>
+            <onekit-view Style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</onekit-view>
+          </onekit-view>
         </onekit-scroll-view>
-      </view>
+      </onekit-view>
 
-      <view class="btn-area">
+      <onekit-view Class="btn-area">
         <onekit-button type="primary" onTap="openBluetoothAdapter">开始扫描</onekit-button>
         <onekit-button onTap="stopBluetoothDevicesDiscovery">停止扫描</onekit-button>
-      </view>
-       <view class="btn-area">
+      </onekit-view>
+       <onekit-view Class="btn-area">
         <onekit-button type="primary" on:tap="changeMode">
           进去从机模式
         </onekit-button>
-       </view>
-    </view>
-  </view>
+       </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
-  <view class="connected_info" a:if="{{connected}}">
-    <view>
-      <text>已连接到 {{name}}</text>
-      <view class="operation">
+  <onekit-view Class="connected_info" a:if="{{connected}}">
+    <onekit-view>
+      <onekit-text>已连接到 {{name}}</onekit-text>
+      <onekit-view Class="operation">
       <onekit-button a:if="{{canWrite}}" size="mini" onTap="writeBLECharacteristicValue">写数据</onekit-button>
       <onekit-button size="mini" onTap="closeBLEConnection">断开连接</onekit-button>
-      </view>
-    </view>
-    <view a:for="{{chs}}" a:key='index' style="font-size: 12px; margin-top: 10px;">
-      <view>特性UUID: {{item.uuid}}</view>
-      <view>特性值: {{item.value}}</view>
-    </view>
-  </view>
+      </onekit-view>
+    </onekit-view>
+    <onekit-view a:for="{{chs}}" a:key='index' Style="font-size: 12px; margin-top: 10px;">
+      <onekit-view>特性UUID: {{item.uuid}}</onekit-view>
+      <onekit-view>特性值: {{item.value}}</onekit-view>
+    </onekit-view>
+  </onekit-view>
   <template is="foot">
 </template>
-</view>
+</onekit-view>

@@ -1,26 +1,26 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'cover-view'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section page-section-gap">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section page-section-gap">
       <onekit-map Style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}">
-        <cover-view class="cover-view">
-          <cover-view class="container">
-            <cover-view class="flex-wrp" style="flex-direction:row;">
-              <cover-view class="flex-item demo-text-1"></cover-view>
-              <cover-view class="flex-item demo-text-2"></cover-view>
-              <cover-view class="flex-item demo-text-3"></cover-view>
-            </cover-view>
-          </cover-view>
-        </cover-view>
+        <onekit-cover-view Class="cover-view">
+          <onekit-cover-view Class="container">
+            <onekit-cover-view Class="flex-wrp" Style="flex-direction:row;">
+              <onekit-cover-view Class="flex-item demo-text-1"></onekit-cover-view>
+              <onekit-cover-view Class="flex-item demo-text-2"></onekit-cover-view>
+              <onekit-cover-view Class="flex-item demo-text-3"></onekit-cover-view>
+            </onekit-cover-view>
+          </onekit-cover-view>
+        </onekit-cover-view>
       </onekit-map>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

@@ -1,29 +1,29 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'createSelectorQuery'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <movable-area>
-        <movable-view class="target" x="{{x}}" y="{{y}}" direction="all" onChange="getNodeInfo">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-movable-area>
+        <onekit-movable-view Class="target" x="{{x}}" y="{{y}}" direction="all" onChange="getNodeInfo">
           Drag
-        </movable-view>
-      </movable-area>
-    </view>
+        </onekit-movable-view>
+      </onekit-movable-area>
+    </onekit-view>
 
-    <view class="page-section">
-      <view class="metric">
-        <view a:for="{{ metrics }}" a:key='key'>
-          <text class="b">{{ item.key }}</text>
-          <text class="span">{{ item.val }}</text>
-        </view>
-      </view>
-    </view>
-  </view>
+    <onekit-view Class="page-section">
+      <onekit-view Class="metric">
+        <onekit-view a:for="{{ metrics }}" a:key='key'>
+          <onekit-text Class="b">{{ item.key }}</onekit-text>
+          <onekit-text Class="span">{{ item.val }}</onekit-text>
+        </onekit-view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

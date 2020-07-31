@@ -1,23 +1,23 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'Login'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
       <block a:if="{{hasLogin === true}}">
-        <text class="page-body-title">已登录</text>
-        <text class="page-body-text">每个微信号中仅需登录 1 次，后续每次进入页面即可根据微信 id 自动拉取用户信息</text>
+        <onekit-text Class="page-body-title">已登录</onekit-text>
+        <onekit-text Class="page-body-text">每个微信号中仅需登录 1 次，后续每次进入页面即可根据微信 id 自动拉取用户信息</onekit-text>
       </block>
       <block a:if="{{hasLogin === false}}">
-        <text class="page-body-text">每个微信号中仅需登录一次</text>
+        <onekit-text Class="page-body-text">每个微信号中仅需登录一次</onekit-text>
         <onekit-button Class="page-body-button" type="primary" onTap="login">微信登录</onekit-button>
       </block>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

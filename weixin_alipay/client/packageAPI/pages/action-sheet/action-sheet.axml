@@ -1,16 +1,16 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'action-sheet'}}">
 </template>
 
-  <view class="page-body">
-    <view class="btn-area">
+  <onekit-view Class="page-body">
+    <onekit-view Class="btn-area">
       <onekit-button type="default" onTap="actionSheetTap">弹出action sheet</onekit-button>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

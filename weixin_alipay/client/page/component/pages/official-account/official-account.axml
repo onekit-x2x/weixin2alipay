@@ -1,14 +1,14 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'official-account'}}">
 </template>
 
-  <view class="page-body">
-    <official-account></official-account>
-  </view>
+  <onekit-view Class="page-body">
+    <onekit-official-account></onekit-official-account>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

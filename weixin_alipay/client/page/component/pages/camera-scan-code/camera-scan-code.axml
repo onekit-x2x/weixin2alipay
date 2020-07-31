@@ -1,44 +1,44 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'camera'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-body-wrapper">
-      <camera mode="scanCode" flash="off" onScancode="scanCode" onError="error">
-      </camera>
-      <view class="btn-area">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-body-wrapper">
+      <onekit-camera mode="scanCode" flash="off" onScancode="scanCode" onError="error">
+      </onekit-camera>
+      <onekit-view Class="btn-area">
         <onekit-button type="primary" onTap="navigateBack">
           返回正常模式
         </onekit-button>
-      </view>
+      </onekit-view>
       <form>
-        <view class="page-section">
-          <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                <view class="weui-label">类型</view>
-              </view>
-              <view class="weui-cell__bd">
+        <onekit-view Class="page-section">
+          <onekit-view Class="weui-cells weui-cells_after-title">
+            <onekit-view Class="weui-cell weui-cell_input">
+              <onekit-view Class="weui-cell__hd">
+                <onekit-view Class="weui-label">类型</onekit-view>
+              </onekit-view>
+              <onekit-view Class="weui-cell__bd">
                 {{ result.type }}
-              </view>
-            </view>
-            <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                <view class="weui-label">结果</view>
-              </view>
-              <view class="weui-cell__bd">
+              </onekit-view>
+            </onekit-view>
+            <onekit-view Class="weui-cell weui-cell_input">
+              <onekit-view Class="weui-cell__hd">
+                <onekit-view Class="weui-label">结果</onekit-view>
+              </onekit-view>
+              <onekit-view Class="weui-cell__bd">
                 {{ result.result }}
-              </view>
-            </view>
-          </view>
-        </view>
+              </onekit-view>
+            </onekit-view>
+          </onekit-view>
+        </onekit-view>
       </form>
-    </view>
-  </view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

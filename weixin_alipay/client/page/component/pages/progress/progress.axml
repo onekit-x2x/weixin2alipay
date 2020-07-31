@@ -1,32 +1,32 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'progress'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section page-section-gap">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section page-section-gap">
 
-      <view class="progress-box">
-        <progress percent="20" show-info stroke-width="3"></progress>
-      </view>
+      <onekit-view Class="progress-box">
+        <onekit-progress percent="20" show-info stroke-width="3"></onekit-progress>
+      </onekit-view>
 
-      <view class="progress-box">
-        <progress percent="40" active stroke-width="3"></progress>
+      <onekit-view Class="progress-box">
+        <onekit-progress percent="40" active stroke-width="3"></onekit-progress>
         <onekit-icon Class="progress-cancel" type="cancel"></onekit-icon>
-      </view>
+      </onekit-view>
 
-      <view class="progress-box">
-        <progress percent="60" active stroke-width="3"></progress>
-      </view>
+      <onekit-view Class="progress-box">
+        <onekit-progress percent="60" active stroke-width="3"></onekit-progress>
+      </onekit-view>
 
-      <view class="progress-box">
-        <progress percent="80" color="#10AEFF" active stroke-width="3"></progress>
-      </view>
-    </view>
-  </view>
+      <onekit-view Class="progress-box">
+        <onekit-progress percent="80" color="#10AEFF" active stroke-width="3"></onekit-progress>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

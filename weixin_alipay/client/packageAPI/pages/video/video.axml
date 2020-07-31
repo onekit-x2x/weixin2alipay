@@ -1,57 +1,57 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'chooseVideo'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">视频来源</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker range="{{sourceType}}" onChange="sourceTypeChange" value="{{sourceTypeIndex}}">
-              <view class="weui-input">{{sourceType[sourceTypeIndex]}}</view>
-            </picker>
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">摄像头</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker range="{{camera}}" onChange="cameraChange" value="{{cameraIndex}}">
-              <view class="weui-input">{{camera[cameraIndex]}}</view>
-            </picker>
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">拍摄长度</view>
-          </view>
-          <view class="weui-cell__bd">
-            <picker range="{{duration}}" onChange="durationChange" value="{{durationIndex}}">
-              <view class="weui-input">{{duration[durationIndex]}}</view>
-            </picker>
-          </view>
-        </view>
-      </view>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="weui-cells weui-cells_after-title">
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">视频来源</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
+            <onekit-picker range="{{sourceType}}" onChange="sourceTypeChange" value="{{sourceTypeIndex}}">
+              <onekit-view Class="weui-input">{{sourceType[sourceTypeIndex]}}</onekit-view>
+            </onekit-picker>
+          </onekit-view>
+        </onekit-view>
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">摄像头</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
+            <onekit-picker range="{{camera}}" onChange="cameraChange" value="{{cameraIndex}}">
+              <onekit-view Class="weui-input">{{camera[cameraIndex]}}</onekit-view>
+            </onekit-picker>
+          </onekit-view>
+        </onekit-view>
+        <onekit-view Class="weui-cell weui-cell_input">
+          <onekit-view Class="weui-cell__hd">
+            <onekit-view Class="weui-label">拍摄长度</onekit-view>
+          </onekit-view>
+          <onekit-view Class="weui-cell__bd">
+            <onekit-picker range="{{duration}}" onChange="durationChange" value="{{durationIndex}}">
+              <onekit-view Class="weui-input">{{duration[durationIndex]}}</onekit-view>
+            </onekit-picker>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
 
-      <view class="page-body-info">
+      <onekit-view Class="page-body-info">
         <block a:if="{{src === ''}}">
-          <view class="image-plus image-plus-nb" onTap="chooseVideo">
-            <view class="image-plus-horizontal"></view>
-            <view class="image-plus-vertical"></view>
-          </view>
-          <view class="image-plus-text">添加视频</view>
+          <onekit-view Class="image-plus image-plus-nb" onTap="chooseVideo">
+            <onekit-view Class="image-plus-horizontal"></onekit-view>
+            <onekit-view Class="image-plus-vertical"></onekit-view>
+          </onekit-view>
+          <onekit-view Class="image-plus-text">添加视频</onekit-view>
         </block>
         <block a:if="{{src != ''}}">
           <onekit-video src="{{src}}" Class="video"></onekit-video>
         </block>
-      </view>
-    </view>
-  </view>
-</view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
+</onekit-view>

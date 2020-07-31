@@ -2,27 +2,27 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'getPerformance'}}">
 </template>
   <block a:if="{{support}}">
     <onekit-button type="primary" on:tap="getPerformanceInfo">
       获取性能数据
     </onekit-button>
-    <view class="page-section">
-      <view a:for="{{array}}" class="performance-list">
-        <view class="performance-item">
-          <view>{{item.entryType}}：{{item.name}}</view>
-          <view a:if="{{item.duration}}">耗时：{{item.duration}}</view>
-          <view a:if="{{item.startTime}}">时间：{{item.startTime}}</view>
-        </view>
-      </view>
-    </view>
+    <onekit-view Class="page-section">
+      <onekit-view a:for="{{array}}" Class="performance-list">
+        <onekit-view Class="performance-item">
+          <onekit-view>{{item.entryType}}：{{item.name}}</onekit-view>
+          <onekit-view a:if="{{item.duration}}">耗时：{{item.duration}}</onekit-view>
+          <onekit-view a:if="{{item.startTime}}">时间：{{item.startTime}}</onekit-view>
+        </onekit-view>
+      </onekit-view>
+    </onekit-view>
   </block>
-  <view style="text-align: center" a:else>
+  <onekit-view Style="text-align: center" a:else>
     微信版本过低，暂不支持本功能
-  </view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

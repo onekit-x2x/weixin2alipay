@@ -1,23 +1,23 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'loadFontFace'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-body-info display-area {{ loaded ? 'font-loaded' : '' }}">
-        <text a:if="{{!loaded}}">Load {{ fontFamily }}</text>
-        <text a:else>{{ fontFamily }} is loaded</text>
-      </view>
-      <view class="btn-area">
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-body-info display-area {{ loaded ? 'font-loaded' : '' }}">
+        <onekit-text a:if="{{!loaded}}">Load {{ fontFamily }}</onekit-text>
+        <onekit-text a:else>{{ fontFamily }} is loaded</onekit-text>
+      </onekit-view>
+      <onekit-view Class="btn-area">
         <onekit-button type="primary" onTap="loadFontFace">加载字体</onekit-button>
         <onekit-button type="default" onTap="clear">清除</onekit-button>
-      </view>
-    </view>
-  </view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

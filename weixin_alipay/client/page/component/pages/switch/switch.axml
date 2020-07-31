@@ -1,38 +1,38 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'switch'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section page-section-gap">
-      <view class="page-section-title">默认样式</view>
-      <view class="body-view">
-        <switch checked onChange="switch1Change"></switch>
-        <switch onChange="switch2Change"></switch>
-      </view>
-    </view>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section page-section-gap">
+      <onekit-view Class="page-section-title">默认样式</onekit-view>
+      <onekit-view Class="body-view">
+        <onekit-switch checked onChange="switch1Change"></onekit-switch>
+        <onekit-switch onChange="switch2Change"></onekit-switch>
+      </onekit-view>
+    </onekit-view>
 
-    <view class="page-section">
-      <view class="page-section-title">推荐展示样式</view>
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_switch">
-          <view class="weui-cell__bd">开启中</view>
-          <view class="weui-cell__ft">
-            <switch checked></switch>
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_switch">
-          <view class="weui-cell__bd">关闭</view>
-          <view class="weui-cell__ft">
-            <switch></switch>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-section-title">推荐展示样式</onekit-view>
+      <onekit-view Class="weui-cells weui-cells_after-title">
+        <onekit-view Class="weui-cell weui-cell_switch">
+          <onekit-view Class="weui-cell__bd">开启中</onekit-view>
+          <onekit-view Class="weui-cell__ft">
+            <onekit-switch checked></onekit-switch>
+          </onekit-view>
+        </onekit-view>
+        <onekit-view Class="weui-cell weui-cell_switch">
+          <onekit-view Class="weui-cell__bd">关闭</onekit-view>
+          <onekit-view Class="weui-cell__ft">
+            <onekit-switch></onekit-switch>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

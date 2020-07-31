@@ -1,30 +1,30 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'getUserInfo'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-body-info">
-        <view class="page-body-title">用户信息</view>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section">
+      <onekit-view Class="page-body-info">
+        <onekit-view Class="page-body-title">用户信息</onekit-view>
         <block a:if="{{hasUserInfo === false}}">
-          <text class="page-body-text">未获取</text>
-          <text class="page-body-text">点击绿色按钮可获取用户头像及昵称</text>
+          <onekit-text Class="page-body-text">未获取</onekit-text>
+          <onekit-text Class="page-body-text">点击绿色按钮可获取用户头像及昵称</onekit-text>
         </block>
         <block a:if="{{hasUserInfo === true}}">
-          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <onekit-image Class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></onekit-image>
+          <onekit-text Class="userinfo-nickname">{{userInfo.nickName}}</onekit-text>
         </block>
-      </view>
-      <view class="btn-area">
+      </onekit-view>
+      <onekit-view Class="btn-area">
         <onekit-button type="primary" open-type="getUserInfo" onGetuserinfo="getUserInfo">获取用户信息</onekit-button>
         <onekit-button onTap="clear">清空</onekit-button>
-      </view>
-    </view>
-  </view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

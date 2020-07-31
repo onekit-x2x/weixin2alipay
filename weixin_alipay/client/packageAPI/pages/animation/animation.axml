@@ -1,23 +1,23 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: '关键帧动画'}}">
 </template>
 
-  <view class="page-body">
-  <view class="page-section">
-    <view class="page-section-title">
-      <text>关键帧动画\n\n从小程序基础库 2.9.0 开始支持一种更友好的动画创建方式，用于代替旧的 wx.createAnimation</text>
-    </view>  
-    <view id="container1" style="{{containerStyle1}}">
+  <onekit-view Class="page-body">
+  <onekit-view Class="page-section">
+    <onekit-view Class="page-section-title">
+      <onekit-text>关键帧动画\n\n从小程序基础库 2.9.0 开始支持一种更友好的动画创建方式，用于代替旧的 wx.createAnimation</onekit-text>
+    </onekit-view>  
+    <onekit-view Id="container1" Style="{{containerStyle1}}">
       <onekit-button Class="block1" Style="width: 150px; margin: 50px auto;">示例按钮</onekit-button>
       <a class="block1" style="display: block; margin: 50px auto; width: 150px; text-align: center;">示例超链接</a>
-      <text class="block1" style="display: block; margin: 50px auto; width: 150px; text-align: center;">示例文本</text>
-    </view>
+      <onekit-text Class="block1" Style="display: block; margin: 50px auto; width: 150px; text-align: center;">示例文本</onekit-text>
+    </onekit-view>
     <onekit-button disabled="{{!canIUse}}" type="primary" onTap="change">开启动画</onekit-button>
-  </view>
-  </view>
+  </onekit-view>
+  </onekit-view>
   <template is="foot">
 </template>
-</view>
+</onekit-view>

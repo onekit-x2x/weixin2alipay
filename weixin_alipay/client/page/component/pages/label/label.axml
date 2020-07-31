@@ -1,43 +1,43 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: 'label'}}">
 </template>
 
-  <view class="page-body">
-    <view class="page-section page-section-gap">
-      <view class="page-section-title">表单组件在label内</view>
-      <checkbox-group class="group" onChange="checkboxChange">
-        <view a:for="{{checkboxItems}}" class="label-1">
-          <label>
+  <onekit-view Class="page-body">
+    <onekit-view Class="page-section page-section-gap">
+      <onekit-view Class="page-section-title">表单组件在label内</onekit-view>
+      <onekit-checkbox-group Class="group" onChange="checkboxChange">
+        <onekit-view a:for="{{checkboxItems}}" Class="label-1">
+          <onekit-label>
             <onekit-checkbox value="{{item.name}}" checked="{{item.checked}}"></onekit-checkbox>
-            <text class="label-1-text">{{item.value}}</text>
-          </label>
-        </view>
-      </checkbox-group>
-    </view>
+            <onekit-text Class="label-1-text">{{item.value}}</onekit-text>
+          </onekit-label>
+        </onekit-view>
+      </onekit-checkbox-group>
+    </onekit-view>
 
-    <view class="page-section page-section-gap">
-      <view class="page-section-title">label用for标识表单组件</view>
-      <radio-group class="group" onChange="radioChange">
-        <view a:for="{{radioItems}}" class="label-2">
-          <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
-          <label class="label-2-text" for="{{item.name}}"><text>{{item.name}}</text></label>
-        </view>
-      </radio-group>
-    </view>
+    <onekit-view Class="page-section page-section-gap">
+      <onekit-view Class="page-section-title">label用for标识表单组件</onekit-view>
+      <onekit-radio-group Class="group" onChange="radioChange">
+        <onekit-view a:for="{{radioItems}}" Class="label-2">
+          <onekit-radio Id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></onekit-radio>
+          <onekit-label Class="label-2-text" for="{{item.name}}"><onekit-text>{{item.name}}</onekit-text></onekit-label>
+        </onekit-view>
+      </onekit-radio-group>
+    </onekit-view>
 
-    <view class="page-section page-section-gap">
-      <view class="page-section-title">label内有多个时选中第一个</view>
-      <label class="label-3">
+    <onekit-view Class="page-section page-section-gap">
+      <onekit-view Class="page-section-title">label内有多个时选中第一个</onekit-view>
+      <onekit-label Class="label-3">
         <onekit-checkbox Class="checkbox-3">选项一</onekit-checkbox>
         <onekit-checkbox Class="checkbox-3">选项二</onekit-checkbox>
-        <view class="label-3-text">点击该label下的文字默认选中第一个checkbox</view>
-      </label>
-    </view>
-  </view>
+        <onekit-view Class="label-3-text">点击该label下的文字默认选中第一个checkbox</onekit-view>
+      </onekit-label>
+    </onekit-view>
+  </onekit-view>
 
   <template is="foot">
 </template>
-</view>
+</onekit-view>

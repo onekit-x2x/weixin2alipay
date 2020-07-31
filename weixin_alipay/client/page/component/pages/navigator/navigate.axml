@@ -1,7 +1,7 @@
 <import src="../../../common/head.axml"/>
 <import src="../../../common/foot.axml"/>
 
-<view class="container">
+<onekit-view Class="container">
   <template is="head" data="{{title: '新建的页面'}}">
 </template>
-</view>
+</onekit-view>

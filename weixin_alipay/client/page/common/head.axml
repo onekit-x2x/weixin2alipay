@@ -4,5 +4,5 @@
     <onekit-view Class="page-head-title">{{title}}</onekit-view>
     <onekit-view Class="page-head-line"></onekit-view>
     <onekit-view a:if="{{desc}}" Class="page-head-desc">{{desc}}</onekit-view>
-  </onekit-view>
+  </onekit-view> 
 </template>

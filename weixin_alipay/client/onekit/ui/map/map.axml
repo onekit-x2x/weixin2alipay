@@ -1,7 +1,7 @@
 <map 
-id="map"
-class="onekit-map {{Class}}"
-style="{{Style}}"
+  id="map"
+  class="onekit-map {{Class}}"
+  style="{{Style}}"
   longitude="{{longitude}}"
   latitude="{{latitude}}"
   scale="{{scale}}"
@@ -12,4 +12,6 @@ style="{{Style}}"
   polygon="{{polygon}}"
   include-points="{{include-points}}"
   show-location="{{show-location}}"
-></map>
+>
+<slot></slot>
+</map>

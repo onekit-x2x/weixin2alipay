@@ -1,7 +1,8 @@
 {
 	"pages":[
+	"page/component/index",
 		"page/component/pages/canvas-2d/canvas-2d",
-		"page/component/index",
+		
 		"page/component/pages/view/view",
 		"page/component/pages/scroll-view/scroll-view",
 		"page/component/pages/swiper/swiper",

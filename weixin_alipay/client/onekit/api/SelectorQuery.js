@@ -1,3 +1,4 @@
+import fields from './fields'
 export default class SelectorQuery {
 
   boundingClientRect() {
@@ -11,6 +12,7 @@ export default class SelectorQuery {
   }
   select(selector) {
     console.log("xxxxxxxxxxxxxxxx", selector)
+    new fields(selector)
     if (selector) {
     this.select(selector).scrollOffset().exec((ret) => {
       console.log(ret);

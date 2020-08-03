@@ -31,7 +31,7 @@ Component({
   methods: {
     input_Input(e) {
       if (this.props.onInput) {
-        this.props.onInput({})
+        this.props.onInput(e)
       }
     },
     input_Focus(e){

@@ -1,5 +1,6 @@
 {
 	"pages":[
+		"page/component/pages/canvas-2d/canvas-2d",
 		"page/component/index",
 		"page/component/pages/view/view",
 		"page/component/pages/scroll-view/scroll-view",
@@ -41,7 +42,6 @@
 		"page/component/pages/open-data/open-data",
 		"page/component/pages/web-view/web-view",
 		"page/component/pages/editor/editor",
-		"page/component/pages/canvas-2d/canvas-2d",
 		"page/component/pages/webgl/webgl"
 	],
 	"tabBar":{

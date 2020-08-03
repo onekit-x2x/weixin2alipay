@@ -41,7 +41,7 @@ Component({
     },
     textarea_Blur(e){
       if (this.props.onBlur) {
-        this.props.onBlur({})
+        this.props.onBlur(e)
       }
     },
     textarea_Confirm(e){

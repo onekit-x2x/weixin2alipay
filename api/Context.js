@@ -1,4 +1,4 @@
-import onekit from "../weixin2alipay";
+import thekit from "../TheKit.js";
 export default class Context {
   constructor() {
     this._actions = [];
@@ -20,16 +20,16 @@ export default class Context {
     this._actions.push({ method: "setGlobalAlpha", data: [alpha] });
   }
   setFillStyle(color) {
-    color = {wx,OnekitPage}.fix(color);
-    this._actions.push({ method: "setFillStyle", data: ["normal", {wx,OnekitPage}.str2array(color)] });
+    color = thekit.fix(color);
+    this._actions.push({ method: "setFillStyle", data: ["normal", thekit.str2array(color)] });
   }
   setStrokeStyle(color) {
-    color = {wx,OnekitPage}.fix(color);
-    this._actions.push({ method: "setStrokeStyle", data: ["normal", {wx,OnekitPage}.str2array(color)] });
+    color = thekit.fix(color);
+    this._actions.push({ method: "setStrokeStyle", data: ["normal", thekit.str2array(color)] });
   }
   setShadow(x, y, blur, color) {
-    color = {wx,OnekitPage}.fix(color);
-    this._actions.push({ method: "setShadow", data: [x, y, blur, {wx,OnekitPage}.str2array(color)] });
+    color = thekit.fix(color);
+    this._actions.push({ method: "setShadow", data: [x, y, blur, thekit.str2array(color)] });
   }
   setLineCap(cap) {
     this._actions.push({ method: "setLineCap", data: [cap] });

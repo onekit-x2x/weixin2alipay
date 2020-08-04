@@ -3,9 +3,8 @@ import CanvasContext from "./api/CanvasContext";
 import VideoContext from "./api/VideoContext";
 import SelectorQuery from "./api/SelectorQuery";
 import Context from "./api/Context";
-
 import wx_cloud from "./wx.cloud";
-import onekit from "./weixin2alipay";
+import thekit from "./TheKit.js";
 export default class wx {
   // ///////////////// animation //////////////////////////
   static createAnimation(object) {
@@ -1013,7 +1012,7 @@ export default class wx {
 
   }
 
-  static login = function (object) {
+  static login  (object) {
     var that = this;
     if (!object) {
       return my.getAuthCode(object);

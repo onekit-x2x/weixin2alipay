@@ -4,18 +4,19 @@ export default class SelectorQuery {
     this.aliapySelectQuery = aliapySelectQuery;
   }
   in() {
-    return new NodesRef(this.aliapySelectQuery);
-  }
-  exec() {
-    return new NodesRef(this.aliapySelectQuery);
+    return this;
   }
   select(selector) {
-    return new NodesRef(this.aliapySelectQuery);
+    const alipayNodeRef = this.aliapySelectQuery.select(selector);
+    return new NodesRef(alipayNodeRef);
   }
-  selectAll() {
+  selectAll(selector) {
     return new NodesRef(this.aliapySelectQuery);
   }
   selectViewport() {
+    return new NodesRef(this.aliapySelectQuery);
+  }
+  exec(callback) {
     return new NodesRef(this.aliapySelectQuery);
   }
 }

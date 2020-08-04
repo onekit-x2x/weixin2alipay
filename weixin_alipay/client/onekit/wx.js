@@ -1,7 +1,7 @@
 
 import CanvasContext from "./api/CanvasContext";
 import VideoContext from "./api/VideoContext";
-
+import SelectorQuery from "./api/SelectorQuery";
 import Context from "./api/Context";
 
 import wx_cloud from "./wx.cloud";
@@ -12,7 +12,7 @@ export default class wx {
     return my.createAnimation(object);
   }
   //////////////////onKeyboardHeightChange//////////////////
-  static onKeyboardHeightChange(object){
+  static onKeyboardHeightChange(object) {
     return
   }
   // /////////////// basic ////////////////////////////////
@@ -207,6 +207,10 @@ export default class wx {
   static createVideoContext(videoId, ui) {
     return new VideoContext(my.createVideoContext(videoId));
   }
+    // //////////// WXML ///////////////
+  static createSelectorQuery(object) {
+    return new SelectorQuery(my.createSelectorQuery(object));
+  }
   static canvasToTempFilePath(object) {
     var object2 = {
       canvasId: object.canvasId
@@ -259,7 +263,7 @@ export default class wx {
     my.setStorage({
       key: "wx_token",
       data: {
-        wx_token:wx_token,
+        wx_token: wx_token,
       },
     })
     my_object.success = function (wx_res) {
@@ -1675,8 +1679,7 @@ export default class wx {
   static onWindowResize(object) { return my.onWindowResize(object); }
   // //////////// Worker ///////////////
   static createWorker(object) { return my.createWorker(object); }
-  // //////////// WXML ///////////////
-  static createSelectorQuery(object) { return my.createSelectorQuery(object); }
+
   static createIntersectionObserver(object) { return my.createIntersectionObserver(object); }
   // ///////////////////////////////////
   static hideKeyboard(object) { return my.hideKeyboard(object); }

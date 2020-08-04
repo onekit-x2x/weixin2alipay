@@ -1,12 +1,11 @@
 {
   "name": "weixin2alipay",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Weixin-Miniprogram SDK for Alipay-Miniprogram",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "files":["es"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/www-onekit-cn/weixin2alipay.git"

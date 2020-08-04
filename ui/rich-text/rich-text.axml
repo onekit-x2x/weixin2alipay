@@ -1,4 +1,0 @@
-<rich-text id="{{Id}}" class="{{Class}}" style="{{Style}}" nodes="{{nodes}}">
-  <slot>
-  </slot>
-</rich-text>

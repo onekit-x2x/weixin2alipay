@@ -1,9 +1,0 @@
-<label
-id="{{Id}}"
-name="{{name}}"
-class="onekit-label {{Class}}"
-style="{{Style}}"
-for="{{for}}"
->
-<slot></slot>
-</label>

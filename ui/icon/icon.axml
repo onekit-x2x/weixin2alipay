@@ -1,9 +1,0 @@
-<view 
-id="{{Id}}"
-class="onekit-icon-{{type}} {{Class}}"
-style="color:{{color}};font-size:{{size}}px; {{Style}}"
-type="{{type}}"
-size="{{size}}"
-color="{{color}}"
->
-</view>

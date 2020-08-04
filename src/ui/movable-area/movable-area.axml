@@ -1,0 +1,9 @@
+<movable-area
+id="{{Id}}"
+class="onekit-movable-area {{Class}}"
+style="{{Style}}"
+scale-area="{{scaleArea}}"
+>
+<slot>
+</slot>
+</movable-area>

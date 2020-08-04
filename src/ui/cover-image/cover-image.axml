@@ -1,0 +1,9 @@
+<cover-image
+id="Id"
+class="onekit-cover-image {{Class}}"
+style="{{Style}}"
+src="{{src}}"
+onTap="coverImage_tap"
+>
+<slot></slot>
+</cover-image>

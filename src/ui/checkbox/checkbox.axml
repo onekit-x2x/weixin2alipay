@@ -1,0 +1,13 @@
+<view>
+<checkbox
+  id="{{Id}}"
+  class="onekit-checkbox {{Class}}"
+ style="{{Style}}"
+  name="{{name}}"
+  value="{{value}}" 
+  disabled="{{disabled}}"
+  checked="{{checked}}"
+  color="{{color}}"
+  onChange="checkbox_Change"/>
+<slot/>
+</view>

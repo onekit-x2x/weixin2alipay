@@ -1,0 +1,44 @@
+<button
+ class="onekit-button {{Class}}"
+ style="{{Style}}"
+ id="{{Id}}"
+ name="{{name}}"
+  scope="phoneNumber"
+  onTap="button_onTap"
+  size="{{size}}"
+  type="{{type}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  loading="{{loading}}"
+  form-type="{{formType}}"
+  open-type="{{openType}}"
+  hover-class="{{hoverClass}}"
+  hover-stop-propagation="{{hoverStopPropagation}}"
+  hover-start-time="{{hoverStartTime}}"
+  hover-stay-time="{{hoverStayTime}}"
+
+  onGetAuthorize="onGetAuthorize"
+  onError="onError"
+  lang="{{lang}}"
+  bindgetuserinfo="{{bindgetuserinfo}}"
+  session-from="{{session-from}}"
+  send-message-title="{{send-message-title}}"
+  send-message-path="{{send-message-path}}"
+  send-message-img="{{send-message-img}}"
+  show-message-card="{{show-message-card}}"
+  bindcontact="{{bindcontact}}"
+  bindgetphonenumber="{{bindgetphonenumber}}"
+  app-parameter="{{app-parameter}}"
+  binderror="{{binderror}}"
+  bindlaunchapp="{{bindlaunchapp}}"
+  bindopensetting="{{bindopensetting}}"
+  aria-label="{{aria-label}}" 
+  >
+ <slot/>
+</button> 
+<cover-view  onTap="contactBG_tap" > 
+  <view   onTap="contactBG_tap" hidden="{{hideContact}}" style="padding-top:200rpx;text-align: center; width: 750rpx;height:100%;position:absolute;left:0;top:0;font-size: 20px;background-color: rgba(0, 0, 0, 0.5)"
+>
+<contact-button size="400rpx" tnt-inst-id="FUCPINMW" scene="SCE00038444"/>
+</view>
+</cover-view>

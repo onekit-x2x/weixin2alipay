@@ -208,8 +208,8 @@ export default class wx {
     return new VideoContext(my.createVideoContext(videoId));
   }
     // //////////// WXML ///////////////
-  static createSelectorQuery(object) {
-    return new SelectorQuery(my.createSelectorQuery(object));
+  static createSelectorQuery() {
+    return new SelectorQuery(my.createSelectorQuery());
   }
   static canvasToTempFilePath(object) {
     var object2 = {

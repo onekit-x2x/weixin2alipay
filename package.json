@@ -1,0 +1,19 @@
+{
+  "name": "weixin2alipay",
+  "version": "1.0.0",
+  "description": "Weixin-Miniprogram SDK for Alipay-Miniprogram",
+  "main": "weixin2alipay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/www-onekit-cn/weixin2alipay.git"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/www-onekit-cn/weixin2alipay/issues"
+  },
+  "homepage": "https://github.com/www-onekit-cn/weixin2alipay#readme"
+}

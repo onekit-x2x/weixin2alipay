@@ -1,7 +1,0 @@
-<import src="../../../common/head.axml"/>
-<import src="../../../common/foot.axml"/>
-
-<onekit-view Class="container">
-  <template is="head" data="{{title: '当前页'}}">
-</template>
-</onekit-view>

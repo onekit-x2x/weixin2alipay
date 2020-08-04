@@ -1,5 +1,0 @@
-/* pages/nearby/nearby.acss */
-.swiper {
-  width: 100%;
-  max-width: 600px;
-}

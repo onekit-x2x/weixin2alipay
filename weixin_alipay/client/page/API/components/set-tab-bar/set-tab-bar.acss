@@ -1,6 +1,0 @@
-@import "../../../common/lib/weui.acss";
-@import "../../../../app.acss";
-
-.weui-label {
-  width: 5em;
-}

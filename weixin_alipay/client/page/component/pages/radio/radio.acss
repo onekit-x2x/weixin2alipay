@@ -1,5 +1,0 @@
-@import "../../../common/lib/weui.acss";
-
-.radio {
-  margin-right: 10px;
-}

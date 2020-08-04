@@ -1,7 +1,0 @@
-{
-  "cloud": {
-    "type": "miniappServerless"
-  },
-  "component2": true,
-  "miniprogramRoot": "client"
-}

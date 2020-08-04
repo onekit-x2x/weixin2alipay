@@ -1,9 +1,0 @@
-<import src="../../../common/head.axml"/>
-<import src="../../../common/foot.axml"/>
-
-<onekit-view Class="container">
-  <template is="head" data="{{title: '小窗模式'}}">
-</template>
-  <template is="foot">
-</template>
-</onekit-view>

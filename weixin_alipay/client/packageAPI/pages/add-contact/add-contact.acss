@@ -1,5 +1,0 @@
-@import "../../../common/lib/weui.acss";
-
-input {
-  width: 100%;
-}

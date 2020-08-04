@@ -4,7 +4,7 @@ import VideoContext from "./api/VideoContext";
 import SelectorQuery from "./api/SelectorQuery";
 import Context from "./api/Context";
 import wx_cloud from "./wx.cloud";
-import thekit from "./TheKit.js";
+//import thekit from "./lib/TheKit.js";
 export default class wx {
   // ///////////////// animation //////////////////////////
   static createAnimation(object) {

@@ -1,36 +1,6 @@
 {
-  "_from": "weixin2alipay@latest",
-  "_id": "weixin2alipay@1.0.11",
-  "_inBundle": false,
-  "_integrity": "sha1-YB2ccFxhs5pO3w+IxHe1ko2WuN4=",
-  "_location": "/weixin2alipay",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "weixin2alipay@latest",
-    "name": "weixin2alipay",
-    "escapedName": "weixin2alipay",
-    "rawSpec": "latest",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npm.taobao.org/weixin2alipay/download/weixin2alipay-1.0.10.tgz?cache=0&sync_timestamp=1596554306061&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fweixin2alipay%2Fdownload%2Fweixin2alipay-1.0.10.tgz",
-  "_shasum": "601d9c705c61b39a4edf0f88c477b5928d96b8de",
-  "_spec": "weixin2alipay@latest",
-  "_where": "/Users/zhangjin/MiniProjects/blank2",
-  "author": "",
-  "bugs": {
-    "url": "https://github.com/www-onekit-cn/weixin2alipay/issues"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
+  "author": "www.onekit.cn",
   "description": "Weixin-Miniprogram SDK for Alipay-Miniprogram",
-  "homepage": "https://github.com/www-onekit-cn/weixin2alipay#readme",
   "license": "AGPL-3.0",
   "name": "weixin2alipay",
   "repository": {
@@ -40,5 +10,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.10"
+  "version": "1.0.12"
 }

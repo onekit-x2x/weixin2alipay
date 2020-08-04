@@ -1,8 +1,7 @@
-import TheKit from "./TheKit"
 export default function OnekitComponent(data){
   var methods = data.methods || {};
   methods.triggerEvent = function(name,data,options){
-    var funcName = `on${TheKit.firstUpper(name)}`;
+    var funcName = `on${thekit.firstUpper(name)}`;
     if(this.props[funcName]){
       this.props[funcName](data);
     }

@@ -1,43 +1,22 @@
-import fields from './fields'
+import NodesRef from "./NodesRef";
 export default class SelectorQuery {
-
-  boundingClientRect() {
-
+  constructor(aliapySelectQuery) {
+    this.aliapySelectQuery = aliapySelectQuery;
   }
-  exec() {
-
-  }
-  scrollOffset() {
-
+  in() {
+    return this;
   }
   select(selector) {
-    console.log("xxxxxxxxxxxxxxxx", selector)
-    new fields(selector)
-    if (selector) {
-    this.select(selector).scrollOffset().exec((ret) => {
-      console.log(ret);
-    })
-      //  fields({
-      //     id: false,
-      //     dataset: false,
-      //     mark: false,
-      //     rect: false,
-      //     size: false,
-      //     scrollOffset: false,
-      //     properties: [],
-      //     computedStyle: [],
-      //     context: false,
-      //     node: false,
-      //     function(res) {
-      //       console.log(res)
-      //     }
-      //   })
-    }
+    const alipayNodeRef = this.aliapySelectQuery.select(selector);
+    return new NodesRef(alipayNodeRef);
   }
-  selectAll() {
-
+  selectAll(selector) {
+    return new NodesRef(this.aliapySelectQuery);
   }
   selectViewport() {
-
+    return new NodesRef(this.aliapySelectQuery);
+  }
+  exec(callback) {
+    return new NodesRef(this.aliapySelectQuery);
   }
 }

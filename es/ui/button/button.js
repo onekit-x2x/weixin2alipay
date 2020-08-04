@@ -1,4 +1,4 @@
-import wx from "/onekit/wx";
+import wx from "../../wx";
 Component({
   mixins: [],
   data: {

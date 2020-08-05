@@ -1,3 +1,4 @@
+import wx from "./wx.js";
 export default function OnekitComponent(object){
   const alipay_object = {
     onInit(query){
@@ -48,7 +49,7 @@ export default function OnekitComponent(object){
     methods:{
     }
   };
-  for(const key in object){
+  for(const key of Object.keys(object)){
     const value = object[key];
     if(!value){
       continue;
@@ -56,7 +57,7 @@ export default function OnekitComponent(object){
     switch(key){
       case "properties":
         alipay_object.props = {};
-        for(const p in value){
+        for(const p of Object.keys(value)){
           const v = value[p];
           alipay_object.props[p] = (v && v.value ? v.value:null);
         }
@@ -71,5 +72,6 @@ export default function OnekitComponent(object){
       this.props[funcName](data);
     }
   }
+  alipay_object.methods.createSelectorQuery = wx.createSelectorQuery;
   return Component(alipay_object);
 }

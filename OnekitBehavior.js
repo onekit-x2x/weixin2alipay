@@ -57,7 +57,8 @@ export default function OnekitBehavior(object){
       case "properties":
         alipay_object.props = {};
         for(const p in value){
-          alipay_object.props[p] = (value[p].value || null);
+          const v = value[p];
+          alipay_object.props[p] = (v && v.value ? v.value:null);
         }
         break;
       default:  

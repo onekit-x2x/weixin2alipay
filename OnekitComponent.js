@@ -2,9 +2,9 @@ export default function OnekitComponent(object){
   const alipay_object = {
     onInit(query){
       var created;
-      if(object.lifetimes.created){
+      if(object.lifetimes && object.lifetimes.created){
         created = object.lifetimes.created;
-      }else if(created){
+      }else if(object.created){
         created = object.created;
       }else{
         created = function(){};
@@ -13,9 +13,9 @@ export default function OnekitComponent(object){
     },
     didMount(){
       var attached;
-      if(object.lifetimes.attached){
+      if(object.lifetimes && object.lifetimes.attached){
         attached = object.lifetimes.attached;
-      }else if(attached){
+      }else if(object.attached){
         attached = object.attached;
       }else{
         attached = function(){};
@@ -26,7 +26,7 @@ export default function OnekitComponent(object){
         var ready;
         if(object.lifetimes.ready){
           ready = object.lifetimes.ready;
-        }else if(attached){
+        }else if(object.ready){
           ready = object.ready;
         }else{
           ready = function(){};
@@ -36,9 +36,9 @@ export default function OnekitComponent(object){
     },
     didUnmount(){
       var detached;
-      if(object.lifetimes.detached){
+      if(object.lifetimes && object.lifetimes.detached){
         detached = object.lifetimes.detached;
-      }else if(created){
+      }else if(object.created){
         detached = object.detached;
       }else{
         detached = function(){};
@@ -46,7 +46,7 @@ export default function OnekitComponent(object){
       detached();
     },
     methods:{
-      triggerEvent = function(name,data,options){
+      triggerEvent(name,data,options){
         var funcName = `on${thekit.firstUpper(name)}`;
         if(this.props[funcName]){
           this.props[funcName](data);

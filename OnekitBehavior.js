@@ -46,24 +46,28 @@ export default function OnekitBehavior(object){
       detached();
     },
     methods:{
-      triggerEvent(name,data,options){
-        var funcName = `on${thekit.firstUpper(name)}`;
-        if(this.props[funcName]){
-          this.props[funcName](data);
-        }
-      }
     }
   };
   for(const key in object){
+    const value = object[key];
+    if(!value){
+      continue;
+    }
     switch(key){
       case "properties":
         alipay_object.props = {};
-        for(const p in object.properties){
-          alipay_object.props[p] = (object.properties[p].value || null);
+        for(const p in value){
+          alipay_object.props[p] = (value[p].value || null);
         }
         break;
       default:  
-       alipay_object[key] = object[key];
+       alipay_object[key] = value;
+    }
+  }
+  alipay_object.methods.triggerEven = function(name,data,options){
+    var funcName = `on${thekit.firstUpper(name)}`;
+    if(this.props[funcName]){
+      this.props[funcName](data);
     }
   }
   return alipay_object;

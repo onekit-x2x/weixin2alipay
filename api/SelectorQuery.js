@@ -1,4 +1,3 @@
-import NodesRef from "./NodesRef";
 export default class SelectorQuery {
   constructor(aliapySelectQuery) {
     this.aliapySelectQuery = aliapySelectQuery;
@@ -7,16 +6,40 @@ export default class SelectorQuery {
     return this;
   }
   select(selector) {
-    const alipayNodeRef = this.aliapySelectQuery.select(selector);
-    return new NodesRef(alipayNodeRef);
+    this.aliapySelectQuery.select(selector);
+    return this;
   }
   selectAll(selector) {
-    return new NodesRef(this.aliapySelectQuery);
+    this.aliapySelectQuery.selectAll(selector);
+    return this;
   }
   selectViewport() {
-    return new NodesRef(this.aliapySelectQuery);
+    this.aliapySelectQuery.selectViewport();
+    return this;
   }
   exec(callback) {
-    return new NodesRef(this.aliapySelectQuery);
+    this.aliapySelectQuery.exec(callback);
+    return this;
+  }
+  //////////////
+  fields(callback) {
+    this.aliapySelectQuery.fields(callback);
+    return this;
+  }
+  boundingClientRect(callback) {
+    this.aliapySelectQuery.boundingClientRect(callback);
+    return this;
+  }
+  context(callback) {
+    this.aliapySelectQuery.context(callback);
+    return this;
+  }
+  node(callback) {
+    this.aliapySelectQuery.node(callback);
+    return this;
+  }
+  scrollOffset(callback) {
+    this.aliapySelectQuery.scrollOffset(callback);
+    return this;
   }
 }

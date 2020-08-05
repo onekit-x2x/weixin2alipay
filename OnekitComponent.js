@@ -9,7 +9,7 @@ export default function OnekitComponent(object){
       }else{
         created = function(){};
       }
-      created(query);
+      created(this.query);
     },
     didMount(){
       var attached;
@@ -20,9 +20,9 @@ export default function OnekitComponent(object){
       }else{
         attached = function(){};
       }
-      attached();
+      attached.apply(this);
       ////////
-      setTimeout(function(){
+    //  setTimeout(function(){
         var ready;
         if(object.lifetimes && object.lifetimes.ready){
           ready = object.lifetimes.ready;
@@ -31,8 +31,8 @@ export default function OnekitComponent(object){
         }else{
           ready = function(){};
         }
-        ready();
-      },100);
+        ready.apply(this);
+    //  },100);
     },
     didUnmount(){
       var detached;
@@ -43,7 +43,7 @@ export default function OnekitComponent(object){
       }else{
         detached = function(){};
       }
-      detached();
+      detached.apply(this);
     },
     methods:{
     }

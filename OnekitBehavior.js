@@ -46,7 +46,7 @@ export default function OnekitBehavior(object){
       detached();
     },
     methods:{
-      triggerEvent = function(name,data,options){
+      triggerEvent(name,data,options){
         var funcName = `on${thekit.firstUpper(name)}`;
         if(this.props[funcName]){
           this.props[funcName](data);

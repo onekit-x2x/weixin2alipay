@@ -1,4 +1,7 @@
-export default function OnekitPage(data){
-  data.animate = function(){};
-  return Page(data);
+export default function OnekitPage(object){
+  const alipay_object = object;
+  alipay_object.animate = function(){
+
+  };
+  return Page(alipay_object);
 }

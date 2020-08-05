@@ -1,5 +1,6 @@
 
-export default function OnekitApp(data){
+export default function OnekitApp(object){
   my.hideAllFavoriteMenu();
-  return App(data);
+  const alipay_object = object;
+  return App(alipay_object);
 }

@@ -1,4 +1,4 @@
-export default function OnekitComponent(object){
+export default function OnekitBehavior(object){
   const alipay_object = {
     onInit(query){
       var created;
@@ -66,5 +66,5 @@ export default function OnekitComponent(object){
        alipay_object[key] = object[key];
     }
   }
-  return Component(alipay_object);
+  return alipay_object;
 }

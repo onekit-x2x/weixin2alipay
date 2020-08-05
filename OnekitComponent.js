@@ -24,7 +24,7 @@ export default function OnekitComponent(object){
       ////////
       setTimeout(function(){
         var ready;
-        if(object.lifetimes.ready){
+        if(object.lifetimes && object.lifetimes.ready){
           ready = object.lifetimes.ready;
         }else if(object.ready){
           ready = object.ready;
@@ -38,7 +38,7 @@ export default function OnekitComponent(object){
       var detached;
       if(object.lifetimes && object.lifetimes.detached){
         detached = object.lifetimes.detached;
-      }else if(object.created){
+      }else if(object.detached){
         detached = object.detached;
       }else{
         detached = function(){};

@@ -10,7 +10,7 @@ export default function OnekitBehavior(object){
       }else{
         created = function(){};
       }
-      created.apply(this.query);
+      created.apply(this,query);
     },
     didMount(){
       var attached;

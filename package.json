@@ -1,6 +1,48 @@
 {
-  "author": "https://www.onekit.cn",
+  "_from": "weixin2alipay-latest@npm:weixin2alipay@latest",
+  "_id": "weixin2alipay@1.0.22",
+  "_inBundle": false,
+  "_integrity": "sha1-50PwHg06HzEq0rb2S/EeP+AoXC8=",
+  "_location": "/weixin2alipay-latest",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "alias",
+    "registry": true,
+    "raw": "weixin2alipay-latest@npm:weixin2alipay@latest",
+    "name": "weixin2alipay-latest",
+    "escapedName": "weixin2alipay-latest",
+    "rawSpec": "npm:weixin2alipay@latest",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "tag",
+      "registry": true,
+      "raw": "weixin2alipay@latest",
+      "name": "weixin2alipay",
+      "escapedName": "weixin2alipay",
+      "rawSpec": "latest",
+      "saveSpec": null,
+      "fetchSpec": "latest"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/weixin2alipay/download/weixin2alipay-1.0.22.tgz?cache=0&sync_timestamp=1596643534878&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fweixin2alipay%2Fdownload%2Fweixin2alipay-1.0.22.tgz",
+  "_shasum": "e743f01e0d3a1f312ad2b6f64bf11e3fe0285c2f",
+  "_spec": "weixin2alipay-latest@npm:weixin2alipay@latest",
+  "_where": "C:\\Users\\zhangjin",
+  "author": {
+    "name": "https://www.onekit.cn"
+  },
+  "bugs": {
+    "url": "https://github.com/www-onekit-cn/weixin2alipay/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "Weixin-Miniprogram SDK for Alipay-Miniprogram",
+  "homepage": "https://github.com/www-onekit-cn/weixin2alipay#readme",
   "license": "AGPL-3.0",
   "name": "weixin2alipay",
   "repository": {
@@ -10,5 +52,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.25"
+  "version": "1.0.23"
 }

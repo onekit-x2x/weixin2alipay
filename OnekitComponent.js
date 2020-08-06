@@ -10,7 +10,7 @@ export default function OnekitComponent(object){
       }else{
         created = function(){};
       }
-      created.apply(this,query);
+      created.call(this,query);
     },
     didMount(){
       var attached;
@@ -21,9 +21,8 @@ export default function OnekitComponent(object){
       }else{
         attached = function(){};
       }
-      attached.apply(this);
+      attached.call(this);
       ////////
-    //  setTimeout(function(){
         var ready;
         if(object.lifetimes && object.lifetimes.ready){
           ready = object.lifetimes.ready;
@@ -32,8 +31,7 @@ export default function OnekitComponent(object){
         }else{
           ready = function(){};
         }
-        ready.apply(this);
-    //  },100);
+        ready.call(this);
     },
     didUnmount(){
       var detached;
@@ -44,9 +42,7 @@ export default function OnekitComponent(object){
       }else{
         detached = function(){};
       }
-      detached.apply(this);
-    },
-    methods:{
+      detached.call(this);
     }
   };
   for(const key of Object.keys(object)){
@@ -66,7 +62,7 @@ export default function OnekitComponent(object){
        alipay_object[key] = value;
     }
   }
-  alipay_object.methods.triggerEven = function(name,data,options){
+  alipay_object.methods.triggerEvent = function(name,data,options){
     var funcName = `on${thekit.firstUpper(name)}`;
     if(this.props[funcName]){
       this.props[funcName](data);

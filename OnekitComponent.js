@@ -45,6 +45,16 @@ export default function OnekitComponent(object){
       detached.call(this);
     }
   };
+      if(object){
+        if(!object.methods){object.methods={};}
+  object.methods.triggerEvent = function(name,data,options){
+    var funcName = `on${thekit.firstUpper(name)}`;
+    if(this.props[funcName]){
+      this.props[funcName](data);
+    }
+  }
+  object.methods.createSelectorQuery = wx.createSelectorQuery;
+    }
   for(const key of Object.keys(object)){
     const value = object[key];
     if(!value){
@@ -62,12 +72,5 @@ export default function OnekitComponent(object){
        alipay_object[key] = value;
     }
   }
-  alipay_object.methods.triggerEvent = function(name,data,options){
-    var funcName = `on${thekit.firstUpper(name)}`;
-    if(this.props[funcName]){
-      this.props[funcName](data);
-    }
-  }
-  alipay_object.methods.createSelectorQuery = wx.createSelectorQuery;
   return Component(alipay_object);
 }

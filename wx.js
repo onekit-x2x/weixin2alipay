@@ -123,10 +123,10 @@ export default class wx {
           canvasContext.restore();
           break;
         case "setFillStyle":
-          canvasContext.setFillStyle({wx,OnekitPage}.array2str(data[1]));
+          canvasContext.setFillStyle({ wx, OnekitPage }.array2str(data[1]));
           break;
         case "setStrokeStyle":
-          canvasContext.setStrokeStyle({wx,OnekitPage}.array2str(data[1]));
+          canvasContext.setStrokeStyle({ wx, OnekitPage }.array2str(data[1]));
           break;
         case "setFontSize":
           canvasContext.setFontSize(data[0]);
@@ -136,10 +136,10 @@ export default class wx {
           break;
         case "setShadow":
           var dat = data[3];
-          canvasContext.setShadow(data[0], data[1], data[2], {wx,OnekitPage}.array2str(data[3]));
+          canvasContext.setShadow(data[0], data[1], data[2], { wx, OnekitPage }.array2str(data[3]));
           break;
         case "setStrokeStyle":
-          canvasContext.setStrokeStyle({wx,OnekitPage}.array2str(data));
+          canvasContext.setStrokeStyle({ wx, OnekitPage }.array2str(data));
           break;
         case "drawImage":
           canvasContext.drawImage.apply(canvasContext, data);
@@ -205,7 +205,7 @@ export default class wx {
   static createVideoContext(videoId, ui) {
     return new VideoContext(my.createVideoContext(videoId));
   }
-    // //////////// WXML ///////////////
+  // //////////// WXML ///////////////
   static createSelectorQuery() {
     return new SelectorQuery(my.createSelectorQuery());
   }
@@ -1011,7 +1011,7 @@ export default class wx {
 
   }
 
-  static login  (object) {
+  static login(object) {
     var that = this;
     if (!object) {
       return my.getAuthCode(object);
@@ -1522,28 +1522,47 @@ export default class wx {
     }
     return my.hideToast(object2);
   }
-  static showToast(object) {
-    var object2;
-    if (object) {
-      if (!object.icon) {
-        object.icon = "success";
-        object2 = {};
-        for (var key in object) {
-          switch (key) {
-            case "title":
-              object2.content = object[key];
-              break;
-            case "icon":
-              object2.type = object[key];
-              break;
-            default:
-              object2[key] = object[key];
-              break;
-          }
-        }
-      }
+  static showToast(wx_object) {
+    if (!wx_object) {
+      return;
     }
-    return my.showToast(object2);
+    let wx_title = wx_object.title;   // 必填项 现实的文本
+    let wx_icon = wx_object.icon || 'success';  // 图片
+    let wx_image = wx_object.image;
+    let wx_duration = wx_object.duration || 1500 // 间隔时长
+    let wx_mask = wx_object.mask;
+    let wx_success = wx_object.success;
+    let wx_fail = wx_object.fail;
+    let wx_complete = wx_object.complete;
+    wx_object = null;
+    let my_object = {}
+    if (wx_title) {
+      my_object.content = wx_title
+    }
+    if (wx_icon) {
+      my_object.type = wx_icon
+    }
+    if (wx_duratio) {
+      my_object.duration = wx_duration
+    }
+    //////////////
+    my_object.success = function (my_res) {
+      if (my_res) {
+        wx_success(my_res);
+      }
+      if (wx_complete) {
+        wx_complete(my_res);
+      }
+    };
+    quick_object.fail = function (my_res) {
+      if (wx_fail) {
+        wx_fail(my_res);
+      }
+      if (wx_complete) {
+        wx_complete(my_res);
+      }
+    };
+    return my.showToast(my_object);
   }
   static showModal(object2) {
     if (object2 === null) {

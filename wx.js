@@ -1522,9 +1522,9 @@ export default class wx {
     }
     return my.hideToast(object2);
   }
-  static showToast(wx_object) {
-    if (!wx_object) {
-      return;
+ static showToast(wx_object) {
+	 if(!wx_object){
+      return
     }
     let wx_title = wx_object.title;   // 必填项 现实的文本
     let wx_icon = wx_object.icon || 'success';  // 图片
@@ -1542,7 +1542,7 @@ export default class wx {
     if (wx_icon) {
       my_object.type = wx_icon
     }
-    if (wx_duratio) {
+    if (wx_duration) {
       my_object.duration = wx_duration
     }
     //////////////
@@ -1554,7 +1554,7 @@ export default class wx {
         wx_complete(my_res);
       }
     };
-    quick_object.fail = function (my_res) {
+    my_object.fail = function (my_res) {
       if (wx_fail) {
         wx_fail(my_res);
       }

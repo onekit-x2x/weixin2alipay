@@ -1,9 +1,9 @@
 Component({
   
   props: {
-    Style:"",
-    Class:"",
-    Id:"",
+    onekitStyle:"",
+    onekitClass:"",
+    id:"",
     src:"",
     autoplay:true,
     poster:"",

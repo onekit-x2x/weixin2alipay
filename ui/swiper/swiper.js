@@ -2,9 +2,9 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
-    Id:"",
+    onekitStyle:"",
+    onekitClass:"",
+    id:"",
     indicatorDots:false,
     indicatorColor:"rgba(0, 0, 0, .3)",
     indicatorActiveColor:"#000000",

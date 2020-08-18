@@ -1,7 +1,7 @@
 <view style="height:{{refresher_height}}px;">
   <slot name="refresher"></slot>
 </view>
-<scroll-view id="{{Id}}" class="onekit-scroll-view {{Class}}" style="{{Style}}" scroll-y="{{scrollY}}" scroll-x="{{scrollX}}"
+<scroll-view id="{{id}}" class="onekit-scroll-view {{onekitClass}}" style=“"{{onekitStyle}}" scroll-y="{{scrollY}}" scroll-x="{{scrollX}}"
  upper-threshold="{{UpperThreshold}}" lower-threshold="{{LowerThreshold}}" scroll-into-view="{{ScrollIntoView}}" scroll-top="{{ScrollTop}}" scroll-left="{{ScrollLeft}}" scroll-with-animation="{{ScrollWithAnimation}}"
 enable-back-to-top ="{{EnableBackToTop}}" onScrollToUpper="on_toupper" onScrollToLower="on_tolower"
 onScroll="on_scroll"

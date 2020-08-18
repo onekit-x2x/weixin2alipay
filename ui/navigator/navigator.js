@@ -2,9 +2,9 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Class:"",
-    Style:"",
-    Id:"",
+    onekitClass:"",
+    onekitStyle:"",
+    id:"",
     url:"",
     openType:"navigate",
     hoverClass:"navigator-hover",

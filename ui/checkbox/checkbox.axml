@@ -1,8 +1,8 @@
 <view>
 <checkbox
-  id="{{Id}}"
-  class="onekit-checkbox {{Class}}"
- style="{{Style}}"
+  id="{{id}}"
+  class="onekit-checkbox {{onekitClass}}"
+ style=“"{{onekitStyle}}"
   name="{{name}}"
   value="{{value}}" 
   disabled="{{disabled}}"

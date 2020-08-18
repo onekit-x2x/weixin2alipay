@@ -1,7 +1,7 @@
 <image
-id="{{Id}}"
-class="onekit-image {{Class}}"
-style="{{Style}}"
+id="{{id}}"
+class="onekit-image {{onekitClass}}"
+style=“"{{onekitStyle}}"
 mode="{{mode}}"
 src="{{src}}"
 webp="{{webp}}"

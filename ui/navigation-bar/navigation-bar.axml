@@ -1,5 +1,5 @@
 <view
-id="{{Id}}"
+id="{{id}}"
 >
   New Component
 </view>

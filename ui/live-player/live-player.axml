@@ -1,7 +1,7 @@
 <live-player
-id="{{Id}}"
-class="onekit-live-player {{Class}}"
-style="{{Style}}"
+id="{{id}}"
+class="onekit-live-player {{onekitClass}}"
+style=“"{{onekitStyle}}"
 src="{{src}}"
 autoplay="{{autoplay}}"
 muted="{{muted}}"

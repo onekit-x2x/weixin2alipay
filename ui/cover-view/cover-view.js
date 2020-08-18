@@ -2,10 +2,10 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
+    onekitStyle:"",
+    onekitClass:"",
     scrollTop:"",
-    Id:""
+    id:""
   },
   didMount() {},
   didUpdate() {},

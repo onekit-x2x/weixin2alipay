@@ -1,7 +1,7 @@
 <navigator
-id="{{Id}}"
-class="onekit-navigator {{Class}}"
-style="{{Style}}"
+id="{{id}}"
+class="onekit-navigator {{onekitClass}}"
+style=“"{{onekitStyle}}"
 url="{{url}}"
 open-type="{{openType}}"
 hover-class="{{hoverClass}}"

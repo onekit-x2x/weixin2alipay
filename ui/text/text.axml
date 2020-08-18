@@ -1,7 +1,7 @@
 <text
-id="{{Id}}"
-class="onekit-text {{Class}}"
-style="{{Style}}"
+id="{{id}}"
+class="onekit-text {{onekitClass}}"
+style=“"{{onekitStyle}}"
 selectable="{{selectable}}"
 space="{{space}}"
 decode="{{decode}}"

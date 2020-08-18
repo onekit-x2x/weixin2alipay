@@ -5,10 +5,10 @@ Component({
     hideContact: true
   },
   props: {
-    Style: "",
-    Class: "",
+    onekitStyle: "",
+    onekitClass: "",
     name: "",
-    Id: "",
+    id: "",
     size: "default",
     type: "default",
     plain: "false",

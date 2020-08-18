@@ -2,11 +2,11 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
+    onekitStyle:"",
+    onekitClass:"",
     devicePosition:"back",
     flash:"auto",
-    Id:""
+    id:""
     },
   didMount() {},
   didUpdate() {},

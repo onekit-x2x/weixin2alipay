@@ -2,9 +2,9 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
-    Id:"",
+    onekitStyle:"",
+    onekitClass:"",
+    id:"",
     src: "",
     autoplay: false,
     muted: false,

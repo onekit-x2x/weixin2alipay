@@ -1,7 +1,7 @@
 <movable-view
-id="{{Id}}"
-class="onekit-movable-view {{Class}}"
-style="{{Style}}"
+id="{{id}}"
+class="onekit-movable-view {{onekitClass}}"
+style=“"{{onekitStyle}}"
 direction="{{direction}}"
 inertia="{{inertia}}"
 out-of-bounds="{{outOfBounds}}"

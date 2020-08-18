@@ -2,8 +2,8 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
+    onekitStyle:"",
+    onekitClass:"",
     name:"",
     id:"",
     view_id:""

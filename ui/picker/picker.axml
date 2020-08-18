@@ -1,8 +1,8 @@
 <picker
-id="{{Id}}"
+id="{{id}}"
 name="{{name}}"
-class="onekit-picker {{Class}}"
-style="{{Style}}"
+class="onekit-picker {{onekitClass}}"
+style=“"{{onekitStyle}}"
 title="{{headerText}}"
 range="{{range}}"
 disabled="{{disabled}}"

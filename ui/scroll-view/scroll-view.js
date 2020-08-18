@@ -7,9 +7,9 @@ Component({
     refresher_height: 0
   },
   props: {
-    Style:"",
-    Class:"",
-    Id:"", 
+    onekitStyle:"",
+    onekitClass:"",
+    id:"", 
     scrollX: false,
     scrollY: false,
     UpperThreshold: 50,

@@ -2,13 +2,13 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
+    onekitStyle:"",
+    onekitClass:"",
     src: "",
     mode: "scaleToFill",
     webp: false,
     lazyLoad: false,
-    Id:""
+    id:""
   },
   didMount() { },
   didUpdate() { },

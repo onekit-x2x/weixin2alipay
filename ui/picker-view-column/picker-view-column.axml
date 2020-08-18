@@ -1,10 +1,4 @@
-<picker-view >
-  <picker-view-column 
-  id="{{Id}}"
-name="{{name}}"
-style="{{Style}}"
-  class="onekit-picker-view-column {{Class}}" style="{{Style}}">
+<picker-view-column id="{{id}}" name="{{name}}" style="{{onekitStyle}}" class="onekit-picker-view-column {{onekitClass}}" style="{{onekitStyle}}">
   <slot>
   </slot>
-  </picker-view-column>
-</picker-view>
+</picker-view-column>

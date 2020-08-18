@@ -2,10 +2,10 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
+    onekitStyle:"",
+    onekitClass:"",
     name:"",
-    Id:"",
+    id:"",
     min:0,
     max:100,
     step:1,

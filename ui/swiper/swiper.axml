@@ -1,7 +1,7 @@
 <swiper
-id="{{Id}}"
-class="onekit-swiper {{Class}}"
-style="{{Style}}"
+id="{{id}}"
+class="onekit-swiper {{onekitClass}}"
+style=“"{{onekitStyle}}"
 indicator-dots="{{indicatorDots}}"
 indicator-color="{{indicatorColor}}",
 indicator-active-color="{{indicatorActiveColor}}",

@@ -1,6 +1,6 @@
 <view 
-id="{{Id}}"
-class="onekit-icon-{{type}} {{Class}}"
+id="{{id}}"
+class="onekit-icon-{{type}} {{onekitClass}}"
 style="color:{{color}};font-size:{{size}}px; {{Style}}"
 type="{{type}}"
 size="{{size}}"

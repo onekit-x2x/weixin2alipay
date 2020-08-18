@@ -3,9 +3,9 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
-    Class:"",
-    Id:""
+    onekitStyle:"",
+    onekitClass:"",
+    id:""
   },
   didMount() {
     var nodes = this.props.nodes;

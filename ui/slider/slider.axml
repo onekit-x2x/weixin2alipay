@@ -1,7 +1,7 @@
 <slider
-id="{{Id}}"
+id="{{id}}"
 name="{{name}}"
-class="onekit-slider {{Class}}"
+class="onekit-slider {{onekitClass}}"
 style="Style"
 min="{{min}}"
 max="{{max}}"

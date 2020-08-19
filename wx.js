@@ -1547,7 +1547,7 @@ export default class wx {
     }
     //////////////
     my_object.success = function (my_res) {
-      if (my_res) {
+      if (wx_success) {
         wx_success(my_res);
       }
       if (wx_complete) {

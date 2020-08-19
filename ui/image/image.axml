@@ -1,9 +1,9 @@
 <image
-id="{{id}}"
-class="onekit-image {{onekitClass}}"
-style=“"{{onekitStyle}}"
+id="{{Id}}"
+class="onekit-image {{Class}}"
+style="{{Style}}"
 mode="{{mode}}"
-src="{{src}}"
+src="{{alipay_src}}"
 webp="{{webp}}"
 lazy-load="{{lazyLoad}}"
 onError="image_error"

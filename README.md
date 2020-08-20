@@ -37,7 +37,7 @@
 ## 【使用方法】：  
 ### [在代码文件(*.js)中的使用]  
 #### A.自动转换。  
-**强烈推荐使用单文件转换器：**  
+**！强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/code.html](https://www.onekit.cn/file/weixin/alipay/code.html)  
 #### B.手动转换。  
 请参考以下步骤：  

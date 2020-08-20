@@ -21,7 +21,7 @@
 ![图4](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/4.png)  
 2.6 如出文件列表有此依赖包，则安装完成：  
 ![图5](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/5.png)  
-##【更新方法】：  
+## 【更新方法】：  
 1.点击左侧如图所示图标进入文件列表(如图步骤1);  
 2.删除之前版本的依赖包，(如图步骤2);  
 3.点击进入package.json文件(如图步骤3);  
@@ -34,7 +34,7 @@
 ![图8](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/8.png)  
 以上步骤进行完成，会在如下图所示处出现最新版本号，即表明依赖更新完成。  
 ![图9](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/9.png)  
-##【使用方法】：  
+## 【使用方法】：  
 [在代码文件(*.js)中的使用]  
 A.自动转换。请使用单文件转换器：  
 [单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  

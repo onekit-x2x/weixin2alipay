@@ -37,7 +37,7 @@
 ## 【使用方法】：  
 ### [在代码文件(*.js)中的使用]  
 #### A.自动转换。  
-**！强烈推荐使用单文件转换器：**  
+**！！！强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/code.html](https://www.onekit.cn/file/weixin/alipay/code.html)  
 #### B.手动转换。  
 请参考以下步骤：  
@@ -72,7 +72,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
  ![图12](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PtqAEQ2AAADm-Plb8_s632.png?token=48522cc3fa37bf6e821e6d99d28c8e14&ts=1597914880&attname=12.png&disposition=inline)  
 ### [在页面界面文件(*.axml)中的使用]  
 #### A.自动转换。  
-**强烈推荐使用单文件转换器：**  
+**！！！强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/ui.html](https://www.onekit.cn/file/weixin/alipay/ui.html)  
 #### B.手动转换。  
 请参考以下步骤：  
@@ -91,7 +91,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 [https://opendocs.alipay.com/mini/framework/axml](https://opendocs.alipay.com/mini/framework/axml)  
 ### [在页面配置文件(*.json)中的使用]  
 #### A.自动转换。  
-**强烈推荐使用单文件转换器：**  
+**！！！强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/json.html](https://www.onekit.cn/file/weixin/alipay/json.html)  
 #### B.手动转换。  
 请参考以下步骤：  
@@ -152,7 +152,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 [https://opendocs.alipay.com/mini/framework/page-json](https://opendocs.alipay.com/mini/framework/page-json)  
 ### [在页面样式(*.acss)中的使用]  
 #### A.自动转换。  
-**强烈推荐使用单文件转换器：**  
+**！！！强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/style.html](https://www.onekit.cn/file/weixin/alipay/style.html)  
 #### B.手动转换。  
 具体请参考微信小程序官方文档：  

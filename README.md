@@ -1,6 +1,15 @@
 # “微信小程序变支付宝小程序”使用说明
 【首次安装步骤】：
-可参考支付宝官方教程：[链接名称](https://opendocs.alipay.com/mini/ide/npm-manage) 
+可参考支付宝官方教程：[链接名称](https://opendocs.alipay.com/mini/ide/npm-manage)  
+1、准备工作：  
+新建支付宝小程序项目或打开现有支付宝小程序项目。  
+2、下载配置依赖包：  
+2.1 点击左侧此图标，进入NPM面板(如图步骤1)  
+2.2 首次使用NPM依赖管理的情况下，点击“添加目录”(如图步骤2)  
+![图1](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/1.png)  
+2.3 随后点击以下如图所示按钮，即将项目添加进依赖管理：  
+![图2](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/2.png)  
+
 二、编辑基本语法 
 1、字体格式强调
 我们可以使用下面的方式给我们的文本添加强调的效果

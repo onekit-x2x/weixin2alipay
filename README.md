@@ -9,13 +9,13 @@
 ![图1](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/1.png)  
 2.3 随后点击以下如图所示按钮，即将项目添加进依赖管理：  
 ![图2](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/2.png)  
-2.4  完成以上两个步骤之后，就创建好了package.json文件，随后点击进入文件列表(如图步骤1)，点击package.json文件(如图步骤2)，在此文件中添加此依赖：  
+2.4  完成以上两个步骤之后，就创建好了package.json文件，随后点击进入文件列表(如图步骤1)，点击package.json文件(如图步骤2)，在此文件中添加此依赖(如图步骤3)：  
 ```
 "dependencies":{  
  "weixin2alipay":"latest"  
  }
 ```  
-(如图步骤3)，随后保存文件(如图步骤4)。图示如下：  
+随后保存文件(如图步骤4)。图示如下：  
 ![图3](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/3.png)   
 2.5 再点击最左侧NPM依赖管理图标(如图步骤1)，随后点击“同步状态图标”(如图步骤2)，状态同步后就可点击下载最新版依赖包(如图步骤3)。图示如下：  
 ![图4](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/4.png)  
@@ -35,11 +35,11 @@
 以上步骤进行完成，会在如下图所示处出现最新版本号，即表明依赖更新完成。  
 ![图9](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/9.png)  
 ## 【使用方法】：  
-[在代码文件(*.js)中的使用]  
-A.自动转换。请使用单文件转换器：  
+### [在代码文件(*.js)中的使用]  
+#### A.自动转换。请使用单文件转换器：  
 [单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
-B.手动转换。请参考以下步骤：  
- a.  app.js文件中的使用：  
+#### B.手动转换。请参考以下步骤：  
+##### a.  app.js文件中的使用：  
  导入JS模块，即在app.js文件中添加(如图步骤2)：  
 ```
 import wx from "weixin2alipay/wx"
@@ -48,7 +48,7 @@ import OnekitApp from "weixin2alipay/OnekitApp"
  随后将你的微信小程序项目的app.js中的代码全部直接复制粘贴进此代码文件(如图步骤3)；  
  再将“App”改为“OnekitApp”即可(如图步骤4)。图示如下：  
  ![图10](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/10.png)  
- b. 页面JS文件中的使用：  
+##### b. 页面JS文件中的使用：  
  1. 依次打开你的页面JS文件，例如下图中的index.js文件。  
  2. 导入JS模块，即在页面JS文件中添加(如图步骤2):  
  ```
@@ -58,7 +58,7 @@ import OnekitPage from "weixin2alipay/OnekitPage"
  3.随后将你的微信小程序项目的页面js代码直接全部复制粘贴进此页面代码文件(如图步骤3)  
  4.再将“Page”改为“OnekitPage”(如图步骤4)。图示如下：  
  ![图11](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/11.png)  
- c. 自定义组件的JS文件中的使用：  
+##### c. 自定义组件的JS文件中的使用：  
  1. 依次打开你的项目中自定义组件的JS文件(如图中myComponent.js文件)，再依次按照以下步骤操作。  
  2. 引入“wx”与“OnekitComponent”，即在自定义组件的JS文件中添加(如图步骤2)：  
  ```
@@ -68,11 +68,11 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
  3.随后将你的微信小程序项目的自定义组件的js代码直接全部复制粘贴进此文件(如图步骤3)  
  4.再将“Component”改为“OnekitComponent”(如图步骤4)。图示如下：  
  ![图12](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/12.png)  
-[在页面界面文件(*.axml)中的使用]  
-A.自动转换。  
+### [在页面界面文件(*.axml)中的使用]  
+#### A.自动转换。  
 请使用单文件转换器：  
 [单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
-B.手动转换。  
+#### B.手动转换。  
 以微信小程序的image组件在支付宝小程序使用为例：
 1.<image></image>改为<onekit-image></onekit-image>;  
 2.id改为onekit-id;  
@@ -86,10 +86,10 @@ B.手动转换。
 [微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/)  
 具体请参考支付宝小程序官方文档：  
 [支付宝小程序官方文档](https://opendocs.alipay.com/mini/framework/axml)  
-[在页面配置文件(*.json)中的使用]  
-A.自动转换。请使用单文件转换器：  
+### [在页面配置文件(*.json)中的使用]  
+#### A.自动转换。请使用单文件转换器：  
 [单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
-B.手动转换。  
+#### B.手动转换。  
 在将微信项目代码复制到支付宝平台，并且按照以上步骤修改了组件名、属性名、事件名之后，要在.json文件中注册此组件。具体操作为：在.json文件中写入全套组件注册，即写入：
 ```
 {
@@ -148,10 +148,10 @@ B.手动转换。
 [微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html)  
 具体请参考支付宝小程序官方文档：  
 [支付宝小程序官方文档](https://opendocs.alipay.com/mini/framework/page-json)  
-[在页面样式(*.acss)中的使用]  
-A.自动转换。请使用单文件转换器：  
+### [在页面样式(*.acss)中的使用]  
+#### A.自动转换。请使用单文件转换器：  
 [单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
-B.手动转换。  
+#### B.手动转换。  
 具体请参考微信小程序官方文档：  
 [微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  
 具体请参考支付宝小程序官方文档：  

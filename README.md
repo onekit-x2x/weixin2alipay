@@ -71,7 +71,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 ### [在页面界面文件(*.axml)中的使用]  
 #### A.自动转换。  
 请使用单文件转换器：  
-[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
+[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/ui.html)  
 #### B.手动转换。  
 以微信小程序的image组件在支付宝小程序使用为例：
 1.<image></image>改为<onekit-image></onekit-image>;  
@@ -88,7 +88,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 [支付宝小程序官方文档](https://opendocs.alipay.com/mini/framework/axml)  
 ### [在页面配置文件(*.json)中的使用]  
 #### A.自动转换。请使用单文件转换器：  
-[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
+[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/json.html)  
 #### B.手动转换。  
 在将微信项目代码复制到支付宝平台，并且按照以上步骤修改了组件名、属性名、事件名之后，要在.json文件中注册此组件。具体操作为：在.json文件中写入全套组件注册，即写入：
 ```
@@ -150,7 +150,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 [支付宝小程序官方文档](https://opendocs.alipay.com/mini/framework/page-json)  
 ### [在页面样式(*.acss)中的使用]  
 #### A.自动转换。请使用单文件转换器：  
-[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
+[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/style.html)  
 #### B.手动转换。  
 具体请参考微信小程序官方文档：  
 [微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  

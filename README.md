@@ -36,8 +36,8 @@
 ![图9](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-Pr6ACdHhAACMOsX_E1k582.png?token=d81e4f57c9fca7e12dd3895c1246c5c6&ts=1597914880&attname=9.png&disposition=inline)  
 ## 【使用方法】：  
 ### [在代码文件(*.js)中的使用]  
-#### A.自动转换。  
-**！！！强烈推荐使用单文件转换器：**  
+#### A.自动转换。(强烈推荐$\color{#376956}{！！！}$)  
+**请使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/code.html](https://www.onekit.cn/file/weixin/alipay/code.html)  
 #### B.手动转换。  
 请参考以下步骤：  

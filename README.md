@@ -36,9 +36,11 @@
 ![图9](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-Pr6ACdHhAACMOsX_E1k582.png?token=d81e4f57c9fca7e12dd3895c1246c5c6&ts=1597914880&attname=9.png&disposition=inline)  
 ## 【使用方法】：  
 ### [在代码文件(*.js)中的使用]  
-#### A.自动转换。请使用单文件转换器：  
+#### A.自动转换。  
+**强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/code.html](https://www.onekit.cn/file/weixin/alipay/code.html)  
-#### B.手动转换。请参考以下步骤：  
+#### B.手动转换。  
+请参考以下步骤：  
 ##### a.  app.js文件中的使用：  
  导入JS模块，即在app.js文件中添加(如图步骤2)：  
 ```
@@ -70,9 +72,10 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
  ![图12](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PtqAEQ2AAADm-Plb8_s632.png?token=48522cc3fa37bf6e821e6d99d28c8e14&ts=1597914880&attname=12.png&disposition=inline)  
 ### [在页面界面文件(*.axml)中的使用]  
 #### A.自动转换。  
-请使用单文件转换器：  
+**强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/ui.html](https://www.onekit.cn/file/weixin/alipay/ui.html)  
 #### B.手动转换。  
+请参考以下步骤：  
 以微信小程序的image组件在支付宝小程序使用为例：
 1.<image></image>改为<onekit-image></onekit-image>;  
 2.id改为onekit-id;  
@@ -87,10 +90,12 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 具体请参考支付宝小程序官方文档：  
 [https://opendocs.alipay.com/mini/framework/axml](https://opendocs.alipay.com/mini/framework/axml)  
 ### [在页面配置文件(*.json)中的使用]  
-#### A.自动转换。  请使用单文件转换器：  
+#### A.自动转换。  
+**强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/json.html](https://www.onekit.cn/file/weixin/alipay/json.html)  
 #### B.手动转换。  
-在将微信项目代码复制到支付宝平台，并且按照以上步骤修改了组件名、属性名、事件名之后，要在.json文件中注册此组件。具体操作为：在.json文件中写入全套组件注册，即写入：
+请参考以下步骤：  
+在将微信项目代码复制到支付宝平台，并且按照以上步骤修改了组件名、属性名、事件名之后，要在.json文件中注册此组件。具体操作为：在.json文件中写入全套组件注册(注意：组件注册要写在usingComponents中)，即在usingComponents中写入：
 ```
     "onekit-live-player":"weixin2alipay/ui/live-player/live-player",
     "onekit-radio-group":"weixin2alipay/ui/radio-group/radio-group",
@@ -146,7 +151,8 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 具体请参考支付宝小程序官方文档：  
 [https://opendocs.alipay.com/mini/framework/page-json](https://opendocs.alipay.com/mini/framework/page-json)  
 ### [在页面样式(*.acss)中的使用]  
-#### A.自动转换。请使用单文件转换器：  
+#### A.自动转换。  
+**强烈推荐使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/style.html](https://www.onekit.cn/file/weixin/alipay/style.html)  
 #### B.手动转换。  
 具体请参考微信小程序官方文档：  

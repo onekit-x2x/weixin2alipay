@@ -1,5 +1,5 @@
 <slider
-id="{{id}}"
+id="{{onekitId}}"
 name="{{name}}"
 class="onekit-slider {{onekitClass}}"
 style="Style"

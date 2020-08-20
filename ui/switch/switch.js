@@ -5,7 +5,7 @@ Component({
     onekitStyle:"",
     onekitClass:"",
     name:"",
-    id:"",
+    onekitId:"",
     checked:false,
     disabled:false,
     type:"switch",

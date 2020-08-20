@@ -1,5 +1,5 @@
 <checkbox-group
-id="{{id}}"
+id="{{onekitId}}"
 name="{{name}}"
 class="onekit-checkbox-group {{onekitClass}}"
 style="{{onekitStyle}}"

@@ -1,5 +1,5 @@
 <swiper>
-  <swiper-item id="{{id}}" class="onekit-swiper-item {{onekitClass}}" style="{{onekitStyle}}">
+  <swiper-item id="{{onekitId}}" class="onekit-swiper-item {{onekitClass}}" style="{{onekitStyle}}">
     <slot></slot>
   </swiper-item>
 </swiper>

@@ -4,7 +4,7 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    id:"",
+    onekitId:"",
     percent:"",
     showInfo:false,
     strokeWidth:2,

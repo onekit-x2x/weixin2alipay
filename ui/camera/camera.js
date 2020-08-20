@@ -6,7 +6,7 @@ Component({
     onekitClass:"",
     devicePosition:"back",
     flash:"auto",
-    id:""
+    onekitId:""
     },
   didMount() {},
   didUpdate() {},

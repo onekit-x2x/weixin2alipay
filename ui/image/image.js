@@ -10,7 +10,7 @@ Component({
     mode: "scaleToFill",
     webp: false,
     lazyLoad: false,
-    Id:""
+    onekitId:""
   },
   didMount() { 
      const pages = getCurrentPages();

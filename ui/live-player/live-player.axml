@@ -1,5 +1,5 @@
 <live-player
-id="{{id}}"
+id="{{onekitId}}"
 class="onekit-live-player {{onekitClass}}"
 style="{{onekitStyle}}"
 src="{{src}}"

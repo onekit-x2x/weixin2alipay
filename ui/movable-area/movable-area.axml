@@ -1,5 +1,5 @@
 <movable-area
-id="{{id}}"
+id="{{onekitId}}"
 class="onekit-movable-area {{onekitClass}}"
 style="{{onekitStyle}}"
 scale-area="{{scaleArea}}"

@@ -4,7 +4,7 @@ Component({
   props: {
     onekitClass:"",
     onekitStyle:"",
-    id:"",
+    onekitId:"",
     url:"",
     openType:"navigate",
     hoverClass:"navigator-hover",

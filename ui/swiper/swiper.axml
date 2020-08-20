@@ -1,5 +1,5 @@
 <swiper
-id="{{id}}"
+id="{{onekitId}}"
 class="onekit-swiper {{onekitClass}}"
 style="{{onekitStyle}}"
 indicator-dots="{{indicatorDots}}"

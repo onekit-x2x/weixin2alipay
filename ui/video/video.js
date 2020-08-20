@@ -3,7 +3,7 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    id:"",
+    onekitId:"",
     src:"",
     autoplay:true,
     poster:"",

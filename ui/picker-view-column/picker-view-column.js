@@ -5,7 +5,7 @@ Component({
     onekitStyle:"",
     onekitClass:"",
     name:"",
-    id:""
+    onekitId:""
   },
   didMount() {},
   didUpdate() {},

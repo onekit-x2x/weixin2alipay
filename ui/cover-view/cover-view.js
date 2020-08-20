@@ -5,7 +5,7 @@ Component({
     onekitStyle:"",
     onekitClass:"",
     scrollTop:"",
-    id:""
+    onekitId:""
   },
   didMount() {},
   didUpdate() {},

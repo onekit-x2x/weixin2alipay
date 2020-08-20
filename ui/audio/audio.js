@@ -4,7 +4,7 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    id:''
+    onekitId:''
   },
   didMount() {},
   didUpdate() {},

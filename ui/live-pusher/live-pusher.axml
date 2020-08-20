@@ -1,5 +1,5 @@
 <live-pusher
-id="{{id}}"
+id="{{onekitId}}"
 class="onekit-live-pusher {{onekitClass}}"
 style="{{onekitStyle}}"
 url="{{url}}"

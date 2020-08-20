@@ -2,7 +2,7 @@
 class="onekit-canvas {{onekitClass}}"
 style="{{onekitStyle}}"
 type="{{type}}"
-id="{{canvasId}}"
+id="{{onekitId}}"
 disable-scroll="{{disableScroll}}"
 
 onTouchStart="canvas_TouchStart"

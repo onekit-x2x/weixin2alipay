@@ -1,5 +1,5 @@
 <web-view
-id="{{id}}"
+id="{{onekitId}}"
 class="onekit-web-view {{onekitClass}}"
 style="{{onekitStyle}}"
 src="{{src}}"

@@ -1,6 +1,7 @@
 <view
-id="{{id}}"
+id="{{onekitId}}"
 class="onekit-ad {{onekitClass}}"
 style="width:330rpx;height:80rpx;">
-  广告
+<slot>
+</slot>
 </view>

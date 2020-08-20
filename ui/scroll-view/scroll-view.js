@@ -9,7 +9,7 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    id:"", 
+    onekitId:"", 
     scrollX: false,
     scrollY: false,
     UpperThreshold: 50,

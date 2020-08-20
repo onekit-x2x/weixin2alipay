@@ -1,5 +1,5 @@
 <cover-view
-id="{{id}}"
+id="{{onekitId}}"
 class="onekit-cover-view {{onekitClass}}"
 style="{{onekitStyle}}"
 scroll-top="{{scrollTop}}"

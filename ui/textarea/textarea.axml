@@ -1,5 +1,5 @@
 <textarea
-id="{{id}}"
+id="{{onekitId}}"
 name="{{name}}"
 class="onekit-textarea {{onekitClass}}"
 style="{{onekitStyle}}"

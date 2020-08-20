@@ -1,5 +1,5 @@
 <picker
-id="{{id}}"
+id="{{onekitId}}"
 name="{{name}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"

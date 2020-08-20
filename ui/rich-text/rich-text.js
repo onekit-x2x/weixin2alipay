@@ -5,7 +5,7 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    id:""
+    onekitId:""
   },
   didMount() {
     var nodes = this.props.nodes;

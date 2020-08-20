@@ -8,7 +8,7 @@ Component({
     onekitStyle: "",
     onekitClass: "",
     name: "",
-    id: "",
+    onekitId: "",
     size: "default",
     type: "default",
     plain: "false",
@@ -37,28 +37,6 @@ Component({
     contactBG_tap() {
       this.setData({ hideContact: true });
     },
-
-    /*getAuthorize(){
-switch (this.props.scope) {
-case "phoneNumber":
-wx.getUserInfo({
-  success(res){
-    e.detail = res;
-    that.props.onGetuserinfo(e);
-  }
-});
-break;
-  case "phoneNumber":
-  wx.getPhoneNumber({
-  success(res){
-    e.detail = res;
-    that.props.onGetphonenumber(e);
-  }
-})
-  break;wxGetUserInfo
-default:throw new Error(this.props.scope);
-    }
-    },*/
     onGetAuthorize(e) {
       var that = this;
       switch (this.props.openType) {
@@ -109,33 +87,6 @@ default:throw new Error(this.props.scope);
               }
             });
             break;
-          /*
-          case "getAuthorize":
-          that.getAuthorize();
-          break;*/
-          /*
-          case "getUserInfo":
-          
-          if(that.props.onGetuserinfo){
-          wx.getUserInfo({
-            success(res){
-              e.detail = res;
-              that.props.onGetuserinfo(e);
-            }
-          })
-          }
-            break;
-          case "getPhoneNumber":
-    
-         if(that.props.onGetphonenumber){
-          wx.getPhoneNumber({
-            success(res){
-              e.detail = res;
-              that.props.onGetphonenumber(e);
-            }
-          })
-          }
-            break;*/
           case "getUserInfo":
           case "getPhoneNumber":
             break;

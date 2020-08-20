@@ -1,4 +1,4 @@
-<rich-text id="{{id}}" class="{{onekitClass}}" style="{{onekitStyle}}" nodes="{{nodes}}">
+<rich-text id="{{onekitId}}" class="{{onekitClass}}" style="{{onekitStyle}}" nodes="{{nodes}}">
   <slot>
   </slot>
 </rich-text>

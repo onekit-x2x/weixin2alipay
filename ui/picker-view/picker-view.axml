@@ -1,5 +1,5 @@
 <picker-view
-id="{{id}}"
+id="{{onekitId}}"
 name="{{name}}"
 class="onekit-picker-view {{onekitClass}}"
 style="{{onekitStyle}}"

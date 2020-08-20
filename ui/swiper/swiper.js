@@ -4,7 +4,7 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    id:"",
+    onekitId:"",
     indicatorDots:false,
     indicatorColor:"rgba(0, 0, 0, .3)",
     indicatorActiveColor:"#000000",

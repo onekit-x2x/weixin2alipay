@@ -7,7 +7,7 @@ Component({
     type:"",
     size:24,
     color:"",
-    id:""
+    onekitId:""
   },
   didMount() {},
   didUpdate() {

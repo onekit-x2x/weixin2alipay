@@ -8,7 +8,7 @@
  2.2 首次使用NPM依赖管理的情况下，点击“添加目录”(如图步骤2)  
 ![图1](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-Pj6ALRGbAAB19-NEYoQ661.png?token=4488c85d192893bf7fa84b066c3357f8&ts=1597914687&attname=1.png&disposition=inline)  
 2.3 随后点击以下如图所示按钮，即将项目添加进依赖管理：  
-![图2](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-O9CAKQy5AACNWQydwaM240.png?token=bc862e0cfa650942089055c1a0311059&ts=1597914274&attname=%E5%9B%BE%E7%89%872.png&disposition=inline)  
+![图2](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-PmWAGFrdAACNWQydwaM041.png?token=2fa4a5520b1c0d9cf4b83e2a670a39ca&ts=1597914726&attname=2.png&disposition=inline)  
 2.4  完成以上两个步骤之后，就创建好了package.json文件，随后点击进入文件列表(如图步骤1)，点击package.json文件(如图步骤2)，在此文件中添加此依赖(如图步骤3)：  
 ```
 "dependencies":{  

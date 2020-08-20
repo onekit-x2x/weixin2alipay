@@ -16,7 +16,7 @@
  }
 ```  
 随后保存文件(如图步骤4)。图示如下：  
-![图3](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/3.png)   
+![图3](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-O96APRR-AACkrtNpfSA118.png?token=179b8e5e646af0d58bdef3b28fb5c6f3&ts=1597914274&attname=%E5%9B%BE%E7%89%873.png&disposition=inline)   
 2.5 再点击最左侧NPM依赖管理图标(如图步骤1)，随后点击“同步状态图标”(如图步骤2)，状态同步后就可点击下载最新版依赖包(如图步骤3)。图示如下：  
 ![图4](https://github.com/www-onekit-cn/weixin2alipay/blob/8983e2658b667fc6377be70b469c8a8b8993c5f1/readme/4.png)  
 2.6 如出文件列表有此依赖包，则安装完成：  

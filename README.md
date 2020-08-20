@@ -1,6 +1,6 @@
 # “微信小程序变支付宝小程序”使用说明 
 ## 【首次安装步骤】：
-可参考支付宝官方教程：[支付宝官方依赖安装教程](https://opendocs.alipay.com/mini/ide/npm-manage)  
+可参考支付宝官方教程：[https://opendocs.alipay.com/mini/ide/npm-manage](https://opendocs.alipay.com/mini/ide/npm-manage)  
 1、准备工作：  
 新建支付宝小程序项目或打开现有支付宝小程序项目。  
 2、下载配置依赖包：  
@@ -37,7 +37,7 @@
 ## 【使用方法】：  
 ### [在代码文件(*.js)中的使用]  
 #### A.自动转换。请使用单文件转换器：  
-[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/code.html)  
+[https://www.onekit.cn/file/weixin/alipay/code.html](https://www.onekit.cn/file/weixin/alipay/code.html)  
 #### B.手动转换。请参考以下步骤：  
 ##### a.  app.js文件中的使用：  
  导入JS模块，即在app.js文件中添加(如图步骤2)：  
@@ -71,7 +71,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 ### [在页面界面文件(*.axml)中的使用]  
 #### A.自动转换。  
 请使用单文件转换器：  
-[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/ui.html)  
+[https://www.onekit.cn/file/weixin/alipay/ui.html](https://www.onekit.cn/file/weixin/alipay/ui.html)  
 #### B.手动转换。  
 以微信小程序的image组件在支付宝小程序使用为例：
 1.<image></image>改为<onekit-image></onekit-image>;  
@@ -83,17 +83,15 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 ![图13](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PuuAM-o_AABuYxSjsCM125.png?token=946f56db55d1185d9822debba5fc2310&ts=1597914880&attname=13.png&disposition=inline)  
 ![图14](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PvaAZVi-AABlpcDTsCc551.png?token=5dd69044824fc8efd21b9c94495d7ada&ts=1597914880&attname=14.png&disposition=inline)  
 具体请参考微信小程序官方文档：  
-[微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/)  
+[https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/](https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/)  
 具体请参考支付宝小程序官方文档：  
-[支付宝小程序官方文档](https://opendocs.alipay.com/mini/framework/axml)  
+[https://opendocs.alipay.com/mini/framework/axml](https://opendocs.alipay.com/mini/framework/axml)  
 ### [在页面配置文件(*.json)中的使用]  
-#### A.自动转换。请使用单文件转换器：  
-[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/json.html)  
+#### A.自动转换。  请使用单文件转换器：  
+[https://www.onekit.cn/file/weixin/alipay/json.html](https://www.onekit.cn/file/weixin/alipay/json.html)  
 #### B.手动转换。  
 在将微信项目代码复制到支付宝平台，并且按照以上步骤修改了组件名、属性名、事件名之后，要在.json文件中注册此组件。具体操作为：在.json文件中写入全套组件注册，即写入：
 ```
-{
-  "usingComponents":{
     "onekit-live-player":"weixin2alipay/ui/live-player/live-player",
     "onekit-radio-group":"weixin2alipay/ui/radio-group/radio-group",
     "onekit-picker-view":"weixin2alipay/ui/picker-view/picker-view",
@@ -140,19 +138,18 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
     "onekit-input":"weixin2alipay/ui/input/input",
     "onekit-camera":"weixin2alipay/ui/camera/camera",
     "onekit-view":"weixin2alipay/ui/view/view"
-  }
-}
+  
 ```  
 ![图15](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-Pv-AKyT9AAIrJaLulBk540.png?token=c4a1f9969a7822633a37d825a9623c3a&ts=1597914880&attname=15.png&disposition=inline)  
 具体请参考微信小程序官方文档：  
-[微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html)  
+[https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html)  
 具体请参考支付宝小程序官方文档：  
-[支付宝小程序官方文档](https://opendocs.alipay.com/mini/framework/page-json)  
+[https://opendocs.alipay.com/mini/framework/page-json](https://opendocs.alipay.com/mini/framework/page-json)  
 ### [在页面样式(*.acss)中的使用]  
 #### A.自动转换。请使用单文件转换器：  
-[单文件自动转换器地址](https://www.onekit.cn/file/weixin/alipay/style.html)  
+[https://www.onekit.cn/file/weixin/alipay/style.html](https://www.onekit.cn/file/weixin/alipay/style.html)  
 #### B.手动转换。  
 具体请参考微信小程序官方文档：  
-[微信小程序官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  
+[https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  
 具体请参考支付宝小程序官方文档：  
-[支付宝小程序官方文档](https://opendocs.alipay.com/mini/framework/acss)  
+[https://opendocs.alipay.com/mini/framework/acss](https://opendocs.alipay.com/mini/framework/acss)  

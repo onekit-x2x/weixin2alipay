@@ -1,0 +1,228 @@
+@import 'weixin2alipay/onekit.acss';
+@import './page/common/lib/weui.acss';
+page{
+  background-color: var(--weui-BG-1) ;
+  color: var(--weui-FG-0) ;
+  display: flex ;
+  font-size: 16px ;
+  line-height: 1.6 ;
+  justify-content: center ;
+  height: 100% ;
+}
+page>view{
+  max-width: 600px ;
+  width: 100vw ;
+}
+checkbox{
+  margin-right: 5px ;
+}
+radio{
+  margin-right: 5px ;
+}
+button{
+  margin-top: 10px ;
+  margin-bottom: 10px ;
+}
+form{
+  width: 100% ;
+}
+input{
+  width: 100% ;
+}
+.strong{
+  font-weight: bold ;
+}
+.tc{
+  text-align: center ;
+}
+.container{
+  flex-direction: column ;
+  display: flex ;
+  font-size: 16px ;
+  min-height: 100% ;
+  justify-content: space-between ;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif ;
+}
+.page-head{
+  padding: 30px 25px 40px ;
+  text-align: center ;
+}
+.page-head-title{
+  padding: 0 20px 10px 20px ;
+  display: inline-block ;
+  font-size: 16px ;
+}
+.page-head-line{
+  background-color: var(--weui-FG-1) ;
+  margin: 0 auto ;
+  width: 75px ;
+  height: 1px ;
+}
+.page-head-desc{
+  padding-top: 10px ;
+  color: var(--weui-FG-1) ;
+  font-size: 16px ;
+}
+.page-body{
+  width: 100% ;
+  flex-grow: 1 ;
+}
+.page-body-wrapper{
+  flex-direction: column ;
+  display: flex ;
+  width: 100% ;
+  align-items: center ;
+}
+.page-body-wording{
+  padding: 100px 50px ;
+  text-align: center ;
+}
+.page-body-info{
+  background-color: var(--weui-BG-2) ;
+  padding: 25px 0 75px 0 ;
+  flex-direction: column ;
+  display: flex ;
+  width: 100% ;
+  align-items: center ;
+}
+.page-body-title{
+  font-size: 16px ;
+  margin-bottom: 50px ;
+}
+.page-body-text{
+  color: var(--weui-FG-2) ;
+  font-size: 15px ;
+  line-height: 26px ;
+}
+.page-body-text-small{
+  color: var(--weui-FG-0) ;
+  font-size: 12px ;
+  margin-bottom: 50px ;
+}
+.page-foot{
+  margin: 50px 0 0 0 ;
+  color: #1aad19 ;
+  padding-bottom: 15px ;
+  font-size: 0 ;
+  margin-bottom: env(safe-area-inset-bottom) ;
+  text-align: center ;
+}
+.icon-foot{
+  width: 76px ;
+  height: 12px ;
+}
+.page-section{
+  width: 100% ;
+  margin-bottom: 30px ;
+}
+.page-section_center{
+  flex-direction: column ;
+  display: flex ;
+  align-items: center ;
+}
+.page-section:last-child{
+  margin-bottom: 0 ;
+}
+.page-section-gap{
+  padding: 0 15px ;
+  box-sizing: border-box ;
+}
+.page-section-spacing{
+  padding: 0 40px ;
+  box-sizing: border-box ;
+}
+.page-section-title{
+  color: var(--weui-FG-1) ;
+  padding-left: 15px ;
+  font-size: 14px ;
+  margin-bottom: 5px ;
+  padding-right: 15px ;
+}
+.page-section-gap .page-section-title{
+  padding-left: 0 ;
+  padding-right: 0 ;
+}
+.page-section-ctn{
+}
+.btn-area{
+  padding: 0 15px ;
+  width: 100% ;
+  margin-top: 30px ;
+  box-sizing: border-box ;
+}
+.image-plus{
+  border: 1px solid var(--weui-FG-1) ;
+  width: 75px ;
+  position: relative ;
+  height: 75px ;
+}
+.image-plus-nb{
+  border: 0 ;
+}
+.image-plus-text{
+  color: var(--weui-FG-2) ;
+  font-size: 14px ;
+}
+.image-plus-horizontal{
+  background-color: var(--weui-FG-1) ;
+  transform: translate(-50%, -50%) ;
+  top: 50% ;
+  left: 50% ;
+  width: 2px ;
+  position: absolute ;
+  height: 40px ;
+}
+.image-plus-vertical{
+  background-color: var(--weui-FG-1) ;
+  transform: translate(-50%, -50%) ;
+  top: 50% ;
+  left: 50% ;
+  width: 40px ;
+  position: absolute ;
+  height: 2px ;
+}
+.demo-text-1{
+  background-color: #1AAD19 ;
+  color: #FFFFFF ;
+  font-size: 18px ;
+  justify-content: center ;
+  position: relative ;
+  align-items: center ;
+}
+.demo-text-1:before{
+  transform: translate(-50%, -50%) ;
+  top: 50% ;
+  left: 50% ;
+  position: absolute ;
+  content: 'A' ;
+}
+.demo-text-2{
+  background-color: #2782D7 ;
+  color: #FFFFFF ;
+  font-size: 18px ;
+  justify-content: center ;
+  position: relative ;
+  align-items: center ;
+}
+.demo-text-2:before{
+  transform: translate(-50%, -50%) ;
+  top: 50% ;
+  left: 50% ;
+  position: absolute ;
+  content: 'B' ;
+}
+.demo-text-3{
+  background-color: #F1F1F1 ;
+  color: #353535 ;
+  font-size: 18px ;
+  justify-content: center ;
+  position: relative ;
+  align-items: center ;
+}
+.demo-text-3:before{
+  transform: translate(-50%, -50%) ;
+  top: 50% ;
+  left: 50% ;
+  position: absolute ;
+  content: 'C' ;
+}

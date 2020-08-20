@@ -47,7 +47,7 @@ import OnekitApp from "weixin2alipay/OnekitApp"
 ```  
  随后将你的微信小程序项目的app.js中的代码全部直接复制粘贴进此代码文件(如图步骤3)；  
  再将“App”改为“OnekitApp”即可(如图步骤4)。图示如下：  
- ![图10](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-PseAD4SzAADPMNbVGCk191.png?token=ec6372043a2a7bbb9d22fe29264666ef&ts=1597914880&attname=10.png&disposition=inline)  
+ ![图10](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-PseAD4SzAADPMNbVGCk191.png?token=ec6372043a2a7bbb9d22fe29264666ef&ts=1597914880&attname=10.png&disposition=inline)
 ##### b. 页面JS文件中的使用：  
  1. 依次打开你的页面JS文件，例如下图中的index.js文件。  
  2. 导入JS模块，即在页面JS文件中添加(如图步骤2):  

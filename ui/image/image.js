@@ -5,7 +5,7 @@ Component({
   data: {},
   props: {
     Style:"",
-    Class:"",
+    onekitClass:"",
     src: "",
     mode: "scaleToFill",
     webp: false,

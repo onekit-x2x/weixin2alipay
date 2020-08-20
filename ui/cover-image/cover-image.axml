@@ -1,7 +1,7 @@
 <cover-image
 id="Id"
 class="onekit-cover-image {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 src="{{src}}"
 onTap="coverImage_tap"
 >

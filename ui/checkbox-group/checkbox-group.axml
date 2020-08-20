@@ -2,7 +2,7 @@
 id="{{id}}"
 name="{{name}}"
 class="onekit-checkbox-group {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 onChange="checkboxGroup_change"
 >
 <slot></slot>

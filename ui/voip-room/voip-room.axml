@@ -1,7 +1,7 @@
 <voip-room
 id="{{id}}"
 class="onekit-voip-room {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 openid="{{openid}}"
 mode="{{mode}}"
 device-position="{{devicePosition}}"

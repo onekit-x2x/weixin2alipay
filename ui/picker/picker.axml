@@ -2,7 +2,7 @@
 id="{{id}}"
 name="{{name}}"
 class="onekit-picker {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 title="{{headerText}}"
 range="{{range}}"
 disabled="{{disabled}}"

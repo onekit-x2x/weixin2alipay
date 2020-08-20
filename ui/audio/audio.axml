@@ -1,6 +1,6 @@
 <audio
 class="onekit-audio {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 id="{{id}}"
 src="{{src}}"
 loop="{{loop}}"

@@ -2,7 +2,7 @@
 id="{{id}}"
 name="{{name}}"
 class="onekit-switch {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 name="{{name}}"
 checked="{{checked}}"
 disabled="{{disabled}}"

@@ -1,7 +1,7 @@
 <match-media
 id="{{id}}"
 class="onekit-match-media {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 min-width="{{minWidth}}"
 max-width="{{maxWidth}}"
 width="{{width}}"

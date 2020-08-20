@@ -2,7 +2,7 @@
 id="{{id}}"
 name="{{name}}"
 class="onekit-radio {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 value="{{value}}"
 checked="{{checked}}"
 disabled="{{disabled}}"

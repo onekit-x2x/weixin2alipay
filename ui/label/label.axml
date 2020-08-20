@@ -2,7 +2,7 @@
 id="{{id}}"
 name="{{name}}"
 class="onekit-label {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 for="{{for}}"
 >
 <slot></slot>

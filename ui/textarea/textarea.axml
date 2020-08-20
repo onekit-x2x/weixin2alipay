@@ -2,7 +2,7 @@
 id="{{id}}"
 name="{{name}}"
 class="onekit-textarea {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 value="{{value}}"
 placeholder="{{placeholder}}"
 placeholder-style="{{placeholderStyle}}"

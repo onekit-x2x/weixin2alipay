@@ -2,7 +2,7 @@
 id="view_id"
 name="{{name}}"
 class="onekit-radio-group {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 onclick="radio_click"
 
 name="{{name}}"

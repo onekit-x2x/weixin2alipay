@@ -1,7 +1,7 @@
 <cover-view
 id="{{id}}"
 class="onekit-cover-view {{onekitClass}}"
-style=“"{{onekitStyle}}"
+style="{{onekitStyle}}"
 scroll-top="{{scrollTop}}"
 >
 <slot>

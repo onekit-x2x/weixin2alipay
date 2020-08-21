@@ -167,6 +167,8 @@ wx:else改为a:else，其他列表渲染与条件渲染的更改同理。
 具体请参考支付宝小程序官方文档：  
 [https://opendocs.alipay.com/mini/framework/page-json](https://opendocs.alipay.com/mini/framework/page-json)  
 ### [在页面样式(*.acss)中的使用] 请参考以下步骤：  
+1.
+![图15](/readme/20.png)  
 具体请参考微信小程序官方文档：  
 [https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  
 具体请参考支付宝小程序官方文档：  

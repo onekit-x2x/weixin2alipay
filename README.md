@@ -1,5 +1,5 @@
 # “微信小程序变支付宝小程序”使用说明 
-## 【首次安装步骤】：可参考支付宝官方教程：<a href="https://opendocs.alipay.com/mini/ide/npm-manage" target="_blank">https://opendocs.alipay.com/mini/ide/npm-manage</a>  
+## 【首次安装步骤】：  可参考支付宝官方教程：<a href="https://opendocs.alipay.com/mini/ide/npm-manage" target="_blank">https://opendocs.alipay.com/mini/ide/npm-manage</a>  
 1、准备工作：  
 新建支付宝小程序项目或打开现有支付宝小程序项目。  
 2、下载配置依赖包：  

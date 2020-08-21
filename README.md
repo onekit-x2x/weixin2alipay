@@ -37,14 +37,14 @@
 7.点击同步按钮(如图步骤2);  
 8.同步完成后会在如图步骤3处出现依赖包名;  
 9.点击下载最新版依赖包(如图步骤4);  
-![图8](/readme18.png)  
+![图8](/readme/18.png)  
 10.当出现类似图示中的依赖包名，则下载安装完成(图示如下);  
 ![图9](/readme/19.png)
 
 ----------
 
 ## 【使用方法】： 
-### A.自动转换，强烈推荐！！！  
+### A.自动转换。(强烈推荐！！！)  
 #### [在代码文件(*.js)中的使用]  
 **请使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/code.html](https://www.onekit.cn/file/weixin/alipay/code.html)  
@@ -60,7 +60,7 @@
 
 ----------
 
-### B.手动转换。(以下转换步骤需具有一定编程经验)  
+### B.手动转换。(适合小程序开发者)  
 #### [在代码文件(*.js)中的使用] 请参考以下步骤：
 ##### a.  app.js文件中的使用：  
  导入JS模块，即在app.js文件中添加(如图步骤2)：  
@@ -167,6 +167,11 @@ wx:else改为a:else，其他列表渲染与条件渲染的更改同理。
 具体请参考支付宝小程序官方文档：  
 [https://opendocs.alipay.com/mini/framework/page-json](https://opendocs.alipay.com/mini/framework/page-json)  
 ### [在页面样式(*.acss)中的使用] 请参考以下步骤：  
+1.点击图标进入文件列表(如图步骤1);  
+2.点击app.acss文件(如图步骤2);  
+3.在此文件中添加语句：@import 'weixin2alipay/onekit.acss';  
+注意：不要遗忘import后的一个空格，和此语句最后的分号。  
+![图15](/readme/20.png)  
 具体请参考微信小程序官方文档：  
 [https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  
 具体请参考支付宝小程序官方文档：  

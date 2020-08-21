@@ -58,7 +58,7 @@
 ----------
 
 ### B.手动转换。(以下转换步骤需具有一定编程经验)  
-#### [在代码文件(*.js)中的使用]请参考以下步骤：
+#### [在代码文件(*.js)中的使用] 请参考以下步骤：
 ##### a.  app.js文件中的使用：  
  导入JS模块，即在app.js文件中添加(如图步骤2)：  
 ```
@@ -88,7 +88,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 3.随后将你的微信小程序项目的自定义组件的js代码直接全部复制粘贴进此文件(如图步骤3)  
 4.再将“Component”改为“OnekitComponent”(如图步骤4)。图示如下：  
  ![图12](/readme/12.png)  
-#### [在页面界面文件(*.axml)中的使用]请参考以下步骤：  
+#### [在页面界面文件(*.axml)中的使用] 请参考以下步骤：  
 以微信小程序的image组件在支付宝小程序使用为例： 
   
 1.< image >< /image >改为< onekit-image >< /onekit-image >;  
@@ -107,7 +107,7 @@ wx:else改为a:else，其他列表渲染与条件渲染的更改同理。
 [https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/](https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/)  
 具体请参考支付宝小程序官方文档：  
 [https://opendocs.alipay.com/mini/framework/axml](https://opendocs.alipay.com/mini/framework/axml)  
-### [在页面配置文件(*.json)中的使用]请参考以下步骤：  
+### [在页面配置文件(*.json)中的使用] 请参考以下步骤：  
 在将微信项目代码复制到支付宝平台，并且按照以上步骤修改了组件名、属性名、事件名之后，要在.json文件中注册此组件。具体操作为：在.json文件中写入全套组件注册(注意：组件注册要写在usingComponents中)，即在usingComponents中写入：
 ```
     "onekit-live-player":"weixin2alipay/ui/live-player/live-player",
@@ -163,7 +163,7 @@ wx:else改为a:else，其他列表渲染与条件渲染的更改同理。
 [https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html)  
 具体请参考支付宝小程序官方文档：  
 [https://opendocs.alipay.com/mini/framework/page-json](https://opendocs.alipay.com/mini/framework/page-json)  
-### [在页面样式(*.acss)中的使用]请参考以下步骤：  
+### [在页面样式(*.acss)中的使用] 请参考以下步骤：  
 具体请参考微信小程序官方文档：  
 [https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  
 具体请参考支付宝小程序官方文档：  

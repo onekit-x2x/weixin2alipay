@@ -69,7 +69,7 @@ import wx from "weixin2alipay/wx"
 import OnekitApp from "weixin2alipay/OnekitApp"
 ```  
  随后将你的微信小程序项目的app.js中的代码全部直接复制粘贴进此代码文件(如图步骤3)；  
- 再将“App”改为“OnekitApp”即可(如图步骤4)。图示如下：  
+ 再将```App```改为```OnekitApp```即可(如图步骤4)。图示如下：  
  ![图10](/readme/10.png)
 ##### b. 页面JS文件中的使用：  
 1. 依次打开你的页面JS文件，例如下图中的index.js文件。  
@@ -79,32 +79,30 @@ import wx from "weixin2alipay/wx"
 import OnekitPage from "weixin2alipay/OnekitPage"
  ```  
 3.随后将你的微信小程序项目的页面js代码直接全部复制粘贴进此页面代码文件(如图步骤3)  
-4.再将“Page”改为“OnekitPage”(如图步骤4)。图示如下：  
+4.再将```Page```改为```OnekitPage```(如图步骤4)。图示如下：  
  ![图11](/readme/11.png)  
 ##### c. 自定义组件的JS文件中的使用：  
 1. 依次打开你的项目中自定义组件的JS文件(如图中myComponent.js文件)，再依次按照以下步骤操作。  
-2. 引入“wx”与“OnekitComponent”，即在自定义组件的JS文件中添加(如图步骤2)：  
+2. 引入```wx```与```OnekitComponent```，即在自定义组件的JS文件中添加(如图步骤2)：  
  ```
 import wx from "weixin2alipay/wx"
 import OnekitComponent from "weixin2alipay/OnekitComponent"
  ```  
 3.随后将你的微信小程序项目的自定义组件的js代码直接全部复制粘贴进此文件(如图步骤3)  
-4.再将“Component”改为“OnekitComponent”(如图步骤4)。图示如下：  
+4.再将```Component```改为```OnekitComponent```(如图步骤4)。图示如下：  
  ![图12](/readme/12.png)  
 #### [在页面界面文件(*.axml)中的使用] 请参考以下步骤：  
 以微信小程序的image组件在支付宝小程序使用为例： 
   
-1.```<image></image>```
-改为
-```<onekit-image></onekit-image>;```
-2.id改为onekit-id;  
-3.class改为onekit-class;  
-4.style改为onekit-style;  
-5.事件名bind改为on，例如：bindload改为onLoad(注意更改过后Load首字母，同理其他事件名);  
+1.```<image></image>```改为```<onekit-image></onekit-image>;```  
+2.```id```改为```onekit-id```;  
+3.```class```改为```onekit-class```;  
+4.```style```改为```onekit-style```;  
+5.事件名bind改为on，例如：```bindload```改为```onLoad```(注意更改过后Load首字母，同理其他事件名);  
 6.其他：列表渲染和条件渲染的更改:  
-比如：wx:for改为a:for;  
-wx:if改为a:if;  
-wx:else改为a:else，其他列表渲染与条件渲染的更改同理。  
+比如：```wx:for```改为```a:for```;  
+```wx:if```改为```a:if```;  
+```wx:else```改为```a:else```，其他列表渲染与条件渲染的更改同理。  
 两者对比如图所示：  
 ![图13](/readme/13.png)  
 ![图14](/readme/14.png)  
@@ -171,7 +169,7 @@ wx:else改为a:else，其他列表渲染与条件渲染的更改同理。
 ### [在页面样式(*.acss)中的使用] 请参考以下步骤：  
 1.点击图标进入文件列表(如图步骤1);  
 2.点击app.acss文件(如图步骤2);  
-3.在此文件中添加语句：@import 'weixin2alipay/onekit.acss';  
+3.在此文件中添加语句：```@import 'weixin2alipay/onekit.acss';```  
 注意：不要遗忘import后的一个空格，和此语句最后的分号。  
 ![图15](/readme/20.png)  
 具体请参考微信小程序官方文档：  

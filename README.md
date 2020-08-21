@@ -82,6 +82,10 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 3.class改为onekit-class;  
 4.style改为onekit-style;  
 5.事件名bind改为on，例如：bindload改为onLoad(注意更改过后Load首字母，同理其他事件名);  
+6.其他：列表渲染和条件渲染的更改:  
+比如：wx:for改为a:for;  
+wx:if改为a:if;  
+wx:else改为a:else，其他列表渲染与条件渲染的更改同理。  
 两者对比如图所示：  
 ![图13](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PuuAM-o_AABuYxSjsCM125.png?token=946f56db55d1185d9822debba5fc2310&ts=1597914880&attname=13.png&disposition=inline)  
 ![图14](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PvaAZVi-AABlpcDTsCc551.png?token=5dd69044824fc8efd21b9c94495d7ada&ts=1597914880&attname=14.png&disposition=inline)  

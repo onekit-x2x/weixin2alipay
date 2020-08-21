@@ -69,7 +69,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
  ```  
  3.随后将你的微信小程序项目的自定义组件的js代码直接全部复制粘贴进此文件(如图步骤3)  
  4.再将“Component”改为“OnekitComponent”(如图步骤4)。图示如下：  
- ![图12](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PtqAEQ2AAADm-Plb8_s632.png?token=48522cc3fa37bf6e821e6d99d28c8e14&ts=1597914880&attname=12.png&disposition=inline)  
+ ![图12](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PtqAEQ2AAADm-Plb8_s632.png?token=08ec7c28bb4195e58ab484b07a437a10&ts=1597976093&attname=12.png&disposition=inline)  
 ### [在页面界面文件(*.axml)中的使用]  
 #### A.自动转换。(强烈推荐！！！)  
 **请使用单文件转换器：**  

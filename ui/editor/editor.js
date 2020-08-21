@@ -7,7 +7,7 @@ Component({
     showImgSize: false,
     showImgToolbar: false,
     showImgResize: false,
-    onekitClass:'',
+    onekitId:'',
   },
   didMount() {
     this.webView = my.createWebViewContext('webView');

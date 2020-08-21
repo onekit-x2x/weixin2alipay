@@ -4,7 +4,7 @@ Component({
   mixins: [],
   data: {},
   props: {
-    Style:"",
+    onekitStyle:"",
     onekitClass:"",
     src: "",
     mode: "scaleToFill",

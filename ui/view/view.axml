@@ -1,6 +1,6 @@
 <view 
 id="{{onekitId}}"
-class="onkit-view {{onekitClass}}"
+class="onekit-view {{onekitClass}}"
 style="{{onekitStyle}}"
 onTap="view_tap"
 >

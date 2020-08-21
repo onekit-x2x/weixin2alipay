@@ -1,7 +1,7 @@
 <image
 id="{{onekitId}}"
-class="onekit-image {{Class}}"
-style="{{Style}}"
+class="onekit-image {{onekitClass}}"
+style="{{onekitStyle}}"
 mode="{{mode}}"
 src="{{alipay_src}}"
 webp="{{webp}}"

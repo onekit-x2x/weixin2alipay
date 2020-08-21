@@ -1,4 +1,4 @@
-<web-view id="onekitClass" 
+<web-view id="onekitId" 
  src="http://localhost:8082/index.html?readOnly={{readOnly}}&placeholder={{placeholder}}&showImgSize={{showImgSize}}&showImgToolbar={{showImgToolbar}}&showImgResize={{showImgResize}}"  
  style="display:none;"   
  onMessage="webView_message">

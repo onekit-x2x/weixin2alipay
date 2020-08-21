@@ -169,7 +169,8 @@ wx:else改为a:else，其他列表渲染与条件渲染的更改同理。
 ### [在页面样式(*.acss)中的使用] 请参考以下步骤：  
 1.点击图标进入文件列表(如图步骤1);  
 2.点击app.acss文件(如图步骤2);  
-3.在此文件中添加语句：@import 'weixin2alipay/onekit.acss';(注意不要遗忘import后的一个空格，和此语句最后的分号);  
+3.在此文件中添加语句：@import 'weixin2alipay/onekit.acss';  
+注意：不要遗忘import后的一个空格，和此语句最后的分号。  
 ![图15](/readme/20.png)  
 具体请参考微信小程序官方文档：  
 [https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)  

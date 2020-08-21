@@ -69,7 +69,7 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
  ```  
  3.随后将你的微信小程序项目的自定义组件的js代码直接全部复制粘贴进此文件(如图步骤3)  
  4.再将“Component”改为“OnekitComponent”(如图步骤4)。图示如下：  
- ![图12](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PtqAEQ2AAADm-Plb8_s632.png?token=48522cc3fa37bf6e821e6d99d28c8e14&ts=1597914880&attname=12.png&disposition=inline)  
+ ![图12](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PtqAEQ2AAADm-Plb8_s632.png?token=08ec7c28bb4195e58ab484b07a437a10&ts=1597976093&attname=12.png&disposition=inline)  
 ### [在页面界面文件(*.axml)中的使用]  
 #### A.自动转换。(强烈推荐！！！)  
 **请使用单文件转换器：**  
@@ -82,6 +82,10 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 3.class改为onekit-class;  
 4.style改为onekit-style;  
 5.事件名bind改为on，例如：bindload改为onLoad(注意更改过后Load首字母，同理其他事件名);  
+6.其他：列表渲染和条件渲染的更改:  
+比如：wx:for改为a:for;  
+wx:if改为a:if;  
+wx:else改为a:else，其他列表渲染与条件渲染的更改同理。  
 两者对比如图所示：  
 ![图13](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PuuAM-o_AABuYxSjsCM125.png?token=946f56db55d1185d9822debba5fc2310&ts=1597914880&attname=13.png&disposition=inline)  
 ![图14](https://files.gitee.com/group1/M00/10/C3/wKgCNF8-PvaAZVi-AABlpcDTsCc551.png?token=5dd69044824fc8efd21b9c94495d7ada&ts=1597914880&attname=14.png&disposition=inline)  

@@ -69,28 +69,28 @@ import OnekitApp from "weixin2alipay/OnekitApp"
  再将“App”改为“OnekitApp”即可(如图步骤4)。图示如下：  
  ![图10](/readme/10.png)
 ##### b. 页面JS文件中的使用：  
- 1. 依次打开你的页面JS文件，例如下图中的index.js文件。  
- 2. 导入JS模块，即在页面JS文件中添加(如图步骤2):  
+1. 依次打开你的页面JS文件，例如下图中的index.js文件。  
+2. 导入JS模块，即在页面JS文件中添加(如图步骤2):  
  ```
 import wx from "weixin2alipay/wx"
 import OnekitPage from "weixin2alipay/OnekitPage"
  ```  
- 3.随后将你的微信小程序项目的页面js代码直接全部复制粘贴进此页面代码文件(如图步骤3)  
- 4.再将“Page”改为“OnekitPage”(如图步骤4)。图示如下：  
+3.随后将你的微信小程序项目的页面js代码直接全部复制粘贴进此页面代码文件(如图步骤3)  
+4.再将“Page”改为“OnekitPage”(如图步骤4)。图示如下：  
  ![图11](/readme/11.png)  
 ##### c. 自定义组件的JS文件中的使用：  
- 1. 依次打开你的项目中自定义组件的JS文件(如图中myComponent.js文件)，再依次按照以下步骤操作。  
- 2. 引入“wx”与“OnekitComponent”，即在自定义组件的JS文件中添加(如图步骤2)：  
+1. 依次打开你的项目中自定义组件的JS文件(如图中myComponent.js文件)，再依次按照以下步骤操作。  
+2. 引入“wx”与“OnekitComponent”，即在自定义组件的JS文件中添加(如图步骤2)：  
  ```
 import wx from "weixin2alipay/wx"
 import OnekitComponent from "weixin2alipay/OnekitComponent"
  ```  
- 3.随后将你的微信小程序项目的自定义组件的js代码直接全部复制粘贴进此文件(如图步骤3)  
- 4.再将“Component”改为“OnekitComponent”(如图步骤4)。图示如下：  
+3.随后将你的微信小程序项目的自定义组件的js代码直接全部复制粘贴进此文件(如图步骤3)  
+4.再将“Component”改为“OnekitComponent”(如图步骤4)。图示如下：  
  ![图12](/readme/12.png)  
 #### [在页面界面文件(*.axml)中的使用]请参考以下步骤：  
 以微信小程序的image组件在支付宝小程序使用为例：  
-1.<image></image>改为<onekit-image></onekit-image>;  
+1.<image/>改为<onekit-image/>;  
 2.id改为onekit-id;  
 3.class改为onekit-class;  
 4.style改为onekit-style;  

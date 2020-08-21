@@ -1,6 +1,5 @@
 # “微信小程序变支付宝小程序”使用说明 
-## 【首次安装步骤】：
-可参考支付宝官方教程：[https://opendocs.alipay.com/mini/ide/npm-manage](https://opendocs.alipay.com/mini/ide/npm-manage)  
+## 【首次安装步骤】：可参考支付宝官方教程：<a href="https://opendocs.alipay.com/mini/ide/npm-manage" target="_blank">https://opendocs.alipay.com/mini/ide/npm-manage</a>  
 1、准备工作：  
 新建支付宝小程序项目或打开现有支付宝小程序项目。  
 2、下载配置依赖包：  
@@ -45,17 +44,14 @@
 
 ## 【使用方法】： 
 ### A.自动转换。(强烈推荐！！！)  
+推荐使用onekit产品，无需繁复步骤，一键实现快速转换：  
 #### [在代码文件(*.js)中的使用]  
-**请使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/code.html](https://www.onekit.cn/file/weixin/alipay/code.html)  
 #### [在页面界面文件(*.axml)中的使用]  
-**请使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/ui.html](https://www.onekit.cn/file/weixin/alipay/ui.html)  
 #### [在页面配置文件(*.json)中的使用]  
-**请使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/json.html](https://www.onekit.cn/file/weixin/alipay/json.html)  
 #### [在页面样式(*.acss)中的使用]  
-**请使用单文件转换器：**  
 [https://www.onekit.cn/file/weixin/alipay/style.html](https://www.onekit.cn/file/weixin/alipay/style.html)
 
 ----------

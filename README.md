@@ -6,7 +6,7 @@
 2、下载配置依赖包：  
  2.1 点击左侧此图标，进入NPM面板(如图步骤1)  
  2.2 首次使用NPM依赖管理的情况下，点击“添加目录”(如图步骤2)  
-![图1](./readme/1.jpg)  
+![图1](/readme/1.jpg)  
 2.3 随后点击以下如图所示按钮，即将项目添加进依赖管理：  
 ![图2](https://files.gitee.com/group1/M00/10/C2/wKgCNF8-PmWAGFrdAACNWQydwaM041.png?token=2fa4a5520b1c0d9cf4b83e2a670a39ca&ts=1597914726&attname=2.png&disposition=inline)  
 2.4  完成以上两个步骤之后，就创建好了package.json文件，随后点击进入文件列表(如图步骤1)，点击package.json文件(如图步骤2)，在此文件中添加此依赖(如图步骤3)：  

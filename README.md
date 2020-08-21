@@ -94,7 +94,9 @@ import OnekitComponent from "weixin2alipay/OnekitComponent"
 #### [在页面界面文件(*.axml)中的使用] 请参考以下步骤：  
 以微信小程序的image组件在支付宝小程序使用为例： 
   
-1.< image >< /image >改为< onekit-image >< /onekit-image >;  
+1.```<image></image>```
+改为
+```<onekit-image></onekit-image>;```
 2.id改为onekit-id;  
 3.class改为onekit-class;  
 4.style改为onekit-style;  

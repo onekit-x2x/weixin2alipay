@@ -5,6 +5,7 @@ style="{{onekitStyle}}"
 selectable="{{selectable}}"
 space="{{space}}"
 decode="{{decode}}"
+user-select="{{userSelect}}"
 >
 <slot>
 </slot>

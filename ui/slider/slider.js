@@ -18,6 +18,7 @@ Component({
     blockSize:28,
     blockColor:"#ffffff",
     showValue:false,
+
   },
   didMount() {},
   didUpdate() {},

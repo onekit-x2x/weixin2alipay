@@ -2,7 +2,7 @@
 <checkbox
   id="{{onekitId}}"
   class="onekit-checkbox {{onekitClass}}"
- style="{{onekitStyle}}"
+  style="{{onekitStyle}}"
   name="{{name}}"
   value="{{value}}" 
   disabled="{{disabled}}"

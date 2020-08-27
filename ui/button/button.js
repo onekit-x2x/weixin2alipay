@@ -20,7 +20,6 @@ Component({
     hoverStopPropagation: false,
     hoverStartTime: 20,
     hoverStayTime: 70,
-    lang:"en",
   },
   didMount() {
     var openType;

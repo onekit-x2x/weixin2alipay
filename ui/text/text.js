@@ -8,7 +8,6 @@ Component({
     selectable:false,
     space:"",
     decode:false,
-    userSelect:false,
   },
   didMount() {},
   didUpdate() {},

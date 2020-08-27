@@ -2,11 +2,6 @@
 id="{{onekitId}}"
 class="onekit-view {{onekitClass}}"
 style="{{onekitStyle}}"
-
-hover-class="{{hoverClass}}"
-hover-stop-propagation="{{hoverStopPropagation}}"	
-hover-start-time="{{hoverStartTime}}"	
-hover-stay-time="{{hoverStayTime}}"	
 onTap="view_tap"
 >
 <slot>

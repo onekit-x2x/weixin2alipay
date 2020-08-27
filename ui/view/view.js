@@ -4,12 +4,7 @@ Component({
   props: {
     onekitStyle: "",
     onekitClass: "",
-    onekitId: "",
-
-    hoverClass:"none",
-    hoverStopPropagation:false,
-    hoverStartTime:50,
-    hoverStayTime:400,
+    onekitId: ""
   },
   didMount() { },
   didUpdate() { },

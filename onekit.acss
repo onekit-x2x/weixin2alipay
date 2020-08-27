@@ -1,6 +1,7 @@
 * {
     margin: 0;
 }
+
 page {
     cursor: default;
     -webkit-user-select: none;
@@ -11,6 +12,10 @@ page {
     -webkit-text-size-adjust: none;     
     text-size-adjust: none;
 }
+page{
+    --onekit-rem:32rpx;
+}
+
 .onekit-cover-image {
     display: block;
     line-height: 1.2;
@@ -244,16 +249,14 @@ border-color: rgba(0,0,0,.2);
 }
 
 .onekit-input {
-    
     cursor: auto;
     display: block;
+    height: calc(1.4*var(--onekit-rem));
     text-overflow: clip;                        
     overflow: hidden;
     white-space: nowrap;
     font-family: UICTFontTextStyleBody;
-    height:1.4rem;
-   /* min-height:1.4rem;*/
-
+    min-height: calc(1.4*var(--onekit-rem));
 }
 
 .onekit-picker {

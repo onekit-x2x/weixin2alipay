@@ -14,5 +14,11 @@ Component({
   didMount() {},
   didUpdate() {},
   didUnmount() {},
-  methods: {},
+  methods: {
+    checkbox_Change(e) {
+      if (this.props.onChange) {
+        this.props.onChange({})
+      }
+    },
+  },
 });

@@ -8,12 +8,6 @@ stroke-width="{{strokeWidth}}"
 active-color="{{color}}"
 background-color="{{backgroundColor}}"
 active="{{active}}"
-
-border-radius="{{borderRadius}}"
-font-size="{{fontSize}}"
-color="{{color}}"
-active-mode="{{activeMode}}"
-duration="{{duration}}"
 >
 <slot>
 </slot>

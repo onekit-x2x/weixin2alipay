@@ -5,7 +5,7 @@ Component({
     onekitStyle:"",
     onekitClass:"",
     type:"",
-    size:23,
+    size:24,
     color:"",
     onekitId:""
   },

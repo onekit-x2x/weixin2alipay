@@ -18,7 +18,6 @@ Component({
     blockSize:28,
     blockColor:"#ffffff",
     showValue:false,
-
   },
   didMount() {},
   didUpdate() {},
@@ -26,12 +25,12 @@ Component({
   methods: {
   slider_Change(e){
     if(this.props.onChange){
-      this.props.onChange({})
+      this.props.onChange(e)
     }
   },
   slider_Changing(e){
     if(this.props.onChanging){
-      this.props.onChanging({})
+      this.props.onChanging(e)
     }
   }
   },

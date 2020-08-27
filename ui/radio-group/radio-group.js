@@ -4,12 +4,16 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    name:"",
     onekitId:"",
-    view_id:""
   },
   didMount() {},
   didUpdate() {},
   didUnmount() {},
-  methods: {},
+  methods: {
+    radioGroup_Change(e){
+      if(this.props.onChange){
+        this.props.onChange(e);
+      }
+    }
+  },
 });

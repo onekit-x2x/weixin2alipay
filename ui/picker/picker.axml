@@ -1,13 +1,61 @@
-<picker
+<picker a:if="{{mode=='selector'}}"
 id="{{onekitId}}"
-name="{{name}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
-title="{{headerText}}"
+onChange="selector_Change"
 range="{{range}}"
+title="{{headerText}}"
 disabled="{{disabled}}"
-onChange="picker_Change"
 >
+<view><slot/></view>
+</picker>
+<!-- 
+<block a:elif="{{mode=='multiSelector'}}">
+<view 
+id="{{onekitId}}"
+class="onekit-picker {{onekitClass}}"
+style="{{onekitStyle}}"
+onTap="multiSelector_Tap">
 <slot>
 </slot>
-</picker>
+</view>
+</block>
+
+<block a:elif="{{mode=='time'}}">
+<view 
+id="{{onekitId}}"
+class="onekit-picker {{onekitClass}}"
+style="{{onekitStyle}}"
+onTap="time_Tap">
+<slot>
+</slot>
+</view>
+<view a:if="{{show}}" style="width:750rpx;height:400rpx;background:red;position:absolute;bottom:0;">
+</view>
+</block>
+
+<block a:elif="{{mode=='date'}}">
+<view
+id="{{onekitId}}"
+class="onekit-picker {{onekitClass}}"
+style="{{onekitStyle}}"
+onTap="date_Tap">
+<slot>
+</slot>
+</view>
+</block>
+
+<block a:elif="{{mode=='date'}}">
+<view 
+id="{{onekitId}}"
+class="onekit-picker {{onekitClass}}"
+style="{{onekitStyle}}"
+onTap="region_Tap">
+<slot>
+</slot>
+</view>
+</block>
+
+<view a:else>
+{{selector}}
+</view> -->

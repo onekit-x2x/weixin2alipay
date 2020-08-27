@@ -17,6 +17,13 @@ Component({
     showCenterPlayBtn:true,
     objectFit:'contain',
     showMuteBtn:true,
+
+    danmuList:"",
+    danmuBtn:false,
+    enableDanmu:false,
+    pagGesture:false,
+    showProgress:true,
+    enableProgressGesture:true,
   },
   
   methods: {

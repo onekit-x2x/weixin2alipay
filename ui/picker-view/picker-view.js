@@ -18,7 +18,7 @@ Component({
   methods: {
     pickerView_Change(e){
       if(this.props.onChange){
-        this.props.onChange({})
+        this.props.onChange(e)
       }
     }
   },

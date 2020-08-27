@@ -4,7 +4,6 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    name:"",
     onekitId:"",
     value:"",
     checked:false,

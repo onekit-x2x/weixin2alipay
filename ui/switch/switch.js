@@ -19,7 +19,7 @@ Component({
     switch_Change(e){
       console.log("switch_Change",e)
       if(this.props.onChange){
-        this.props.onChange({})
+        this.props.onChange(e)
       }
     }
   },

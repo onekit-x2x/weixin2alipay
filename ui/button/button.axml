@@ -1,15 +1,21 @@
 <button
- class="onekit-button {{onekitClass}}"
- style="{{onekitStyle}}"
+ class="onekit-button 
+ onekit-button_size-{{size}}
+  onekit-button_type-{{type}}
+  onekit-button_{{plain?'plain':''}}
+    onekit-button_{{loading?'loading':''}}
+ onekit-button_{{disabled?'disabled':''}}
+ {{attributeCSS}}  {{onekitClass}}"
+
+ style="white-space:normal;{{onekitStyle}}"
  id="{{onekitId}}"
  name="{{name}}"
   scope="phoneNumber"
   onTap="button_onTap"
   size="{{size}}"
-  type="{{type}}"
   plain="{{plain}}"
   disabled="{{disabled}}"
-  loading="{{loading}}"
+
   form-type="{{formType}}"
   open-type="{{openType}}"
   hover-class="{{hoverClass}}"
@@ -36,9 +42,11 @@
   >
  <slot/>
 </button> 
+<!--
 <cover-view  onTap="contactBG_tap" > 
   <view   onTap="contactBG_tap" hidden="{{hideContact}}" style="padding-top:200rpx;text-align: center; width: 750rpx;height:100%;position:absolute;left:0;top:0;font-size: 20px;background-color: rgba(0, 0, 0, 0.5)"
->
 <contact-button size="400rpx" tnt-inst-id="FUCPINMW" scene="SCE00038444"/>
 </view>
 </cover-view>
+
+-->

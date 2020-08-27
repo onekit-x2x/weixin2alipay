@@ -11,7 +11,7 @@ Component({
     onekitId: "",
     size: "default",
     type: "default",
-    plain: "false",
+    plain: false,
     disabled: false,
     loading: false,
     formType: "",
@@ -29,7 +29,22 @@ Component({
       case "getUserInfo": openType = "getAuthorize"; scope = "userInfo"; break;
       default: openType = openType;
     }
-    this.setData({ openType, scope });
+    //
+    var attributeCSS = "onekit-button";
+    if(this.props.disabled){
+      attributeCSS+=`_disabled`;
+    }
+        if(this.props.loading){
+      attributeCSS+=`_loading`;
+    }
+     
+      attributeCSS+=`_type-${this.props.type}`;
+    
+        if(this.props.plain){
+      attributeCSS+=`_plain`;
+    }
+    console.log(attributeCSS)
+    this.setData({ openType, scope,attributeCSS });
   },
   didUpdate() { },
   didUnmount() { },

@@ -2,12 +2,16 @@ Component({
   mixins: [],
   data: {},
   props: {
+    index:0,
     onekitStyle:"",
     onekitClass:"",
     onekitId:""
   },
-  didMount() {},
+  didMount() {
+  },
   didUpdate() {},
   didUnmount() {},
-  methods: {},
+  methods: {
+    
+  },
 });

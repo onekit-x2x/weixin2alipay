@@ -13,6 +13,8 @@ circular="{{circular}}",
 vertical="{{vertical}}",
 previous-margin="{{previousMargin}}",
 next-margin="{{nextMargin}}",
+
+
 onChange="swiper_Change"
 onTransition="swiper_Transition"
 onAnimationEnd="swiper_AnimationEnd"

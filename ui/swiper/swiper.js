@@ -21,6 +21,7 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
+   
     swiper_Change(e){
       if(this.props.onChange){
         this.props.onChange()

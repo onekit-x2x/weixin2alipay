@@ -7,7 +7,6 @@
   value="{{value}}" 
   disabled="{{disabled}}"
   checked="{{checked}}"
-  color="{{color}}"
-  onChange="checkbox_Change">
+  color="{{color}}">
 <slot/>
 </checkbox>

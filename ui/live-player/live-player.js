@@ -15,7 +15,14 @@ Component({
     maxCache: 3,
 
   },
-  didMount() { },
+  didMount() {
+     const that = this;
+    this.livePlayerCtx = my.createMapContext(this.props.onekitId);
+
+    my.createSelectorQuery().select(`.onekit-live-player`).boundingClientRect().exec((rect) => {
+        that.setData({rect:rect[0]});
+    })
+  },
   didUpdate() { },
   didUnmount() { },
   methods: {

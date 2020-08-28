@@ -1,7 +1,10 @@
 import wx from "./wx.js";
 export default function OnekitComponent(object){
+  
+    const properties = {};
   const alipay_object = {
     onInit(query){
+
       var created;
       if(object.lifetimes && object.lifetimes.created){
         created = object.lifetimes.created;
@@ -13,6 +16,12 @@ export default function OnekitComponent(object){
       created.call(this,query);
     },
     didMount(){
+
+  for(const k of Object.keys(this.props)){
+    console.log(k,this.props[k])
+          const v = this.props[k];
+          properties[k] = v;
+        }
       var attached;
       if(object.lifetimes && object.lifetimes.attached){
         attached = object.lifetimes.attached;
@@ -43,6 +52,11 @@ export default function OnekitComponent(object){
         detached = function(){};
       }
       detached.call(this);
+    },methods:{
+      get properties(){
+        console.log("properties",properties)
+        return properties;
+      }
     }
   };
       if(object){
@@ -63,10 +77,15 @@ export default function OnekitComponent(object){
     switch(key){
       case "properties":
         alipay_object.props = {};
-        for(const p of Object.keys(value)){
-          const v = value[p];
-          alipay_object.props[p] = (v && v.value ? v.value:null);
+        for(const k of Object.keys(object.properties)){
+          const p = object.properties[k];
+          const v = (p && p.value ? p.value:null);
+          alipay_object.props[k] = v;
+          properties[k] = v;
+          
         }
+        break;
+      case "methods":
         break;
       default:  
        alipay_object[key] = value;

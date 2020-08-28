@@ -8,7 +8,14 @@ Component({
     flash:"auto",
     onekitId:""
     },
-  didMount() {},
+  didMount() {
+     const that = this;
+    this.cameraCtx = my.createMapContext(this.props.onekitId);
+
+    my.createSelectorQuery().select(`.onekit-camera`).boundingClientRect().exec((rect) => {
+        that.setData({rect:rect[0]});
+    })
+  },
   didUpdate() {},
   didUnmount() {},
   methods: {

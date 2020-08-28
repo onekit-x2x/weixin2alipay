@@ -21,9 +21,7 @@ export default class VideoContext{
   exitFullScreen(){
       return this.alipayConvasContext.exitFullScreen();
     }
-//  sendDanmu() {
-//    return this.videoContext.sendDanmu("暂不支持");
-//   }
+
 
 
 

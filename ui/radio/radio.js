@@ -6,6 +6,7 @@ Component({
     onekitClass:"",
     onekitId:"",
     value:"",
+    name:"",
     checked:false,
     disabled:false,
     color:"#09BB07"

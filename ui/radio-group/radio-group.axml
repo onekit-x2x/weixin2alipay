@@ -2,6 +2,7 @@
 id="{{onekitId}}"
 class="onekit-radio-group {{onekitClass}}"
 style="{{onekitStyle}}"
+name="{{name}}"
 onChange="radioGroup_Change"
 >
 

@@ -2,6 +2,9 @@ Component({
   mixins: [],
   data: {},
   props: {
+      onekitId:"onekit-map",
+            onekitClass:"",
+        onekitStyle:"",
     longitude: function(longitude) {
 this.setData({longitude:longitude});
     },
@@ -58,7 +61,12 @@ this.mapCtx.gestureEnable({isGestureEnable:enableRotate});
     }
   },
   didMount() {
-    this.mapCtx = my.createMapContext("map");
+    const that = this;
+    this.mapCtx = my.createMapContext(this.props.onekitId);
+
+    my.createSelectorQuery().select(`.onekit-map`).boundingClientRect().exec((rect) => {
+        that.setData({rect:rect[0]});
+    })
    },
   didUpdate() { },
   didUnmount() { },

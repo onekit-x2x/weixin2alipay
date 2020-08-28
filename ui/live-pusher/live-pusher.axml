@@ -33,3 +33,8 @@ video-height="{{videoHeight}}"
 >
 
 </live-pusher>
+<cover-view style="position:absolute;pointer-events: none;background-color:transparent;
+width:{{rect.width}}px;height:{{rect.height}}px;
+left:{{rect.left}}px;top:{{rect.top}}px;">
+<slot></slot>
+</cover-view>

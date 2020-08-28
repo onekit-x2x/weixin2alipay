@@ -1,0 +1,4 @@
+@keyframes danmu{
+  from {left: 750rpx;}
+  to {left:-750rpx;}
+  }

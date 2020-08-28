@@ -29,7 +29,18 @@ show-mute-btn="{{showMuteBtn}}"
 onPlay="video_start" 
 onPause="video_pause" 
 onEnded="video_end" 
-onTimeupdate="video_timeupdate" 
+onTimeUpdate="video_timeupdate" 
 onFullscreenchange="video_fullscreenchange" 
 onError="video_error" 
 />
+<cover-view style="pointer-events: none;
+  top:{{rect.top}}px;left:{{rect.left}}px;
+  width:{{rect.width}}px;height:{{rect.height}}px;">
+<cover-view a:for="{{danmuList}}" a:key="item" style="
+position:absolute;left:750rpx;top:{{item.index*20}}px;background:transparent;
+animation: danmu 3s linear forwards {{item.time}}s;
+color:{{item.color}};">{{item.text}}</cover-view>
+</cover-view>
+<view style="pointer-events: none;
+top:{{rect.top}}px;left:{{rect.left}}px;
+width:{{rect.width}}px;height:{{rect.height}}px;"><slot></slot></view>

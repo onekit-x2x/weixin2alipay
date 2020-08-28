@@ -3,7 +3,7 @@ Component({
   props: {
     onekitStyle:"",
     onekitClass:"",
-    onekitId:"",
+    onekitId:"onekit-video",
     src:"",
     autoplay:true,
     poster:"",
@@ -18,14 +18,32 @@ Component({
     objectFit:'contain',
     showMuteBtn:true,
 
-    danmuList:"",
+    danmuList:[],
     danmuBtn:false,
     enableDanmu:false,
     pagGesture:false,
     showProgress:true,
     enableProgressGesture:true,
   },
-  
+  didMount(){
+    const that = this;
+    my.createSelectorQuery().select(`.onekit-video`).boundingClientRect().exec((rect) => {
+     that.setData({rect:rect[0]});
+    })
+    var lastTime = 0;
+    var index = 0;
+    const danmuList = [];
+    for(const danmu of this.props.danmuList){
+      if(lastTime<danmu.time){
+        index=0;
+        lastTime = danmu.time;
+      }
+      danmu.index = index;
+      index++;
+      danmuList.push(danmu);
+    }
+    this.setData({danmuList});
+  },
   methods: {
       video_start(e) {
         if (this.props.onPlay) {

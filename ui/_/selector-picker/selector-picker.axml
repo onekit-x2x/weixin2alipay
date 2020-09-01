@@ -1,0 +1,15 @@
+<view 
+    id="{{onekitId}}"
+    class="onekit-picker {{onekitClass}}"
+    style="{{onekitStyle}}"
+    onTap="selector_show">
+  <slot>
+  </slot>
+  </view>
+  <bottom-view a:if="{{show}}" onCancle="selector_cancle" onConfirm="selector_confirm">
+    <picker-view onChange="selector_change" value="{{indexes}}">
+      <picker-view-column>
+        <view a:for="{{range}}" a:for-key="item">{{rangeKey?item[rangeKey]:item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </bottom-view>

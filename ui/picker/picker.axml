@@ -1,61 +1,65 @@
-<picker a:if="{{mode=='selector'}}"
+<selector-picker a:if="{{mode=='selector'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
-onChange="selector_Change"
+onCancle="picker_Cancle"
+onChange="picker_Change"
 range="{{range}}"
-title="{{headerText}}"
+headerText="{{headerText}}"
 disabled="{{disabled}}"
->
-<view><slot/></view>
-</picker>
-<!-- 
-<block a:elif="{{mode=='multiSelector'}}">
-<view 
+value="{{value}}"
+range-key="{{rangeKey}}">
+<slot></slot>
+</selector-picker>
+<multiselector-picker a:elif="{{mode=='multiSelector'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
-onTap="multiSelector_Tap">
-<slot>
-</slot>
-</view>
-</block>
-
-<block a:elif="{{mode=='time'}}">
-<view 
+onCancle="picker_Cancle"
+onChange="picker_Change"
+onColumnchange="picker_Columnchange"
+range="{{range}}"
+headerText="{{headerText}}"
+disabled="{{disabled}}"
+value="{{value}}"
+range-key="{{rangeKey}}">
+<slot></slot>
+</multiselector-picker>
+<time-picker a:elif="{{mode=='time'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
-onTap="time_Tap">
-<slot>
-</slot>
-</view>
-<view a:if="{{show}}" style="width:750rpx;height:400rpx;background:red;position:absolute;bottom:0;">
-</view>
-</block>
-
-<block a:elif="{{mode=='date'}}">
-<view
+onCancle="picker_Cancle"
+onChange="picker_Change"
+headerText="{{headerText}}"
+disabled="{{disabled}}"
+start="{{start}}"
+end="{{end}}"
+value="{{value}}">
+<slot></slot>
+</time-picker>
+<date-picker a:elif="{{mode=='date'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
-onTap="date_Tap">
-<slot>
-</slot>
-</view>
-</block>
+onCancle="picker_Cancle"
+onChange="picker_Change"
+headerText="{{headerText}}"
+disabled="{{disabled}}"
+start="{{start}}"
+end="{{end}}"
+value="{{value}}">
+<slot></slot>
+</date-picker>
 
-<block a:elif="{{mode=='date'}}">
-<view 
+<ragion-picker a:elif="{{mode=='region'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
-onTap="region_Tap">
-<slot>
-</slot>
-</view>
-</block>
-
-<view a:else>
-{{selector}}
-</view> -->
+onCancle="picker_Cancle"
+onChange="picker_Change"
+headerText="{{headerText}}"
+disabled="{{disabled}}"
+value="{{value}}">
+<slot></slot>
+</ragion-picker>

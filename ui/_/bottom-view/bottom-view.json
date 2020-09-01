@@ -1,0 +1,6 @@
+{
+  "component": true,
+  	"usingComponents":{
+  		"mask-view":"../mask-view/mask-view"
+    }
+}

@@ -1,0 +1,23 @@
+<view id="{{onekitId}}" class="onekit-picker {{onekitClass}}" style="{{onekitStyle}}" onTap="ragion_show">
+  <slot>
+  </slot>
+</view>
+<bottom-view a:if="{{show}}" onCancle="ragion_cancle" onConfirm="ragion_confirm">
+  <view style="display:flex;">
+    <picker-view onChange="province_change" value="{{provinceIndexes}}" style="flex-grow:1;">
+      <picker-view-column>
+        <view a:for="{{provinces}}" a:for-item="province" a:for-key="id">{{province.name}}</view>
+      </picker-view-column>
+    </picker-view>
+    <picker-view onChange="city_change" value="{{cityIndexes}}" style="flex-grow:1;">
+      <picker-view-column>
+        <view a:for="{{citys}}" a:for-item="city" a:for-key="id">{{city.name}}</view>
+      </picker-view-column>
+    </picker-view>
+    <picker-view onChange="town_change" value="{{townIndexes}}" style="flex-grow:1;">
+      <picker-view-column>
+        <view a:for="{{towns}}" a:for-item="town" a:for-key="id">{{town.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</bottom-view>

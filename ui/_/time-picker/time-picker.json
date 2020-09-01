@@ -1,0 +1,6 @@
+{
+  "component": true,
+  	"usingComponents":{
+  		"bottom-view":"../bottom-view/bottom-view"
+    }
+}

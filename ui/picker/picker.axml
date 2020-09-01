@@ -60,6 +60,7 @@ onCancle="picker_Cancle"
 onChange="picker_Change"
 headerText="{{headerText}}"
 disabled="{{disabled}}"
-value="{{value}}">
+value="{{value}}"
+customItem="{{customItem}}">
 <slot></slot>
 </ragion-picker>

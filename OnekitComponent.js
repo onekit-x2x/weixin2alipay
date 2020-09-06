@@ -18,9 +18,10 @@ export default function OnekitComponent(object) {
     didMount() {
 
       for (const k of Object.keys(this.props)) {
-        console.log(k, this.props[k])
+      //  console.log(k, this.props[k])
         const v = this.props[k];
         properties[k] = v;
+        this.data[k] = v;
       }
       var attached;
       if (object.lifetimes && object.lifetimes.attached) {
@@ -54,7 +55,7 @@ export default function OnekitComponent(object) {
       detached.call(this);
     }, methods: {
       get properties() {
-        console.log("properties", properties)
+      //   console.log("properties", properties)
         return properties;
       }
     }

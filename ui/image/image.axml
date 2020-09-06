@@ -8,6 +8,4 @@ webp="{{webp}}"
 lazy-load="{{lazyLoad}}"
 onError="image_error"
 onLoad="image_load"
->
-<slot></slot>
-</image>
+/>

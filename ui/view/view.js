@@ -1,5 +1,6 @@
+import wxs_behavior from "../../wxs_behavior.js";
 Component({
-  mixins: [],
+  mixins: [wxs_behavior],
   data: {},
   props: {
     onekitStyle: "",

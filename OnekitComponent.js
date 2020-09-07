@@ -1,8 +1,13 @@
 import wx from "./wx.js";
+import wxs_behavior from "./wxs_behavior.js";
 export default function OnekitComponent(object) {
 
   const properties = {};
   const alipay_object = {
+    mixins:[wxs_behavior],
+    data() {
+      onekit_styles: ""
+    },
     onInit(query) {
 
       var created;
@@ -18,7 +23,6 @@ export default function OnekitComponent(object) {
     didMount() {
 
       for (const k of Object.keys(this.props)) {
-      //  console.log(k, this.props[k])
         const v = this.props[k];
         properties[k] = v;
         this.data[k] = v;
@@ -55,9 +59,9 @@ export default function OnekitComponent(object) {
       detached.call(this);
     }, methods: {
       get properties() {
-      //   console.log("properties", properties)
         return properties;
-      }
+      },
+    
     }
   };
   if (object) {
@@ -87,8 +91,13 @@ export default function OnekitComponent(object) {
         }
         break;
       case "methods":
-    for (const k of Object.keys(value)) {
+        for (const k of Object.keys(value)) {
           alipay_object.methods[k] = value[k];
+        }
+        break;
+      case "data":
+        for (const k of Object.keys(value)) {
+          alipay_object.data[k] = value[k];
         }
         break;
       case "behaviors":

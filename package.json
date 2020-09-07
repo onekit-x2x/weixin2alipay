@@ -1,6 +1,6 @@
 {
   "name": "weixin2alipay",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "Weixin-Miniprogram SDK for Alipay-Miniprogram",
   "repository": {
     "type": "git",

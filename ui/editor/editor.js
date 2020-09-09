@@ -1,5 +1,7 @@
+import onekit_behavior from "../../behavior/onekit_behavior"  
+import wxs_behavior from "../../behavior/wxs_behavior"  
 Component({
-  mixins: [],
+  mixins: [onekit_behavior,wxs_behavior],
   data: {},
   props: {
     readOnly: false,
@@ -7,7 +9,6 @@ Component({
     showImgSize: false,
     showImgToolbar: false,
     showImgResize: false,
-    onekitId:'',
   },
   didMount() {
     this.webView = my.createWebViewContext('webView');

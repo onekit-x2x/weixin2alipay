@@ -1,11 +1,10 @@
+import onekit_behavior from "../../behavior/onekit_behavior"  
+import wxs_behavior from "../../behavior/wxs_behavior"  
 Component({
-  mixins: [],
+  mixins: [onekit_behavior,wxs_behavior],
   data: {},
   props: {
-    onekitStyle:"",
-    onekitClass:"",
     name:"",
-    onekitId:"",
     for:"",
   },
   didMount() {},

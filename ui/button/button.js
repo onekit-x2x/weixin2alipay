@@ -1,14 +1,13 @@
 import wx from "../../wx";
+import onekit_behavior from "../../behavior/onekit_behavior"  
+import wxs_behavior from "../../behavior/wxs_behavior"  
 Component({
-  mixins: [],
+  mixins: [onekit_behavior,wxs_behavior],
   data: {
     hideContact: true
   },
   props: {
-    onekitStyle: "",
-    onekitClass: "",
     name: "",
-    onekitId: "",
     size: "default",
     type: "default",
     plain: false,

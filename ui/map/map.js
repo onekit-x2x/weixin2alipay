@@ -1,10 +1,11 @@
+import wxs_behavior from "../../behavior/wxs_behavior"  
 Component({
-  mixins: [],
+  mixins: [wxs_behavior],
   data: {},
   props: {
       onekitId:"onekit-map",
-            onekitClass:"",
-        onekitStyle:"",
+      onekitClass:"",
+      onekitStyle:"",
     longitude: function(longitude) {
 this.setData({longitude:longitude});
     },

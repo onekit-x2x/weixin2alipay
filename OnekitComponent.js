@@ -1,5 +1,5 @@
 import wx from "./wx.js";
-import wxs_behavior from "./wxs_behavior.js";
+import wxs_behavior from "weixin2alipay/behavior/wxs_behavior";
 export default function OnekitComponent(object) {
 
   const properties = {};

@@ -1,9 +1,0 @@
-<view hidden="{{hidden}}" style="display:flex; justify-content:space-around;align-items:center;position:fixed;width:100%;height:100%;background:#0008">
-<view style="background:#fff;width:700rpx;">
-  <text style="display:block;padding:20rpx;font-size:34rpx;text-align:center;">{{title}}</text>
-  <text style="display:block;padding:20rpx;font-size:30rpx;color:#888"><slot>{{content}}</slot></text>
-  <view style="display:flex">
-    <button style="margin:0;width:100%;" onTap="onConfirm">确定</button>
-  </view>
-</view>
-</view>

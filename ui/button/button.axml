@@ -7,7 +7,7 @@
  onekit-button_{{disabled?'disabled':''}}
  {{attributeCSS}}  {{onekitClass}}"
 
- style="white-space:normal;{{onekitStyle}}"
+ style="white-space:normal;height:auto;{{onekitStyle}}"
  id="{{onekitId}}"
  name="{{name}}"
   scope="phoneNumber"

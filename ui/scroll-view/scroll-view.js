@@ -1,16 +1,15 @@
 //var this.data.touch, this.data.moved, this.data.startY, this.data.diff,
 //  this.data.pagePull = true;
 var refresher;
+import onekit_behavior from "../../behavior/onekit_behavior"  
+import wxs_behavior from "../../behavior/wxs_behavior"  
 Component({
-  mixins: [],
+  mixins: [onekit_behavior,wxs_behavior],
   data: {
     refresher_height: 0,
     pagePull:true
   },
   props: {
-    onekitStyle:"",
-    onekitClass:"",
-    onekitId:"", 
     scrollX: false,
     scrollY: false,
     UpperThreshold: 50,

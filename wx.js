@@ -6,82 +6,82 @@ import Context from "./api/Context";
 import wx_cloud from "./wx.cloud";
 export default class wx {
   // ///////////////// animation //////////////////////////
-  static createAnimation(object) {
-    return my.createAnimation(object);
+  static createAnimation(wx_object) {
+    return my.createAnimation(wx_object);
   }
   //////////////////onKeyboardHeightChange//////////////////
-  static onKeyboardHeightChange(object) {
+  static onKeyboardHeightChange(wx_object) {
     return
   }
   // /////////////// basic ////////////////////////////////
-  static canIUse(object) { return true; }
-  static _getSystemInfo(result) {
-    result.SDKVersion = "2.7.0";
+  static canIUse(wx_object) { return true; }
+  static _getSystemInfo(wx_res) {
+    wx_res.SDKVersion = "2.7.0";
     my.openBluetoothAdapter({
-      success: (res) => {
-        // result.bluetoothEnabled = true;
+      success: (my_res) => {
+        // wx_res.bluetoothEnabled = true;
         my.closeBluetoothAdapter();
       },
-      fail: (res) => {
-        // result.bluetoothEnabled = false;
+      fail: (my_res) => {
+        // wx_res.bluetoothEnabled = false;
         my.closeBluetoothAdapter();
       }
     });
     my.getNetworkType({
-      success: (res) => {
-        // result.wifiEnabled = (res.networkType === "WIFI");
+      success: (my_res) => {
+        // wx_res.wifiEnabled = (my_res.networkType === "WIFI");
       },
-      fail: (res) => {
-        // result.wifiEnabled = false;
+      fail: (my_res) => {
+        // wx_res.wifiEnabled = false;
       }
     });
     my.getSetting({
-      success: (res) => {
-        result.locationAuthorized = (res.authSetting.location === true);
-        result.cameraAuthorized = (res.authSetting.camera === true);
-        result.microphoneAuthorized = (res.authSetting.audioRecord === true);
-        result.albumAuthorized = (res.authSetting.album === true);
+      success: (my_res) => {
+        wx_res.locationAuthorized = (my_res.authSetting.location === true);
+        wx_res.cameraAuthorized = (my_res.authSetting.camera === true);
+        wx_res.microphoneAuthorized = (my_res.authSetting.audioRecord === true);
+        wx_res.albumAuthorized = (my_res.authSetting.album === true);
       },
     });
-    return result;
+    return wx_res;
   }
-  static getSystemInfo(object) {
-    var object2 = {};
-    object2.success = function (res) {
-      var result = {
+  static getSystemInfo(wx_object) {
+    var my_object = {};
+    my_object.success = function (my_res) {
+      var wx_res = {
         errMsg: "getSystemInfo:ok",
         SDKVersion: "2.4.2",
-        brand: res.brand,
-        fontSizeSetting: res.fontSizeSetting,
-        language: res.language,
-        model: res.model,
+        brand: my_res.brand,
+        fontSizeSetting: my_res.fontSizeSetting,
+        language: my_res.language,
+        model: my_res.model,
         // notificationAuthorized: notificationAuthorized,
-        pixelRatio: res.pixelRatio,
-        platform: res.platform,
-        safeArea: { height: res.screenHeight, width: res.screenWidth, bottom: res.screenHeight, top: 0, left: 0, right: res.screenWidth },
-        screenHeight: res.screenHeight,
-        screenWidth: res.screenWidth,
-        statusBarHeight: res.statusBarHeight,
-        system: res.system,
-        version: res.version,
-        windowHeight: res.windowWidth,
-        windowWidth: res.windowHeight,
+        pixelRatio: my_res.pixelRatio,
+        platform: my_res.platform,
+        safeArea: { height: my_res.screenHeight, width: my_res.screenWidth, bottom: my_res.screenHeight, top: 0, left: 0, right: my_res.screenWidth },
+        screenHeight: my_res.screenHeight,
+        screenWidth: my_res.screenWidth,
+        statusBarHeight: my_res.statusBarHeight,
+        system: my_res.system,
+        version: my_res.version,
+        windowHeight: my_res.windowWidth,
+        windowWidth: my_res.windowHeight,
       };
 
-      result = wx._getSystemInfo(result);
-      if (object.success) { object.success(result); }
-      if (object.fail) { object.fail(result); }
+      wx_res = wx._getSystemInfo(wx_res);
+      if (wx_object.success) { wx_object.success(wx_res); }
+      if (wx_object.fail) { wx_object.fail(wx_res); }
     };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.fail(res);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.fail(my_res);
       }
-      if (object.complete) {
-        objec.complete(res);
+      if (wx_object.complete) {
+        objec.complete(my_res);
       }
     };
 
-    return my.getSystemInfo(object2);
+    return my.getSystemInfo(my_object);
   }
   static getSystemInfoSync() {
     return wx._getSystemInfo(my.getSystemInfoSync());
@@ -95,22 +95,22 @@ export default class wx {
     let base64Content = Buffer.from(arrayBuffer).toString('base64');
     return base64Content;
   }
-  static getUpdateManager(object) { return my.getUpdateManager(object); }
-  static getLaunchOptionsSync(object) { return my.getLaunchOptionsSync(object); }
-  static offPageNotFound(object) { return my.offPageNotFound(object); }
-  static onPageNotFound(object) { return my.onPageNotFound(object); }
-  static offError(object) { return my.offError(object); }
-  static onError(object) { return my.onError(object); }
-  static offAppShow(object) { return my.offAppShow(object); }
-  static onAppShow(object) { return my.onAppShow(object); }
-  static offAppHide(object) { return my.offAppHide(object); }
-  static onAppHide(object) { return my.onAppHide(object); }
-  static setEnableDebug(object) { return my.setEnableDebug(object); }
-  static getLogManager(object) { return my.getLogManager(object); }
+  static getUpdateManager(wx_object) { return my.getUpdateManager(wx_object); }
+  static getLaunchOptionsSync(wx_object) { return my.getLaunchOptionsSync(wx_object); }
+  static offPageNotFound(wx_object) { return my.offPageNotFound(wx_object); }
+  static onPageNotFound(wx_object) { return my.onPageNotFound(wx_object); }
+  static offError(wx_object) { return my.offError(wx_object); }
+  static onError(wx_object) { return my.onError(wx_object); }
+  static offAppShow(wx_object) { return my.offAppShow(wx_object); }
+  static onAppShow(wx_object) { return my.onAppShow(wx_object); }
+  static offAppHide(wx_object) { return my.offAppHide(wx_object); }
+  static onAppHide(wx_object) { return my.onAppHide(wx_object); }
+  static setEnableDebug(wx_object) { return my.setEnableDebug(wx_object); }
+  static getLogManager(wx_object) { return my.getLogManager(wx_object); }
   // ///////////////// Canvas ///////////////////
-  static drawCanvas(object) {
-    var canvasId = object.canvasId;
-    var actions = object.actions;
+  static drawCanvas(wx_object) {
+    var canvasId = wx_object.canvasId;
+    var actions = wx_object.actions;
     var canvasContext = my.createCanvasContext(canvasId);
     var dt;
     for (const action of actions) {
@@ -209,48 +209,48 @@ export default class wx {
   static createSelectorQuery() {
     return new SelectorQuery(my.createSelectorQuery());
   }
-  static canvasToTempFilePath(object) {
-    var object2 = {
-      canvasId: object.canvasId
+  static canvasToTempFilePath(wx_object) {
+    var my_object = {
+      canvasId: wx_object.canvasId
     };
-    object2.success = function (res) {
-      var result = {
+    my_object.success = function (my_res) {
+      var wx_res = {
         errMsg: "canvasToTempFilePath:ok",
-        tempFilePath: res.apFilePath
+        tempFilePath: my_res.apFilePath
       };
-      if (object.success) {
-        object.success(res);
+      if (wx_object.success) {
+        wx_object.success(my_res);
       }
-      if (object.complete) {
-        object.complete(res);
-      }
-    };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res);
-      }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
       }
     };
-    return my.canvasToTempFilePath(object2);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.success(my_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
+      }
+    };
+    return my.canvasToTempFilePath(my_object);
   }
-  static canvasPutImageData(object) { return my.canvasPutImageData(object); }
-  static canvasGetImageData(object) { return my.canvasGetImageData(object); }
+  static canvasPutImageData(wx_object) { return my.canvasPutImageData(wx_object); }
+  static canvasGetImageData(wx_object) { return my.canvasGetImageData(wx_object); }
   // //////////// Device //////////////////
-  static onBeaconServiceChange(object) { return my.onBeaconServiceChange(object); }
-  static onBeaconUpdate(object) { return my.onBeaconUpdate(object); }
-  static getBeacons(object) { return my.getBeacons(object); }
-  static stopBeaconDiscovery(object) { return my.stopBeaconDiscovery(object); }
-  static startBeaconDiscovery(object) { return my.startBeaconDiscovery(object); }
-  static stopWifi(object) { return my.stopWifi(object); }
-  static startWifi(object) { return my.startWifi(object); }
-  static setWifiList(object) { return my.setWifiList(object); }
-  static onWifiConnected(object) { return my.onWifiConnected(object); }
-  static onGetWifiList(object) { return my.onGetWifiList(object); }
-  static getWifiList(object) { return my.getWifiList(object); }
-  static getConnectedWifi(object) { return my.getConnectedWifi(object); }
-  static connectWifi(object) { return my.connectWifi(object); }
+  static onBeaconServiceChange(wx_object) { return my.onBeaconServiceChange(wx_object); }
+  static onBeaconUpdate(wx_object) { return my.onBeaconUpdate(wx_object); }
+  static getBeacons(wx_object) { return my.getBeacons(wx_object); }
+  static stopBeaconDiscovery(wx_object) { return my.stopBeaconDiscovery(wx_object); }
+  static startBeaconDiscovery(wx_object) { return my.startBeaconDiscovery(wx_object); }
+  static stopWifi(wx_object) { return my.stopWifi(wx_object); }
+  static startWifi(wx_object) { return my.startWifi(wx_object); }
+  static setWifiList(wx_object) { return my.setWifiList(wx_object); }
+  static onWifiConnected(wx_object) { return my.onWifiConnected(wx_object); }
+  static onGetWifiList(wx_object) { return my.onGetWifiList(wx_object); }
+  static getWifiList(wx_object) { return my.getWifiList(wx_object); }
+  static getConnectedWifi(wx_object) { return my.getConnectedWifi(wx_object); }
+  static connectWifi(wx_object) { return my.connectWifi(wx_object); }
   // ///////////////////////////////////////////
   static setBackgroundFetchToken(my_object) {
     var wx_token = my_object.token;
@@ -283,8 +283,8 @@ export default class wx {
     console.log(quick_success)
     my.getStorage({
       key: 'wx_token',
-      success(res) {
-        console.log(res.data)
+      success(my_res) {
+        console.log(my_res.data)
       }
     })
     my_object.success = function (wx_res) {
@@ -306,36 +306,36 @@ export default class wx {
   }
 
   static onAccelerometerChange(callback) {
-    my.onAccelerometerChange(function (res) {
+    my.onAccelerometerChange(function (my_res) {
       if (wx._stopAccelerometer) {
         return;
       }
-      callback(res);
+      callback(my_res);
     });
   }
-  static stopAccelerometer(object) {
+  static stopAccelerometer(wx_object) {
     wx._stopAccelerometer = true;
-    if (object.success) {
-      object.success();
+    if (wx_object.success) {
+      wx_object.success();
     }
-    if (object.complete) {
-      object.complete();
+    if (wx_object.complete) {
+      wx_object.complete();
     }
   }
-  static startAccelerometer(object) {
+  static startAccelerometer(wx_object) {
     wx._stopAccelerometer = false;
-    if (object.success) {
-      object.success();
+    if (wx_object.success) {
+      wx_object.success();
     }
-    if (object.complete) {
-      object.complete();
+    if (wx_object.complete) {
+      wx_object.complete();
     }
   }
-  static getBatteryInfoSync(object) { return my.getBatteryInfoSync(object); }
-  static _getBatteryInfo(result) {
+  static getBatteryInfoSync(wx_object) { return my.getBatteryInfoSync(wx_object); }
+  static _getBatteryInfo(wx_res) {
     my.getSystemInfo({
-      success: (res) => {
-        var percent = res.currentBattery;
+      success: (my_res) => {
+        var percent = my_res.currentBattery;
         function toPoint(percent) {
           var str = percent.replace("%", "");
           str = str / 100;
@@ -343,613 +343,609 @@ export default class wx {
         }
         toPoint(percent);
         var results = toPoint(percent);
-        result.level = results;
+        wx_res.level = results;
       }
     });
-    return result;
+    return wx_res;
   }
-  static getBatteryInfo(object) {
-    var object2 = {};
-    object2.success = function (res) {
-      var result = {
+  static getBatteryInfo(wx_object) {
+    var my_object = {};
+    my_object.success = function (my_res) {
+      var wx_res = {
         errMsg: "getBatteryInfo:ok",
         isCharging: false,
       };
-      result = wx._getBatteryInfo(result);
-      if (object.success) { object.success(result); }
-      if (object.fail) { object.fail(result); }
+      wx_res = wx._getBatteryInfo(wx_res);
+      if (wx_object.success) { wx_object.success(wx_res); }
+      if (wx_object.fail) { wx_object.fail(wx_res); }
     };
-    object2.fail = function (res) {
-      if (object.success) { object.success(res); }
-      if (object.fail) { object.fail(res); }
+    my_object.fail = function (my_res) {
+      if (wx_object.success) { wx_object.success(my_res); }
+      if (wx_object.fail) { wx_object.fail(my_res); }
     };
-    return my.getSystemInfo(object2);
+    return my.getSystemInfo(my_object);
   }
   //
-  static getClipboardData(object) {
-    var object2 = {};
-    if (object) {
-      object2.success = function (res) {
-        var result = { data: res.text };
-        if (object.success) { object.success(result); }
-        if (object.fail) { object.fail(result); }
+  static getClipboardData(wx_object) {
+    var my_object = {};
+    if (wx_object) {
+      my_object.success = function (my_res) {
+        var wx_res = { data: my_res.text };
+        if (wx_object.success) { wx_object.success(wx_res); }
+        if (wx_object.fail) { wx_object.fail(wx_res); }
       };
-      object2.fail = function (res) {
-        if (object.success) { object.success(res); }
-        if (object.fail) { object.fail(res); }
+      my_object.fail = function (my_res) {
+        if (wx_object.success) { wx_object.success(my_res); }
+        if (wx_object.fail) { wx_object.fail(my_res); }
       };
     }
-    return my.getClipboard(object2);
+    return my.getClipboard(my_object);
   }
-  static setClipboardData(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static setClipboardData(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "data":
-            object2.text = object[key];
+            my_object.text = wx_object[key];
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    return my.setClipboard(object2);
+    return my.setClipboard(my_object);
   }
   static onCompassChange(callback) {
-    my.onCompassChange(function (res) {
+    my.onCompassChange(function (my_res) {
       if (wx._stopCompass) {
         return;
       }
-      callback(res);
+      callback(my_res);
     });
   }
-  static stopCompass(object) {
+  static stopCompass(wx_object) {
     wx._stopCompass = true;
-    if (object.success) {
-      object.success();
+    if (wx_object.success) {
+      wx_object.success();
     }
-    if (object.complete) {
-      object.complete();
+    if (wx_object.complete) {
+      wx_object.complete();
     }
   }
-  static startCompass(object) {
+  static startCompass(wx_object) {
     wx._stopCompass = false;
-    if (object.success) {
-      object.success();
+    if (wx_object.success) {
+      wx_object.success();
     }
-    if (object.complete) {
-      object.complete();
+    if (wx_object.complete) {
+      wx_object.complete();
     }
   }
-  static addPhoneContact(object) {
-    var object2 = {};
+  static addPhoneContact(wx_object) {
+    var my_object = {};
     var errMsg;
-    var result = {
+    var wx_res = {
       errMsg: errMsg
     };
-    object2.success = function (res) {
-      result.errMsg = "addPhoneContact:ok";
-      if (object.success) {
-        object.success(result);
+    my_object.success = function (my_res) {
+      wx_res.errMsg = "addPhoneContact:ok";
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
-      }
-    };
-    object2.fail = function (res) {
-      result.errMsg = "addPhoneContact:fail cancel";
-      if (object.fail) {
-        object.fail(result);
-      }
-      if (object.complete) {
-        object.complete(result);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.addPhoneContact(object2);
+    my_object.fail = function (my_res) {
+      wx_res.errMsg = "addPhoneContact:fail cancel";
+      if (wx_object.fail) {
+        wx_object.fail(wx_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
+      }
+    };
+    return my.addPhoneContact(my_object);
   }
   static onGyroscopeChange(callback) {
-    my.onGyroscopeChange(function (res) {
+    my.onGyroscopeChange(function (my_res) {
       if (wx._stopGyroscope) {
         return;
       }
-      callback(res);
+      callback(my_res);
     });
   }
-  static stopGyroscope(object) {
+  static stopGyroscope(wx_object) {
     wx._stopGyroscope = true;
-    if (object.success) {
-      object.success();
+    if (wx_object.success) {
+      wx_object.success();
     }
-    if (object.complete) {
-      object.complete();
+    if (wx_object.complete) {
+      wx_object.complete();
     }
   }
-  static startGyroscope(object) {
+  static startGyroscope(wx_object) {
     wx._startGyroscope = false;
-    if (object.success) {
-      object.success();
+    if (wx_object.success) {
+      wx_object.success();
     }
-    if (object.complete) {
-      object.complete();
+    if (wx_object.complete) {
+      wx_object.complete();
     }
   }
   //
-  static onDeviceMotionChange(object) { return my.onDeviceMotionChange(object); }
-  static stopDeviceMotionListening(object) { return my.stopDeviceMotionListening(object); }
-  static startDeviceMotionListening(object) { return my.startDeviceMotionListening(object); }
+  static onDeviceMotionChange(wx_object) { return my.onDeviceMotionChange(wx_object); }
+  static stopDeviceMotionListening(wx_object) { return my.stopDeviceMotionListening(wx_object); }
+  static startDeviceMotionListening(wx_object) { return my.startDeviceMotionListening(wx_object); }
   //
-  static getNetworkType(object) {
-    var object2 = {};
-    for (var key in object) {
+  static getNetworkType(wx_object) {
+    var my_object = {};
+    for (var key in wx_object) {
       switch (key) {
         case "success":
         case "fail":
         case "complete":
           break;
         default:
-          object2[key] = object[key];
+          my_object[key] = wx_object[key];
           break;
       }
     }
-    object2.success = function (res) {
-      var result = { networkType: wx._network(res).networkType };
-      if (object.success) {
-        object.success(result);
+    my_object.success = function (my_res) {
+      var wx_res = { networkType: wx._network(my_res).networkType };
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.success(my_res);
       }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
       }
     };
 
-    return my.getNetworkType(object2);
+    return my.getNetworkType(my_object);
   }
-  static _network(res) {
+  static _network(my_res) {
     var networkType;
-    if (res.networkAvailable) {
-      switch (res.networkType) {
+    if (my_res.networkAvailable) {
+      switch (my_res.networkType) {
         case "WWAN":
           networkType = "WIFI";
           break;
         default:
-          networkType = res.networkType;
+          networkType = my_res.networkType;
           break;
       }
     } else {
       networkType = "NONE";
     }
-    return { isConnected: res.networkAvailable, networkType: networkType.toLowerCase() };
+    return { isConnected: my_res.networkAvailable, networkType: networkType.toLowerCase() };
   }
   static onNetworkStatusChange(callack) {
-    my.onNetworkStatusChange(function (res) {
-      callack(wx._network(res));
+    my.onNetworkStatusChange(function (my_res) {
+      callack(wx._network(my_res));
     });
   }
 
 
   //
-  static makePhoneCall(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static makePhoneCall(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "phoneNumber":
-            object2.number = object[key];
+            my_object.number = wx_object[key];
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
 
-      return my.makePhoneCall(object2);
+      return my.makePhoneCall(my_object);
     }
   }
 
-  static scanCode(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static scanCode(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "onlyFromCamera":
-            object2.hideAlbum = object[key];
+            my_object.hideAlbum = wx_object[key];
             break;
           case "scanType":
-            object2.type = object[key];
+            my_object.type = wx_object[key];
             break;
           case "success":
           case "fail":
           case "complete":
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
-      object2.success = function (res) {
-        console.log(res)
-        var result = {};
-        if (res.code) {
-          result.charSet = "UTF-8";
-          result.result = res.code;
-          if (res.qrCode) {
-            result.scanType = "QR_CODE";
-          } else if (res.barCode) {
-            result.scanType = "EAN_8";
+      my_object.success = function (my_res) {
+        console.log(my_res)
+        var wx_res = {};
+        if (my_res.code) {
+          wx_res.charSet = "UTF-8";
+          wx_res.wx_res = my_res.code;
+          if (my_res.qrCode) {
+            wx_res.scanType = "QR_CODE";
+          } else if (my_res.barCode) {
+            wx_res.scanType = "EAN_8";
           }
         }
-        if (object.success) {
-          object.success(result);
+        if (wx_object.success) {
+          wx_object.success(wx_res);
         }
-        if (object.complete) {
-          object.complete(result);
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
         }
       };
-      object2.fail = function (res) {
-        console.log(res)
-        if (object.fail) {
-          object.fail(res);
+      my_object.fail = function (my_res) {
+        console.log(my_res)
+        if (wx_object.fail) {
+          wx_object.fail(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       };
     }
-    return my.scan(object2);
+    return my.scan(my_object);
   }
   //
-  static vibrateLong(object) {
-    var object2 = {};
-    object2.success = function (res) {
-      var result = {
+  static vibrateLong(wx_object) {
+    var my_object = {};
+    my_object.success = function (my_res) {
+      var wx_res = {
         errMsg: "vibrateLong:ok"
       };
-      if (object.success) {
-        object.success(result);
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.vibrateLong(object2);
+    return my.vibrateLong(my_object);
   }
-  static vibrateShort(object) {
-    var object2 = {};
-    object2.success = function (res) {
-      var result = {
+  static vibrateShort(wx_object) {
+    var my_object = {};
+    my_object.success = function (my_res) {
+      var wx_res = {
         errMsg: "vibrateShort:ok"
       };
-      if (object.success) {
-        object.success(result);
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.vibrateShort(object2);
+    return my.vibrateShort(my_object);
   }
   //
-  static onMemoryWarning(object) { return my.onMemoryWarning(object); }
+  static onMemoryWarning(wx_object) { return my.onMemoryWarning(wx_object); }
   //
-  static writeBLECharacteristicValue(object) { return my.writeBLECharacteristicValue(object); }
-  static readBLECharacteristicValue(object) { return my.readBLECharacteristicValue(object); }
-  static onBLEConnectionStateChange(object) { return my.onBLEConnectionStateChange(object); }
-  static onBLECharacteristicValueChange(object) { return my.onBLECharacteristicValueChange(object); }
-  static notifyBLECharacteristicValueChange(object) { return my.notifyBLECharacteristicValueChange(object); }
-  static getBLEDeviceServices(object) { return my.getBLEDeviceServices(object); }
-  static getBLEDeviceCharacteristics(object) { return my.getBLEDeviceCharacteristics(object); }
-  static createBLEConnection(object) { return my.createBLEConnection(object); }
-  static closeBLEConnection(object) { return my.closeBLEConnection(object); }
+  static writeBLECharacteristicValue(wx_object) { return my.writeBLECharacteristicValue(wx_object); }
+  static readBLECharacteristicValue(wx_object) { return my.readBLECharacteristicValue(wx_object); }
+  static onBLEConnectionStateChange(wx_object) { return my.onBLEConnectionStateChange(wx_object); }
+  static onBLECharacteristicValueChange(wx_object) { return my.onBLECharacteristicValueChange(wx_object); }
+  static notifyBLECharacteristicValueChange(wx_object) { return my.notifyBLECharacteristicValueChange(wx_object); }
+  static getBLEDeviceServices(wx_object) { return my.getBLEDeviceServices(wx_object); }
+  static getBLEDeviceCharacteristics(wx_object) { return my.getBLEDeviceCharacteristics(wx_object); }
+  static createBLEConnection(wx_object) { return my.createBLEConnection(wx_object); }
+  static closeBLEConnection(wx_object) { return my.closeBLEConnection(wx_object); }
   //
-  static stopBluetoothDevicesDiscovery(object) {
-    var object2 = {};
-    for (var key in object) {
+  static stopBluetoothDevicesDiscovery(wx_object) {
+    var my_object = {};
+    for (var key in wx_object) {
       switch (key) {
         case "success":
         case "fail":
         case "complete":
           break;
         default:
-          object2[key] = object[key];
+          my_object[key] = wx_object[key];
           break;
       }
     }
-    return my.stopBluetoothDevicesDiscovery(object2);
+    return my.stopBluetoothDevicesDiscovery(my_object);
   }
-  static startBluetoothDevicesDiscovery(object) {
-    wx.openBluetoothAdapter(object);
-    return my.startBluetoothDevicesDiscovery(object);
+  static startBluetoothDevicesDiscovery(wx_object) {
+    wx.openBluetoothAdapter(wx_object);
+    return my.startBluetoothDevicesDiscovery(wx_object);
   }
-  static openBluetoothAdapter(object) {
-    var object2 = {};
-    object2.success = function (res) {
-      var result = { errMsg: "openBluetoothAdapter:ok" };
-      if (object.success) { object.success(result); }
-      if (object.complete) { object.complete(result); }
+  static openBluetoothAdapter(wx_object) {
+    var my_object = {};
+    my_object.success = function (my_res) {
+      var wx_res = { errMsg: "openBluetoothAdapter:ok" };
+      if (wx_object.success) { wx_object.success(wx_res); }
+      if (wx_object.complete) { wx_object.complete(wx_res); }
     };
-    object2.fail = function (res) {
-      if (object.success) { object.success(res); }
-      if (object.complete) { object.complete(res); }
+    my_object.fail = function (my_res) {
+      if (wx_object.success) { wx_object.success(my_res); }
+      if (wx_object.complete) { wx_object.complete(my_res); }
     };
-    return my.openBluetoothAdapter(object2);
+    return my.openBluetoothAdapter(my_object);
   }
-  static onBluetoothDeviceFound(object) { return my.onBluetoothDeviceFound(object); }
-  static onBluetoothAdapterStateChange(object) { return my.onBluetoothAdapterStateChange(object); }
-  static getConnectedBluetoothDevices(object) { return my.getConnectedBluetoothDevices(object); }
-  static getBluetoothDevices(object) {
-    var object2 = {};
-    object2.success = function (res) {
+  static onBluetoothDeviceFound(wx_object) { return my.onBluetoothDeviceFound(wx_object); }
+  static onBluetoothAdapterStateChange(wx_object) { return my.onBluetoothAdapterStateChange(wx_object); }
+  static getConnectedBluetoothDevices(wx_object) { return my.getConnectedBluetoothDevices(wx_object); }
+  static getBluetoothDevices(wx_object) {
+    var my_object = {};
+    my_object.success = function (my_res) {
       my.getBluetoothDevices({
-        success: (res) => {
-          // console.log("000", res)
-          // console.log("000", res.devices)
-          result.devices = res.devices;
+        success: (my_res) => {
+          // console.log("000", my_res)
+          // console.log("000", my_res.devices)
+          wx_res.devices = my_res.devices;
         }
       });
-      var result = {
+      var wx_res = {
         errMsg: "closeBluetoothAdapter:ok"
       };
-      if (object.success) { object.success(result); }
-      if (object.complete) { object.complete(result); }
+      if (wx_object.success) { wx_object.success(wx_res); }
+      if (wx_object.complete) { wx_object.complete(wx_res); }
     };
-    object2.fail = function (res) {
-      if (object.success) { object.success(res); }
-      if (object.complete) { object.complete(res); }
+    my_object.fail = function (my_res) {
+      if (wx_object.success) { wx_object.success(my_res); }
+      if (wx_object.complete) { wx_object.complete(my_res); }
     };
-    return my.getBluetoothDevices(object2);
+    return my.getBluetoothDevices(my_object);
   }
-  static getBluetoothAdapterState(object) { return my.getBluetoothAdapterState(object); }
-  static closeBluetoothAdapter(object) { return my.closeBluetoothAdapter(object); }
+  static getBluetoothAdapterState(wx_object) { return my.getBluetoothAdapterState(wx_object); }
+  static closeBluetoothAdapter(wx_object) { return my.closeBluetoothAdapter(wx_object); }
   //
-  static stopHCE(object) { return my.stopHCE(object); }
-  static startHCE(object) { return my.startHCE(object); }
-  static sendHCEMessage(object) { return my.sendHCEMessage(object); }
-  static onHCEMessage(object) { return my.onHCEMessage(object); }
-  static getHCEState(object) { return my.getHCEState(object); }
+  static stopHCE(wx_object) { return my.stopHCE(wx_object); }
+  static startHCE(wx_object) { return my.startHCE(wx_object); }
+  static sendHCEMessage(wx_object) { return my.sendHCEMessage(wx_object); }
+  static onHCEMessage(wx_object) { return my.onHCEMessage(wx_object); }
+  static getHCEState(wx_object) { return my.getHCEState(wx_object); }
   //
-  static setScreenBrightness(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static setScreenBrightness(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "value":
-            object2.brightness = object[key];
+            my_object.brightness = wx_object[key];
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    return my.setScreenBrightness(object2);
+    return my.setScreenBrightness(my_object);
   }
-  static setKeepScreenOn(object) { return my.setKeepScreenOn(object); }
-  static onUserCaptureScreen(object) { return my.onUserCaptureScreen(object); }
+  static setKeepScreenOn(wx_object) { return my.setKeepScreenOn(wx_object); }
+  static onUserCaptureScreen(wx_object) { return my.onUserCaptureScreen(wx_object); }
 
-  static getScreenBrightness(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static getScreenBrightness(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "success":
           case "fail":
           case "complete":
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    object2.success = function (res) {
-      var result = { value: res.brightness };
-      if (object.success) {
-        object.success(result);
+    my_object.success = function (my_res) {
+      var wx_res = { value: my_res.brightness };
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
-      }
-    };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res);
-      }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.getScreenBrightness(object2);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.success(my_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
+      }
+    };
+    return my.getScreenBrightness(my_object);
   }
   // ///////////////// Ext //////////////
-  static getExtConfigSync(object) { return my.getExtConfigSync(object); }
-  static getExtConfig(object) { return my.getExtConfig(object); }
+  static getExtConfigSync(wx_object) { return my.getExtConfigSync(wx_object); }
+  static getExtConfig(wx_object) { return my.getExtConfig(wx_object); }
   // ////////////////// File //////////
-  static getFileSystemManager(object) { return my.getFileSystemManager(object); }
-  static getFileInfo(object) { return my.getFileInfo(object); }
-  static removeSavedFile(object) { return my.removeSavedFile(object); }
-  static getSavedFileInfo(object) { return my.getSavedFileInfo(object); }
-  static getSavedFileList(object) { return my.getSavedFileList(object); }
-  static openDocument(object) { return my.openDocument(object); }
-  static saveFile(object) {
+  static getFileSystemManager(wx_object) { return my.getFileSystemManager(wx_object); }
+  static getFileInfo(wx_object) { return my.getFileInfo(wx_object); }
+  static removeSavedFile(wx_object) { return my.removeSavedFile(wx_object); }
+  static getSavedFileInfo(wx_object) { return my.getSavedFileInfo(wx_object); }
+  static getSavedFileList(wx_object) { return my.getSavedFileList(wx_object); }
+  static openDocument(wx_object) { return my.openDocument(wx_object); }
+  static saveFile(wx_object) {
     my.saveFile({
-      apFilePath: object.tempFilePath,
-      success(res) {
-        var result = { savedFilePath: res.apFilePath };
-        if (object.success) {
-          object.success(result);
+      apFilePath: wx_object.tempFilePath,
+      success(my_res) {
+        var wx_res = { savedFilePath: my_res.apFilePath };
+        if (wx_object.success) {
+          wx_object.success(wx_res);
         }
-        if (object.complete) {
-          object.complete(result);
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
         }
-      }, fail(res) {
-        if (object.fail) {
-          object.fail(res);
+      }, fail(my_res) {
+        if (wx_object.fail) {
+          wx_object.fail(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       }
     });
   }
   // ////////// Location ///////////////
-  static openLocation(object) { return my.openLocation(object); }
-  static getLocation(object) { return my.getLocation(object); }
-  static chooseLocation(object) { return my.chooseLocation(object); }
+  static openLocation(wx_object) { return my.openLocation(wx_object); }
+  static getLocation(wx_object) { return my.getLocation(wx_object); }
+  static chooseLocation(wx_object) { return my.chooseLocation(wx_object); }
   // //////// Media ////////////////////
-  static createMapContext(object) { return my.createMapContext(object); }
-  static compressImage(object) { return my.compressImage(object); }
-  static saveImageToPhotosAlbum(object) { return my.saveImageToPhotosAlbum(object); }
-  static getImageInfo(object) { return my.getImageInfo(object); }
-  static previewImage(object) { return my.previewImage(object); }
-  static chooseImage(object) {
-    if (!object.count) {
-      object.count = 0;
+  static createMapContext(wx_object) { return my.createMapContext(wx_object); }
+  static compressImage(wx_object) { return my.compressImage(wx_object); }
+  static saveImageToPhotosAlbum(wx_object) { return my.saveImageToPhotosAlbum(wx_object); }
+  static getImageInfo(wx_object) { return my.getImageInfo(wx_object); }
+  static previewImage(wx_object) { return my.previewImage(wx_object); }
+  static chooseImage(wx_object) {
+    if (!wx_object.count) {
+      wx_object.count = 0;
     }
     my.chooseImage({
-      conut: object.count,
-      sizeType: object.sizeType,
-      sourceType: object.scourceType,
-      success: (res) => {
+      conut: wx_object.count,
+      sizeType: wx_object.sizeType,
+      sourceType: wx_object.scourceType,
+      success: (my_res) => {
         var tempFilePaths = [];
         var tempFiles = [];
-        for (var path of res.apFilePaths) {
+        for (var path of my_res.apFilePaths) {
           tempFilePaths.push(path);
           tempFiles.push({ path: path, size: 1000000 });
         }
-        var result = {
+        var wx_res = {
           tempFilePaths: tempFilePaths,
           tempFiles: tempFiles
         };
-        if (object.success) {
-          object.success(result);
+        if (wx_object.success) {
+          wx_object.success(wx_res);
         }
-        if (object.complete) {
-          object.complete(complete);
+        if (wx_object.complete) {
+          wx_object.complete(complete);
         }
       },
-      fail: (res) => {
-        if (object.fail) {
-          object.fail(res);
+      fail: (my_res) => {
+        if (wx_object.fail) {
+          wx_object.fail(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       }
     });
   }
-  static saveVideoToPhotosAlbum(object) { return my.saveVideoToPhotosAlbum(object); }
-  static chooseVideo(object) { return my.chooseVideo(object); }
+  static saveVideoToPhotosAlbum(wx_object) { return my.saveVideoToPhotosAlbum(wx_object); }
+  static chooseVideo(wx_object) { return my.chooseVideo(wx_object); }
   static createVideoContext(videoId, ui) { return new VideoContext(my.createVideoContext(videoId)); }
-  static stopVoice(object) { return my.stopVoice(object); }
-  static pauseVoice(object) { return my.pauseVoice(object); }
-  static playVoice(object) { return my.playVoice(object); }
-  static setInnerAudioOption(object) { return my.setInnerAudioOption(object); }
-  static getAvailableAudioSources(object) { return my.getAvailableAudioSources(object); }
-  static createInnerAudioContext(object) { return my.createInnerAudioContext(object); }
-  static createAudioContext(object) { return my.createAudioContext(object); }
-  static onBackgroundAudioStop(object) { return my.onBackgroundAudioStop(object); }
-  static onBackgroundAudioPause(object) { return my.onBackgroundAudioPause(object); }
-  static onBackgroundAudioPlay(object) { return my.onBackgroundAudioPlay(object); }
-  static stopBackgroundAudio(object) { return my.stopBackgroundAudio(object); }
-  static seekBackgroundAudio(object) { return my.seekBackgroundAudio(object); }
-  static pauseBackgroundAudio(object) { return my.pauseBackgroundAudio(object); }
-  static playBackgroundAudio(object) { return my.playBackgroundAudio(object); }
-  static getBackgroundAudioPlayerState(object) { return my.getBackgroundAudioPlayerState(object); }
-  static getBackgroundAudioManager(object) { return my.getBackgroundAudioManager(object); }
-  static createLivePusherContext(object) { return my.createLivePusherContext(object); }
-  static startRecord(object) { return my.startRecord(object); }
-  static stopRecord(object) { return my.stopRecord(object); }
-  static getRecorderManager(object) { return my.getRecorderManager(object); }
+  static stopVoice(wx_object) { return my.stopVoice(wx_object); }
+  static pauseVoice(wx_object) { return my.pauseVoice(wx_object); }
+  static playVoice(wx_object) { return my.playVoice(wx_object); }
+  static setInnerAudioOption(wx_object) { return my.setInnerAudioOption(wx_object); }
+  static getAvailableAudioSources(wx_object) { return my.getAvailableAudioSources(wx_object); }
+  static createInnerAudioContext(wx_object) { return my.createInnerAudioContext(wx_object); }
+  static createAudioContext(wx_object) { return my.createAudioContext(wx_object); }
+  static onBackgroundAudioStop(wx_object) { return my.onBackgroundAudioStop(wx_object); }
+  static onBackgroundAudioPause(wx_object) { return my.onBackgroundAudioPause(wx_object); }
+  static onBackgroundAudioPlay(wx_object) { return my.onBackgroundAudioPlay(wx_object); }
+  static stopBackgroundAudio(wx_object) { return my.stopBackgroundAudio(wx_object); }
+  static seekBackgroundAudio(wx_object) { return my.seekBackgroundAudio(wx_object); }
+  static pauseBackgroundAudio(wx_object) { return my.pauseBackgroundAudio(wx_object); }
+  static playBackgroundAudio(wx_object) { return my.playBackgroundAudio(wx_object); }
+  static getBackgroundAudioPlayerState(wx_object) { return my.getBackgroundAudioPlayerState(wx_object); }
+  static getBackgroundAudioManager(wx_object) { return my.getBackgroundAudioManager(wx_object); }
+  static createLivePusherContext(wx_object) { return my.createLivePusherContext(wx_object); }
+  static startRecord(wx_object) { return my.startRecord(wx_object); }
+  static stopRecord(wx_object) { return my.stopRecord(wx_object); }
+  static getRecorderManager(wx_object) { return my.getRecorderManager(wx_object); }
   // ////////////// Network ///////////////
-  static request(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
-        switch (key) {
-          case "header":
-            object2.headers = object[key];
-            break;
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            object2[key] = object[key];
-            break;
-        }
-      }
-      object2.success = function (res) {
-        var result = {
-          header: res.headers
-        };
-        for (var key in object) {
-          switch (key) {
-            case "status":
-              result.statusCode = res[key];
-              break;
-            case "header":
-              result.headers = res[key];
-              break;
-            default:
-              result[key] = res[key];
-              break;
-          }
-        }
-        if (object.success) {
-          object.success(result);
-        }
-        if (object.complete) {
-          object.complete(result);
-        }
-      };
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res);
-        }
-        if (object.complete) {
-          object.complete(res);
-        }
-      };
+  static request(wx_object) {
+
+    if (!wx_object) {
+      return;
     }
-    return my.httpRequest(object2);
+    const wx_url = object.url;
+    const wx_data = object.data;
+    const wx_method = object.method || "GET";
+    const wx_success = object.success;
+    const wx_fail = object.fail;
+    const wx_complete = object.complete;
+    //
+    var my_object = {};
+    //
+   if (uni_data) {
+      my_object.data = wx_data;
+    }
+    //
+    my_object.success = function (my_res) {
+      var wx_res = {
+        data: my_res.data,
+        statusCode: my_res.status,
+        header: my_res.headers
+      };
+      if (wx_object.success) {
+        wx_object.success(wx_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
+      }
+    };
+    my_object.fail = function (my_res) {
+     var wx_res = {
+
+      };
+      if (wx_object.fail) {
+        wx_object.fail(wx_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
+      }
+    };
+
+    const my_result =  my.httpRequest(my_object);
+    const wx_result = {};
+    /**/
+    return wx_result;
   }
-  static downloadFile(object) { return my.downloadFile(object); }
-  static uploadFile(object) {
+  //////////////////////////////////////////////////////////////
+  static downloadFile(wx_object) { return my.downloadFile(wx_object); }
+  static uploadFile(wx_object) {
     my.uploadFile({
-      url: object.url,
-      filePath: object.filePath,
-      fileName: object.name,
+      url: wx_object.url,
+      filePath: wx_object.filePath,
+      fileName: wx_object.name,
       fileType: "image",
-      header: object.header,
-      formData: object.formData,
-      success: object.success,
-      fail: object.fail,
-      complete: object.complete
+      header: wx_object.header,
+      formData: wx_object.formData,
+      success: wx_object.success,
+      fail: wx_object.fail,
+      complete: wx_object.complete
     });
   }
   //
-  static connectSocket(object) { return my.connectSocket(object); }
-  static onSocketError(object) { return my.onSocketError(object); }
-  static onSocketMessage(object) { return my.onSocketMessage(object); }
-  static onSocketClose(object) { return my.onSocketClose(object); }
-  static onSocketOpen(object) { return my.onSocketOpen(object); }
-  static sendSocketMessage(object) { return my.sendSocketMessage(object); }
-  static closeSocket(object) { return my.closeSocket(object); }
+  static connectSocket(wx_object) { return my.connectSocket(wx_object); }
+  static onSocketError(wx_object) { return my.onSocketError(wx_object); }
+  static onSocketMessage(wx_object) { return my.onSocketMessage(wx_object); }
+  static onSocketClose(wx_object) { return my.onSocketClose(wx_object); }
+  static onSocketOpen(wx_object) { return my.onSocketOpen(wx_object); }
+  static sendSocketMessage(wx_object) { return my.sendSocketMessage(wx_object); }
+  static closeSocket(wx_object) { return my.closeSocket(wx_object); }
   static offLocalServiceResolveFail(callbck) { return my.offLocalServiceResolveFail(callbck); }
   static onLocalServiceResolveFail(callbck) { return my.onLocalServiceResolveFail(callbck); }
   static onLocalServiceDiscoveryStop(callbck) { return my.onLocalServiceDiscoveryStop(callbck); }
@@ -957,29 +953,29 @@ export default class wx {
   static onLocalServiceLost(callbck) { return my.onLocalServiceLost(callbck); }
   static offLocalServiceFound(callbck) { return my.offLocalServiceFound(callbck); }
   static onLocalServiceFound(callbck) { return my.onLocalServiceFound(callbck); }
-  static stopLocalServiceDiscovery(object) { return my.stopLocalServiceDiscovery(object); }
-  static startLocalServiceDiscovery(object) { return my.startLocalServiceDiscovery(object); }
+  static stopLocalServiceDiscovery(wx_object) { return my.stopLocalServiceDiscovery(wx_object); }
+  static startLocalServiceDiscovery(wx_object) { return my.startLocalServiceDiscovery(wx_object); }
 
   // /////// Open Interface //////////
   static _checkSession() {
     var now = new Date().getTime();
     return getApp().onekitwx._jscode && getApp().onekitwx._login && now <= getApp().onekitwx._login + 1000 * 60 * 60 * 24 * 3;
   }
-  static checkSession(object) {
+  static checkSession(wx_object) {
     if (this._checkSession()) {
-      if (object.success) {
-        object.success();
+      if (wx_object.success) {
+        wx_object.success();
       }
-      if (object.complete) {
-        object.complete();
+      if (wx_object.complete) {
+        wx_object.complete();
       }
 
     } else {
-      if (object.fail) {
-        object.fail();
+      if (wx_object.fail) {
+        wx_object.fail();
       }
-      if (object.complete) {
-        object.complete();
+      if (wx_object.complete) {
+        wx_object.complete();
       }
     }
 
@@ -992,68 +988,68 @@ export default class wx {
              },
              method: "POST",
              data: {
-               nickname: res.nickName,
-               avatarUrl: res.avatar,
+               nickname: my_res.nickName,
+               avatarUrl: my_res.avatar,
                js_code: jscode
              },
-             success(res) {
-               if (object.success) {
-                 object.success(res.data);
+             success(my_res) {
+               if (wx_object.success) {
+                 wx_object.success(my_res.data);
                }
-               if (object.complete) {
-                 object.complete(res.data);
+               if (wx_object.complete) {
+                 wx_object.complete(my_res.data);
                }
-             }, fail(res) {
-               console.log(res.data);
+             }, fail(my_res) {
+               console.log(my_res.data);
              }
            });
      }*/
 
   }
 
-  static login(object) {
+  static login(wx_object) {
     var that = this;
-    if (!object) {
-      return my.getAuthCode(object);
+    if (!wx_object) {
+      return my.getAuthCode(wx_object);
     }
-    var object2 = {
+    var my_object = {
       scopes: "auth_user"
     };
-    object2.success = function (res) {
-      getApp().onekitwx._jscode = res.authCode;
+    my_object.success = function (my_res) {
+      getApp().onekitwx._jscode = my_res.authCode;
       getApp().onekitwx._login = new Date().getTime();
-      var result = { code: res.authCode };
-      if (object.success) {
-        object.success(result);
+      var wx_res = { code: my_res.authCode };
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(complete);
+      if (wx_object.complete) {
+        wx_object.complete(complete);
       }
     }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.fail(res);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.fail(my_res);
       }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
       }
     }
     if (wx._checkSession()) {
-      object2.success({ authCode: getApp().onekitwx._jscode });
+      my_object.success({ authCode: getApp().onekitwx._jscode });
     } else {
-      my.getAuthCode(object2);
+      my.getAuthCode(my_object);
     }
   };
-  static getUserInfo(object) {
+  static getUserInfo(wx_object) {
 
 
     wx.login({
-      success: (res) => {
-        var jscode = res.code;
-        var withCredentials = object.withCredentials;
+      success: (my_res) => {
+        var jscode = my_res.code;
+        var withCredentials = wx_object.withCredentials;
         my.getAuthUserInfo({
-          success(res) {
-            console.log(res);
+          success(my_res) {
+            console.log(my_res);
             var url = getApp().onekit.server + "api/userinfo";
             console.log(url);
             my.httpRequest({
@@ -1066,16 +1062,16 @@ export default class wx {
                 withCredentials: withCredentials === true,
                 js_code: jscode
               },
-              success(res) {
-                console.log(res.data);
-                if (object.success) {
-                  object.success(res.data);
+              success(my_res) {
+                console.log(my_res.data);
+                if (wx_object.success) {
+                  wx_object.success(my_res.data);
                 }
-                if (object.complete) {
-                  object.complete(res.data);
+                if (wx_object.complete) {
+                  wx_object.complete(my_res.data);
                 }
-              }, fail(res) {
-                console.log(res.data);
+              }, fail(my_res) {
+                console.log(my_res.data);
               }
             });
           }
@@ -1083,41 +1079,41 @@ export default class wx {
       }
     });
   }
-  static getOpenData(object) {
+  static getOpenData(wx_object) {
 
     if (!getApp().onekit._opendataCallbacks) {
       getApp().onekit._opendataCallbacks = [];
     }
-    function success(res) {
-      var opendata = res.userInfo;
+    function success(my_res) {
+      var opendata = my_res.userInfo;
       getApp().onekit._opendata = opendata;
       for (var cb = 0; cb < getApp().onekit._opendataCallbacks.length; cb++) {
         getApp().onekit._opendataCallbacks[cb](opendata);
       }
-      if (object.success) {
-        object.success(opendata);
+      if (wx_object.success) {
+        wx_object.success(opendata);
       }
-      if (object.complete) {
-        object.complete(opendata);
+      if (wx_object.complete) {
+        wx_object.complete(opendata);
       }
     }
     var opendata = getApp().onekit._opendata;
     if (opendata) {
       if (Object.keys(opendata) > 0) {
-        object.success(opendata);
+        wx_object.success(opendata);
       } else {
-        if (object.success) {
-          getApp().onekit._opendataCallbacks.push(object.success);
+        if (wx_object.success) {
+          getApp().onekit._opendataCallbacks.push(wx_object.success);
         }
       }
       return;
     }
     getApp().onekit._opendata = {};
     wx.login({
-      success(res) {
-        var jscode = res.code;
+      success(my_res) {
+        var jscode = my_res.code;
         my.getAuthUserInfo({
-          success(res) {
+          success(my_res) {
             var url = getApp().onekit.server + "opendata";
             my.httpRequest({
               url: url,
@@ -1126,14 +1122,14 @@ export default class wx {
               },
               method: "POST",
               data: {
-                nickname: res.nickName,
-                avatarUrl: res.avatar,
+                nickname: my_res.nickName,
+                avatarUrl: my_res.avatar,
                 js_code: jscode
               },
-              success(res) {
-                success(res.data);
-              }, fail(res) {
-                console.log(res);
+              success(my_res) {
+                success(my_res.data);
+              }, fail(my_res) {
+                console.log(my_res);
               }
             });
           }
@@ -1142,22 +1138,22 @@ export default class wx {
     });
 
   }
-  static getPhoneNumber(object) {
+  static getPhoneNumber(wx_object) {
 
     wx.login({
-      success: (res) => {
-        var jscode = res.code;
+      success: (my_res) => {
+        var jscode = my_res.code;
         console.log("ssss" + jscode);
         my.getPhoneNumber({
-          success(res) {
+          success(my_res) {
             // var response = {
             // response:
             // "ZOELfBOrmRHNNiiVR4FmNrvV7Dmog5w/KFaNrfLugkDqdkPzlxBCzmfLBrtQlPptWix+1f9I07p5xNfwGgTgVA==",
             // sign:
             // "fD6CyFQeJTTgtM1uviy5uAm4YWiN3s0crGtD1v5XdXuDzFEBPTRYqGODcfzskAMFWNXJAK5Zx0/kk+6e9tn/N3U9RcrTgc6VLw7HM9fPTcz8CzVl1+b6fjsi0wWsADF53vKTurFn6HTSTEJvzbMMD5M2lgazni72tZHCNJSkeG1W+kjX/Mj5tfJXNkn6nlrtu1N6BxgsZdgDdkMQfIrWv2TOFlpx043LMBmk4CxXLpGvRfRcHLjixs5wEO1dfqENn6oj9hAQbPA8itYW4TvGlo5qhnzT+ya1rWcKrjn4zh7uvnr0hB0oPiqLu17txS5uIQIF0DJ2cC0k6kuOQLVwTQ=="
             // }
-            // JSON.parse(res.response);
-            var response = JSON.parse(res.response);
+            // JSON.parse(my_res.response);
+            var response = JSON.parse(my_res.response);
             console.log(response);
             var url = getApp().onekit.server + "phonenumber";
             my.httpRequest({
@@ -1171,16 +1167,16 @@ export default class wx {
                 sign: response.sign,
                 js_code: jscode
               },
-              success(res) {
-                var data = res.data;
-                if (object.success) {
-                  object.success(data);
+              success(my_res) {
+                var data = my_res.data;
+                if (wx_object.success) {
+                  wx_object.success(data);
                 }
-                if (object.complete) {
-                  object.complete(data);
+                if (wx_object.complete) {
+                  wx_object.complete(data);
                 }
-              }, fail(res) {
-                console.log(res.data);
+              }, fail(my_res) {
+                console.log(my_res.data);
               }
             });
           }
@@ -1189,37 +1185,37 @@ export default class wx {
     });
 
   }
-  static navigateToMiniProgram(object) { return my.navigateToMiniProgram(object); }
-  static navigateBackMiniProgram(object) { return my.navigateBackMiniProgram(object); }
-  static getAccountInfoSync(object) { return my.getAccountInfoSync(object); }
+  static navigateToMiniProgram(wx_object) { return my.navigateToMiniProgram(wx_object); }
+  static navigateBackMiniProgram(wx_object) { return my.navigateBackMiniProgram(wx_object); }
+  static getAccountInfoSync(wx_object) { return my.getAccountInfoSync(wx_object); }
 
-  static reportMonitor(object) { return my.reportMonitor(object); }
-  static reportAnalytics(object) { return my.reportAnalytics(object); }
-  static requestPayment(object) {
-    var tradeNO = object.package.split("=")[1];
+  static reportMonitor(wx_object) { return my.reportMonitor(wx_object); }
+  static reportAnalytics(wx_object) { return my.reportAnalytics(wx_object); }
+  static requestPayment(wx_object) {
+    var tradeNO = wx_object.package.split("=")[1];
     console.log(tradeNO);
-    var object2 = {
+    var my_object = {
       tradeNO: tradeNO,
-      success: object.success,
-      fail: object.fail,
-      complete: object.complete
+      success: wx_object.success,
+      fail: wx_object.fail,
+      complete: wx_object.complete
     };
-    return my.tradePay(object2);
+    return my.tradePay(my_object);
   }
-  static authorize(object) { return my.authorize(object); }
-  static openSetting(object) { return my.openSetting(object); }
-  static getSetting(object) { return my.getSetting(object); }
-  static chooseAddress(object) { return my.chooseAddress(object); }
-  static openCard(object) {
+  static authorize(wx_object) { return my.authorize(wx_object); }
+  static openSetting(wx_object) { return my.openSetting(wx_object); }
+  static getSetting(wx_object) { return my.getSetting(wx_object); }
+  static chooseAddress(wx_object) { return my.chooseAddress(wx_object); }
+  static openCard(wx_object) {
     my.openCardList();
-    if (object.success) {
-      object.success();
+    if (wx_object.success) {
+      wx_object.success();
     }
-    if (object.complete) {
-      object.complete();
+    if (wx_object.complete) {
+      wx_object.complete();
     }
   }
-  static addCard(object) {
+  static addCard(wx_object) {
     var url = getApp().onekit.server + "addcard";
     my.httpRequest({
       url: url,
@@ -1228,302 +1224,302 @@ export default class wx {
       },
       method: "POST",
       data: {
-        cardList: JSON.stringify(object.cardList),
-        js_code: object.jscode
+        cardList: JSON.stringify(wx_object.cardList),
+        js_code: wx_object.jscode
       },
-      success(res) {
-        var data = res.data;
-        if (object.success) {
-          object.success(data);
+      success(my_res) {
+        var data = my_res.data;
+        if (wx_object.success) {
+          wx_object.success(data);
         }
-        if (object.complete) {
-          object.complete(data);
+        if (wx_object.complete) {
+          wx_object.complete(data);
         }
-      }, fail(res) {
-        console.log(res.data);
+      }, fail(my_res) {
+        console.log(my_res.data);
       }
     });
   }
-  static chooseInvoiceTitle(object) { return my.chooseInvoiceTitle(object); }
-  static chooseInvoice(object) { return my.chooseInvoice(object); }
-  static startSoterAuthentication(object) { return my.startSoterAuthentication(object); }
-  static checkIsSupportSoterAuthentication(object) { return my.checkIsSupportSoterAuthentication(object); }
-  static checkIsSoterEnrolledInDevice(object) { return my.checkIsSoterEnrolledInDevice(object); }
-  static getWeRunData(object) { return my.getWeRunData(object); }
+  static chooseInvoiceTitle(wx_object) { return my.chooseInvoiceTitle(wx_object); }
+  static chooseInvoice(wx_object) { return my.chooseInvoice(wx_object); }
+  static startSoterAuthentication(wx_object) { return my.startSoterAuthentication(wx_object); }
+  static checkIsSupportSoterAuthentication(wx_object) { return my.checkIsSupportSoterAuthentication(wx_object); }
+  static checkIsSoterEnrolledInDevice(wx_object) { return my.checkIsSoterEnrolledInDevice(wx_object); }
+  static getWeRunData(wx_object) { return my.getWeRunData(wx_object); }
 
   // //////// Router //////////////
-  static navigateBack(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static navigateBack(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "success":
           case "fail":
           case "complete":
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
-      object2.success = function (res) {
-        if (object.success) {
-          object.success(result);
+      my_object.success = function (my_res) {
+        if (wx_object.success) {
+          wx_object.success(wx_res);
         }
-        if (object.complete) {
-          object.complete(result);
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
         }
       };
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.success(res);
+      my_object.fail = function (my_res) {
+        if (wx_object.fail) {
+          wx_object.success(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       };
     }
-    return my.navigateBack(object2);
+    return my.navigateBack(my_object);
   }
-  static switchTab(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static switchTab(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "success":
           case "fail":
           case "complete":
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    object2.success = function (res) {
-      if (object.success) {
-        object.success(result);
+    my_object.success = function (my_res) {
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
-      }
-    };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res);
-      }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.switchTab(object2);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.success(my_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
+      }
+    };
+    return my.switchTab(my_object);
   }
-  static navigateTo(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static navigateTo(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "success":
           case "fail":
           case "complete":
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    object2.success = function (res) {
-      if (object.success) {
-        object.success(result);
+    my_object.success = function (my_res) {
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
-      }
-    };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res);
-      }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.navigateTo(object2);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.success(my_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
+      }
+    };
+    return my.navigateTo(my_object);
   }
-  static reLaunch(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static reLaunch(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "success":
           case "fail":
           case "complete":
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    object2.success = function (res) {
-      if (object.success) {
-        object.success(result);
+    my_object.success = function (my_res) {
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
-      }
-    };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res);
-      }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.reLaunch(object2);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.success(my_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
+      }
+    };
+    return my.reLaunch(my_object);
   }
-  static redirectTo(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static redirectTo(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "success":
           case "fail":
           case "complete":
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    object2.success = function (res) {
-      if (object.success) {
-        object.success(result);
+    my_object.success = function (my_res) {
+      if (wx_object.success) {
+        wx_object.success(wx_res);
       }
-      if (object.complete) {
-        object.complete(result);
-      }
-    };
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res);
-      }
-      if (object.complete) {
-        object.complete(res);
+      if (wx_object.complete) {
+        wx_object.complete(wx_res);
       }
     };
-    return my.redirectTo(object2);
+    my_object.fail = function (my_res) {
+      if (wx_object.fail) {
+        wx_object.success(my_res);
+      }
+      if (wx_object.complete) {
+        wx_object.complete(my_res);
+      }
+    };
+    return my.redirectTo(my_object);
   }
   // /////////// Share /////////////
-  static updateShareMenu(object) { return my.updateShareMenu(object); }
-  static showShareMenu(object) {
+  static updateShareMenu(wx_object) { return my.updateShareMenu(wx_object); }
+  static showShareMenu(wx_object) {
     my.navigateTo({
       url: "/wx/page/share/share"
     });
   }
-  static hideShareMenu(object) { return my.hideShareMenu(object); }
-  static getShareInfo(object) { return my.getShareInfo(object); }
+  static hideShareMenu(wx_object) { return my.hideShareMenu(wx_object); }
+  static getShareInfo(wx_object) { return my.getShareInfo(wx_object); }
   // ///////////// Storage //////////////
-  static getStorageInfoSync(object) { return my.getStorageInfoSync(object); }
-  static getStorageInfo(object) { return my.getStorageInfo(object); }
-  static clearStorageSync(object) { return my.clearStorageSync(object); }
-  static clearStorage(object) { return my.clearStorage(object); }
-  static removeStorageSync(object) { return my.removeStorageSync(object); }
-  static removeStorage(object) { return my.removeStorage(object); }
+  static getStorageInfoSync(wx_object) { return my.getStorageInfoSync(wx_object); }
+  static getStorageInfo(wx_object) { return my.getStorageInfo(wx_object); }
+  static clearStorageSync(wx_object) { return my.clearStorageSync(wx_object); }
+  static clearStorage(wx_object) { return my.clearStorage(wx_object); }
+  static removeStorageSync(wx_object) { return my.removeStorageSync(wx_object); }
+  static removeStorage(wx_object) { return my.removeStorage(wx_object); }
   static setStorageSync(key, value) { return my.setStorageSync({ key: key, data: value }); }
-  static setStorage(object) { return my.setStorage(object); }
+  static setStorage(wx_object) { return my.setStorage(wx_object); }
   static getStorageSync(key) {
-    var result = my.getStorageSync({ key: key });
-    if (!result) {
+    var wx_res = my.getStorageSync({ key: key });
+    if (!wx_res) {
       return "";
-    } else if (result.data) {
-      return result.data;
-    } else if (result.APDataStorage) {
-      return result.APDataStorage;
+    } else if (wx_res.data) {
+      return wx_res.data;
+    } else if (wx_res.APDataStorage) {
+      return wx_res.APDataStorage;
     } else {
       return "";
     }
   }
-  static getStorage(object) { return my.getStorage(object); }
+  static getStorage(wx_object) { return my.getStorage(wx_object); }
   // //////////// UI ////////////////
-  static showActionSheet(object) {
-    var object2;
-    if (object) {
-      object2 = {};
-      for (var key in object) {
+  static showActionSheet(wx_object) {
+    var my_object;
+    if (wx_object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "itemList":
-            object2.items = object[key];
+            my_object.items = wx_object[key];
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
-      object2.success = function (res) {
-        var result = { tapIndex: res.index };
-        if (object.success) {
-          object.success(result);
+      my_object.success = function (my_res) {
+        var wx_res = { tapIndex: my_res.index };
+        if (wx_object.success) {
+          wx_object.success(wx_res);
         }
-        if (object.complete) {
-          object.complete(result);
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
         }
       };
     }
-    return my.showActionSheet(object2);
+    return my.showActionSheet(my_object);
   }
-  // static redirectTo(object) { return my.redirectTo(object); }
-  // static redirectTo(object) { return my.redirectTo(object); }
-  static hideLoading(object) { return my.hideLoading(object); }
-  static showLoading(object) {
-    var object2;
-    if (object) {
-      if (!object.icon) {
-        object.icon = "success";
+  // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
+  // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
+  static hideLoading(wx_object) { return my.hideLoading(wx_object); }
+  static showLoading(wx_object) {
+    var my_object;
+    if (wx_object) {
+      if (!wx_object.icon) {
+        wx_object.icon = "success";
       }
       //
-      object2 = {};
-      for (var key in object) {
+      my_object = {};
+      for (var key in wx_object) {
         switch (key) {
           case "title":
-            object2.content = object[key];
+            my_object.content = wx_object[key];
             break;
           case "icon":
-            object2.type = object[key];
+            my_object.type = wx_object[key];
             break;
           default:
-            object2[key] = object[key];
+            my_object[key] = wx_object[key];
             break;
         }
       }
     }
-    return my.showLoading(object2);
+    return my.showLoading(my_object);
   }
-  static hideToast(object) {
-    var object2 = {};
-    for (var key in object) {
+  static hideToast(wx_object) {
+    var my_object = {};
+    for (var key in wx_object) {
       switch (key) {
         case "success":
         case "fail":
         case "complete":
           break;
         default:
-          object2[key] = object[key];
+          my_object[key] = wx_object[key];
           break;
       }
     }
-    return my.hideToast(object2);
+    return my.hideToast(my_object);
   }
- static showToast(wx_object) {
-	 if(!wx_object){
+  static showToast(wx_object) {
+    if (!wx_object) {
       return
     }
     let wx_title = wx_object.title;   // 必填项 现实的文本
@@ -1564,142 +1560,142 @@ export default class wx {
     };
     return my.showToast(my_object);
   }
-  static showModal(object2) {
-    if (object2 === null) {
+  static showModal(my_object) {
+    if (my_object === null) {
       return my.confirm();
     }
-    var object = {};
+    var wx_object = {};
     var key;
-    if (object2.showCancel === null || object2.showCancel) {
-      for (key in object2) {
+    if (my_object.showCancel === null || my_object.showCancel) {
+      for (key in my_object) {
         switch (key) {
           case "cancelText":
-            object.cancelButtonText = object2[key];
+            wx_object.cancelButtonText = my_object[key];
             break;
           case "confirmText":
-            object.confirmButtonText = object2[key];
+            wx_object.confirmButtonText = my_object[key];
             break;
           default:
-            object[key] = object2[key];
+            wx_object[key] = my_object[key];
             break;
         }
       }
 
-      return my.confirm(object);
+      return my.confirm(wx_object);
     } else {
-      for (key in object2) {
+      for (key in my_object) {
         switch (key) {
           default:
-            object[key] = object2[key];
+            wx_object[key] = my_object[key];
             break;
         }
       }
 
-      return my.alert(object);
+      return my.alert(wx_object);
     }
   }
-  static setNavigationBarColor(object) { return my.setNavigationBarColor(object); }
-  static hideNavigationBarLoading(object) {
-    var object2 = {};
-    for (var key in object) {
+  static setNavigationBarColor(wx_object) { return my.setNavigationBarColor(wx_object); }
+  static hideNavigationBarLoading(wx_object) {
+    var my_object = {};
+    for (var key in wx_object) {
       switch (key) {
         case "success":
         case "fail":
         case "complete":
           break;
         default:
-          object2[key] = object[key];
+          my_object[key] = wx_object[key];
           break;
       }
     }
-    return my.hideNavigationBarLoading(object2);
+    return my.hideNavigationBarLoading(my_object);
   }
-  static showNavigationBarLoading(object) {
-    var object2 = {};
-    for (var key in object) {
+  static showNavigationBarLoading(wx_object) {
+    var my_object = {};
+    for (var key in wx_object) {
       switch (key) {
         case "success":
         case "fail":
         case "complete":
           break;
         default:
-          object2[key] = object[key];
+          my_object[key] = wx_object[key];
           break;
       }
     }
-    return my.showNavigationBarLoading(object2);
+    return my.showNavigationBarLoading(my_object);
   }
-  static setNaivgationBarTitle(object) { return my.setNavigationBar(object); }
-  static setBackgroundTextStyle(object) { return my.setBackgroundTextStyle(object); }
+  static setNaivgationBarTitle(wx_object) { return my.setNavigationBar(wx_object); }
+  static setBackgroundTextStyle(wx_object) { return my.setBackgroundTextStyle(wx_object); }
 
-  static setBackgroundColor(object) { return my.setBackgroundColor(object); }
-  static setTabBarItem(object) { return my.setTabBarItem(object); }
-  static setTabBarStyle(object) { return my.setTabBarStyle(object); }
-  static hideTabBar(object) { return my.hideTabBar(object); }
-  static showTabBar(object) { return my.showTabBar(object); }
-  static hideTabBarRedDot(object) { return my.hideTabBarRedDot(object); }
-  static showTabBarRedDot(object) { return my.showTabBarRedDot(object); }
-  static removeTabBarBadge(object) { return my.removeTabBarBadge(object); }
-  static setTabBarBadge(object) { return my.setTabBarBadge(object); }
+  static setBackgroundColor(wx_object) { return my.setBackgroundColor(wx_object); }
+  static setTabBarItem(wx_object) { return my.setTabBarItem(wx_object); }
+  static setTabBarStyle(wx_object) { return my.setTabBarStyle(wx_object); }
+  static hideTabBar(wx_object) { return my.hideTabBar(wx_object); }
+  static showTabBar(wx_object) { return my.showTabBar(wx_object); }
+  static hideTabBarRedDot(wx_object) { return my.hideTabBarRedDot(wx_object); }
+  static showTabBarRedDot(wx_object) { return my.showTabBarRedDot(wx_object); }
+  static removeTabBarBadge(wx_object) { return my.removeTabBarBadge(wx_object); }
+  static setTabBarBadge(wx_object) { return my.setTabBarBadge(wx_object); }
 
-  static loadFontFace(object) { return my.loadFontFace(object); }
+  static loadFontFace(wx_object) { return my.loadFontFace(wx_object); }
 
-  static stopPullDownRefresh(object) {
-    var object2 = {};
-    if (object) {
-      object2.success = function (res) {
-        if (object.success) {
-          object.success(res);
+  static stopPullDownRefresh(wx_object) {
+    var my_object = {};
+    if (wx_object) {
+      my_object.success = function (my_res) {
+        if (wx_object.success) {
+          wx_object.success(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       };
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res);
+      my_object.fail = function (my_res) {
+        if (wx_object.fail) {
+          wx_object.fail(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       };
     }
-    return my.stopPullDownRefresh(object2);
+    return my.stopPullDownRefresh(my_object);
   }
-  static startPullDownRefresh(object) {
-    var object2 = {};
-    if (object) {
-      object2.success = function (res) {
-        if (object.success) {
-          object.success(res);
+  static startPullDownRefresh(wx_object) {
+    var my_object = {};
+    if (wx_object) {
+      my_object.success = function (my_res) {
+        if (wx_object.success) {
+          wx_object.success(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       };
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res);
+      my_object.fail = function (my_res) {
+        if (wx_object.fail) {
+          wx_object.fail(my_res);
         }
-        if (object.complete) {
-          object.complete(res);
+        if (wx_object.complete) {
+          wx_object.complete(my_res);
         }
       };
     }
-    return my.startPullDownRefresh(object2);
+    return my.startPullDownRefresh(my_object);
   }
-  static pageScrollTo(object) { return my.pageScrollTo(object); }
-  static setTopBarText(object) { return my.setTopBarText(object); }
-  static nextTick(object) { return my.nextTick(object); }
-  static getMenuButtonBoundingClientRect(object) { return my.getMenuButtonBoundingClientRect(object); }
-  static offWindowResize(object) { return my.offWindowResize(object); }
-  static onWindowResize(object) { return my.onWindowResize(object); }
+  static pageScrollTo(wx_object) { return my.pageScrollTo(wx_object); }
+  static setTopBarText(wx_object) { return my.setTopBarText(wx_object); }
+  static nextTick(wx_object) { return my.nextTick(wx_object); }
+  static getMenuButtonBoundingClientRect(wx_object) { return my.getMenuButtonBoundingClientRect(wx_object); }
+  static offWindowResize(wx_object) { return my.offWindowResize(wx_object); }
+  static onWindowResize(wx_object) { return my.onWindowResize(wx_object); }
   // //////////// Worker ///////////////
-  static createWorker(object) { return my.createWorker(object); }
+  static createWorker(wx_object) { return my.createWorker(wx_object); }
 
-  static createIntersectionObserver(object) { return my.createIntersectionObserver(object); }
+  static createIntersectionObserver(wx_object) { return my.createIntersectionObserver(wx_object); }
   // ///////////////////////////////////
-  static hideKeyboard(object) { return my.hideKeyboard(object); }
+  static hideKeyboard(wx_object) { return my.hideKeyboard(wx_object); }
   // /////////// cloud ////////////////
   static get cloud() {
     return new wx_cloud();

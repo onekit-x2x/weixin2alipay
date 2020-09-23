@@ -11,7 +11,7 @@ export default class wx {
   }
   //////////////////onKeyboardHeightChange//////////////////
   static onKeyboardHeightChange(wx_object) {
-    return
+    //需要编程支持
   }
   // /////////////// basic ////////////////////////////////
   static canIUse(wx_object) { return true; }
@@ -84,7 +84,7 @@ export default class wx {
     return my.getSystemInfo(my_object);
   }
   static getSystemInfoSync() {
-    return wx._getSystemInfo(my.getSystemInfoSync());
+    return my.getSystemInfoSync();
   }
   static base64ToArrayBuffer(base64) {
     base64 = base64.replace(/\s/g, '+');
@@ -302,7 +302,7 @@ export default class wx {
     };
   };
   static onBackgroundFetchData(callback) {
-
+//支付宝没有,需要编程
   }
 
   static onAccelerometerChange(callback) {
@@ -382,9 +382,10 @@ export default class wx {
     return my.getClipboard(my_object);
   }
   static setClipboardData(wx_object) {
-    var my_object;
+   
     if (wx_object) {
-      my_object = {};
+      var  my_object = {};
+      
       for (var key in wx_object) {
         switch (key) {
           case "data":
@@ -398,16 +399,16 @@ export default class wx {
     }
     return my.setClipboard(my_object);
   }
-  static onCompassChange(callback) {
+  static onCompassChange(wx_callback) {
     my.onCompassChange(function (my_res) {
-      if (wx._stopCompass) {
+      if (!wx._startCompass) {
         return;
       }
-      callback(my_res);
+      wx_callback(my_res);
     });
   }
   static stopCompass(wx_object) {
-    wx._stopCompass = true;
+    wx._startCompass = false;
     if (wx_object.success) {
       wx_object.success();
     }
@@ -416,7 +417,7 @@ export default class wx {
     }
   }
   static startCompass(wx_object) {
-    wx._stopCompass = false;
+    wx._startCompass = true;
     if (wx_object.success) {
       wx_object.success();
     }
@@ -452,14 +453,14 @@ export default class wx {
   }
   static onGyroscopeChange(callback) {
     my.onGyroscopeChange(function (my_res) {
-      if (wx._stopGyroscope) {
+      if (!wx._startGyroscope) {
         return;
       }
       callback(my_res);
     });
   }
   static stopGyroscope(wx_object) {
-    wx._stopGyroscope = true;
+    wx._startGyroscope = false;
     if (wx_object.success) {
       wx_object.success();
     }
@@ -468,7 +469,7 @@ export default class wx {
     }
   }
   static startGyroscope(wx_object) {
-    wx._startGyroscope = false;
+    wx._startGyroscope = true;
     if (wx_object.success) {
       wx_object.success();
     }
@@ -482,17 +483,19 @@ export default class wx {
   static startDeviceMotionListening(wx_object) { return my.startDeviceMotionListening(wx_object); }
   //
   static getNetworkType(wx_object) {
+    if(!wx_object){return} 
     var my_object = {};
-    for (var key in wx_object) {
-      switch (key) {
-        case "success":
-        case "fail":
-        case "complete":
-          break;
-        default:
-          my_object[key] = wx_object[key];
-          break;
-      }
+    var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+     if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
     }
     my_object.success = function (my_res) {
       var wx_res = { networkType: wx._network(my_res).networkType };
@@ -539,45 +542,71 @@ export default class wx {
 
   //
   static makePhoneCall(wx_object) {
-    var my_object;
     if (wx_object) {
-      my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "phoneNumber":
-            my_object.number = wx_object[key];
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
-
-      return my.makePhoneCall(my_object);
+    var  my_object = {};
+    var wx_phoneNumber=wx_object.phoneNumber
+    var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_phoneNumber){
+     my_object.phoneNumber=wx_phoneNumber
     }
+    if(wx_success){
+     my_object.success=wx_success
+    }
+    if(wx_fail){
+     my_object.fail=wx_fail
+    }
+    if(wx_complete){
+     my_object.complete=wx_complete
+    }
+    my_object.success = function (my_res) {
+        var wx_res = {
+        };
+        if (wx_object.success) {
+          wx_object.success(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+      my_object.fail = function (my_res) {
+        if (wx_object.fail) {
+          wx_object.fail(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+     
+    }
+     return my.makePhoneCall(my_object);
   }
 
-  static scanCode(wx_object) {
+  static scanCode(wx_object) {//
     var my_object;
     if (wx_object) {
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "onlyFromCamera":
-            my_object.hideAlbum = wx_object[key];
-            break;
-          case "scanType":
-            my_object.type = wx_object[key];
-            break;
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+      var wx_onlyFromCamera=wx_object.onlyFromCamera||false
+      var wx_scanType=wx_object.scanType
+       var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_onlyFromCamera){
+      my_object.hideAlbum=wx_onlyFromCamera
+    }
+    if(wx_scanType){
+      my_object.scanType=wx_scanType
+    }
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
       my_object.success = function (my_res) {
         console.log(my_res)
         var wx_res = {};
@@ -654,22 +683,44 @@ export default class wx {
   static closeBLEConnection(wx_object) { return my.closeBLEConnection(wx_object); }
   //
   static stopBluetoothDevicesDiscovery(wx_object) {
+    if(!wx_object){return}
     var my_object = {};
-    for (var key in wx_object) {
-      switch (key) {
-        case "success":
-        case "fail":
-        case "complete":
-          break;
-        default:
-          my_object[key] = wx_object[key];
-          break;
-      }
+    var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_success){
+      my_object.success=wx_success
     }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
+    my_object.success = function (my_res) {
+        var wx_res = {
+      
+        };
+        if (wx_object.success) {
+          wx_object.success(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+      my_object.fail = function (my_res) {
+        if (wx_object.fail) {
+          wx_object.fail(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+
     return my.stopBluetoothDevicesDiscovery(my_object);
   }
   static startBluetoothDevicesDiscovery(wx_object) {
-    wx.openBluetoothAdapter(wx_object);
+    // wx.openBluetoothAdapter(wx_object);
     return my.startBluetoothDevicesDiscovery(wx_object);
   }
   static openBluetoothAdapter(wx_object) {
@@ -721,19 +772,45 @@ export default class wx {
   //
   static setScreenBrightness(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (!wx_object) {return}
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "value":
-            my_object.brightness = wx_object[key];
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+      var wx_value=wx_object_value
+      var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_value){
+      my_object.brightness=wx_value
     }
+     if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
+     my_object.success = function (my_res) {
+        var wx_res = {
+         
+        };
+        if (wx_object.success) {
+          wx_object.success(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+      my_object.fail = function (my_res) {
+        if (wx_object.fail) {
+          wx_object.fail(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+
+    
     return my.setScreenBrightness(my_object);
   }
   static setKeepScreenOn(wx_object) { return my.setKeepScreenOn(wx_object); }
@@ -741,19 +818,19 @@ export default class wx {
 
   static getScreenBrightness(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (!wx_object) {return}
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+       var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+     if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
     }
     my_object.success = function (my_res) {
       var wx_res = { value: my_res.brightness };
@@ -880,24 +957,69 @@ export default class wx {
     if (!wx_object) {
       return;
     }
-    const wx_url = object.url;
-    const wx_data = object.data;
-    const wx_method = object.method || "GET";
-    const wx_success = object.success;
-    const wx_fail = object.fail;
-    const wx_complete = object.complete;
+    const wx_url = wx_object.url;
+    const wx_data = wx_object.data;
+    var wx_header=wx_object.header;
+    var wx_timeout=wx_object.timeout;
+    var wx_dataType=wx_object.dataType||"json"
+    var wx_responseType=wx_object.responseType||"text"
+    var wx_enableHttp2=wx_object.enableHttp2||false
+    var wx_enableQuic=wx_object.enableQuic||false
+    var wx_enableCache=wx_object.enableCache||false
+    const wx_method = wx_object.method || "GET";
+    const wx_success = wx_object.success;
+    const wx_fail = wx_object.fail;
+    const wx_complete = wx_object.complete;
     //
     var my_object = {};
     //
-   if (uni_data) {
+   if (wx_data) {
       my_object.data = wx_data;
+    }
+    if (wx_url) {
+      my_object.url = wx_url;
+    }
+    if (wx_header) {
+      my_object.header = wx_header;
+    }
+    if (wx_timeout) {
+      my_object.timeout = wx_timeout;
+    }
+    if (wx_dataType) {
+      my_object.dataType = wx_dataType;
+    }
+    // if (wx_responseType) {
+    //   my_object.responseType = wx_responseType;
+    // }
+    // if (wx_enableHttp2) {
+    //   my_object.enableHttp2 = wx_enableHttp2;       //weixin有alipay没有
+    // }
+    // if (wx_enableQuic) {
+    //   my_object.enableQuic = wx_enableQuic;
+    // }
+    // if (wx_enableCache) {
+    //   my_object.enableCache = wx_enableCache;
+    // }
+    if (wx_method) {
+      my_object.method = wx_method;
+    }
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
     }
     //
     my_object.success = function (my_res) {
       var wx_res = {
         data: my_res.data,
         statusCode: my_res.status,
-        header: my_res.headers
+        header: my_res.headers,
+        // cookies:my_res.cookies,  需要编程
+        // profile:my_res.profile
       };
       if (wx_object.success) {
         wx_object.success(wx_res);
@@ -918,10 +1040,10 @@ export default class wx {
       }
     };
 
-    const my_result =  my.httpRequest(my_object);
-    const wx_result = {};
+     my.httpRequest(my_object);
+ 
     /**/
-    return wx_result;
+    
   }
   //////////////////////////////////////////////////////////////
   static downloadFile(wx_object) { return my.downloadFile(wx_object); }
@@ -1250,19 +1372,24 @@ export default class wx {
   // //////// Router //////////////
   static navigateBack(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (!wx_object) {return}
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+      var wx_delta=wx_object.wx_delta||1
+       var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_delta){
+      my_object.delta=wx_delta
+    }
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
       my_object.success = function (my_res) {
         if (wx_object.success) {
           wx_object.success(wx_res);
@@ -1279,24 +1406,28 @@ export default class wx {
           wx_object.complete(my_res);
         }
       };
-    }
+    
     return my.navigateBack(my_object);
   }
   static switchTab(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (!wx_object) {return }
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+      var wx_url=wx_object.url
+        var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete    
+    if(wx_url){
+      my_object.url=wx_url
+    }
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
     }
     my_object.success = function (my_res) {
       if (wx_object.success) {
@@ -1318,19 +1449,27 @@ export default class wx {
   }
   static navigateTo(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (!wx_object) {return }
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+      var wx_url=wx_object.url
+      var wx_events=wx_object.events
+      var wx_success=wx_object.success
+      var wx_fail=wx_object.fail
+      var wx_complete=wx_object.complete
+       if(wx_url){
+      my_object.url=wx_url
+    }
+    //    if(wx_events){
+    //   my_object.events=wx_events////需要编程
+    // }
+      if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
     }
     my_object.success = function (my_res) {
       if (wx_object.success) {
@@ -1352,19 +1491,23 @@ export default class wx {
   }
   static reLaunch(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (!wx_object) {return }
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+      var wx_url=wx_object.url
+    var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+     if(wx_url){
+      my_object.url=wx_url
+    }
+     if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
     }
     my_object.success = function (my_res) {
       if (wx_object.success) {
@@ -1386,19 +1529,23 @@ export default class wx {
   }
   static redirectTo(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (wx_object) {return}
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "success":
-          case "fail":
-          case "complete":
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+      var wx_url=wx_object.url
+    var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+     if(wx_url){
+      my_object.url=wx_url
+    }
+     if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
     }
     my_object.success = function (my_res) {
       if (wx_object.success) {
@@ -1452,18 +1599,29 @@ export default class wx {
   // //////////// UI ////////////////
   static showActionSheet(wx_object) {
     var my_object;
-    if (wx_object) {
+    if (!wx_object) {return}
       my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "itemList":
-            my_object.items = wx_object[key];
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+             var wx_itemList=wx_object.itemList
+       var wx_itemColor=wx_object.itemColor
+       var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+ if(wx_itemList){
+      my_object.items=wx_itemList
+    }
+    //  if(wx_itemColor){
+    //   my_object.itemColor=wx_itemColor weixin有alipay没有
+    // }
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
+     
       my_object.success = function (my_res) {
         var wx_res = { tapIndex: my_res.index };
         if (wx_object.success) {
@@ -1473,49 +1631,59 @@ export default class wx {
           wx_object.complete(wx_res);
         }
       };
-    }
+    
     return my.showActionSheet(my_object);
   }
   // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
   // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
   static hideLoading(wx_object) { return my.hideLoading(wx_object); }
   static showLoading(wx_object) {
-    var my_object;
-    if (wx_object) {
-      if (!wx_object.icon) {
-        wx_object.icon = "success";
-      }
-      //
-      my_object = {};
-      for (var key in wx_object) {
-        switch (key) {
-          case "title":
-            my_object.content = wx_object[key];
-            break;
-          case "icon":
-            my_object.type = wx_object[key];
-            break;
-          default:
-            my_object[key] = wx_object[key];
-            break;
-        }
-      }
+    var my_object={};
+    if (!wx_object) { return}
+        var wx_title=wx_object.title
+    var wx_mask=wx_object.mask
+    var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_title){
+      my_object.content=wx_title
     }
+    // if(wx_mask){
+    //   my_object.mask=wx_mask//需要编程
+    // }
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
+    my_object.success = function (my_res) {
+        var wx_res = {
+         
+
+        };
+        if (wx_object.success) {
+          wx_object.success(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+      my_object.fail = function (my_res) {
+        if (wx_object.fail) {
+          wx_object.fail(wx_res);
+        }
+        if (wx_object.complete) {
+          wx_object.complete(wx_res);
+        }
+      };
+   
     return my.showLoading(my_object);
   }
   static hideToast(wx_object) {
-    var my_object = {};
-    for (var key in wx_object) {
-      switch (key) {
-        case "success":
-        case "fail":
-        case "complete":
-          break;
-        default:
-          my_object[key] = wx_object[key];
-          break;
-      }
-    }
     return my.hideToast(my_object);
   }
   static showToast(wx_object) {
@@ -1567,62 +1735,47 @@ export default class wx {
     var wx_object = {};
     var key;
     if (my_object.showCancel === null || my_object.showCancel) {
-      for (key in my_object) {
-        switch (key) {
-          case "cancelText":
-            wx_object.cancelButtonText = my_object[key];
-            break;
-          case "confirmText":
-            wx_object.confirmButtonText = my_object[key];
-            break;
-          default:
-            wx_object[key] = my_object[key];
-            break;
-        }
-      }
-
+      var wx_title=wx_object.title
+      var wx_content=wx_object.content
+      var wx_cancelText=wx_object.cancelText
+      var wx_cancelColor=wx_object.cancelColor
+      var wx_confirmText=wx_object.confirmText||"确定"
+      var wx_confirmColor=wx_object.confirmColor
+  if(wx_title){
+      my_object.title=wx_title
+    }
+    if(wx_content){
+      my_object.content=wx_content
+    }
+    if(wx_cancelText){
+      my_object.cancelButtonText=wx_cancelText
+    }
+    if(wx_confirmText){
+      my_object.confirmButtonText=wx_confirmText
+    }
       return my.confirm(wx_object);
     } else {
-      for (key in my_object) {
-        switch (key) {
-          default:
-            wx_object[key] = my_object[key];
-            break;
-        }
+       var wx_title=wx_object.title
+      var wx_content=wx_object.content
+     var wx_confirmText=wx_object.confirmText||"确定"
+    if(wx_title){
+      my_object.title=wx_title
+    }
+    if(wx_content){
+      my_object.content=wx_content
+    }
+    if(wx_confirmText){
+      my_object.confirmButtonText=wx_confirmText
+    }
       }
-
       return my.alert(wx_object);
     }
-  }
+  
   static setNavigationBarColor(wx_object) { return my.setNavigationBarColor(wx_object); }
   static hideNavigationBarLoading(wx_object) {
-    var my_object = {};
-    for (var key in wx_object) {
-      switch (key) {
-        case "success":
-        case "fail":
-        case "complete":
-          break;
-        default:
-          my_object[key] = wx_object[key];
-          break;
-      }
-    }
     return my.hideNavigationBarLoading(my_object);
   }
   static showNavigationBarLoading(wx_object) {
-    var my_object = {};
-    for (var key in wx_object) {
-      switch (key) {
-        case "success":
-        case "fail":
-        case "complete":
-          break;
-        default:
-          my_object[key] = wx_object[key];
-          break;
-      }
-    }
     return my.showNavigationBarLoading(my_object);
   }
   static setNaivgationBarTitle(wx_object) { return my.setNavigationBar(wx_object); }
@@ -1642,7 +1795,19 @@ export default class wx {
 
   static stopPullDownRefresh(wx_object) {
     var my_object = {};
-    if (wx_object) {
+    if (!wx_object) {return}
+     var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
       my_object.success = function (my_res) {
         if (wx_object.success) {
           wx_object.success(my_res);
@@ -1659,12 +1824,24 @@ export default class wx {
           wx_object.complete(my_res);
         }
       };
-    }
+    
     return my.stopPullDownRefresh(my_object);
   }
   static startPullDownRefresh(wx_object) {
     var my_object = {};
-    if (wx_object) {
+    if (!wx_object) {return }
+     var wx_success=wx_object.success
+    var wx_fail=wx_object.fail
+    var wx_complete=wx_object.complete
+    if(wx_success){
+      my_object.success=wx_success
+    }
+    if(wx_fail){
+      my_object.fail=wx_fail
+    }
+    if(wx_complete){
+      my_object.complete=wx_complete
+    }
       my_object.success = function (my_res) {
         if (wx_object.success) {
           wx_object.success(my_res);
@@ -1681,7 +1858,7 @@ export default class wx {
           wx_object.complete(my_res);
         }
       };
-    }
+   
     return my.startPullDownRefresh(my_object);
   }
   static pageScrollTo(wx_object) { return my.pageScrollTo(wx_object); }

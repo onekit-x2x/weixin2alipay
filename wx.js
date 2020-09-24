@@ -277,10 +277,10 @@ export default class wx {
     };
   };
   static getBackgroundFetchToken(my_object) {
-    var quick_success = my_object.success;
-    var quick_fail = my_object.fail;
-    var quick_complete = my_object.complete;
-    console.log(quick_success)
+    var wx_success = my_object.success;
+    var wx_fail = my_object.fail;
+    var wx_complete = my_object.complete;
+    console.log(wx_success)
     my.getStorage({
       key: 'wx_token',
       success(my_res) {
@@ -294,10 +294,10 @@ export default class wx {
       console.log("", wx_res)
 
       if (wx_success) {
-        quick_success(wx_res);
+        wx_success(wx_res);
       }
       if (wx_success) {
-        quick_complete(wx_res);
+        wx_complete(wx_res);
       }
     };
   };
@@ -387,7 +387,7 @@ export default class wx {
       var  my_object = {};
       
       for (var key in wx_object) {
-        switch (key) {
+        switch (key) {  
           case "data":
             my_object.text = wx_object[key];
             break;

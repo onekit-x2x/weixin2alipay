@@ -1,0 +1,21 @@
+{
+  "name": "weixin2alipay",
+  "version": "1.0.47",
+  "description": "Weixin-Miniprogram SDK for Alipay-Miniprogram",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/www-onekit-cn/weixin2alipay.git"
+  },
+  "keywords": [
+    "custom-component",
+    "mini-program"
+  ],
+  "devDependencies": {
+    "rc-tools": "6.x"
+  },
+  "scripts": {
+    "build": "rc-tools run compile && node scripts/cp.js && node scripts/rm.js",
+    "pub": "git push origin && npm run build && npm publish"
+  }
+}
+

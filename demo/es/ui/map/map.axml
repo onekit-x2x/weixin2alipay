@@ -1,0 +1,22 @@
+<map 
+  id="{{onekitId}}"
+  class="onekit-map {{onekitClass}}"
+  style="{{onekitStyle}}"
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  scale="{{scale}}"
+  markers="{{markers}}"
+  polyline="{{polyline}}"
+  circles="{{circles}}"
+  controls="{{controls}}"
+  polygon="{{polygon}}"
+  include-points="{{include-points}}"
+  show-location="{{show-location}}"
+>
+</map>
+
+<cover-view style="position:absolute;pointer-events: none;background-color:transparent;
+width:{{rect.width}}px;height:{{rect.height}}px;
+left:{{rect.left}}px;top:{{rect.top}}px;">
+<slot></slot>
+</cover-view>

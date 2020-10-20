@@ -1,0 +1,23 @@
+<swiper
+id="{{onekitId}}"
+class="onekit-swiper {{onekitClass}}"
+style="{{onekitStyle}}"
+indicator-dots="{{indicatorDots}}"
+indicator-color="{{indicatorColor}}",
+indicator-active-color="{{indicatorActiveColor}}",
+autoplay="{{autoplay}}",
+current="{{current}}",
+interval="{{interval}}",
+duration="{{duration}}",
+circular="{{circular}}",
+vertical="{{vertical}}",
+previous-margin="{{previousMargin}}",
+next-margin="{{nextMargin}}",
+
+
+onChange="swiper_Change"
+onTransition="swiper_Transition"
+onAnimationEnd="swiper_AnimationEnd"
+>
+<slot></slot>
+</swiper>

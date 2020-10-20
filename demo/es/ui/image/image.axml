@@ -1,0 +1,11 @@
+<image
+id="{{onekitId}}"
+class="onekit-image {{onekitClass}}"
+style="{{onekitStyle}}"
+mode="{{mode}}"
+src="{{alipay_src}}"
+webp="{{webp}}"
+lazy-load="{{lazyLoad}}"
+onError="image_error"
+onLoad="image_load"
+/>

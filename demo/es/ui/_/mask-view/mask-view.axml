@@ -1,0 +1,3 @@
+<view onTap="view_tap" style="position:fixed;left:0;top:0;width:100%;height:100%;background:#0008;z-index:1000">
+<slot/>
+</view>

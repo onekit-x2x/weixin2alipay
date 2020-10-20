@@ -1,0 +1,20 @@
+<canvas
+class="onekit-canvas {{onekitClass}}"
+style="{{onekitStyle}}"
+type="{{type}}"
+id="{{onekitId}}"
+disable-scroll="{{disableScroll}}"
+
+onTouchStart="canvas_TouchStart"
+onTouchMove="canvas_TouchMove"
+onTouchEnd="canvas_TouchEnd"
+onTouchCancel="canvas_TouchCancel"
+onLongTap="canvas_LongTap"
+>
+
+</canvas>
+<cover-view style="position:absolute;pointer-events: none;background-color:transparent;
+width:{{rect.width}}px;height:{{rect.height}}px;
+left:{{rect.left}}px;top:{{rect.top}}px;">
+<slot></slot>
+</cover-view>

@@ -1,4 +1,4 @@
-import DATE from "../../../lib/DATE" 
+import DATE from "../../../js/DATE" 
 const YEAR_START = 1900;
 const YEAR_END = 2100;
 Component({

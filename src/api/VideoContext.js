@@ -1,30 +1,29 @@
-export default class VideoContext{
+export default class VideoContext {
   constructor(alipayVideoContext) {
-    this.alipayVideoContext = alipayVideoContext;
+    this.alipayVideoContext = alipayVideoContext
   }
-  play(){
-    return  this.alipayVideoContext.play();
+
+  play() {
+    return this.alipayVideoContext.play()
   }
-  pause(){
-    return  this.alipayVideoContext.pause();
+
+  pause() {
+    return this.alipayVideoContext.pause()
   }
-  stop(){
-    return  this.alipayVideoContext.stop();
+
+  stop() {
+    return this.alipayVideoContext.stop()
   }
-  seek(position){
-    return this.alipayConvasContext.seek(position);
+
+  seek(position) {
+    return this.alipayConvasContext.seek(position)
   }
- 
-  requestFullScreen(direction){
-    return this.alipayConvasContext.requestFullScreen(direction);
+
+  requestFullScreen(direction) {
+    return this.alipayConvasContext.requestFullScreen(direction)
   }
-  exitFullScreen(){
-      return this.alipayConvasContext.exitFullScreen();
-    }
 
-
-
-
-
-
+  exitFullScreen() {
+    return this.alipayConvasContext.exitFullScreen()
+  }
 }

@@ -1,5 +1,0 @@
-App({
-  onLaunch() {},
-  onShow() {},
-  onHide() {},
-});

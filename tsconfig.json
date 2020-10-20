@@ -1,13 +1,14 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "target": "es6",
-    "noImplicitThis": true,
-    "noImplicitUseStrict": true,
-    "types": ["mini-types"]
-  },
-  "include": [
-    "types/**/*",
-    "src/**/*"
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "target": "es2017",
+        "lib": ["es6", "es7", "dom"],
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "types": ["mini-types"]
+    },
+    "include": ["src/**/*.ts"]
 }

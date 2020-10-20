@@ -1,4 +1,0 @@
-
-  <swiper-item id="{{onekitId}}" class="onekit-swiper-item {{onekitClass}}" style="transform:translate({{index}}00%, 0px) translateZ(0px);{{onekitStyle}}">
-    <slot></slot>
-  </swiper-item>

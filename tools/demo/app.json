@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "li/li",
+    "new-tabs/new-tabs",
+    
+    "zhang/zhang",
+    "yang/yang",
+    "wang/wang"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小程序拓展组件库",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "usingComponents": {
+    "onekit-ad":"baidu2weixin/ui/ad/ad",
+    "onekit-animation-video":"baidu2weixin/ui/animation-video/animation-video",
+    "onekit-animation-view":"baidu2weixin/ui/animation-view/animation-view",
+    "onekit-button":"baidu2weixin/ui/button/button",
+    "onekit-icon":"baidu2weixin/ui/icon/icon",
+    "onekit-rtc-room":"baidu2weixin/ui/rtc-room/rtc-room",
+    "onekit-rtc-room-item":"baidu2weixin/ui/rtc-room-item/rtc-room-item",
+    "onekit-tab-item":"baidu2weixin/ui/tab-item/tab-item",
+    "onekit-tabs":"baidu2weixin/ui/tabs/tabs",
+    "onekit-view":"baidu2weixin/ui/view/view"
+  },
+  "sitemapLocation": "sitemap.json"
+}

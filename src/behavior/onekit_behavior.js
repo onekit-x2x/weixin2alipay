@@ -1,7 +1,7 @@
 export default {
   props: {
-    onekitClass:"",
-    onekitStyle:"",
-    onekitId:""
+    onekitClass: '',
+    onekitStyle: '',
+    onekitId: ''
   }
 }

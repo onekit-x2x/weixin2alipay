@@ -1,110 +1,112 @@
-import wx from "./wx.js";
-import wxs_behavior from "weixin2alipay/behavior/wxs_behavior";
-export default function OnekitComponent(object) {
+/* eslint-disable camelcase */
+import wxs_behavior from './behavior/wxs_behavior'
+import wx from './wx'
+import thekit from './js/TheKit'
 
-  const properties = {};
+export default function OnekitComponent(object) {
+  const properties = {}
   const alipay_object = {
-    mixins:[wxs_behavior],
+    mixins: [wxs_behavior],
     data() {
-      onekit_styles: ""
+      ''
     },
     onInit(query) {
-
-      var created;
+      let created
       if (object.lifetimes && object.lifetimes.created) {
-        created = object.lifetimes.created;
+        created = object.lifetimes.created
       } else if (object.created) {
-        created = object.created;
+        created = object.created
       } else {
-        created = function () { };
+        created = function () { }
       }
-      created.call(this, query);
+      created.call(this, query)
     },
     didMount() {
-
       for (const k of Object.keys(this.props)) {
-        const v = this.props[k];
-        properties[k] = v;
-        this.data[k] = v;
+        const v = this.props[k]
+        properties[k] = v
+        this.data[k] = v
       }
-      var attached;
+      let attached
       if (object.lifetimes && object.lifetimes.attached) {
-        attached = object.lifetimes.attached;
+        attached = object.lifetimes.attached
       } else if (object.attached) {
-        attached = object.attached;
+        attached = object.attached
       } else {
-        attached = function () { };
+        attached = function () { }
       }
-      attached.call(this);
-      ////////
-      var ready;
+      attached.call(this)
+      // //////
+      let ready
       if (object.lifetimes && object.lifetimes.ready) {
-        ready = object.lifetimes.ready;
+        ready = object.lifetimes.ready
       } else if (object.ready) {
-        ready = object.ready;
+        ready = object.ready
       } else {
-        ready = function () { };
+        ready = function () { }
       }
-      ready.call(this);
+      ready.call(this)
     },
     didUnmount() {
-      var detached;
+      let detached
       if (object.lifetimes && object.lifetimes.detached) {
-        detached = object.lifetimes.detached;
+        detached = object.lifetimes.detached
       } else if (object.detached) {
-        detached = object.detached;
+        detached = object.detached
       } else {
-        detached = function () { };
+        detached = function () { }
       }
-      detached.call(this);
-    }, methods: {
+      detached.call(this)
+    },
+    methods: {
       get properties() {
-        return properties;
+        return properties
       },
-    
+
     }
-  };
+  }
   if (object) {
-    if (!object.methods) { object.methods = {}; }
-    object.methods.triggerEvent = function (name, data, options) {
-      var funcName = `on${thekit.firstUpper(name)}`;
+    if (!object.methods) { object.methods = {} }
+    object.methods.triggerEvent = function (name, data) {
+      const funcName = `on${thekit.firstUpper(name)}`
       if (this.props[funcName]) {
-        this.props[funcName](data);
+        this.props[funcName](data)
       }
     }
-    object.methods.createSelectorQuery = wx.createSelectorQuery;
+    object.methods.createSelectorQuery = wx.createSelectorQuery
   }
   for (const key of Object.keys(object)) {
-    const value = object[key];
+    const value = object[key]
     if (!value) {
-      continue;
+      continue
     }
     switch (key) {
-      case "properties":
-        alipay_object.props = {};
+      case 'properties':
+        alipay_object.props = {}
         for (const k of Object.keys(value)) {
-          const p = value[k];
-          const v = (p && p.value ? p.value : null);
-          alipay_object.props[k] = v;
-          properties[k] = v;
-
+          const p = value[k]
+          const v = (p && p.value ? p.value : null)
+          alipay_object.props[k] = v
+          properties[k] = v
         }
-        break;
-      case "methods":
+        break
+      case 'methods':
         for (const k of Object.keys(value)) {
-          alipay_object.methods[k] = value[k];
+          alipay_object.methods[k] = value[k]
         }
-        break;
-      case "data":
+        break
+      case 'data':
         for (const k of Object.keys(value)) {
-          alipay_object.data[k] = value[k];
+          alipay_object.data[k] = value[k]
         }
-        break;
-      case "behaviors":
-        alipay_object.mixins = value;
+        break
+      case 'behaviors':
+        alipay_object.mixins = value
+        break
       default:
-        alipay_object[key] = value;
+        alipay_object[key] = value
+        break
     }
   }
-  return Component(alipay_object);
+  return Component(alipay_object)
 }

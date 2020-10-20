@@ -1,125 +1,153 @@
-import thekit from "../lib/TheKit.js";
+/* eslint-disable prefer-rest-params */
+import thekit from '../js/TheKit'
+
 export default class Context {
   constructor() {
-    this._actions = [];
-    this._path = [];
+    this._actions = []
+    this._path = []
   }
+
   beginPath() {
-        this._actions = [];
-    this._path = [];
+    this._actions = []
+    this._path = []
   }
 
   save() {
-    this._actions.push({ method: "save", data: [] });
+    this._actions.push({method: 'save', data: []})
   }
-  restore() {
-    this._actions.push({ method: "restore", data: [] });
-  }
-  //
-    setGlobalAlpha(alpha) {
-    this._actions.push({ method: "setGlobalAlpha", data: [alpha] });
-  }
-  setFillStyle(color) {
-    color = thekit.fix(color);
-    this._actions.push({ method: "setFillStyle", data: ["normal", thekit.str2array(color)] });
-  }
-  setStrokeStyle(color) {
-    color = thekit.fix(color);
-    this._actions.push({ method: "setStrokeStyle", data: ["normal", thekit.str2array(color)] });
-  }
-  setShadow(x, y, blur, color) {
-    color = thekit.fix(color);
-    this._actions.push({ method: "setShadow", data: [x, y, blur, thekit.str2array(color)] });
-  }
-  setLineCap(cap) {
-    this._actions.push({ method: "setLineCap", data: [cap] });
-  }
-  setLineJoin(join) {
-    this._actions.push({ method: "setLineJoin", data: [join] });
-  }
-  setLineWidth(width) {
-    this._actions.push({ method: "setLineWidth", data: [width] });
-  }
-  setMiterLimit(limit) {
-    this._actions.push({ method: "setMiterLimit", data: [limit] });
-  }
-  setFontSize(size) {
-    this._actions.push({ method: "setFontSize", data: [size] });
 
+  restore() {
+    this._actions.push({method: 'restore', data: []})
   }
+
+  //
+  setGlobalAlpha(alpha) {
+    this._actions.push({method: 'setGlobalAlpha', data: [alpha]})
+  }
+
+  setFillStyle(color) {
+    color = thekit.fix(color)
+    this._actions.push({method: 'setFillStyle', data: ['normal', thekit.str2array(color)]})
+  }
+
+  setStrokeStyle(color) {
+    color = thekit.fix(color)
+    this._actions.push({method: 'setStrokeStyle', data: ['normal', thekit.str2array(color)]})
+  }
+
+  setShadow(x, y, blur, color) {
+    color = thekit.fix(color)
+    this._actions.push({method: 'setShadow', data: [x, y, blur, thekit.str2array(color)]})
+  }
+
+  setLineCap(cap) {
+    this._actions.push({method: 'setLineCap', data: [cap]})
+  }
+
+  setLineJoin(join) {
+    this._actions.push({method: 'setLineJoin', data: [join]})
+  }
+
+  setLineWidth(width) {
+    this._actions.push({method: 'setLineWidth', data: [width]})
+  }
+
+  setMiterLimit(limit) {
+    this._actions.push({method: 'setMiterLimit', data: [limit]})
+  }
+
+  setFontSize(size) {
+    this._actions.push({method: 'setFontSize', data: [size]})
+  }
+
   rotate(angle) {
-    this._actions.push({ method: "rotate", data: [angle] });
+    this._actions.push({method: 'rotate', data: [angle]})
   }
+
   scale(sx, sy) {
-    this._actions.push({ method: "scale", data: [sx, sy] });
+    this._actions.push({method: 'scale', data: [sx, sy]})
   }
+
   translate(tx, ty) {
-    this._actions.push({ method: "translate", data: [tx, ty] });
+    this._actions.push({method: 'translate', data: [tx, ty]})
   }
+
   moveTo(x, y) {
-    this._path.push({ method: "moveTo", data: [x, y] });
+    this._path.push({method: 'moveTo', data: [x, y]})
   }
+
   lineTo(x, y) {
-    this._path.push({ method: "lineTo", data: [x, y] });
+    this._path.push({method: 'lineTo', data: [x, y]})
   }
+
   closePath() {
-    this._path.push({ method: "closePath", data: [] });
+    this._path.push({method: 'closePath', data: []})
   }
+
   fillText() {
-    var data = [];
-    for (var arg of arguments) {
-      data.push(arg);
+    const data = []
+    for (const arg of arguments) {
+      data.push(arg)
     }
-    this._actions.push({ method: "fillText", data: data });
+    this._actions.push({method: 'fillText', data})
   }
+
   drawImage() {
-    var data = [];
-    for (var arg of arguments) {
-      data.push(arg);
+    const data = []
+    for (const arg of arguments) {
+      data.push(arg)
     }
-    this._actions.push({ method: "drawImage", data: data });
+    this._actions.push({method: 'drawImage', data})
   }
+
   arc() {
-    var data = [];
-    for (var arg of arguments) {
-      data.push(arg);
+    const data = []
+    for (const arg of arguments) {
+      data.push(arg)
     }
-    if(data.length<6){
-      data.push(false);
+    if (data.length < 6) {
+      data.push(false)
     }
-    this._path.push({ method: "arc", data: data });
+    this._path.push({method: 'arc', data})
   }
+
   quadraticCurveTo() {
-    var data = [];
-    for (var arg of arguments) {
-      data.push(arg);
+    const data = []
+    for (const arg of arguments) {
+      data.push(arg)
     }
-    this._path.push({ method: "quadraticCurveTo", data: data });
+    this._path.push({method: 'quadraticCurveTo', data})
   }
-   bezierCurveTo() {
-    var data = [];
-    for (var arg of arguments) {
-      data.push(arg);
+
+  bezierCurveTo() {
+    const data = []
+    for (const arg of arguments) {
+      data.push(arg)
     }
-    this._path.push({ method: "bezierCurveTo", data: data });
+    this._path.push({method: 'bezierCurveTo', data})
   }
+
   //
   rect(x, y, width, height) {
-    this._path.push({ method: "rect", data: [x, y, width, height] });
+    this._path.push({method: 'rect', data: [x, y, width, height]})
   }
+
   //
   clearRect(x, y, width, height) {
-    this._actions.push({ method: "clearRect", data: [x, y, width, height] });
+    this._actions.push({method: 'clearRect', data: [x, y, width, height]})
   }
+
   stroke() {
-    this._actions.push({ method: "strokePath", data: this._path });
+    this._actions.push({method: 'strokePath', data: this._path})
   }
+
   fill() {
-    this._actions.push({ method: "fillPath", data: this._path });
+    this._actions.push({method: 'fillPath', data: this._path})
   }
+
   getActions() {
-    var actions = this._actions;
-    this._actions = [];
-    return actions;
+    const actions = this._actions
+    this._actions = []
+    return actions
   }
 }

@@ -1,19 +1,21 @@
-import onekit_behavior from "../../behavior/onekit_behavior"  
-import wxs_behavior from "../../behavior/wxs_behavior"  
+/* eslint-disable camelcase */
+import onekit_behavior from '../../behavior/onekit_behavior'
+import wxs_behavior from '../../behavior/wxs_behavior'
+
 Component({
-  mixins: [onekit_behavior,wxs_behavior],
+  mixins: [onekit_behavior, wxs_behavior],
   data: {},
   props: {
-    name:"",
+    name: '',
   },
   didMount() {},
   didUpdate() {},
   didUnmount() {},
   methods: {
-    checkboxGroup_change(e){
-      if(this.props.onchange){
+    checkboxGroup_change() {
+      if (this.props.onchange) {
         this.props.onchange({})
       }
     }
   },
-});
+})

@@ -1,21 +1,22 @@
-import {fixurl} from "../../thekit"
-import onekit_behavior from "../../behavior/onekit_behavior"  
-import wxs_behavior from "../../behavior/wxs_behavior"  
+/* eslint-disable camelcase */
+import {fixurl} from '../../js/TheKit'
+import onekit_behavior from '../../behavior/onekit_behavior'
+import wxs_behavior from '../../behavior/wxs_behavior'
+
 Component({
-  mixins: [onekit_behavior,wxs_behavior],
+  mixins: [onekit_behavior, wxs_behavior],
   data: {},
   props: {
-    src: "",
-    mode: "scaleToFill",
+    src: '',
+    mode: 'scaleToFill',
     webp: false,
     lazyLoad: false
   },
-  didMount() { 
-     const pages = getCurrentPages();
-      const currentUrl = pages[pages.length-1].route;
-      const alipay_src = "/"+fixurl(currentUrl,this.props.src);
-      this.setData({alipay_src});
-
+  didMount() {
+    const pages = getCurrentPages()
+    const currentUrl = pages[pages.length - 1].route
+    const alipay_src = '/' + fixurl(currentUrl, this.props.src)
+    this.setData({alipay_src})
   },
   didUpdate() { },
   didUnmount() { },
@@ -26,9 +27,9 @@ Component({
       }
     },
     image_load(e) {
-      if(this.props.onLoad){
+      if (this.props.onLoad) {
         this.props.onLoad(e)
       }
     },
   },
-});
+})

@@ -1,16 +1,18 @@
-import onekit_behavior from "../../behavior/onekit_behavior"  
-import wxs_behavior from "../../behavior/wxs_behavior"  
+/* eslint-disable camelcase */
+import onekit_behavior from '../../behavior/onekit_behavior'
+import wxs_behavior from '../../behavior/wxs_behavior'
+
 Component({
-  mixins: [onekit_behavior,wxs_behavior],
+  mixins: [onekit_behavior, wxs_behavior],
   data: {},
   props: {
-    headerText: "",
+    headerText: '',
     disabled: false,
-    mode: "selector",
+    mode: 'selector',
     range: [],
     value: null,
-    start: "",
-    end: "",
+    start: '',
+    end: '',
   },
   didMount() {},
   didUpdate() { },
@@ -26,10 +28,10 @@ Component({
         this.props.onChange(e)
       }
     },
-     picker_Columnchange(e) {
+    picker_Columnchange(e) {
       if (this.props.onColumnchange) {
         this.props.onColumnchange(e)
       }
     }
   },
-});
+})

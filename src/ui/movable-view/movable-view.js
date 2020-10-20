@@ -1,10 +1,12 @@
-import onekit_behavior from "../../behavior/onekit_behavior"  
-import wxs_behavior from "../../behavior/wxs_behavior"  
+/* eslint-disable camelcase */
+import onekit_behavior from '../../behavior/onekit_behavior'
+import wxs_behavior from '../../behavior/wxs_behavior'
+
 Component({
-  mixins: [onekit_behavior,wxs_behavior],
+  mixins: [onekit_behavior, wxs_behavior],
   data: {},
   props: {
-    direction: "none",
+    direction: 'none',
     inertia: false,
     outOfBounds: false,
     x: 0,
@@ -19,12 +21,12 @@ Component({
     animation: true
   },
   didMount() { },
-  didUpdate() { 
-    var data = {};
-    for(var p of Object.keys(this.props)){
-      data[p] = this.props[p];
+  didUpdate() {
+    const data = {}
+    for (const p of Object.keys(this.props)) {
+      data[p] = this.props[p]
     }
-    this.setData(data);
+    this.setData(data)
   },
   didUnmount() { },
   methods: {
@@ -39,4 +41,4 @@ Component({
       }
     }
   },
-});
+})

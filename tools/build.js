@@ -11,31 +11,31 @@ const gulpInstall = require('gulp-install')
 
 const config = require('./config')
 const checkComponents = require('./checkcomponents')
-const checkaxss = require('./checkaxss')
+const checkacss = require('./checkacss')
 const _ = require('./utils')
 
-const wxssConfig = config.axss || {}
+const acssConfig = config.acss || {}
 const srcPath = config.srcPath
 const distPath = config.distPath
 
 /**
- * 获取 axss 流
+ * 获取 acss 流
  */
-function axss(wxssFileList) {
-  if (!wxssFileList.length) return false
+function acss(acssFileList) {
+  if (!acssFileList.length) return false
 
   // 加上要忽略的列表
   if (config.ignore) {
-    wxssFileList = wxssFileList.concat(config.ignore)
+    acssFileList = acssFileList.concat(config.ignore)
   }
-  return gulp.src(wxssFileList, {cwd: srcPath, base: srcPath})
-    .pipe(checkaxss.start()) // 开始处理 import
-    // .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.init()))
-    // .pipe(gulpif(wxssConfig.less, less({paths: [srcPath]})))
-    .pipe(checkaxss.end()) // 结束处理 import
-    .pipe(rename({extname: '.axss'}))
-    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.write('./')))
-    .pipe(_.logger(wxssConfig.less ? 'generate' : undefined))
+  return gulp.src(acssFileList, {cwd: srcPath, base: srcPath})
+    .pipe(checkacss.start()) // 开始处理 import
+    // .pipe(gulpif(acssConfig.less && acssConfig.sourcemap, sourcemaps.init()))
+    // .pipe(gulpif(acssConfig.less, less({paths: [srcPath]})))
+    .pipe(checkacss.end()) // 结束处理 import
+    .pipe(rename({extname: '.acss'}))
+    .pipe(gulpif(acssConfig.less && acssConfig.sourcemap, sourcemaps.write('./')))
+    .pipe(_.logger(acssConfig.less ? 'generate' : undefined))
     .pipe(gulp.dest(distPath))
 }
 /**
@@ -49,13 +49,13 @@ function buildLess(lessFileList) {
   // }
   // console.log('build less', lessFileList, srcPath)
   return gulp.src(lessFileList, {cwd: srcPath, base: srcPath})
-    // .pipe(checkaxss.start()) // 开始处理 import
-    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.init()))
-    .pipe(gulpif(wxssConfig.less, less({paths: [srcPath], compress: true})))
-    // .pipe(checkaxss.end()) // 结束处理 import
-    .pipe(rename({extname: '.axss'}))
-    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.write('./')))
-    .pipe(_.logger(wxssConfig.less ? 'generate' : undefined))
+    // .pipe(checkacss.start()) // 开始处理 import
+    .pipe(gulpif(acssConfig.less && acssConfig.sourcemap, sourcemaps.init()))
+    .pipe(gulpif(acssConfig.less, less({paths: [srcPath], compress: true})))
+    // .pipe(checkacss.end()) // 结束处理 import
+    .pipe(rename({extname: '.acss'}))
+    .pipe(gulpif(acssConfig.less && acssConfig.sourcemap, sourcemaps.write('./')))
+    .pipe(_.logger(acssConfig.less ? 'generate' : undefined))
     .pipe(gulp.dest(distPath))
 }
 
@@ -278,9 +278,9 @@ class BuildTask {
     })
 
     /**
-     * 拷贝 wxml 文件到目标目录
+     * 拷贝 axml 文件到目标目录
      */
-    gulp.task(`${id}-component-wxml`, done => {
+    gulp.task(`${id}-component-axml`, done => {
       const wxmlFileList = this.componentListMap.wxmlFileList
 
       if (wxmlFileList &&
@@ -293,15 +293,15 @@ class BuildTask {
     })
 
     /**
-     * 生成 axss 文件到目标目录
+     * 生成 acss 文件到目标目录
      */
-    gulp.task(`${id}-component-axss`, done => {
-      const wxssFileList = this.componentListMap.wxssFileList
-      // console.log('wxssFileList file list', wxssFileList)
-      if (wxssFileList &&
-        wxssFileList.length &&
-        !_.compareArray(this.cachedComponentListMap.wxssFileList, wxssFileList)) {
-        return axss(wxssFileList, srcPath, distPath)
+    gulp.task(`${id}-component-acss`, done => {
+      const acssFileList = this.componentListMap.acssFileList
+      // console.log('acssFileList file list', acssFileList)
+      if (acssFileList &&
+        acssFileList.length &&
+        !_.compareArray(this.cachedComponentListMap.acssFileList, acssFileList)) {
+        return acss(acssFileList, srcPath, distPath)
       }
 
       return done()
@@ -356,16 +356,16 @@ class BuildTask {
      */
     gulp.task(`${id}-copy`, gulp.parallel(done => {
       const copyList = this.copyList
-      const copyFileList = copyList.map(dir => path.join(dir, '**/*.!(axss)'))
+      const copyFileList = copyList.map(dir => path.join(dir, '**/*.!(acss)'))
 
       if (copyFileList.length) return copy(copyFileList)
 
       return done()
     }, done => {
       const copyList = this.copyList
-      const copyFileList = copyList.map(dir => path.join(dir, '**/*.axss'))
+      const copyFileList = copyList.map(dir => path.join(dir, '**/*.acss'))
 
-      if (copyFileList.length) return axss(copyFileList, srcPath, distPath)
+      if (copyFileList.length) return acss(copyFileList, srcPath, distPath)
 
       return done()
     }))
@@ -373,22 +373,22 @@ class BuildTask {
     /**
      * 监听 json 变化
      */
-    gulp.task(`${id}-watch-json`, () => gulp.watch(this.componentListMap.jsonFileList, {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-check`, gulp.parallel(`${id}-component-wxml`, `${id}-component-axss`, `${id}-component-js`, `${id}-component-json`))))
+    gulp.task(`${id}-watch-json`, () => gulp.watch(this.componentListMap.jsonFileList, {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-check`, gulp.parallel(`${id}-component-axml`, `${id}-component-acss`, `${id}-component-js`, `${id}-component-json`))))
 
     /**
-     * 监听 wxml 变化
+     * 监听 axml 变化
      */
-    gulp.task(`${id}-watch-wxml`, () => {
+    gulp.task(`${id}-watch-axml`, () => {
       this.cachedComponentListMap.wxmlFileList = null
-      return gulp.watch(this.componentListMap.wxmlFileList, {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-wxml`))
+      return gulp.watch(this.componentListMap.wxmlFileList, {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-axml`))
     })
 
     /**
-     * 监听 axss 变化
+     * 监听 acss 变化
      */
-    gulp.task(`${id}-watch-axss`, () => {
-      this.cachedComponentListMap.wxssFileList = null
-      return gulp.watch('**/*.axss', {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-axss`))
+    gulp.task(`${id}-watch-acss`, () => {
+      this.cachedComponentListMap.acssFileList = null
+      return gulp.watch('**/*.acss', {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-acss`))
     })
     /**
      * 监听 less 变化
@@ -447,9 +447,9 @@ class BuildTask {
      * 构建相关任务
      */
     // gulp.task(`${id}-build`, gulp.series(`${id}-clean-dist`, `${id}-component-check`, gulp.parallel(`${id}-component-less`)))
-    gulp.task(`${id}-build`, gulp.series(`${id}-clean-dist`, `${id}-component-check`, gulp.parallel(`${id}-component-wxml`, `${id}-component-js`, `${id}-component-less`, `${id}-component-axss`, `${id}-component-json`, `${id}-copy`, `${id}-package-json`)))
+    gulp.task(`${id}-build`, gulp.series(`${id}-clean-dist`, `${id}-component-check`, gulp.parallel(`${id}-component-axml`, `${id}-component-js`, `${id}-component-less`, `${id}-component-acss`, `${id}-component-json`, `${id}-copy`, `${id}-package-json`)))
 
-    gulp.task(`${id}-watch`, gulp.series(`${id}-build`, `${id}-demo`, `${id}-install`, gulp.parallel(`${id}-watch-wxml`, `${id}-watch-axss`, `${id}-watch-json`, `${id}-watch-copy`, `${id}-watch-install`, `${id}-watch-demo`, `${id}-watch-less`, `${id}-watch-ts`)))
+    gulp.task(`${id}-watch`, gulp.series(`${id}-build`, `${id}-demo`, `${id}-install`, gulp.parallel(`${id}-watch-axml`, `${id}-watch-acss`, `${id}-watch-json`, `${id}-watch-copy`, `${id}-watch-install`, `${id}-watch-demo`, `${id}-watch-less`, `${id}-watch-ts`)))
 
     gulp.task(`${id}-dev`, gulp.series(`${id}-build`, `${id}-demo`, `${id}-install`))
 

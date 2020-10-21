@@ -9,7 +9,7 @@ const demoSrc = path.resolve(__dirname, './demo')
 const demoDist = path.resolve(__dirname, '../miniprogram_dev')
 const src = path.resolve(__dirname, '../src')
 const dev = path.join(demoDist, 'weixin2alipay')
-const dist = path.resolve(__dirname, '../miniprogram_dist')
+const dist = path.resolve(__dirname, '../es')
 
 module.exports = {
   entry: ['index'],
@@ -22,8 +22,8 @@ module.exports = {
   demoSrc, // demo 源目录
   demoDist, // demo 目标目录
 
-  axss: {
-    less: true, // 使用 less 来编写 axss
+  acss: {
+    less: true, // 使用 less 来编写 acss
     sourcemap: false, // 生成 less sourcemap
   },
 
@@ -70,9 +70,9 @@ module.exports = {
       assetFilter: assetFilename => assetFilename.endsWith('.js')
     }
   },
-  ignore: ['!./weui-axss/**/*'], // 要忽
-  copyIgnore: ['!./weui-axss/node_modules/**/*', '!./weui-axss/src/**/*', '!./weui-axss/dist/example/**/*', '!./weui-axss/dist/app.axss', '!./weui-axss/dist/style/base/**/*', '!./weui-axss/dist/style/widget/**/*'], // 要忽略的目录/文件
+  ignore: [], // 要忽
+  copyIgnore: [], // 要忽略的目录/文件
   copy: {
-    src: ['./**/*.png', './static/**/*', './**/*.axss', './**/*.sjs']
+    src: ['./**/*.png', './static/**/*', './**/*.acss', './**/*.sjs']
   }, // 将会复制到目标目录
 }

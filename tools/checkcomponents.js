@@ -53,12 +53,12 @@ async function checkIncludedComponents(jsonPath, componentListMap) {
   }
 
   // 进入存储
-  let exists = await _.checkFileExists(path.join(dirPath, `${fileName}.wxml`))
+  let exists = await _.checkFileExists(path.join(dirPath, `${fileName}.axml`))
   if (exists) {
-    componentListMap.wxmlFileList.push(`${fileBase}.wxml`)
+    componentListMap.wxmlFileList.push(`${fileBase}.axml`)
   }
-  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.axss`))
-  exists && componentListMap.wxssFileList.push(`${fileBase}.axss`)
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.acss`))
+  exists && componentListMap.acssFileList.push(`${fileBase}.acss`)
   exists = await _.checkFileExists(path.join(dirPath, `${fileName}.less`))
   exists && componentListMap.lessFileList.push(`${fileBase}.less`)
   exists = await _.checkFileExists(path.join(dirPath, `${fileName}.json`))
@@ -79,7 +79,7 @@ async function checkIncludedComponents(jsonPath, componentListMap) {
 module.exports = async function (entry) {
   const componentListMap = {
     wxmlFileList: [],
-    wxssFileList: [],
+    acssFileList: [],
     lessFileList: [],
     jsonFileList: [],
     jsFileList: [],

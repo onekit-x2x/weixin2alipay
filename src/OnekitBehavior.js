@@ -3,7 +3,7 @@ import wx from './wx'
 import thekit from './js/TheKit'
 
 export default function OnekitBehavior(object) {
-  const alipay_object = {
+  const wx_object = {
     onInit(query) {
       let created
       if (object.lifetimes && object.lifetimes.created) {
@@ -65,16 +65,16 @@ export default function OnekitBehavior(object) {
     }
     switch (key) {
       case 'properties':
-        alipay_object.props = {}
+        wx_object.props = {}
         for (const p of Object.keys(value)) {
           const v = value[p]
-          alipay_object.props[p] = (v && v.value ? v.value : null)
+          wx_object.props[p] = (v && v.value ? v.value : null)
         }
         break
       default:
-        alipay_object[key] = value
+        wx_object[key] = value
     }
   }
 
-  return alipay_object
+  return wx_object
 }

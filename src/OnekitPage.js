@@ -1,28 +1,39 @@
 /* eslint-disable camelcase */
-export default function OnekitPage(object) {
-  const alipay_object = object
-  alipay_object.animate = function () {
-
-  }
-  alipay_object.selectComponent = function (selector) {
+export default function OnekitPage(wx_object) {
+  const my_object = {
+    animate() {
+    },
+    selectComponent(selector) {
     // selector = selector.replace(".","$");
     // selector = selector.replace("-","_");
-    for (const key of Object.keys(this)) {
-      if (key.indexOf(selector) >= 0) {
-        return this[key]
+      for (const key of Object.keys(this)) {
+        if (key.indexOf(selector) >= 0) {
+          return this[key]
+        }
       }
-    }
-    return null
-  }
-  alipay_object.selectAllComponents = function (selector) {
-  //  selector = selector.replace(".","$");
+      return null
+    },
+    selectAllComponents(selector) {
+      //  selector = selector.replace(".","$");
     //   selector = selector.replace("-","_");
-    for (const key of Object.keys(this)) {
-      if (key.indexOf(selector) >= 0) {
-        return [this[key]]
+      for (const key of Object.keys(this)) {
+        if (key.indexOf(selector) >= 0) {
+          return [this[key]]
+        }
       }
+      return []
     }
-    return []
   }
-  return Page(alipay_object)
+  for (const key of Object.keys(wx_object)) {
+    const value = wx_object[key]
+    switch (key) {
+      case 'behaviors':
+        my_object.mixins = value
+        break
+      default:
+        my_object[key] = value
+        break
+    }
+  }
+  return Page(my_object)
 }

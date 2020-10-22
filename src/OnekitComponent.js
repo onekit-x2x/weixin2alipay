@@ -5,7 +5,7 @@ import thekit from './js/TheKit'
 
 export default function OnekitComponent(object) {
   const properties = {}
-  const alipay_object = {
+  const wx_object = {
     mixins: [wxs_behavior],
     data() {
       ''
@@ -82,31 +82,31 @@ export default function OnekitComponent(object) {
     }
     switch (key) {
       case 'properties':
-        alipay_object.props = {}
+        wx_object.props = {}
         for (const k of Object.keys(value)) {
           const p = value[k]
           const v = (p && p.value ? p.value : null)
-          alipay_object.props[k] = v
+          wx_object.props[k] = v
           properties[k] = v
         }
         break
       case 'methods':
         for (const k of Object.keys(value)) {
-          alipay_object.methods[k] = value[k]
+          wx_object.methods[k] = value[k]
         }
         break
       case 'data':
         for (const k of Object.keys(value)) {
-          alipay_object.data[k] = value[k]
+          wx_object.data[k] = value[k]
         }
         break
       case 'behaviors':
-        alipay_object.mixins = value
+        wx_object.mixins = value
         break
       default:
-        alipay_object[key] = value
+        wx_object[key] = value
         break
     }
   }
-  return Component(alipay_object)
+  return Component(wx_object)
 }

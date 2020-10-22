@@ -1,8 +1,8 @@
 {
-  "name": "weixin2alipay",
-  "version": "1.1.0",
+  "name": "x2alipay",
+  "version": "1.1.2",
   "description": "",
-  "main": "miniprogram_dist/index.js",
+  "main": "es/index.js",
   "scripts": {
     "init": "git submodule init && git submodule update --init --remote && npm run dev",
     "dev": "gulp dev --develop",
@@ -18,7 +18,7 @@
     "lint": "eslint \"src/**/*.js\"",
     "lint-tools": "eslint \"tools/**/*.js\" --rule \"import/no-extraneous-dependencies: false\""
   },
-  "miniprogram": "miniprogram_dist",
+  "miniprogram": "es",
   "jest": {
     "testEnvironment": "jsdom",
     "testURL": "https://jest.test",
@@ -30,6 +30,7 @@
       "src"
     ]
   },
+  "files":["es"],
   "repository": {
     "type": "git",
     "url": ""

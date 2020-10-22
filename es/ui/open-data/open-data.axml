@@ -1,7 +1,0 @@
-<text a:if="{{type=='userNickName'}}">{{userNickName}}</text>
-<image a:if="{{type=='userAvatarUrl'}}" src="{{userAvatarUrl}}"/>
-<text a:if="{{type=='userGender'}}">{{userGender}}</text>
-<text a:if="{{type=='userCity'}}">{{userCity}}</text>
-<text a:if="{{type=='userProvince'}}">{{userProvince}}</text>
-<text a:if="{{type=='userCountry'}}">{{userCountry}}</text>
-<text a:if="{{type=='userLanguage'}}">{{userLanguage}}</text>

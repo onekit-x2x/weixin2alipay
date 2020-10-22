@@ -1,3 +1,4 @@
+/*
 console.log(process.cwd())
 const fs = require('fs-extra')
 const path = require('path')
@@ -6,7 +7,6 @@ const { exec } = require('child_process');
 const cwd = process.cwd()
 const root = 'miniprogram_npm'
 const dist = 'es'
-/*
 const list = fs.readdirSync(path.join(cwd, dist))
 fs.removeSync(root)
 list.forEach(file => {

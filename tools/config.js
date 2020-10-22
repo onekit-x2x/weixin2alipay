@@ -9,7 +9,7 @@ const demoSrc = path.resolve(__dirname, './demo')
 const demoDist = path.resolve(__dirname, '../miniprogram_dev')
 const src = path.resolve(__dirname, '../src')
 const dev = path.join(demoDist, 'weixin2alipay')
-const dist = path.resolve(__dirname, '../es')
+const dist = path.resolve(__dirname, '../miniprogram_dist')
 
 module.exports = {
   entry: ['index'],

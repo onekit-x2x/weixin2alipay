@@ -1,0 +1,26 @@
+<live-player
+id="{{onekitId}}"
+class="onekit-live-player {{onekitClass}}"
+style="{{onekitStyle}}"
+src="{{src}}"
+autoplay="{{autoplay}}"
+muted="{{muted}}"
+orientation ="{{orientation}}"
+object-fit="{{objectFit}}"
+background-mute="{{backgroundMute}}"
+min-cache="{{minCache}}"
+max-cache="{{maxCache}}"
+
+onstatechange="live_player_statechange"
+onnetstatus="live_player_netstatus"
+onfullscreenchange="live_player_fullscreenchange"
+
+
+>
+   
+</live-player>
+<cover-view style="position:absolute;pointer-events: none;background-color:transparent;
+width:{{rect.width}}px;height:{{rect.height}}px;
+left:{{rect.left}}px;top:{{rect.top}}px;">
+<slot></slot>
+</cover-view>

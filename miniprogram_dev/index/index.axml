@@ -1,0 +1,4 @@
+<view>
+  <onekit-view onekit-style="color:red">text</onekit-view>
+  hhh
+</view>

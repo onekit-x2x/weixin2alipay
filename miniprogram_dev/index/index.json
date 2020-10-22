@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "onekit-view":"../weixin2alipay/ui/view/view"
+  }
+}

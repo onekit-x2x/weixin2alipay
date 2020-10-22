@@ -1,0 +1,7 @@
+<view
+id="{{onekitId}}"
+class="onekit-ad {{onekitClass}}"
+style="width:330rpx;height:80rpx;">
+<slot>
+</slot>
+</view>

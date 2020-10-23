@@ -2,6 +2,7 @@
 id="{{onekitId}}"
 class="onekit-view {{onekitClass}}"
 style="{{onekitStyle}}"
+onTap="ui_tap"
 >
 <slot>
 </slot>

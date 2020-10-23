@@ -89,12 +89,12 @@ module.exports = {
     'promise/always-return': 'off',
   },
   'globals': {
+    'global': true,
     'window': true,
     'document': true,
     'App': true,
     'Page': true,
     'Component': true,
-    'Behavior': true,
     'my': true,
     'getCurrentPages': true,
     'getApp':true,

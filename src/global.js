@@ -4,6 +4,7 @@ export default class global {
   }
 
   static btoa() {
-    return null
+    // eslint-disable-next-line no-undef
+    return btoa()
   }
 }

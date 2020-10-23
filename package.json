@@ -1,6 +1,6 @@
 {
   "name": "weixin2alipay",
-  "version": "1.2.9",
+  "version": "1.2.13",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
       "src"
     ]
   },
-  "miniprogram":"miniprogram_dist",
+  "miniprogram": "miniprogram_dist",
   "repository": {
     "type": "git",
     "url": ""

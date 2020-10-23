@@ -4,64 +4,64 @@ module.exports = {
   props: {
   },
   methods: {
-    ui_tap() {
-      if (this.props.ontap) {
-        this.props.ontap()
+    ui_tap(e) {
+      if (this.props.onTap) {
+        this.props.onTap(e)
       }
     },
     ui_touchstart() {
-      if (this.props.ontouchstart) {
-        this.props.ontouchstart()
+      if (this.props.onTouchstart) {
+        this.props.onTouchstart()
       }
     },
     ui_touchmove() {
-      if (this.props.ontouchmove) {
-        this.props.ontouchmove()
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove()
       }
     },
     ui_touchcancel() {
-      if (this.props.ontouchcancel) {
-        this.props.ontouchcancel()
+      if (this.props.onTouchcancel) {
+        this.props.onTouchcancel()
       }
     },
     ui_touchend() {
-      if (this.props.ontouchend) {
-        this.props.ontouchend()
+      if (this.props.onTouchend) {
+        this.props.onTouchend()
       }
     },
     ui_longpress() {
-      if (this.props.onlongpress) {
-        this.props.onlongpress()
+      if (this.props.onLongpress) {
+        this.props.onLongpress()
       }
     },
     ui_longtap() {
-      if (this.props.onlongtap) {
-        this.props.onlongtap()
+      if (this.props.onLongtap) {
+        this.props.onLongtap()
       }
     },
     ui_transitionend() {
-      if (this.props.ontransitionend) {
-        this.props.ontransitionend()
+      if (this.props.onTransitionend) {
+        this.props.onTransitionend()
       }
     },
     ui_animationstart() {
-      if (this.props.onanimationstart) {
-        this.props.onanimationstart()
+      if (this.props.onAnimationstart) {
+        this.props.onAnimationstart()
       }
     },
     ui_animationiteration() {
-      if (this.props.onanimationiteration) {
-        this.props.onanimationiteration()
+      if (this.props.onAnimationiteration) {
+        this.props.onAnimationiteration()
       }
     },
     ui_animationend() {
-      if (this.props.onanimationend) {
-        this.props.onanimationend()
+      if (this.props.onAnimationend) {
+        this.props.onAnimationend()
       }
     },
     ui_touchforcechange() {
-      if (this.props.ontouchforcechange) {
-        this.props.ontouchforcechange()
+      if (this.props.onTouchforcechange) {
+        this.props.onTouchforcechange()
       }
     },
   },

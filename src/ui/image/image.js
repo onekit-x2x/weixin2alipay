@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import {fixurl} from '../../js/TheKit'
+import {rel2abs} from '../../js/TheKit'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 
@@ -15,7 +15,7 @@ Component({
   didMount() {
     const pages = getCurrentPages()
     const currentUrl = pages[pages.length - 1].route
-    const alipay_src = '/' + fixurl(currentUrl, this.props.src)
+    const alipay_src = '/' + rel2abs(currentUrl, this.props.src)
     this.setData({alipay_src})
   },
   didUpdate() { },

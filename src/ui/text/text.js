@@ -12,9 +12,5 @@ Component({
     selectable: false,
     space: '',
     decode: false,
-  },
-  didMount() {},
-  didUpdate() {},
-  didUnmount() {},
-  methods: {},
+  }
 })

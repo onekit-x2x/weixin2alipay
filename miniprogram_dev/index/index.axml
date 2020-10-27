@@ -1,15 +1,21 @@
-<!-- <onekit-view onekit-class="btn-area" ref="_$$_$btn_area">
-  <onekit-view onekit-class="body-view" ref="_$$_$body_view">
-    <onekit-text>{{text}}</onekit-text>
-    <onekit-button onTap="add">add line</onekit-button>
-    <onekit-button onTap="remove">remove line</onekit-button>
-  </onekit-view>
+<!-- <text> -->
+<!-- <onekit-view>
+  <onekit-text>&gt;</onekit-text>
 </onekit-view> -->
-
-<onekit-view>
-  <onekit-text>hhh</onekit-text>
-</onekit-view>
-
-<onekit-view>
+<!-- <onekit-view>
   <onekit-text user-select = "true">hhh</onekit-text>
-</onekit-view>
+</onekit-view> -->
+<!-- <view>
+  <text space="emsp">&gt;</text>
+</view> -->
+<!-- <view>
+  <text decode>&gt;</text>
+</view> -->
+
+
+<!-- <progress> -->
+<!-- <onekit-progress percent="20" show-info></onekit-progress>
+<onekit-progress percent="40" stroke-width="12"></onekit-progress> -->
+<onekit-progress percent="60" color="pink"></onekit-progress>
+<onekit-progress percent="60" active-color="pink"></onekit-progress>
+<!-- <onekit-progress percent="80" active></onekit-progress> -->

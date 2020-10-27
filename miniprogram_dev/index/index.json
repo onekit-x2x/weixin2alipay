@@ -3,6 +3,9 @@
   "usingComponents": {
     "onekit-view":"../weixin2alipay/ui/view/view",
     "onekit-button":"../weixin2alipay/ui/button/button",
-    "onekit-text":"../weixin2alipay/ui/text/text"
+    "onekit-text":"../weixin2alipay/ui/text/text",
+    "onekit-progress":"../weixin2alipay/ui/progress/progress",
+    "onekit-input":"../weixin2alipay/ui/input/input",
+    "onekit-video":"../weixin2alipay/ui/video/video"
   }
 }

@@ -4,10 +4,16 @@ class="onekit-progress {{onekitClass}}"
 style="{{onekitStyle}}"
 percent="{{percent}}"
 show-info="{{showInfo}}"
+border-radius="{{borderRadius}}"
 stroke-width="{{strokeWidth}}"
-active-color="{{color}}"
+font-size="{{fontSize}}"
+active-color="{{color || activeColor}}"
 background-color="{{backgroundColor}}"
 active="{{active}}"
+active-mode="{{activeMode}}"
+duration="{{duration}}"
+
+onTap="progress_activeend"
 >
 <slot>
 </slot>

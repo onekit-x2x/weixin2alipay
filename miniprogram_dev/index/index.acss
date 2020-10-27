@@ -1,4 +1,1 @@
-.intro {
-  margin: 30px;
-  text-align: center;
-}
+onekit-progress {margin: 10px;}

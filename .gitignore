@@ -842,3 +842,5 @@ miniprogram_dist/ui/_/selector-picker/selector-picker.json
 miniprogram_dist/ui/_/time-picker/time-picker.axml
 miniprogram_dist/ui/_/time-picker/time-picker.js
 miniprogram_dist/ui/_/time-picker/time-picker.json
+miniprogram_dev/index/index.axml
+miniprogram_dev/index/index.json

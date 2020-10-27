@@ -1,7 +1,15 @@
-<onekit-view onekit-class="btn-area" ref="_$$_$btn_area">
+<!-- <onekit-view onekit-class="btn-area" ref="_$$_$btn_area">
   <onekit-view onekit-class="body-view" ref="_$$_$body_view">
     <onekit-text>{{text}}</onekit-text>
     <onekit-button onTap="add">add line</onekit-button>
     <onekit-button onTap="remove">remove line</onekit-button>
   </onekit-view>
+</onekit-view> -->
+
+<onekit-view>
+  <onekit-text>hhh</onekit-text>
+</onekit-view>
+
+<onekit-view>
+  <onekit-text user-select = "true">hhh</onekit-text>
 </onekit-view>

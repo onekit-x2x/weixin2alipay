@@ -14,8 +14,8 @@
 
 
 <!-- <progress> -->
-<!-- <onekit-progress percent="20" show-info></onekit-progress>
-<onekit-progress percent="40" stroke-width="12"></onekit-progress> -->
+<onekit-progress percent="20" show-info></onekit-progress>
+<onekit-progress percent="40" stroke-width="12"></onekit-progress>
 <onekit-progress percent="60" color="pink"></onekit-progress>
 <onekit-progress percent="60" active-color="pink"></onekit-progress>
-<!-- <onekit-progress percent="80" active></onekit-progress> -->
+<onekit-progress percent="80" active></onekit-progress>

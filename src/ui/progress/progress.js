@@ -17,12 +17,12 @@ Component({
     activeColor: '',
     backgroundColor: '#EBEBEB',
     active: false,
-    activeMode: 'backwards',
+    activeMode: '',
     duration: 30
   },
   didMount() {
     let activeColor
-    console.log(this.props.color, this.props.activeColor)
+    let activeMode
     if (this.props.color) {
       activeColor = this.props.color
     } else if (this.props.activeColor) {
@@ -30,7 +30,13 @@ Component({
     } else {
       activeColor = '09BB07'
     }
-    this.setData({activeColor})
+
+    if (this.props.activeMode) {
+      activeMode = this.props.activeMode
+    } else {
+      activeMode = 'backwards'
+    }
+    this.setData({activeColor, activeMode})
   },
   methods: {
     progress_activeend(e) {

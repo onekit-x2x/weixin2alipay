@@ -1,7 +1,7 @@
 <progress
 id="{{onekitId}}"
 class="onekit-progress {{onekitClass}}" 
-style="{{onekitStyle}}"
+style="animationFillMode:{{activeMode}};{{onekitStyle}}"
 percent="{{percent}}"
 show-info="{{showInfo}}"
 border-radius="{{borderRadius}}"
@@ -10,7 +10,6 @@ font-size="{{fontSize}}"
 active-color="{{color || activeColor}}"
 background-color="{{backgroundColor}}"
 active="{{active}}"
-active-mode="{{activeMode}}"
 duration="{{duration}}"
 
 onTap="progress_activeend"

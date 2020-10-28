@@ -1,1 +1,3 @@
-onekit-progress {margin: 10px;}
+.section__ctn{
+    text-align: center;
+}

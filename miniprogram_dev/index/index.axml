@@ -14,8 +14,58 @@
 
 
 <!-- <progress> -->
-<onekit-progress percent="20" show-info></onekit-progress>
+<!-- <onekit-progress percent="20" show-info></onekit-progress>
 <onekit-progress percent="40" stroke-width="12"></onekit-progress>
 <onekit-progress percent="60" color="pink"></onekit-progress>
 <onekit-progress percent="60" active-color="pink"></onekit-progress>
-<onekit-progress percent="80" active></onekit-progress>
+<onekit-progress percent="80" active></onekit-progress> -->
+
+<!-- <image> -->
+<!-- <onekit-view onekit-class="page">
+  <onekit-view onekit-class="page__hd">
+    <onekit-text onekit-class="page__title">image</onekit-text>
+    <onekit-text onekit-class="page__desc">图片</onekit-text>
+  </onekit-view>
+  <onekit-view onekit-class="page__bd">
+    <onekit-view a:for="{{array}}" a:for-item='item' onekit-class="section section_gap">
+      <onekit-view onekit-class="section__title">{{item.text}}</onekit-view>
+      <onekit-view onekit-class="section__ctn">
+        <onekit-image onekit-style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"></onekit-image>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
+</onekit-view> -->
+
+<onekit-image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/>
+<image src="https://www.baidu.com/img/flexible/logo/pc/result.png"/>
+
+<!-- <view> -->
+<!-- <onekit-view onekit-class="container">
+  <onekit-view onekit-class="page-body">
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>flex-direction: row\n横向布局</onekit-text>
+      </onekit-view>
+      <onekit-view onekit-class="page-section-spacing">
+        <onekit-view onekit-class="flex-wrp" onekit-style="flex-direction:row;">
+          <onekit-view onekit-class="flex-item demo-text-1"></onekit-view>
+          <onekit-view onekit-class="flex-item demo-text-2"></onekit-view>
+          <onekit-view onekit-class="flex-item demo-text-3"></onekit-view>
+        </onekit-view>
+      </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>flex-direction: column\n纵向布局</onekit-text>
+      </onekit-view>
+      <onekit-view onekit-class="flex-wrp" onekit-style="flex-direction:column;">
+        <onekit-view onekit-class="flex-item flex-item-V demo-text-1"></onekit-view>
+        <onekit-view onekit-class="flex-item flex-item-V demo-text-2"></onekit-view>
+        <onekit-view onekit-class="flex-item flex-item-V demo-text-3"></onekit-view>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
+</onekit-view> -->
+
+
+                                

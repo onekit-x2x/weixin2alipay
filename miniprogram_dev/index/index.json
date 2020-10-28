@@ -5,6 +5,7 @@
     "onekit-button":"../weixin2alipay/ui/button/button",
     "onekit-text":"../weixin2alipay/ui/text/text",
     "onekit-progress":"../weixin2alipay/ui/progress/progress",
+    "onekit-image":"../weixin2alipay/ui/image/image",
     "onekit-input":"../weixin2alipay/ui/input/input",
     "onekit-video":"../weixin2alipay/ui/video/video"
   }

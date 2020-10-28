@@ -5,8 +5,11 @@ import weixin_behavior from '../../behavior/weixin_behavior'
 
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
-  data: {},
   props: {
+    hoverClass: '',
+    hoverStopPropagation: false,
+    hoverStartTime: 50,
+    hoverStayTime: 400,
   },
   didMount() { },
   didUpdate() { },

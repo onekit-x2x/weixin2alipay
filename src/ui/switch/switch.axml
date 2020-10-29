@@ -1,12 +1,22 @@
 <switch
 id="{{onekitId}}"
-name="{{name}}"
 class="onekit-switch {{onekitClass}}"
 style="{{onekitStyle}}"
-name="{{name}}"
+checked="{{checked}}"
+type="{{type}}"
+disabled="{{disabled}}"
+color="{{color}}"
+onChange="switch_Change">
+<slot/>
+</switch>
+
+<!-- <switch a:if = "{{type=='checkbox'}}"
+id="{{onekitId}}"
+class="onekit-switch {{onekitClass}}"
+style="{{onekitStyle}}"
 checked="{{checked}}"
 disabled="{{disabled}}"
 color="{{color}}"
 onChange="switch_Change">
-<slot></slot>
-</switch>
+<slot/>
+</switch> -->

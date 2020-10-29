@@ -8,7 +8,6 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   data: {},
   props: {
-    name: '',
     checked: false,
     disabled: false,
     type: 'switch',

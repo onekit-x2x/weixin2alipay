@@ -9,5 +9,5 @@ lazy-load="{{lazyLoad}}"
 show-menu-by-longpress="showMenuByLongpress"
 onError="image_error"
 onLoad="image_load"
-onTap="image_tap"
+onLongTap="image_longTap"
 />

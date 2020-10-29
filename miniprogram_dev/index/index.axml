@@ -89,4 +89,39 @@
     </onekit-view>
 </onekit-view> -->
 
-<onekit-switch type="checkbox"></onekit-switch>                                
+<!-- <slider> -->
+<onekit-view onekit-class="page">
+    <onekit-view onekit-class="page__hd">
+        <onekit-text onekit-class="page__title">slider</onekit-text>
+        <onekit-text onekit-class="page__desc">滑块</onekit-text>
+    </onekit-view>
+    <onekit-view onekit-class="page__bd">
+        <onekit-view onekit-class="section section_gap">
+            <onekit-text onekit-class="section__title">设置left/right icon</onekit-text>
+            <onekit-view onekit-class="body-view">
+                <onekit-slider onChange="slider1change" left-icon="cancel" right-icon="success_no_circle"></onekit-slider>
+            </onekit-view>
+        </onekit-view>
+
+        <onekit-view onekit-class="section section_gap">
+            <onekit-text onekit-class="section__title">设置step</onekit-text>
+            <onekit-view onekit-class="body-view">
+                <onekit-slider onChange="slider2change" step="5"></onekit-slider>
+            </onekit-view>
+        </onekit-view>
+
+        <onekit-view onekit-class="section section_gap">
+            <onekit-text onekit-class="section__title">显示当前value</onekit-text>
+            <onekit-view onekit-class="body-view">
+                <onekit-slider onChange="slider3change" show-value></onekit-slider>
+            </onekit-view>
+        </onekit-view>
+
+        <onekit-view onekit-class="section section_gap">
+            <onekit-text onekit-class="section__title">设置最小/最大值</onekit-text>
+            <onekit-view onekit-class="body-view">
+                <onekit-slider onChange="slider4change" min="50" max="200" show-value></onekit-slider>
+            </onekit-view>
+        </onekit-view>
+    </onekit-view>
+</onekit-view>

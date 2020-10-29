@@ -7,7 +7,6 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   data: {},
   props: {
-    name: '',
     min: 0,
     max: 100,
     step: 1,

@@ -193,18 +193,10 @@
     </onekit-view>
 </onekit-view> -->
 
-<!-- <picker-view> -->
-<view>
-  <view>{{year}}年{{month}}月{{day}}日</view>
-  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" onChange="bindChange">
-    <picker-view-column>
-      <view a:for="{{years}}" style="line-height: 50px">{{item}}年</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view a:for="{{months}}" style="line-height: 50px">{{item}}月</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view a:for="{{days}}" style="line-height: 50px">{{item}}日</view>
-    </picker-view-column>
-  </picker-view>
-</view>
+<!-- <navigator> -->
+<onekit-view onekit-class="btn-area">
+  <onekit-navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</onekit-navigator>
+  <onekit-navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</onekit-navigator>
+</onekit-view>
+
+<onekit-navigator url="/my/my?title=my" open-type="^_^" hover-class="other-navigator-hover">跳转到Tab</onekit-navigator>

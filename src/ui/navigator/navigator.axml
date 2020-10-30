@@ -2,11 +2,22 @@
 id="{{onekitId}}"
 class="onekit-navigator {{onekitClass}}"
 style="{{onekitStyle}}"
+target="{{target}}"
 url="{{url}}"
 open-type="{{openType}}"
+delta="{{delta}}"
+app-id="appId"
+path="path"
+extra-data="{{extraData}}"
+version="{{version}}"
 hover-class="{{hoverClass}}"
+hover-stop-propagation="{{hoverStopPropagation}}"
 hover-start-time="{{hoverStartTime}}"
 hover-stay-time="{{hoverStayTime}}"
+
+onsuccess="navigator_success"
+onfail="navigator_fail"
+oncomplete="navigator_complete"
 >
 <slot></slot>
 </navigator>

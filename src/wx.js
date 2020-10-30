@@ -14,8 +14,8 @@ import thekit from './js/TheKit'
 
 export default class wx {
   // ///////////////// animation //////////////////////////
-  static createAnimation(object) {
-    return my.createAnimation(object)
+  static createAnimation(wx_object) {
+    return my.createAnimation(wx_object)
   }
 
   // ////////////////onKeyboardHeightChange//////////////////
@@ -57,9 +57,9 @@ export default class wx {
     return result
   }
 
-  static getSystemInfo(object) {
-    const object2 = {}
-    object2.success = function (res) {
+  static getSystemInfo(wx_object) {
+    const my_object = {}
+    my_object.success = function (res) {
       let result = {
         errMsg: 'getSystemInfo:ok',
         SDKVersion: '2.4.2',
@@ -83,19 +83,19 @@ export default class wx {
       }
 
       result = wx._getSystemInfo(result)
-      if (object.success) { object.success(result) }
-      if (object.fail) { object.fail(result) }
+      if (wx_object.success) { wx_object.success(result) }
+      if (wx_object.fail) { wx_object.fail(result) }
     }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.fail(res)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.fail(res)
       }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(res)
       }
     }
 
-    return my.getSystemInfo(object2)
+    return my.getSystemInfo(my_object)
   }
 
   static getSystemInfoSync() {
@@ -113,35 +113,35 @@ export default class wx {
     return base64Content
   }
 
-  static getUpdateManager(object) { return my.getUpdateManager(object) }
+  static getUpdateManager(wx_object) { return my.getUpdateManager(wx_object) }
 
-  static getLaunchOptionsSync(object) { return my.getLaunchOptionsSync(object) }
+  static getLaunchOptionsSync(wx_object) { return my.getLaunchOptionsSync(wx_object) }
 
-  static offPageNotFound(object) { return my.offPageNotFound(object) }
+  static offPageNotFound(wx_object) { return my.offPageNotFound(wx_object) }
 
-  static onPageNotFound(object) { return my.onPageNotFound(object) }
+  static onPageNotFound(wx_object) { return my.onPageNotFound(wx_object) }
 
-  static offError(object) { return my.offError(object) }
+  static offError(wx_object) { return my.offError(wx_object) }
 
-  static onError(object) { return my.onError(object) }
+  static onError(wx_object) { return my.onError(wx_object) }
 
-  static offAppShow(object) { return my.offAppShow(object) }
+  static offAppShow(wx_object) { return my.offAppShow(wx_object) }
 
-  static onAppShow(object) { return my.onAppShow(object) }
+  static onAppShow(wx_object) { return my.onAppShow(wx_object) }
 
-  static offAppHide(object) { return my.offAppHide(object) }
+  static offAppHide(wx_object) { return my.offAppHide(wx_object) }
 
-  static onAppHide(object) { return my.onAppHide(object) }
+  static onAppHide(wx_object) { return my.onAppHide(wx_object) }
 
-  static setEnableDebug(object) { return my.setEnableDebug(object) }
+  static setEnableDebug(wx_object) { return my.setEnableDebug(wx_object) }
 
-  static getLogManager(object) { return my.getLogManager(object) }
+  static getLogManager(wx_object) { return my.getLogManager(wx_object) }
 
   // ///////////////// Canvas ///////////////////
   // eslint-disable-next-line complexity
-  static drawCanvas(object) {
-    const canvasId = object.canvasId
-    const actions = object.actions
+  static drawCanvas(wx_object) {
+    const canvasId = wx_object.canvasId
+    const actions = wx_object.actions
     const canvasContext = my.createCanvasContext(canvasId)
     let dt
     for (const action of actions) {
@@ -241,63 +241,63 @@ export default class wx {
     return new SelectorQuery(my.createSelectorQuery())
   }
 
-  static canvasToTempFilePath(object) {
-    const object2 = {
-      canvasId: object.canvasId
+  static canvasToTempFilePath(wx_object) {
+    const my_object = {
+      canvasId: wx_object.canvasId
     }
-    object2.success = function (res) {
+    my_object.success = function (res) {
       const result = {
         errMsg: 'canvasToTempFilePath:ok',
         tempFilePath: res.apFilePath
       }
-      if (object.success) {
-        object.success(result)
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
-      }
-    }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res)
-      }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.canvasToTempFilePath(object2)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
+    }
+    return my.canvasToTempFilePath(my_object)
   }
 
-  static canvasPutImageData(object) { return my.canvasPutImageData(object) }
+  static canvasPutImageData(wx_object) { return my.canvasPutImageData(wx_object) }
 
-  static canvasGetImageData(object) { return my.canvasGetImageData(object) }
+  static canvasGetImageData(wx_object) { return my.canvasGetImageData(wx_object) }
 
   // //////////// Device //////////////////
-  static onBeaconServiceChange(object) { return my.onBeaconServiceChange(object) }
+  static onBeaconServiceChange(wx_object) { return my.onBeaconServiceChange(wx_object) }
 
-  static onBeaconUpdate(object) { return my.onBeaconUpdate(object) }
+  static onBeaconUpdate(wx_object) { return my.onBeaconUpdate(wx_object) }
 
-  static getBeacons(object) { return my.getBeacons(object) }
+  static getBeacons(wx_object) { return my.getBeacons(wx_object) }
 
-  static stopBeaconDiscovery(object) { return my.stopBeaconDiscovery(object) }
+  static stopBeaconDiscovery(wx_object) { return my.stopBeaconDiscovery(wx_object) }
 
-  static startBeaconDiscovery(object) { return my.startBeaconDiscovery(object) }
+  static startBeaconDiscovery(wx_object) { return my.startBeaconDiscovery(wx_object) }
 
-  static stopWifi(object) { return my.stopWifi(object) }
+  static stopWifi(wx_object) { return my.stopWifi(wx_object) }
 
-  static startWifi(object) { return my.startWifi(object) }
+  static startWifi(wx_object) { return my.startWifi(wx_object) }
 
-  static setWifiList(object) { return my.setWifiList(object) }
+  static setWifiList(wx_object) { return my.setWifiList(wx_object) }
 
-  static onWifiConnected(object) { return my.onWifiConnected(object) }
+  static onWifiConnected(wx_object) { return my.onWifiConnected(wx_object) }
 
-  static onGetWifiList(object) { return my.onGetWifiList(object) }
+  static onGetWifiList(wx_object) { return my.onGetWifiList(wx_object) }
 
-  static getWifiList(object) { return my.getWifiList(object) }
+  static getWifiList(wx_object) { return my.getWifiList(wx_object) }
 
-  static getConnectedWifi(object) { return my.getConnectedWifi(object) }
+  static getConnectedWifi(wx_object) { return my.getConnectedWifi(wx_object) }
 
-  static connectWifi(object) { return my.connectWifi(object) }
+  static connectWifi(wx_object) { return my.connectWifi(wx_object) }
 
   // ///////////////////////////////////////////
   static setBackgroundFetchToken(my_object) {
@@ -364,27 +364,27 @@ export default class wx {
     })
   }
 
-  static stopAccelerometer(object) {
+  static stopAccelerometer(wx_object) {
     wx._stopAccelerometer = true
-    if (object.success) {
-      object.success()
+    if (wx_object.success) {
+      wx_object.success()
     }
-    if (object.complete) {
-      object.complete()
+    if (wx_object.complete) {
+      wx_object.complete()
     }
   }
 
-  static startAccelerometer(object) {
+  static startAccelerometer(wx_object) {
     wx._stopAccelerometer = false
-    if (object.success) {
-      object.success()
+    if (wx_object.success) {
+      wx_object.success()
     }
-    if (object.complete) {
-      object.complete()
+    if (wx_object.complete) {
+      wx_object.complete()
     }
   }
 
-  static getBatteryInfoSync(object) { return my.getBatteryInfoSync(object) }
+  static getBatteryInfoSync(wx_object) { return my.getBatteryInfoSync(wx_object) }
 
   static _getBatteryInfo(result) {
     my.getSystemInfo({
@@ -403,58 +403,58 @@ export default class wx {
     return result
   }
 
-  static getBatteryInfo(object) {
-    const object2 = {}
-    object2.success = function () {
+  static getBatteryInfo(wx_object) {
+    const my_object = {}
+    my_object.success = function () {
       let result = {
         errMsg: 'getBatteryInfo:ok',
         isCharging: false,
       }
       result = wx._getBatteryInfo(result)
-      if (object.success) { object.success(result) }
-      if (object.fail) { object.fail(result) }
+      if (wx_object.success) { wx_object.success(result) }
+      if (wx_object.fail) { wx_object.fail(result) }
     }
-    object2.fail = function (res) {
-      if (object.success) { object.success(res) }
-      if (object.fail) { object.fail(res) }
+    my_object.fail = function (res) {
+      if (wx_object.success) { wx_object.success(res) }
+      if (wx_object.fail) { wx_object.fail(res) }
     }
-    return my.getSystemInfo(object2)
+    return my.getSystemInfo(my_object)
   }
 
   //
-  static getClipboardData(object) {
-    const object2 = {}
-    if (object) {
-      object2.success = function (res) {
+  static getClipboardData(wx_object) {
+    const my_object = {}
+    if (wx_object) {
+      my_object.success = function (res) {
         const result = {data: res.text}
-        if (object.success) { object.success(result) }
-        if (object.fail) { object.fail(result) }
+        if (wx_object.success) { wx_object.success(result) }
+        if (wx_object.fail) { wx_object.fail(result) }
       }
-      object2.fail = function (res) {
-        if (object.success) { object.success(res) }
-        if (object.fail) { object.fail(res) }
+      my_object.fail = function (res) {
+        if (wx_object.success) { wx_object.success(res) }
+        if (wx_object.fail) { wx_object.fail(res) }
       }
     }
-    return my.getClipboard(object2)
+    return my.getClipboard(my_object)
   }
 
-  static setClipboardData(object) {
-    let object2
-    if (object) {
-      object2 = {}
+  static setClipboardData(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
       // eslint-disable-next-line guard-for-in
-      for (const key in object) {
+      for (const key in wx_object) {
         switch (key) {
           case 'data':
-            object2.text = object[key]
+            my_object.text = wx_object[key]
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    return my.setClipboard(object2)
+    return my.setClipboard(my_object)
   }
 
   static onCompassChange(callback) {
@@ -466,51 +466,51 @@ export default class wx {
     })
   }
 
-  static stopCompass(object) {
+  static stopCompass(wx_object) {
     wx._stopCompass = true
-    if (object.success) {
-      object.success()
+    if (wx_object.success) {
+      wx_object.success()
     }
-    if (object.complete) {
-      object.complete()
+    if (wx_object.complete) {
+      wx_object.complete()
     }
   }
 
-  static startCompass(object) {
+  static startCompass(wx_object) {
     wx._stopCompass = false
-    if (object.success) {
-      object.success()
+    if (wx_object.success) {
+      wx_object.success()
     }
-    if (object.complete) {
-      object.complete()
+    if (wx_object.complete) {
+      wx_object.complete()
     }
   }
 
-  static addPhoneContact(object) {
-    const object2 = {}
+  static addPhoneContact(wx_object) {
+    const my_object = {}
     let errMsg
     const result = {
       errMsg
     }
-    object2.success = function () {
+    my_object.success = function () {
       result.errMsg = 'addPhoneContact:ok'
-      if (object.success) {
-        object.success(result)
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    object2.fail = function () {
+    my_object.fail = function () {
       result.errMsg = 'addPhoneContact:fail cancel'
-      if (object.fail) {
-        object.fail(result)
+      if (wx_object.fail) {
+        wx_object.fail(result)
       }
-      if (object.complete) {
-        object.complete(result)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.addPhoneContact(object2)
+    return my.addPhoneContact(my_object)
   }
 
   static onGyroscopeChange(callback) {
@@ -522,67 +522,67 @@ export default class wx {
     })
   }
 
-  static stopGyroscope(object) {
+  static stopGyroscope(wx_object) {
     wx._stopGyroscope = true
-    if (object.success) {
-      object.success()
+    if (wx_object.success) {
+      wx_object.success()
     }
-    if (object.complete) {
-      object.complete()
+    if (wx_object.complete) {
+      wx_object.complete()
     }
   }
 
-  static startGyroscope(object) {
+  static startGyroscope(wx_object) {
     wx._startGyroscope = false
-    if (object.success) {
-      object.success()
+    if (wx_object.success) {
+      wx_object.success()
     }
-    if (object.complete) {
-      object.complete()
+    if (wx_object.complete) {
+      wx_object.complete()
     }
   }
 
   //
-  static onDeviceMotionChange(object) { return my.onDeviceMotionChange(object) }
+  static onDeviceMotionChange(wx_object) { return my.onDeviceMotionChange(wx_object) }
 
-  static stopDeviceMotionListening(object) { return my.stopDeviceMotionListening(object) }
+  static stopDeviceMotionListening(wx_object) { return my.stopDeviceMotionListening(wx_object) }
 
-  static startDeviceMotionListening(object) { return my.startDeviceMotionListening(object) }
+  static startDeviceMotionListening(wx_object) { return my.startDeviceMotionListening(wx_object) }
 
   //
-  static getNetworkType(object) {
-    const object2 = {}
+  static getNetworkType(wx_object) {
+    const my_object = {}
     // eslint-disable-next-line guard-for-in
-    for (const key in object) {
+    for (const key in wx_object) {
       switch (key) {
         case 'success':
         case 'fail':
         case 'complete':
           break
         default:
-          object2[key] = object[key]
+          my_object[key] = wx_object[key]
           break
       }
     }
-    object2.success = function (res) {
+    my_object.success = function (res) {
       const result = {networkType: wx._network(res).networkType}
-      if (object.success) {
-        object.success(result)
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.success(res)
       }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(res)
       }
     }
 
-    return my.getNetworkType(object2)
+    return my.getNetworkType(my_object)
   }
 
   static _network(res) {
@@ -610,48 +610,48 @@ export default class wx {
 
 
   //
-  static makePhoneCall(object) {
-    let object2
-    if (object) {
-      object2 = {}
+  static makePhoneCall(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
       // eslint-disable-next-line guard-for-in
-      for (const key in object) {
+      for (const key in wx_object) {
         switch (key) {
           case 'phoneNumber':
-            object2.number = object[key]
+            my_object.number = wx_object[key]
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
 
-      my.makePhoneCall(object2)
+      my.makePhoneCall(my_object)
     }
   }
 
-  static scanCode(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static scanCode(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'onlyFromCamera':
-            object2.hideAlbum = object[key]
+            my_object.hideAlbum = wx_object[key]
             break
           case 'scanType':
-            object2.type = object[key]
+            my_object.type = wx_object[key]
             break
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
-      object2.success = function (res) {
+      my_object.success = function (res) {
         console.log(res)
         const result = {}
         if (res.code) {
@@ -663,126 +663,126 @@ export default class wx {
             result.scanType = 'EAN_8'
           }
         }
-        if (object.success) {
-          object.success(result)
+        if (wx_object.success) {
+          wx_object.success(result)
         }
-        if (object.complete) {
-          object.complete(result)
+        if (wx_object.complete) {
+          wx_object.complete(result)
         }
       }
-      object2.fail = function (res) {
+      my_object.fail = function (res) {
         console.log(res)
-        if (object.fail) {
-          object.fail(res)
+        if (wx_object.fail) {
+          wx_object.fail(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
     }
-    return my.scan(object2)
+    return my.scan(my_object)
   }
 
   //
-  static vibrateLong(object) {
-    const object2 = {}
-    object2.success = function () {
+  static vibrateLong(wx_object) {
+    const my_object = {}
+    my_object.success = function () {
       const result = {
         errMsg: 'vibrateLong:ok'
       }
-      if (object.success) {
-        object.success(result)
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.vibrateLong(object2)
+    return my.vibrateLong(my_object)
   }
 
-  static vibrateShort(object) {
-    const object2 = {}
-    object2.success = function () {
+  static vibrateShort(wx_object) {
+    const my_object = {}
+    my_object.success = function () {
       const result = {
         errMsg: 'vibrateShort:ok'
       }
-      if (object.success) {
-        object.success(result)
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.vibrateShort(object2)
+    return my.vibrateShort(my_object)
   }
 
   //
-  static onMemoryWarning(object) { return my.onMemoryWarning(object) }
+  static onMemoryWarning(wx_object) { return my.onMemoryWarning(wx_object) }
 
   //
-  static writeBLECharacteristicValue(object) { return my.writeBLECharacteristicValue(object) }
+  static writeBLECharacteristicValue(wx_object) { return my.writeBLECharacteristicValue(wx_object) }
 
-  static readBLECharacteristicValue(object) { return my.readBLECharacteristicValue(object) }
+  static readBLECharacteristicValue(wx_object) { return my.readBLECharacteristicValue(wx_object) }
 
-  static onBLEConnectionStateChange(object) { return my.onBLEConnectionStateChange(object) }
+  static onBLEConnectionStateChange(wx_object) { return my.onBLEConnectionStateChange(wx_object) }
 
-  static onBLECharacteristicValueChange(object) { return my.onBLECharacteristicValueChange(object) }
+  static onBLECharacteristicValueChange(wx_object) { return my.onBLECharacteristicValueChange(wx_object) }
 
-  static notifyBLECharacteristicValueChange(object) { return my.notifyBLECharacteristicValueChange(object) }
+  static notifyBLECharacteristicValueChange(wx_object) { return my.notifyBLECharacteristicValueChange(wx_object) }
 
-  static getBLEDeviceServices(object) { return my.getBLEDeviceServices(object) }
+  static getBLEDeviceServices(wx_object) { return my.getBLEDeviceServices(wx_object) }
 
-  static getBLEDeviceCharacteristics(object) { return my.getBLEDeviceCharacteristics(object) }
+  static getBLEDeviceCharacteristics(wx_object) { return my.getBLEDeviceCharacteristics(wx_object) }
 
-  static createBLEConnection(object) { return my.createBLEConnection(object) }
+  static createBLEConnection(wx_object) { return my.createBLEConnection(wx_object) }
 
-  static closeBLEConnection(object) { return my.closeBLEConnection(object) }
+  static closeBLEConnection(wx_object) { return my.closeBLEConnection(wx_object) }
 
   //
-  static stopBluetoothDevicesDiscovery(object) {
-    const object2 = {}
-    for (const key in object) {
+  static stopBluetoothDevicesDiscovery(wx_object) {
+    const my_object = {}
+    for (const key in wx_object) {
       switch (key) {
         case 'success':
         case 'fail':
         case 'complete':
           break
         default:
-          object2[key] = object[key]
+          my_object[key] = wx_object[key]
           break
       }
     }
-    return my.stopBluetoothDevicesDiscovery(object2)
+    return my.stopBluetoothDevicesDiscovery(my_object)
   }
 
-  static startBluetoothDevicesDiscovery(object) {
-    wx.openBluetoothAdapter(object)
-    return my.startBluetoothDevicesDiscovery(object)
+  static startBluetoothDevicesDiscovery(wx_object) {
+    wx.openBluetoothAdapter(wx_object)
+    return my.startBluetoothDevicesDiscovery(wx_object)
   }
 
-  static openBluetoothAdapter(object) {
-    const object2 = {}
-    object2.success = function () {
+  static openBluetoothAdapter(wx_object) {
+    const my_object = {}
+    my_object.success = function () {
       const result = {errMsg: 'openBluetoothAdapter:ok'}
-      if (object.success) { object.success(result) }
-      if (object.complete) { object.complete(result) }
+      if (wx_object.success) { wx_object.success(result) }
+      if (wx_object.complete) { wx_object.complete(result) }
     }
-    object2.fail = function (res) {
-      if (object.success) { object.success(res) }
-      if (object.complete) { object.complete(res) }
+    my_object.fail = function (res) {
+      if (wx_object.success) { wx_object.success(res) }
+      if (wx_object.complete) { wx_object.complete(res) }
     }
-    return my.openBluetoothAdapter(object2)
+    return my.openBluetoothAdapter(my_object)
   }
 
-  static onBluetoothDeviceFound(object) { return my.onBluetoothDeviceFound(object) }
+  static onBluetoothDeviceFound(wx_object) { return my.onBluetoothDeviceFound(wx_object) }
 
-  static onBluetoothAdapterStateChange(object) { return my.onBluetoothAdapterStateChange(object) }
+  static onBluetoothAdapterStateChange(wx_object) { return my.onBluetoothAdapterStateChange(wx_object) }
 
-  static getConnectedBluetoothDevices(object) { return my.getConnectedBluetoothDevices(object) }
+  static getConnectedBluetoothDevices(wx_object) { return my.getConnectedBluetoothDevices(wx_object) }
 
-  static getBluetoothDevices(object) {
-    const object2 = {}
-    object2.success = function () {
+  static getBluetoothDevices(wx_object) {
+    const my_object = {}
+    my_object.success = function () {
       my.getBluetoothDevices({
         success: (res) => {
           // console.log("000", res)
@@ -791,159 +791,159 @@ export default class wx {
             errMsg: 'closeBluetoothAdapter:ok'
           }
           result.devices = res.devices
-          if (object.success) { object.success(result) }
-          if (object.complete) { object.complete(result) }
+          if (wx_object.success) { wx_object.success(result) }
+          if (wx_object.complete) { wx_object.complete(result) }
         }
       })
     }
-    object2.fail = function (res) {
-      if (object.success) { object.success(res) }
-      if (object.complete) { object.complete(res) }
+    my_object.fail = function (res) {
+      if (wx_object.success) { wx_object.success(res) }
+      if (wx_object.complete) { wx_object.complete(res) }
     }
-    return my.getBluetoothDevices(object2)
+    return my.getBluetoothDevices(my_object)
   }
 
-  static getBluetoothAdapterState(object) { return my.getBluetoothAdapterState(object) }
+  static getBluetoothAdapterState(wx_object) { return my.getBluetoothAdapterState(wx_object) }
 
-  static closeBluetoothAdapter(object) { return my.closeBluetoothAdapter(object) }
-
-  //
-  static stopHCE(object) { return my.stopHCE(object) }
-
-  static startHCE(object) { return my.startHCE(object) }
-
-  static sendHCEMessage(object) { return my.sendHCEMessage(object) }
-
-  static onHCEMessage(object) { return my.onHCEMessage(object) }
-
-  static getHCEState(object) { return my.getHCEState(object) }
+  static closeBluetoothAdapter(wx_object) { return my.closeBluetoothAdapter(wx_object) }
 
   //
-  static setScreenBrightness(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static stopHCE(wx_object) { return my.stopHCE(wx_object) }
+
+  static startHCE(wx_object) { return my.startHCE(wx_object) }
+
+  static sendHCEMessage(wx_object) { return my.sendHCEMessage(wx_object) }
+
+  static onHCEMessage(wx_object) { return my.onHCEMessage(wx_object) }
+
+  static getHCEState(wx_object) { return my.getHCEState(wx_object) }
+
+  //
+  static setScreenBrightness(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'value':
-            object2.brightness = object[key]
+            my_object.brightness = wx_object[key]
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    return my.setScreenBrightness(object2)
+    return my.setScreenBrightness(my_object)
   }
 
-  static setKeepScreenOn(object) { return my.setKeepScreenOn(object) }
+  static setKeepScreenOn(wx_object) { return my.setKeepScreenOn(wx_object) }
 
-  static onUserCaptureScreen(object) { return my.onUserCaptureScreen(object) }
+  static onUserCaptureScreen(wx_object) { return my.onUserCaptureScreen(wx_object) }
 
-  static getScreenBrightness(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static getScreenBrightness(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    object2.success = function (res) {
+    my_object.success = function (res) {
       const result = {value: res.brightness}
-      if (object.success) {
-        object.success(result)
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
-      }
-    }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res)
-      }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.getScreenBrightness(object2)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
+    }
+    return my.getScreenBrightness(my_object)
   }
 
   // ///////////////// Ext //////////////
-  static getExtConfigSync(object) { return my.getExtConfigSync(object) }
+  static getExtConfigSync(wx_object) { return my.getExtConfigSync(wx_object) }
 
-  static getExtConfig(object) { return my.getExtConfig(object) }
+  static getExtConfig(wx_object) { return my.getExtConfig(wx_object) }
 
   // ////////////////// File //////////
-  static getFileSystemManager(object) { return my.getFileSystemManager(object) }
+  static getFileSystemManager(wx_object) { return my.getFileSystemManager(wx_object) }
 
-  static getFileInfo(object) { return my.getFileInfo(object) }
+  static getFileInfo(wx_object) { return my.getFileInfo(wx_object) }
 
-  static removeSavedFile(object) { return my.removeSavedFile(object) }
+  static removeSavedFile(wx_object) { return my.removeSavedFile(wx_object) }
 
-  static getSavedFileInfo(object) { return my.getSavedFileInfo(object) }
+  static getSavedFileInfo(wx_object) { return my.getSavedFileInfo(wx_object) }
 
-  static getSavedFileList(object) { return my.getSavedFileList(object) }
+  static getSavedFileList(wx_object) { return my.getSavedFileList(wx_object) }
 
-  static openDocument(object) { return my.openDocument(object) }
+  static openDocument(wx_object) { return my.openDocument(wx_object) }
 
-  static saveFile(object) {
+  static saveFile(wx_object) {
     my.saveFile({
-      apFilePath: object.tempFilePath,
+      apFilePath: wx_object.tempFilePath,
       success(res) {
         const result = {savedFilePath: res.apFilePath}
-        if (object.success) {
-          object.success(result)
+        if (wx_object.success) {
+          wx_object.success(result)
         }
-        if (object.complete) {
-          object.complete(result)
+        if (wx_object.complete) {
+          wx_object.complete(result)
         }
       },
       fail(res) {
-        if (object.fail) {
-          object.fail(res)
+        if (wx_object.fail) {
+          wx_object.fail(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
     })
   }
 
   // ////////// Location ///////////////
-  static openLocation(object) { return my.openLocation(object) }
+  static openLocation(wx_object) { return my.openLocation(wx_object) }
 
-  static getLocation(object) { return my.getLocation(object) }
+  static getLocation(wx_object) { return my.getLocation(wx_object) }
 
-  static chooseLocation(object) { return my.chooseLocation(object) }
+  static chooseLocation(wx_object) { return my.chooseLocation(wx_object) }
 
   // //////// Media ////////////////////
-  static createMapContext(object) { return my.createMapContext(object) }
+  static createMapContext(wx_object) { return my.createMapContext(wx_object) }
 
-  static compressImage(object) { return my.compressImage(object) }
+  static compressImage(wx_object) { return my.compressImage(wx_object) }
 
-  static saveImageToPhotosAlbum(object) { return my.saveImageToPhotosAlbum(object) }
+  static saveImageToPhotosAlbum(wx_object) { return my.saveImageToPhotosAlbum(wx_object) }
 
-  static getImageInfo(object) { return my.getImageInfo(object) }
+  static getImageInfo(wx_object) { return my.getImageInfo(wx_object) }
 
-  static previewImage(object) { return my.previewImage(object) }
+  static previewImage(wx_object) { return my.previewImage(wx_object) }
 
-  static chooseImage(object) {
-    if (!object.count) {
-      object.count = 0
+  static chooseImage(wx_object) {
+    if (!wx_object.count) {
+      wx_object.count = 0
     }
     my.chooseImage({
-      conut: object.count,
-      sizeType: object.sizeType,
-      sourceType: object.scourceType,
+      conut: wx_object.count,
+      sizeType: wx_object.sizeType,
+      sourceType: wx_object.scourceType,
       success: (res) => {
         const tempFilePaths = []
         const tempFiles = []
@@ -955,92 +955,92 @@ export default class wx {
           tempFilePaths,
           tempFiles
         }
-        if (object.success) {
-          object.success(result)
+        if (wx_object.success) {
+          wx_object.success(result)
         }
-        if (object.complete) {
-          object.complete(result)
+        if (wx_object.complete) {
+          wx_object.complete(result)
         }
       },
       fail: (res) => {
-        if (object.fail) {
-          object.fail(res)
+        if (wx_object.fail) {
+          wx_object.fail(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
     })
   }
 
-  static saveVideoToPhotosAlbum(object) { return my.saveVideoToPhotosAlbum(object) }
+  static saveVideoToPhotosAlbum(wx_object) { return my.saveVideoToPhotosAlbum(wx_object) }
 
-  static chooseVideo(object) { return my.chooseVideo(object) }
+  static chooseVideo(wx_object) { return my.chooseVideo(wx_object) }
 
-  static stopVoice(object) { return my.stopVoice(object) }
+  static stopVoice(wx_object) { return my.stopVoice(wx_object) }
 
-  static pauseVoice(object) { return my.pauseVoice(object) }
+  static pauseVoice(wx_object) { return my.pauseVoice(wx_object) }
 
-  static playVoice(object) { return my.playVoice(object) }
+  static playVoice(wx_object) { return my.playVoice(wx_object) }
 
-  static setInnerAudioOption(object) { return my.setInnerAudioOption(object) }
+  static setInnerAudioOption(wx_object) { return my.setInnerAudioOption(wx_object) }
 
-  static getAvailableAudioSources(object) { return my.getAvailableAudioSources(object) }
+  static getAvailableAudioSources(wx_object) { return my.getAvailableAudioSources(wx_object) }
 
-  static createInnerAudioContext(object) { return my.createInnerAudioContext(object) }
+  static createInnerAudioContext(wx_object) { return my.createInnerAudioContext(wx_object) }
 
-  static createAudioContext(object) { return my.createAudioContext(object) }
+  static createAudioContext(wx_object) { return my.createAudioContext(wx_object) }
 
-  static onBackgroundAudioStop(object) { return my.onBackgroundAudioStop(object) }
+  static onBackgroundAudioStop(wx_object) { return my.onBackgroundAudioStop(wx_object) }
 
-  static onBackgroundAudioPause(object) { return my.onBackgroundAudioPause(object) }
+  static onBackgroundAudioPause(wx_object) { return my.onBackgroundAudioPause(wx_object) }
 
-  static onBackgroundAudioPlay(object) { return my.onBackgroundAudioPlay(object) }
+  static onBackgroundAudioPlay(wx_object) { return my.onBackgroundAudioPlay(wx_object) }
 
-  static stopBackgroundAudio(object) { return my.stopBackgroundAudio(object) }
+  static stopBackgroundAudio(wx_object) { return my.stopBackgroundAudio(wx_object) }
 
-  static seekBackgroundAudio(object) { return my.seekBackgroundAudio(object) }
+  static seekBackgroundAudio(wx_object) { return my.seekBackgroundAudio(wx_object) }
 
-  static pauseBackgroundAudio(object) { return my.pauseBackgroundAudio(object) }
+  static pauseBackgroundAudio(wx_object) { return my.pauseBackgroundAudio(wx_object) }
 
-  static playBackgroundAudio(object) { return my.playBackgroundAudio(object) }
+  static playBackgroundAudio(wx_object) { return my.playBackgroundAudio(wx_object) }
 
-  static getBackgroundAudioPlayerState(object) { return my.getBackgroundAudioPlayerState(object) }
+  static getBackgroundAudioPlayerState(wx_object) { return my.getBackgroundAudioPlayerState(wx_object) }
 
-  static getBackgroundAudioManager(object) { return my.getBackgroundAudioManager(object) }
+  static getBackgroundAudioManager(wx_object) { return my.getBackgroundAudioManager(wx_object) }
 
-  static createLivePusherContext(object) { return my.createLivePusherContext(object) }
+  static createLivePusherContext(wx_object) { return my.createLivePusherContext(wx_object) }
 
-  static startRecord(object) { return my.startRecord(object) }
+  static startRecord(wx_object) { return my.startRecord(wx_object) }
 
-  static stopRecord(object) { return my.stopRecord(object) }
+  static stopRecord(wx_object) { return my.stopRecord(wx_object) }
 
-  static getRecorderManager(object) { return my.getRecorderManager(object) }
+  static getRecorderManager(wx_object) { return my.getRecorderManager(wx_object) }
 
   // ////////////// Network ///////////////
-  static request(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static request(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'header':
-            object2.headers = object[key]
+            my_object.headers = wx_object[key]
             break
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
-      object2.success = function (res) {
+      my_object.success = function (res) {
         const result = {
           header: res.headers
         }
-        for (const key in object) {
+        for (const key in wx_object) {
           switch (key) {
             case 'status':
               result.statusCode = res[key]
@@ -1053,55 +1053,55 @@ export default class wx {
               break
           }
         }
-        if (object.success) {
-          object.success(result)
+        if (wx_object.success) {
+          wx_object.success(result)
         }
-        if (object.complete) {
-          object.complete(result)
+        if (wx_object.complete) {
+          wx_object.complete(result)
         }
       }
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res)
+      my_object.fail = function (res) {
+        if (wx_object.fail) {
+          wx_object.fail(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
     }
-    return my.httpRequest(object2)
+    return my.httpRequest(my_object)
   }
 
-  static downloadFile(object) { return my.downloadFile(object) }
+  static downloadFile(wx_object) { return my.downloadFile(wx_object) }
 
-  static uploadFile(object) {
+  static uploadFile(wx_object) {
     my.uploadFile({
-      url: object.url,
-      filePath: object.filePath,
-      fileName: object.name,
+      url: wx_object.url,
+      filePath: wx_object.filePath,
+      fileName: wx_object.name,
       fileType: 'image',
-      header: object.header,
-      formData: object.formData,
-      success: object.success,
-      fail: object.fail,
-      complete: object.complete
+      header: wx_object.header,
+      formData: wx_object.formData,
+      success: wx_object.success,
+      fail: wx_object.fail,
+      complete: wx_object.complete
     })
   }
 
   //
-  static connectSocket(object) { return my.connectSocket(object) }
+  static connectSocket(wx_object) { return my.connectSocket(wx_object) }
 
-  static onSocketError(object) { return my.onSocketError(object) }
+  static onSocketError(wx_object) { return my.onSocketError(wx_object) }
 
-  static onSocketMessage(object) { return my.onSocketMessage(object) }
+  static onSocketMessage(wx_object) { return my.onSocketMessage(wx_object) }
 
-  static onSocketClose(object) { return my.onSocketClose(object) }
+  static onSocketClose(wx_object) { return my.onSocketClose(wx_object) }
 
-  static onSocketOpen(object) { return my.onSocketOpen(object) }
+  static onSocketOpen(wx_object) { return my.onSocketOpen(wx_object) }
 
-  static sendSocketMessage(object) { return my.sendSocketMessage(object) }
+  static sendSocketMessage(wx_object) { return my.sendSocketMessage(wx_object) }
 
-  static closeSocket(object) { return my.closeSocket(object) }
+  static closeSocket(wx_object) { return my.closeSocket(wx_object) }
 
   static offLocalServiceResolveFail(callbck) { return my.offLocalServiceResolveFail(callbck) }
 
@@ -1117,9 +1117,9 @@ export default class wx {
 
   static onLocalServiceFound(callbck) { return my.onLocalServiceFound(callbck) }
 
-  static stopLocalServiceDiscovery(object) { return my.stopLocalServiceDiscovery(object) }
+  static stopLocalServiceDiscovery(wx_object) { return my.stopLocalServiceDiscovery(wx_object) }
 
-  static startLocalServiceDiscovery(object) { return my.startLocalServiceDiscovery(object) }
+  static startLocalServiceDiscovery(wx_object) { return my.startLocalServiceDiscovery(wx_object) }
 
   // /////// Open Interface //////////
   static _checkSession() {
@@ -1127,20 +1127,20 @@ export default class wx {
     return getApp().onekitwx._jscode && getApp().onekitwx._login && now <= getApp().onekitwx._login + 1000 * 60 * 60 * 24 * 3
   }
 
-  static checkSession(object) {
+  static checkSession(wx_object) {
     if (this._checkSession()) {
-      if (object.success) {
-        object.success()
+      if (wx_object.success) {
+        wx_object.success()
       }
-      if (object.complete) {
-        object.complete()
+      if (wx_object.complete) {
+        wx_object.complete()
       }
     } else {
-      if (object.fail) {
-        object.fail()
+      if (wx_object.fail) {
+        wx_object.fail()
       }
-      if (object.complete) {
-        object.complete()
+      if (wx_object.complete) {
+        wx_object.complete()
       }
     }
 
@@ -1158,11 +1158,11 @@ export default class wx {
                js_code: jscode
              },
              success(res) {
-               if (object.success) {
-                 object.success(res.data);
+               if (wx_object.success) {
+                 wx_object.success(res.data);
                }
-               if (object.complete) {
-                 object.complete(res.data);
+               if (wx_object.complete) {
+                 wx_object.complete(res.data);
                }
              }, fail(res) {
                console.log(res.data);
@@ -1173,43 +1173,43 @@ export default class wx {
 
   static login() {
     // const that = this
-    // if (!object) {
-    //   return my.getAuthCode(object)
+    // if (!wx_object) {
+    //   return my.getAuthCode(wx_object)
     // }
-    // const object2 = {
+    // const my_object = {
     //   scopes: 'auth_user'
     // }
-    // object2.success = function (res) {
+    // my_object.success = function (res) {
     //   getApp().onekitwx._jscode = res.authCode
     //   getApp().onekitwx._login = new Date().getTime()
     //   const result = {code: res.authCode}
-    //   if (object.success) {
-    //     object.success(result)
+    //   if (wx_object.success) {
+    //     wx_object.success(result)
     //   }
-    //   if (object.complete) {
-    //     object.complete(complete)
+    //   if (wx_object.complete) {
+    //     wx_object.complete(complete)
     //   }
     // }
-    // object2.fail = function (res) {
-    //   if (object.fail) {
-    //     object.fail(res)
+    // my_object.fail = function (res) {
+    //   if (wx_object.fail) {
+    //     wx_object.fail(res)
     //   }
-    //   if (object.complete) {
-    //     object.complete(res)
+    //   if (wx_object.complete) {
+    //     wx_object.complete(res)
     //   }
     // }
     // if (wx._checkSession()) {
-    //   object2.success({authCode: getApp().onekitwx._jscode})
+    //   my_object.success({authCode: getApp().onekitwx._jscode})
     // } else {
-    //   my.getAuthCode(object2)
+    //   my.getAuthCode(my_object)
     // }
   }
 
-  static getUserInfo(object) {
+  static getUserInfo(wx_object) {
     wx.login({
       success: (res) => {
         const jscode = res.code
-        const withCredentials = object.withCredentials
+        const withCredentials = wx_object.withCredentials
         my.getAuthUserInfo({
           success(res) {
             console.log(res)
@@ -1227,11 +1227,11 @@ export default class wx {
               },
               success(res) {
                 console.log(res.data)
-                if (object.success) {
-                  object.success(res.data)
+                if (wx_object.success) {
+                  wx_object.success(res.data)
                 }
-                if (object.complete) {
-                  object.complete(res.data)
+                if (wx_object.complete) {
+                  wx_object.complete(res.data)
                 }
               },
               fail(res) {
@@ -1244,7 +1244,7 @@ export default class wx {
     })
   }
 
-  static getOpenData(object) {
+  static getOpenData(wx_object) {
     if (!getApp().onekit._opendataCallbacks) {
       getApp().onekit._opendataCallbacks = []
     }
@@ -1254,19 +1254,19 @@ export default class wx {
       for (let cb = 0; cb < getApp().onekit._opendataCallbacks.length; cb++) {
         getApp().onekit._opendataCallbacks[cb](opendata)
       }
-      if (object.success) {
-        object.success(opendata)
+      if (wx_object.success) {
+        wx_object.success(opendata)
       }
-      if (object.complete) {
-        object.complete(opendata)
+      if (wx_object.complete) {
+        wx_object.complete(opendata)
       }
     }
     const opendata = getApp().onekit._opendata
     if (opendata) {
       if (Object.keys(opendata) > 0) {
-        object.success(opendata)
-      } else if (object.success) {
-        getApp().onekit._opendataCallbacks.push(object.success)
+        wx_object.success(opendata)
+      } else if (wx_object.success) {
+        getApp().onekit._opendataCallbacks.push(wx_object.success)
       }
       return
     }
@@ -1301,7 +1301,7 @@ export default class wx {
     })
   }
 
-  static getPhoneNumber(object) {
+  static getPhoneNumber(wx_object) {
     wx.login({
       success: (res) => {
         const jscode = res.code
@@ -1331,11 +1331,11 @@ export default class wx {
               },
               success(res) {
                 const data = res.data
-                if (object.success) {
-                  object.success(data)
+                if (wx_object.success) {
+                  wx_object.success(data)
                 }
-                if (object.complete) {
-                  object.complete(data)
+                if (wx_object.complete) {
+                  wx_object.complete(data)
                 }
               },
               fail(res) {
@@ -1348,47 +1348,47 @@ export default class wx {
     })
   }
 
-  static navigateToMiniProgram(object) { return my.navigateToMiniProgram(object) }
+  static navigateToMiniProgram(wx_object) { return my.navigateToMiniProgram(wx_object) }
 
-  static navigateBackMiniProgram(object) { return my.navigateBackMiniProgram(object) }
+  static navigateBackMiniProgram(wx_object) { return my.navigateBackMiniProgram(wx_object) }
 
-  static getAccountInfoSync(object) { return my.getAccountInfoSync(object) }
+  static getAccountInfoSync(wx_object) { return my.getAccountInfoSync(wx_object) }
 
-  static reportMonitor(object) { return my.reportMonitor(object) }
+  static reportMonitor(wx_object) { return my.reportMonitor(wx_object) }
 
-  static reportAnalytics(object) { return my.reportAnalytics(object) }
+  static reportAnalytics(wx_object) { return my.reportAnalytics(wx_object) }
 
-  static requestPayment(object) {
-    const tradeNO = object.package.split('=')[1]
+  static requestPayment(wx_object) {
+    const tradeNO = wx_object.package.split('=')[1]
     console.log(tradeNO)
-    const object2 = {
+    const my_object = {
       tradeNO,
-      success: object.success,
-      fail: object.fail,
-      complete: object.complete
+      success: wx_object.success,
+      fail: wx_object.fail,
+      complete: wx_object.complete
     }
-    return my.tradePay(object2)
+    return my.tradePay(my_object)
   }
 
-  static authorize(object) { return my.authorize(object) }
+  static authorize(wx_object) { return my.authorize(wx_object) }
 
-  static openSetting(object) { return my.openSetting(object) }
+  static openSetting(wx_object) { return my.openSetting(wx_object) }
 
-  static getSetting(object) { return my.getSetting(object) }
+  static getSetting(wx_object) { return my.getSetting(wx_object) }
 
-  static chooseAddress(object) { return my.chooseAddress(object) }
+  static chooseAddress(wx_object) { return my.chooseAddress(wx_object) }
 
-  static openCard(object) {
+  static openCard(wx_object) {
     my.openCardList()
-    if (object.success) {
-      object.success()
+    if (wx_object.success) {
+      wx_object.success()
     }
-    if (object.complete) {
-      object.complete()
+    if (wx_object.complete) {
+      wx_object.complete()
     }
   }
 
-  static addCard(object) {
+  static addCard(wx_object) {
     const url = getApp().onekit.server + 'addcard'
     my.httpRequest({
       url,
@@ -1397,16 +1397,16 @@ export default class wx {
       },
       method: 'POST',
       data: {
-        cardList: JSON.stringify(object.cardList),
-        js_code: object.jscode
+        cardList: JSON.stringify(wx_object.cardList),
+        js_code: wx_object.jscode
       },
       success(res) {
         const data = res.data
-        if (object.success) {
-          object.success(data)
+        if (wx_object.success) {
+          wx_object.success(data)
         }
-        if (object.complete) {
-          object.complete(data)
+        if (wx_object.complete) {
+          wx_object.complete(data)
         }
       },
       fail(res) {
@@ -1415,196 +1415,196 @@ export default class wx {
     })
   }
 
-  static chooseInvoiceTitle(object) { return my.chooseInvoiceTitle(object) }
+  static chooseInvoiceTitle(wx_object) { return my.chooseInvoiceTitle(wx_object) }
 
-  static chooseInvoice(object) { return my.chooseInvoice(object) }
+  static chooseInvoice(wx_object) { return my.chooseInvoice(wx_object) }
 
-  static startSoterAuthentication(object) { return my.startSoterAuthentication(object) }
+  static startSoterAuthentication(wx_object) { return my.startSoterAuthentication(wx_object) }
 
-  static checkIsSupportSoterAuthentication(object) { return my.checkIsSupportSoterAuthentication(object) }
+  static checkIsSupportSoterAuthentication(wx_object) { return my.checkIsSupportSoterAuthentication(wx_object) }
 
-  static checkIsSoterEnrolledInDevice(object) { return my.checkIsSoterEnrolledInDevice(object) }
+  static checkIsSoterEnrolledInDevice(wx_object) { return my.checkIsSoterEnrolledInDevice(wx_object) }
 
-  static getWeRunData(object) { return my.getWeRunData(object) }
+  static getWeRunData(wx_object) { return my.getWeRunData(wx_object) }
 
   // //////// Router //////////////
-  static navigateBack(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static navigateBack(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
-      object2.success = function (result) {
-        if (object.success) {
-          object.success(result)
+      my_object.success = function (result) {
+        if (wx_object.success) {
+          wx_object.success(result)
         }
-        if (object.complete) {
-          object.complete(result)
+        if (wx_object.complete) {
+          wx_object.complete(result)
         }
       }
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.success(res)
+      my_object.fail = function (res) {
+        if (wx_object.fail) {
+          wx_object.success(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
     }
-    return my.navigateBack(object2)
+    return my.navigateBack(my_object)
   }
 
-  static switchTab(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static switchTab(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    object2.success = function (result) {
-      if (object.success) {
-        object.success(result)
+    my_object.success = function (result) {
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
-      }
-    }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res)
-      }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.switchTab(object2)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
+    }
+    return my.switchTab(my_object)
   }
 
-  static navigateTo(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static navigateTo(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    object2.success = function (result) {
-      if (object.success) {
-        object.success(result)
+    my_object.success = function (result) {
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
-      }
-    }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res)
-      }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.navigateTo(object2)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
+    }
+    return my.navigateTo(my_object)
   }
 
-  static reLaunch(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static reLaunch(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    object2.success = function (result) {
-      if (object.success) {
-        object.success(result)
+    my_object.success = function (result) {
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
-      }
-    }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res)
-      }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.reLaunch(object2)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
+    }
+    return my.reLaunch(my_object)
   }
 
-  static redirectTo(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static redirectTo(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'success':
           case 'fail':
           case 'complete':
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    object2.success = function (result) {
-      if (object.success) {
-        object.success(result)
+    my_object.success = function (result) {
+      if (wx_object.success) {
+        wx_object.success(result)
       }
-      if (object.complete) {
-        object.complete(result)
-      }
-    }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.success(res)
-      }
-      if (object.complete) {
-        object.complete(res)
+      if (wx_object.complete) {
+        wx_object.complete(result)
       }
     }
-    return my.redirectTo(object2)
+    my_object.fail = function (res) {
+      if (wx_object.fail) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
+    }
+    return my.redirectTo(my_object)
   }
 
   // /////////// Share /////////////
-  static updateShareMenu(object) { return my.updateShareMenu(object) }
+  static updateShareMenu(wx_object) { return my.updateShareMenu(wx_object) }
 
   static showShareMenu() {
     my.navigateTo({
@@ -1612,26 +1612,26 @@ export default class wx {
     })
   }
 
-  static hideShareMenu(object) { return my.hideShareMenu(object) }
+  static hideShareMenu(wx_object) { return my.hideShareMenu(wx_object) }
 
-  static getShareInfo(object) { return my.getShareInfo(object) }
+  static getShareInfo(wx_object) { return my.getShareInfo(wx_object) }
 
   // ///////////// Storage //////////////
-  static getStorageInfoSync(object) { return my.getStorageInfoSync(object) }
+  static getStorageInfoSync(wx_object) { return my.getStorageInfoSync(wx_object) }
 
-  static getStorageInfo(object) { return my.getStorageInfo(object) }
+  static getStorageInfo(wx_object) { return my.getStorageInfo(wx_object) }
 
-  static clearStorageSync(object) { return my.clearStorageSync(object) }
+  static clearStorageSync(wx_object) { return my.clearStorageSync(wx_object) }
 
-  static clearStorage(object) { return my.clearStorage(object) }
+  static clearStorage(wx_object) { return my.clearStorage(wx_object) }
 
-  static removeStorageSync(object) { return my.removeStorageSync(object) }
+  static removeStorageSync(wx_object) { return my.removeStorageSync(wx_object) }
 
-  static removeStorage(object) { return my.removeStorage(object) }
+  static removeStorage(wx_object) { return my.removeStorage(wx_object) }
 
   static setStorageSync(key, value) { return my.setStorageSync({key, data: value}) }
 
-  static setStorage(object) { return my.setStorage(object) }
+  static setStorage(wx_object) { return my.setStorage(wx_object) }
 
   static getStorageSync(key) {
     const result = my.getStorageSync({key})
@@ -1646,79 +1646,79 @@ export default class wx {
     }
   }
 
-  static getStorage(object) { return my.getStorage(object) }
+  static getStorage(wx_object) { return my.getStorage(wx_object) }
 
   // //////////// UI ////////////////
-  static showActionSheet(object) {
-    let object2
-    if (object) {
-      object2 = {}
-      for (const key in object) {
+  static showActionSheet(wx_object) {
+    let my_object
+    if (wx_object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'itemList':
-            object2.items = object[key]
+            my_object.items = wx_object[key]
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
-      object2.success = function (res) {
+      my_object.success = function (res) {
         const result = {tapIndex: res.index}
-        if (object.success) {
-          object.success(result)
+        if (wx_object.success) {
+          wx_object.success(result)
         }
-        if (object.complete) {
-          object.complete(result)
+        if (wx_object.complete) {
+          wx_object.complete(result)
         }
       }
     }
-    return my.showActionSheet(object2)
+    return my.showActionSheet(my_object)
   }
 
-  // static redirectTo(object) { return my.redirectTo(object); }
-  // static redirectTo(object) { return my.redirectTo(object); }
-  static hideLoading(object) { return my.hideLoading(object) }
+  // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
+  // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
+  static hideLoading(wx_object) { return my.hideLoading(wx_object) }
 
-  static showLoading(object) {
-    let object2
-    if (object) {
-      if (!object.icon) {
-        object.icon = 'success'
+  static showLoading(wx_object) {
+    let my_object
+    if (wx_object) {
+      if (!wx_object.icon) {
+        wx_object.icon = 'success'
       }
       //
-      object2 = {}
-      for (const key in object) {
+      my_object = {}
+      for (const key in wx_object) {
         switch (key) {
           case 'title':
-            object2.content = object[key]
+            my_object.content = wx_object[key]
             break
           case 'icon':
-            object2.type = object[key]
+            my_object.type = wx_object[key]
             break
           default:
-            object2[key] = object[key]
+            my_object[key] = wx_object[key]
             break
         }
       }
     }
-    return my.showLoading(object2)
+    return my.showLoading(my_object)
   }
 
-  static hideToast(object) {
-    const object2 = {}
-    for (const key in object) {
+  static hideToast(wx_object) {
+    const my_object = {}
+    for (const key in wx_object) {
       switch (key) {
         case 'success':
         case 'fail':
         case 'complete':
           break
         default:
-          object2[key] = object[key]
+          my_object[key] = wx_object[key]
           break
       }
     }
-    return my.hideToast(object2)
+    return my.hideToast(my_object)
   }
 
   static showToast(wx_object) {
@@ -1764,164 +1764,164 @@ export default class wx {
     my.showToast(my_object)
   }
 
-  static showModal(object2) {
-    if (object2 === null) {
+  static showModal(my_object) {
+    if (my_object === null) {
       return my.confirm()
     }
-    const object = {}
+    const wx_object = {}
     let key
-    if (object2.showCancel === null || object2.showCancel) {
-      for (key in object2) {
+    if (my_object.showCancel === null || my_object.showCancel) {
+      for (key in my_object) {
         switch (key) {
           case 'cancelText':
-            object.cancelButtonText = object2[key]
+            wx_object.cancelButtonText = my_object[key]
             break
           case 'confirmText':
-            object.confirmButtonText = object2[key]
+            wx_object.confirmButtonText = my_object[key]
             break
           default:
-            object[key] = object2[key]
+            wx_object[key] = my_object[key]
             break
         }
       }
 
-      return my.confirm(object)
+      return my.confirm(wx_object)
     } else {
-      for (key in object2) {
+      for (key in my_object) {
         switch (key) {
           default:
-            object[key] = object2[key]
+            wx_object[key] = my_object[key]
             break
         }
       }
 
-      return my.alert(object)
+      return my.alert(wx_object)
     }
   }
 
-  static setNavigationBarColor(object) { return my.setNavigationBarColor(object) }
+  static setNavigationBarColor(wx_object) { return my.setNavigationBarColor(wx_object) }
 
-  static hideNavigationBarLoading(object) {
-    const object2 = {}
-    for (const key in object) {
+  static hideNavigationBarLoading(wx_object) {
+    const my_object = {}
+    for (const key in wx_object) {
       switch (key) {
         case 'success':
         case 'fail':
         case 'complete':
           break
         default:
-          object2[key] = object[key]
+          my_object[key] = wx_object[key]
           break
       }
     }
-    return my.hideNavigationBarLoading(object2)
+    return my.hideNavigationBarLoading(my_object)
   }
 
-  static showNavigationBarLoading(object) {
-    const object2 = {}
-    for (const key in object) {
+  static showNavigationBarLoading(wx_object) {
+    const my_object = {}
+    for (const key in wx_object) {
       switch (key) {
         case 'success':
         case 'fail':
         case 'complete':
           break
         default:
-          object2[key] = object[key]
+          my_object[key] = wx_object[key]
           break
       }
     }
-    return my.showNavigationBarLoading(object2)
+    return my.showNavigationBarLoading(my_object)
   }
 
-  static setNaivgationBarTitle(object) { return my.setNavigationBar(object) }
+  static setNaivgationBarTitle(wx_object) { return my.setNavigationBar(wx_object) }
 
-  static setBackgroundTextStyle(object) { return my.setBackgroundTextStyle(object) }
+  static setBackgroundTextStyle(wx_object) { return my.setBackgroundTextStyle(wx_object) }
 
-  static setBackgroundColor(object) { return my.setBackgroundColor(object) }
+  static setBackgroundColor(wx_object) { return my.setBackgroundColor(wx_object) }
 
-  static setTabBarItem(object) { return my.setTabBarItem(object) }
+  static setTabBarItem(wx_object) { return my.setTabBarItem(wx_object) }
 
-  static setTabBarStyle(object) { return my.setTabBarStyle(object) }
+  static setTabBarStyle(wx_object) { return my.setTabBarStyle(wx_object) }
 
-  static hideTabBar(object) { return my.hideTabBar(object) }
+  static hideTabBar(wx_object) { return my.hideTabBar(wx_object) }
 
-  static showTabBar(object) { return my.showTabBar(object) }
+  static showTabBar(wx_object) { return my.showTabBar(wx_object) }
 
-  static hideTabBarRedDot(object) { return my.hideTabBarRedDot(object) }
+  static hideTabBarRedDot(wx_object) { return my.hideTabBarRedDot(wx_object) }
 
-  static showTabBarRedDot(object) { return my.showTabBarRedDot(object) }
+  static showTabBarRedDot(wx_object) { return my.showTabBarRedDot(wx_object) }
 
-  static removeTabBarBadge(object) { return my.removeTabBarBadge(object) }
+  static removeTabBarBadge(wx_object) { return my.removeTabBarBadge(wx_object) }
 
-  static setTabBarBadge(object) { return my.setTabBarBadge(object) }
+  static setTabBarBadge(wx_object) { return my.setTabBarBadge(wx_object) }
 
-  static loadFontFace(object) { return my.loadFontFace(object) }
+  static loadFontFace(wx_object) { return my.loadFontFace(wx_object) }
 
-  static stopPullDownRefresh(object) {
-    const object2 = {}
-    if (object) {
-      object2.success = function (res) {
-        if (object.success) {
-          object.success(res)
+  static stopPullDownRefresh(wx_object) {
+    const my_object = {}
+    if (wx_object) {
+      my_object.success = function (res) {
+        if (wx_object.success) {
+          wx_object.success(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res)
+      my_object.fail = function (res) {
+        if (wx_object.fail) {
+          wx_object.fail(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
     }
-    return my.stopPullDownRefresh(object2)
+    return my.stopPullDownRefresh(my_object)
   }
 
-  static startPullDownRefresh(object) {
-    const object2 = {}
-    if (object) {
-      object2.success = function (res) {
-        if (object.success) {
-          object.success(res)
+  static startPullDownRefresh(wx_object) {
+    const my_object = {}
+    if (wx_object) {
+      my_object.success = function (res) {
+        if (wx_object.success) {
+          wx_object.success(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
-      object2.fail = function (res) {
-        if (object.fail) {
-          object.fail(res)
+      my_object.fail = function (res) {
+        if (wx_object.fail) {
+          wx_object.fail(res)
         }
-        if (object.complete) {
-          object.complete(res)
+        if (wx_object.complete) {
+          wx_object.complete(res)
         }
       }
     }
-    return my.startPullDownRefresh(object2)
+    return my.startPullDownRefresh(my_object)
   }
 
-  static pageScrollTo(object) { return my.pageScrollTo(object) }
+  static pageScrollTo(wx_object) { return my.pageScrollTo(wx_object) }
 
-  static setTopBarText(object) { return my.setTopBarText(object) }
+  static setTopBarText(wx_object) { return my.setTopBarText(wx_object) }
 
-  static nextTick(object) { return my.nextTick(object) }
+  static nextTick(wx_object) { return my.nextTick(wx_object) }
 
-  static getMenuButtonBoundingClientRect(object) { return my.getMenuButtonBoundingClientRect(object) }
+  static getMenuButtonBoundingClientRect(wx_object) { return my.getMenuButtonBoundingClientRect(wx_object) }
 
-  static offWindowResize(object) { return my.offWindowResize(object) }
+  static offWindowResize(wx_object) { return my.offWindowResize(wx_object) }
 
-  static onWindowResize(object) { return my.onWindowResize(object) }
+  static onWindowResize(wx_object) { return my.onWindowResize(wx_object) }
 
   // //////////// Worker ///////////////
-  static createWorker(object) { return my.createWorker(object) }
+  static createWorker(wx_object) { return my.createWorker(wx_object) }
 
-  static createIntersectionObserver(object) { return my.createIntersectionObserver(object) }
+  static createIntersectionObserver(wx_object) { return my.createIntersectionObserver(wx_object) }
 
   // ///////////////////////////////////
-  static hideKeyboard(object) { return my.hideKeyboard(object) }
+  static hideKeyboard(wx_object) { return my.hideKeyboard(wx_object) }
 
   // /////////// cloud ////////////////
   static get cloud() {

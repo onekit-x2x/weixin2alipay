@@ -1,5 +1,7 @@
-.intro {
-  margin: 30px;
-  text-align: center;
+.navigator-hover {
+    color:blue;
 }
 
+.other-navigator-hover {
+    color:red;
+}

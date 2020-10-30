@@ -90,7 +90,7 @@
 </onekit-view> -->
 
 <!-- <slider> -->
-<onekit-view onekit-class="page">
+<!-- <onekit-view onekit-class="page">
     <onekit-view onekit-class="page__hd">
         <onekit-text onekit-class="page__title">slider</onekit-text>
         <onekit-text onekit-class="page__desc">滑块</onekit-text>
@@ -124,4 +124,47 @@
             </onekit-view>
         </onekit-view>
     </onekit-view>
+</onekit-view> -->
+
+<!-- <picker> -->
+<onekit-view onekit-class="section">
+  <onekit-view onekit-class="section__title">普通选择器</onekit-view>
+  <onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <onekit-view onekit-class="picker">
+      当前选择：{{array[index]}}
+    </onekit-view>
+  </onekit-picker>
+</onekit-view>
+<onekit-view onekit-class="section">
+  <onekit-view onekit-class="section__title">多列选择器</onekit-view>
+  <onekit-picker mode="multiSelector" onChange="bindMultiPickerChange" onColumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <onekit-view onekit-class="picker">
+      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+    </onekit-view>
+  </onekit-picker>
+</onekit-view>
+<onekit-view onekit-class="section">
+  <onekit-view onekit-class="section__title">时间选择器</onekit-view>
+  <onekit-picker mode="time" value="{{time}}" start="09:01" end="21:01" onChange="bindTimeChange">
+    <onekit-view onekit-class="picker">
+      当前选择: {{time}}
+    </onekit-view>
+  </onekit-picker>
+</onekit-view>
+
+<onekit-view onekit-class="section">
+  <onekit-view onekit-class="section__title">日期选择器</onekit-view>
+  <onekit-picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" onChange="bindDateChange">
+    <onekit-view onekit-class="picker">
+      当前选择: {{date}}
+    </onekit-view>
+  </onekit-picker>
+</onekit-view>
+<onekit-view onekit-class="section">
+  <onekit-view onekit-class="section__title">省市区选择器</onekit-view>
+  <onekit-picker mode="region" onChange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <onekit-view onekit-class="picker">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+    </onekit-view>
+  </onekit-picker>
 </onekit-view>

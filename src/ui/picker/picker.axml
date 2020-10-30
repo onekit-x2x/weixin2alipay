@@ -11,7 +11,8 @@ value="{{value}}"
 range-key="{{rangeKey}}">
 <slot></slot>
 </selector-picker>
-<multiselector-picker a:elif="{{mode=='multiSelector'}}"
+
+<multiselector-picker a:if="{{mode=='multiSelector'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
@@ -25,7 +26,8 @@ value="{{value}}"
 range-key="{{rangeKey}}">
 <slot></slot>
 </multiselector-picker>
-<time-picker a:elif="{{mode=='time'}}"
+
+<time-picker a:if="{{mode=='time'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
@@ -38,7 +40,8 @@ end="{{end}}"
 value="{{value}}">
 <slot></slot>
 </time-picker>
-<date-picker a:elif="{{mode=='date'}}"
+
+<date-picker a:if="{{mode=='date'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"
@@ -52,7 +55,7 @@ value="{{value}}">
 <slot></slot>
 </date-picker>
 
-<ragion-picker a:elif="{{mode=='region'}}"
+<ragion-picker a:if="{{mode=='region'}}"
 id="{{onekitId}}"
 class="onekit-picker {{onekitClass}}"
 style="{{onekitStyle}}"

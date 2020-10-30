@@ -36,7 +36,8 @@
   </onekit-view>
 </onekit-view> -->
 
-<!-- <onekit-image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/> -->
+<!-- <onekit-image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/>
+<image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/> -->
 
 <!-- <view> -->
 <!-- <onekit-view onekit-class="container">
@@ -170,7 +171,7 @@
 </onekit-view> -->
 
 <!-- <switch> -->
-<onekit-view onekit-class="page">
+<!-- <onekit-view onekit-class="page">
     <onekit-view onekit-class="page__hd">
         <onekit-text onekit-class="page__title">switch</onekit-text>
         <onekit-text onekit-class="page__desc">开关</onekit-text>
@@ -190,4 +191,20 @@
             </onekit-view>
         </onekit-view>
     </onekit-view>
-</onekit-view>
+</onekit-view> -->
+
+<!-- <picker-view> -->
+<view>
+  <view>{{year}}年{{month}}月{{day}}日</view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" onChange="bindChange">
+    <picker-view-column>
+      <view a:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view a:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view a:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+</view>

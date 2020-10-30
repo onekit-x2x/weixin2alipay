@@ -1,25 +1,42 @@
 import {OnekitPage} from '../weixin2alipay/index';
 import {wx} from '../weixin2alipay/index';
 global = {};
-var pageData = {
+const date = new Date();
+const years = [
+];
+const months = [
+];
+const days = [
+];
+for(var i = 1990;(i <= date.getFullYear());i++){
+    years.push(i);
+};
+for(var i = 1;(i <= 12);i++){
+    months.push(i);
+};
+for(var i = 1;(i <= 31);i++){
+    days.push(i);
+};
+OnekitPage({
     data:{
-        switch1Checked:true,
-        switch2Checked:false,
-        switch1Style:'',
-        switch2Style:'text-decoration: line-through'
+        years:years,
+        year:date.getFullYear(),
+        months:months,
+        month:2,
+        days:days,
+        day:2,
+        value:[
+            9999,
+            1,
+            1
+        ]
+    },
+    bindChange:function(e){
+        const val = e.detail.value;
+        this.setData({
+        year:this.data.years[val[0]],
+        month:this.data.months[val[1]],
+        day:this.data.days[val[2]]
+    });
     }
-};
-for(var i = 1;(i <= 2);++i){
-    (function(index){
-        pageData[`switch${index}Change`] = function(e){
-        console.log(`switch${index}发生change事件，携带值为`,e.detail.value);
-        var obj = {};
-        obj[`switch${index}Checked`] = e.detail.value;
-        this.setData(obj);
-        obj = {};
-        obj[`switch${index}Style`] = e.detail.value?'':'text-decoration: line-through';
-        this.setData(obj);
-    };
-    })(i);
-};
-OnekitPage(pageData);
+});

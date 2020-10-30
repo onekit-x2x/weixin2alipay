@@ -6,11 +6,11 @@
     "onekit-progress":"../weixin2alipay/ui/progress/progress",
     "onekit-slider":"../weixin2alipay/ui/slider/slider",
     "onekit-picker":"../weixin2alipay/ui/picker/picker",
+    "onekit-switch":"../weixin2alipay/ui/switch/switch",
 
     "onekit-button":"../weixin2alipay/ui/button/button",
     "onekit-swiper":"../weixin2alipay/ui/swiper/swiper",
     "onekit-swiper-item":"../weixin2alipay/ui/swiper-item/swiper-item",
-    "onekit-switch":"../weixin2alipay/ui/switch/switch",
     "onekit-image":"../weixin2alipay/ui/image/image",
     "onekit-input":"../weixin2alipay/ui/input/input",
     "onekit-video":"../weixin2alipay/ui/video/video"

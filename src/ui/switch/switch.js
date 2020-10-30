@@ -13,6 +13,7 @@ Component({
     disabled: false,
     type: 'switch',
     color: '#04BE02',
+    value: ''
   },
   didMount() {},
   didUpdate() {},
@@ -20,6 +21,12 @@ Component({
   methods: {
     switch_Change(e) {
       console.log('switch_Change', e)
+      if (this.props.onChange) {
+        this.props.onChange(e)
+      }
+    },
+    checkbox_Change(e) {
+      console.log('checkbox_Change', e)
       if (this.props.onChange) {
         this.props.onChange(e)
       }

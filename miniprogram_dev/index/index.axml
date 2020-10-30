@@ -127,7 +127,7 @@
 </onekit-view> -->
 
 <!-- <picker> -->
-<onekit-view onekit-class="section">
+<!-- <onekit-view onekit-class="section">
   <onekit-view onekit-class="section__title">普通选择器</onekit-view>
   <onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
     <onekit-view onekit-class="picker">
@@ -167,4 +167,27 @@
       当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
     </onekit-view>
   </onekit-picker>
+</onekit-view> -->
+
+<!-- <switch> -->
+<onekit-view onekit-class="page">
+    <onekit-view onekit-class="page__hd">
+        <onekit-text onekit-class="page__title">switch</onekit-text>
+        <onekit-text onekit-class="page__desc">开关</onekit-text>
+    </onekit-view>
+    <onekit-view onekit-class="page__bd">
+        <onekit-view onekit-class="section section_gap">
+            <onekit-view onekit-class="section__title">type="switch"</onekit-view>
+            <onekit-view onekit-class="body-view">
+                <onekit-switch checked="{{switch1Checked}}" onChange="switch1Change"></onekit-switch>
+            </onekit-view>
+        </onekit-view>
+
+        <onekit-view onekit-class="section section_gap">
+            <onekit-view onekit-class="section__title">type="checkbox"</onekit-view>
+            <onekit-view onekit-class="body-view">
+                <onekit-switch type="checkbox" checked="{{switch2Checked}}" onChange="switch2Change"></onekit-switch>
+            </onekit-view>
+        </onekit-view>
+    </onekit-view>
 </onekit-view>

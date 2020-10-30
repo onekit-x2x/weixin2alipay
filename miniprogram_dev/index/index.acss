@@ -1,6 +1,5 @@
-.intro {
-  margin: 30px;
-  text-align: center;
+.picker{
+    padding: 13px;
+    background-color: #FFFFFF;
 }
-
 

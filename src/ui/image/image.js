@@ -16,9 +16,11 @@ Component({
   },
   didMount() {
     const pages = getCurrentPages()
-    const currentUrl = pages[pages.length - 1].route
-    const alipay_src = '/' + rel2abs(currentUrl, this.props.src)
-    this.setData({src: alipay_src})
+    if (!this.props.src.indexOf('://')) {
+      const currentUrl = pages[pages.length - 1].route
+      const alipay_src = '/' + rel2abs(currentUrl, this.props.src)
+      this.setData({src: alipay_src})
+    }
   },
   didUpdate() { },
   didUnmount() { },

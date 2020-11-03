@@ -20,7 +20,10 @@ Component({
     blockColor: '#ffffff',
     showValue: false,
   },
-  didMount() {},
+  didMount() {
+    const value = Math.max(this.props.value, this.props.min)
+    this.setData({value})
+  },
   didUpdate() {},
   didUnmount() {},
   methods: {

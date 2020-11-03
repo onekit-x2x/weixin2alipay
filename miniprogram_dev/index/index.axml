@@ -1,26 +1,25 @@
-<!-- <text> -->
+<!--<text> -->
 <!-- <onekit-view>
   <onekit-text>&gt;</onekit-text>
-</onekit-view> -->
-<!-- <onekit-view>
+</onekit-view>
+<onekit-view>
   <onekit-text user-select = "true">hhh</onekit-text>
+</onekit-view>
+<onekit-view>
+  <onekit-text space="emsp">&gt;</onekit-text>
+</onekit-view>
+<onekit-view>
+  <onekit-text decode>&gt;</onekit-text>
 </onekit-view> -->
-<!-- <view>
-  <text space="emsp">&gt;</text>
-</view> -->
-<!-- <view>
-  <text decode>&gt;</text>
-</view> -->
 
-
-<!-- <progress> -->
+<!--<progress> -->
 <!-- <onekit-progress percent="20" show-info></onekit-progress>
 <onekit-progress percent="40" stroke-width="12"></onekit-progress>
 <onekit-progress percent="60" color="pink"></onekit-progress>
 <onekit-progress percent="60" active-color="pink"></onekit-progress>
 <onekit-progress percent="80" active></onekit-progress> -->
 
-<!-- <image> -->
+<!--<image> -->
 <!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
     <onekit-text onekit-class="page__title">image</onekit-text>
@@ -29,17 +28,16 @@
   <onekit-view onekit-class="page__bd">
     <onekit-view a:for="{{array}}" a:for-item='item' onekit-class="section section_gap">
       <onekit-view onekit-class="section__title">{{item.text}}</onekit-view>
-      <onekit-view onekit-class="section__ctn">
-        <onekit-image onekit-style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"></onekit-image>
+        <onekit-view onekit-class="section__ctn">
+          <onekit-image onekit-style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"></onekit-image>
+        </onekit-view>
       </onekit-view>
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
+<onekit-image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/>
 
-<!-- <onekit-image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/>
-<image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/> -->
-
-<!-- <view> -->
+<!--<view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section">
@@ -54,149 +52,90 @@
         </onekit-view>
       </onekit-view>
     </onekit-view>
-    <onekit-view onekit-class="page-section">
-      <onekit-view onekit-class="page-section-title">
-        <onekit-text>flex-direction: column\n纵向布局</onekit-text>
+  <onekit-view onekit-class="page-section">
+    <onekit-view onekit-class="page-section-title">
+      <onekit-text>flex-direction: column\n纵向布局</onekit-text>
+    </onekit-view>
+    <onekit-view onekit-class="flex-wrp" onekit-style="flex-direction:column;">
+      <onekit-view onekit-class="flex-item flex-item-V demo-text-1"></onekit-view>
+      <onekit-view onekit-class="flex-item flex-item-V demo-text-2"></onekit-view>
+      <onekit-view onekit-class="flex-item flex-item-V demo-text-3"></onekit-view>
+    </onekit-view>
+  </onekit-view>
+</onekit-view> -->
+
+<!--<switch> -->
+<!-- <onekit-view onekit-class="page">
+  <onekit-view onekit-class="page__hd">
+    <onekit-text onekit-class="page__title">switch</onekit-text>
+    <onekit-text onekit-class="page__desc">开关</onekit-text>
+  </onekit-view>
+  <onekit-view onekit-class="page__bd">
+    <onekit-view onekit-class="section section_gap">
+      <onekit-view onekit-class="section__title">type="switch"</onekit-view>
+      <onekit-view onekit-class="body-view">
+        <onekit-switch checked="{{switch1Checked}}" onChange="switch1Change"></onekit-switch>
       </onekit-view>
-      <onekit-view onekit-class="flex-wrp" onekit-style="flex-direction:column;">
-        <onekit-view onekit-class="flex-item flex-item-V demo-text-1"></onekit-view>
-        <onekit-view onekit-class="flex-item flex-item-V demo-text-2"></onekit-view>
-        <onekit-view onekit-class="flex-item flex-item-V demo-text-3"></onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="section section_gap">
+      <onekit-view onekit-class="section__title">type="checkbox"</onekit-view>
+      <onekit-view onekit-class="body-view">
+        <onekit-switch type="checkbox" checked="{{switch2Checked}}" onChange="switch2Change"></onekit-switch>
       </onekit-view>
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
 
-<!-- <switch> -->
+<!--<slider> -->
 <!-- <onekit-view onekit-class="page">
-    <onekit-view onekit-class="page__hd">
-        <onekit-text onekit-class="page__title">switch</onekit-text>
-        <onekit-text onekit-class="page__desc">开关</onekit-text>
+  <onekit-view onekit-class="page__hd">
+    <onekit-text onekit-class="page__title">slider</onekit-text>
+    <onekit-text onekit-class="page__desc">滑块</onekit-text>
+  </onekit-view>
+  <onekit-view onekit-class="page__bd">
+    <onekit-view onekit-class="section section_gap">
+      <onekit-text onekit-class="section__title">设置left/right icon</onekit-text>
+      <onekit-view onekit-class="body-view">
+        <onekit-slider onChange="slider1change" left-icon="cancel" right-icon="success_no_circle"></onekit-slider>
+      </onekit-view>
     </onekit-view>
-    <onekit-view onekit-class="page__bd">
-        <onekit-view onekit-class="section section_gap">
-            <onekit-view onekit-class="section__title">type="switch"</onekit-view>
-            <onekit-view onekit-class="body-view">
-                <onekit-switch checked="{{switch1Checked}}" onChange="switch1Change"></onekit-switch>
-            </onekit-view>
-        </onekit-view>
-
-        <onekit-view onekit-class="section section_gap">
-            <onekit-view onekit-class="section__title">type="checkbox"</onekit-view>
-            <onekit-view onekit-class="body-view">
-                <onekit-switch type="checkbox" checked="{{switch2Checked}}" onChange="switch2Change"></onekit-switch>
-            </onekit-view>
-        </onekit-view>
+    <onekit-view onekit-class="section section_gap">
+      <onekit-text onekit-class="section__title">设置step</onekit-text>
+      <onekit-view onekit-class="body-view">
+        <onekit-slider onChange="slider2change" step="5"></onekit-slider>
+      </onekit-view>
     </onekit-view>
+    <onekit-view onekit-class="section section_gap">
+      <onekit-text onekit-class="section__title">显示当前value</onekit-text>
+      <onekit-view onekit-class="body-view">
+        <onekit-slider onChange="slider3change" show-value></onekit-slider>
+      </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="section section_gap">
+      <onekit-text onekit-class="section__title">设置最小/最大值</onekit-text>
+      <onekit-view onekit-class="body-view">
+        <onekit-slider onChange="slider4change" min="50" max="200" show-value></onekit-slider>
+      </onekit-view>
+    </onekit-view>
+  </onekit-view>
 </onekit-view> -->
 
-<!-- <slider> -->
-<!-- <onekit-view onekit-class="page">
-    <onekit-view onekit-class="page__hd">
-        <onekit-text onekit-class="page__title">slider</onekit-text>
-        <onekit-text onekit-class="page__desc">滑块</onekit-text>
-    </onekit-view>
-    <onekit-view onekit-class="page__bd">
-        <onekit-view onekit-class="section section_gap">
-            <onekit-text onekit-class="section__title">设置left/right icon</onekit-text>
-            <onekit-view onekit-class="body-view">
-                <onekit-slider onChange="slider1change" left-icon="cancel" right-icon="success_no_circle"></onekit-slider>
-            </onekit-view>
-        </onekit-view>
-
-        <onekit-view onekit-class="section section_gap">
-            <onekit-text onekit-class="section__title">设置step</onekit-text>
-            <onekit-view onekit-class="body-view">
-                <onekit-slider onChange="slider2change" step="5"></onekit-slider>
-            </onekit-view>
-        </onekit-view>
-
-        <onekit-view onekit-class="section section_gap">
-            <onekit-text onekit-class="section__title">显示当前value</onekit-text>
-            <onekit-view onekit-class="body-view">
-                <onekit-slider onChange="slider3change" show-value></onekit-slider>
-            </onekit-view>
-        </onekit-view>
-
-        <onekit-view onekit-class="section section_gap">
-            <onekit-text onekit-class="section__title">设置最小/最大值</onekit-text>
-            <onekit-view onekit-class="body-view">
-                <onekit-slider onChange="slider4change" min="50" max="200" show-value></onekit-slider>
-            </onekit-view>
-        </onekit-view>
-    </onekit-view>
-</onekit-view> -->
-
-<!-- <picker> -->
-<!-- <onekit-view onekit-class="section">
-  <onekit-view onekit-class="section__title">普通选择器</onekit-view>
-  <onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <onekit-view onekit-class="picker">
-      当前选择：{{array[index]}}
-    </onekit-view>
-  </onekit-picker>
-</onekit-view>
-<onekit-view onekit-class="section">
-  <onekit-view onekit-class="section__title">多列选择器</onekit-view>
-  <onekit-picker mode="multiSelector" onChange="bindMultiPickerChange" onColumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-    <onekit-view onekit-class="picker">
-      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
-    </onekit-view>
-  </onekit-picker>
-</onekit-view>
-<onekit-view onekit-class="section">
-  <onekit-view onekit-class="section__title">时间选择器</onekit-view>
-  <onekit-picker mode="time" value="{{time}}" start="09:01" end="21:01" onChange="bindTimeChange">
-    <onekit-view onekit-class="picker">
-      当前选择: {{time}}
-    </onekit-view>
-  </onekit-picker>
-</onekit-view>
-
-<onekit-view onekit-class="section">
-  <onekit-view onekit-class="section__title">日期选择器</onekit-view>
-  <onekit-picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" onChange="bindDateChange">
-    <onekit-view onekit-class="picker">
-      当前选择: {{date}}
-    </onekit-view>
-  </onekit-picker>
-</onekit-view>
-<onekit-view onekit-class="section">
-  <onekit-view onekit-class="section__title">省市区选择器</onekit-view>
-  <onekit-picker mode="region" onChange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-    <onekit-view onekit-class="picker">
-      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
-    </onekit-view>
-  </onekit-picker>
-</onekit-view> -->
-
-<!-- <switch> -->
-<!-- <onekit-view onekit-class="page">
-    <onekit-view onekit-class="page__hd">
-        <onekit-text onekit-class="page__title">switch</onekit-text>
-        <onekit-text onekit-class="page__desc">开关</onekit-text>
-    </onekit-view>
-    <onekit-view onekit-class="page__bd">
-        <onekit-view onekit-class="section section_gap">
-            <onekit-view onekit-class="section__title">type="switch"</onekit-view>
-            <onekit-view onekit-class="body-view">
-                <onekit-switch checked="{{switch1Checked}}" onChange="switch1Change"></onekit-switch>
-            </onekit-view>
-        </onekit-view>
-
-        <onekit-view onekit-class="section section_gap">
-            <onekit-view onekit-class="section__title">type="checkbox"</onekit-view>
-            <onekit-view onekit-class="body-view">
-                <onekit-switch type="checkbox" checked="{{switch2Checked}}" onChange="switch2Change"></onekit-switch>
-            </onekit-view>
-        </onekit-view>
-    </onekit-view>
-</onekit-view> -->
-
-<!-- <navigator> -->
-<onekit-view onekit-class="btn-area">
+<!--<picker> -->
+<!-- <onekit-view onekit-class="section"><onekit-view onekit-class="section__title">普通选择器</onekit-view><onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}"><onekit-view onekit-class="picker">
+      当前选择：{{array[index]}}</onekit-view></onekit-picker></onekit-view><onekit-view onekit-class="section"><onekit-view onekit-class="section__title">多列选择器</onekit-view><onekit-picker mode="multiSelector" onChange="bindMultiPickerChange" onColumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}"><onekit-view onekit-class="picker">
+      当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}</onekit-view></onekit-picker></onekit-view><onekit-view onekit-class="section"><onekit-view onekit-class="section__title">时间选择器</onekit-view><onekit-picker mode="time" value="{{time}}" start="09:01" end="21:01" onChange="bindTimeChange"><onekit-view onekit-class="picker">
+      当前选择: {{time}}</onekit-view></onekit-picker></onekit-view><onekit-view onekit-class="section"><onekit-view onekit-class="section__title">日期选择器</onekit-view><onekit-picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" onChange="bindDateChange"><onekit-view onekit-class="picker">
+      当前选择: {{date}}</onekit-view></onekit-picker></onekit-view><onekit-view onekit-class="section"><onekit-view onekit-class="section__title">省市区选择器</onekit-view><onekit-picker mode="region" onChange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}"><onekit-view onekit-class="picker">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}</onekit-view></onekit-picker></onekit-view> -->
+<!--<switch> -->
+<!--<onekit-view onekit-class="page"><onekit-view onekit-class="page__hd"><onekit-text onekit-class="page__title">switch</onekit-text><onekit-text onekit-class="page__desc">开关</onekit-text></onekit-view><onekit-view onekit-class="page__bd"><onekit-view onekit-class="section section_gap"><onekit-view onekit-class="section__title">type="switch"</onekit-view><onekit-view onekit-class="body-view"><onekit-switch checked="{{switch1Checked}}" onChange="switch1Change"></onekit-switch></onekit-view></onekit-view><onekit-view onekit-class="section section_gap"><onekit-view onekit-class="section__title">type="checkbox"</onekit-view><onekit-view onekit-class="body-view"><onekit-switch type="checkbox" checked="{{switch2Checked}}" onChange="switch2Change"></onekit-switch></onekit-view></onekit-view></onekit-view></onekit-view> -->
+<!--<navigator> -->
+<!-- <onekit-view onekit-class="btn-area">
   <onekit-navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</onekit-navigator>
   <onekit-navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</onekit-navigator>
-</onekit-view>
-
-<onekit-navigator url="/my/my?title=my" open-type="^_^" hover-class="other-navigator-hover">跳转到Tab</onekit-navigator>
+  
+  <onekit-navigator url="/my/my?title=my" open-type="switchTab" hover-class="other-navigator-hover">跳转到Tab</onekit-navigator>
+  <onekit-navigator target="miniProgram" open-type="exit">exit</onekit-navigator>
+  <onekit-navigator url="/navigate/navigate?title=navigate" open-type="reLaunch" hover-class="navigator-hover">reLaunch</onekit-navigator>
+  <onekit-navigator target="miniProgram" open-type="navigate" app-id="" path extra-data version="release">打开绑定的小程序</onekit-navigator>
+</onekit-view> -->

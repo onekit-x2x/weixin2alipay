@@ -891,3 +891,5 @@ miniprogram_dev/redirect/redirect.acss
 miniprogram_dev/redirect/redirect.axml
 miniprogram_dev/redirect/redirect.js
 miniprogram_dev/redirect/redirect.json
+miniprogram_dev/index/index.js
+miniprogram_dev/index/index.axml

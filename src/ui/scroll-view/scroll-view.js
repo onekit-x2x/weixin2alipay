@@ -40,7 +40,13 @@ Component({
     PagingEnabled: false,
     FastDeceleration: false,
   },
-  didMount() { },
+  didMount() {
+    setTimeout(() => {
+      this.setData({
+        triggered: this.props.triggered,
+      })
+    }, 1000)
+  },
   didUpdate() { },
   didUnmount() { },
   onupper() {
@@ -115,9 +121,9 @@ Component({
         this.setData({refresher_height: 0})
         return
       }
-     this.run();
+      this.run()
     },
-    run(){
+    run() {
       this.css(refresher, 300)
       this.data.pagePull = false
       if (this.data.diff > this.props.refresherThreshold) {
@@ -142,6 +148,7 @@ Component({
     },
     // //////////////////////////
     on_toupper() {
+      this.run()
       if (this.props.onScrolltoupper) {
         this.props.onScrolltoupper()
       }

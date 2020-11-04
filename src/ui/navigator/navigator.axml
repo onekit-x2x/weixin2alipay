@@ -1,4 +1,4 @@
-<navigator
+<view
 id="{{onekitId}}"
 class="onekit-navigator {{onekitClass}}"
 style="{{onekitStyle}}"
@@ -14,10 +14,10 @@ hover-class="{{hoverClass}}"
 hover-stop-propagation="{{hoverStopPropagation}}"
 hover-start-time="{{hoverStartTime}}"
 hover-stay-time="{{hoverStayTime}}"
-
+onTap="view_tap"
 onsuccess="navigator_success"
 onfail="navigator_fail"
 oncomplete="navigator_complete"
 >
 <slot></slot>
-</navigator>
+</view>

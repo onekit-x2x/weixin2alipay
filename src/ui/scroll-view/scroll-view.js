@@ -22,6 +22,7 @@ Component({
     ScrollIntoView: '',
     ScrollTop: 0,
     ScrollLeft: 0,
+    ScrollIntoView:'',
     ScrollWithAnimation: false,
     EnableBackToTop: false,
     refresherEnabled: false,

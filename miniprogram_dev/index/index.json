@@ -7,8 +7,11 @@
     "onekit-slider":"../weixin2alipay/ui/slider/slider",
     "onekit-switch":"../weixin2alipay/ui/switch/switch",
     "onekit-picker":"../weixin2alipay/ui/picker/picker",
-    "onekit-navigator":"../weixin2alipay/ui/navigator/navigator",
+    "onekit-scroll-view":"../weixin2alipay/ui/scroll-view/scroll-view",
+    "onekit-cover-view":"../weixin2alipay/ui/cover-view/cover-view",
+    "onekit-map":"../weixin2alipay/ui/map/map",
 
+    "onekit-navigator":"../weixin2alipay/ui/navigator/navigator",
     "onekit-button":"../weixin2alipay/ui/button/button",
     "onekit-swiper":"../weixin2alipay/ui/swiper/swiper",
     "onekit-swiper-item":"../weixin2alipay/ui/swiper-item/swiper-item",

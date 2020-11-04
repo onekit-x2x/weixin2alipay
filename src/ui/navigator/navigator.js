@@ -22,14 +22,12 @@ Component({
     hoverStayTime: 600
   },
   didMount() {
-    this._update()
   },
   didUpdate() {
-    this._update()
   },
   didUnmount() {},
   methods: {
-    _update() {
+    view_tap() {
       const target = this.props.target
       const openType = this.props.openType
       // let version
@@ -82,10 +80,6 @@ Component({
         default:
           break
       }
-
-      this.setData({
-        target, openType
-      })
     },
     navigator_success(e) {
       if (this.props.onsuccess) {

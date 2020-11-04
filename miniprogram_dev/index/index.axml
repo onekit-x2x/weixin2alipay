@@ -216,8 +216,16 @@
   </onekit-view>
 </onekit-view> -->
 
+<onekit-scroll-view refresher-enabled refresher-triggered="{{triggered}}" refresher-threshold onRefresherrefresh="refresherrefresh" onRefresherpulling="refresherpulling" onRefresherrestore="refresherrestore" onRefresherabort="refresherabort">
+  <onekit-view>
+    <onekit-text>{{counter}}</onekit-text>
+    <onekit-button onTap="add">+</onekit-button>
+    <onekit-button onTap="div">-</onekit-button>
+  </onekit-view>
+</onekit-scroll-view>
+
 <!-- <cover-view> -->
-<onekit-view onekit-class="container">
+<!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section page-section-gap">
       <onekit-map onekit-style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}">
@@ -233,7 +241,7 @@
       </onekit-map>
     </onekit-view>
   </onekit-view>
-</onekit-view>
+</onekit-view> -->
 
 
                                 

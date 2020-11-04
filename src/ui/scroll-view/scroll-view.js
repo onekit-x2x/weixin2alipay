@@ -32,25 +32,22 @@ Component({
     refresherThreshold: 45,
     refresherDefaultStyle: 'black',
     refresherBackground: '#fff',
+    refresherTriggered: false,
 
-    RefresherTriggered: false,
     Enhanced: false,
     Bounces: true,
     ShowScrollbar: true,
     PagingEnabled: false,
     FastDeceleration: false,
   },
-  didMount() {
-    setTimeout(() => {
-      this.setData({
-        triggered: this.props.triggered,
-      })
-    }, 1000)
-  },
+  didMount() {},
   didUpdate() { },
   didUnmount() { },
   onupper() {
 
+  },
+  deriveDataFromProps(nextProps) {
+    console.log(1, nextProps, 'xxxxxxxxx')
   },
 
   methods: {
@@ -148,7 +145,6 @@ Component({
     },
     // //////////////////////////
     on_toupper() {
-      this.run()
       if (this.props.onScrolltoupper) {
         this.props.onScrolltoupper()
       }

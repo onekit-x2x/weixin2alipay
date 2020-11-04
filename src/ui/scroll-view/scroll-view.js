@@ -48,6 +48,16 @@ Component({
   },
   deriveDataFromProps(nextProps) {
     console.log(1, nextProps, 'xxxxxxxxx')
+    // if ()
+    if (nextProps.refresherTriggered) {
+      if (!this.pagePull) {
+        this.startPull()
+      }
+    } else {
+      if (this.pagePull) {
+        this.stopPull()
+      }
+    }
   },
 
   methods: {
@@ -118,22 +128,22 @@ Component({
         this.setData({refresher_height: 0})
         return
       }
-      this.run()
+      this.startPull()
     },
-    run() {
+    stopPull() {
+      this.css(refresher, 300)
+      this.setData({refresher_height: 0})
+      setTimeout(() => {
+        this.data.pagePull = true // 控制在刷新期间，重复向下拉动，不做任何操作
+      }, 300)
+    },
+    startPull() {
       this.css(refresher, 300)
       this.data.pagePull = false
       if (this.data.diff > this.props.refresherThreshold) {
         //  '刷新中';
 
         this.setData({refresher_height: this.props.refresherThreshold})
-        setTimeout(() => {
-          this.css(refresher, 300)
-          this.setData({refresher_height: 0})
-          setTimeout(() => {
-            this.data.pagePull = true // 控制在刷新期间，重复向下拉动，不做任何操作
-          }, 300)
-        }, 500)
       } else {
         this.data.pagePull = true
         this.setData({refresher_height: 0})

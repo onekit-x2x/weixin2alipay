@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 export default class VideoContext {
   constructor(alipayVideoContext) {
     this.alipayVideoContext = alipayVideoContext
@@ -19,6 +20,12 @@ export default class VideoContext {
     return this.alipayConvasContext.seek(position)
   }
 
+  //
+  sendDanmu() {}
+
+  playbackRate() {}
+
+
   requestFullScreen(direction) {
     return this.alipayConvasContext.requestFullScreen(direction)
   }
@@ -26,4 +33,11 @@ export default class VideoContext {
   exitFullScreen() {
     return this.alipayConvasContext.exitFullScreen()
   }
+
+  //
+  showStatusBar() {}
+
+  hideStatusBar() {}
+
+  exitPictureInPicture() {}
 }

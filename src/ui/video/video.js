@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import wxs_behavior from '../../behavior/wxs_behavior'
 
@@ -9,30 +10,57 @@ Component({
     onekitClass: '',
     onekitId: 'onekit-video',
     src: '',
-    autoplay: true,
-    poster: '',
+    duration: null,
     controls: true,
-    muted: false,
-    direction: '',
-    loop: false,
-    initialTime: '',
-    showFullscreenBtn: true,
-    showPlayBtn: true,
-    showCenterPlayBtn: true,
-    objectFit: 'contain',
-    showMuteBtn: true,
-
     danmuList: [],
     danmuBtn: false,
     enableDanmu: false,
+    autoplay: true,
+    loop: false,
+    muted: false,
+    initialTime: '',
     pagGesture: false,
+    direction: '',
     showProgress: true,
+    showFullscreenBtn: true,
+    showPlayBtn: true,
+    showCenterPlayBtn: true,
     enableProgressGesture: true,
+    objectFit: 'contain',
+    poster: '',
+    showMuteBtn: true,
+
+    //
+    title: '',
+    playBtnPosition: 'button',
+    enablePlayGesture: false,
+    autoPauseIfNavigate: true,
+    autoPauseIfOpenNative: true,
+    vslideGesture: false,
+    vslideGestureInFullscreen: true,
+    adUnitId: '',
+    posterForCrawler: '',
+    showCastingButton: false,
+    pictureInPictureMode: '' || [],
+    pictureInPictureShowPprogress: false,
+    enableAutoRotation: false,
+    showScreenLockButton: false,
+    showSnapshotButton: false
   },
   didMount() {
     const that = this
-    my.createSelectorQuery().select('.onekit-video').boundingClientRect().exec((rect) => {
-      that.setData({rect: rect[0]})
+    my.createSelectorQuery()
+      .select('.onekit-video').boundingClientRect().exec((rect) => {
+        const width = rect[0].width
+        const height = rect[0].height
+        that.setData({
+          rect: rect[0],
+          width,
+          height
+        })
+      })
+    my.createIntersectionObserver().relativeToViewport().observe('.logo', (res) => {
+      console.log(res.time) // 时间戳
     })
     let lastTime = 0
     let index = 0
@@ -72,6 +100,11 @@ Component({
     video_fullscreenchange() {
       if (this.props.onFullScreenChange) {
         this.props.onFullScreenChange({})
+      }
+    },
+    video_waiting() {
+      if (this.props.onLoading) {
+        this.props.onLoading({})
       }
     },
     video_error() {

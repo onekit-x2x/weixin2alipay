@@ -2,8 +2,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-// var this.data.touch, this.data.moved, this.data.startY, this.data.diff,
-//  this.data.pagePull = true;
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 
@@ -12,7 +10,7 @@ Component({
   mixins: [onekit_behavior, wxs_behavior],
   data: {
     refresher_height: 0,
-    pagePull: true
+    pagePulling: false
   },
   props: {
     scrollX: false,
@@ -47,17 +45,19 @@ Component({
 
   },
   deriveDataFromProps(nextProps) {
-    console.log(1, nextProps, 'xxxxxxxxx')
-    // if ()
-    if (nextProps.refresherTriggered) {
-      if (!this.pagePull) {
-        this.startPull()
-      }
-    } else {
-      if (this.pagePull) {
-        this.stopPull()
-      }
-    }
+    console.log(1, nextProps)
+    // if (nextProps.refresherTriggered) {
+    //   if (!this.data.pagePulling) {
+    //     console.log('xxxxxxxxxxxxx')
+    //     this.data.pagePulling = true
+    //     this.startPull()
+    //   }
+    // } else {
+    //   if (this.data.pagePulling) {
+    //     console.log('yyyyyyyyyyyyy')
+    //     this.stopPull()
+    //   }
+    // }
   },
 
   methods: {
@@ -83,7 +83,7 @@ Component({
       if (!this.props.refresherEnabled) {
         return
       }
-      if (!this.data.touch || !this.data.pagePull) {
+      if (!this.data.touch || this.data.pagePulling) {
         return
       }
       const touchesDiff = e.touches[0].clientY - this.data.startY // 计算的移动位移
@@ -100,7 +100,12 @@ Component({
         // 当滑动小于规定的临界值时
         distance = this.data.diff
         this.setData({text: 'zzzzzzz'})
+
+        //
+        console.log('下拉可刷新')
       } else {
+        //
+        console.log('释放可刷新')
         //  '释放可刷新';
         // 弹性
         if (touchesDiff <= (2 * this.props.refresherThreshold)) {
@@ -128,26 +133,30 @@ Component({
         this.setData({refresher_height: 0})
         return
       }
-      this.startPull()
+
+      console.log('startPull')
+      this.css(refresher, 300)
+      this.data.pagePulling = true
+      if (this.data.diff > this.props.refresherThreshold) {
+        //  '刷新中';
+        this.startPull()
+      } else {
+        console.log('bbbbbbbbbbbbb')
+        this.data.pagePulling = false
+        this.setData({refresher_height: 0})
+      }
     },
     stopPull() {
+      console.log('stopPull')
       this.css(refresher, 300)
       this.setData({refresher_height: 0})
       setTimeout(() => {
-        this.data.pagePull = true // 控制在刷新期间，重复向下拉动，不做任何操作
+        this.data.pagePulling = false // 控制在刷新期间，重复向下拉动，不做任何操作
       }, 300)
     },
     startPull() {
-      this.css(refresher, 300)
-      this.data.pagePull = false
-      if (this.data.diff > this.props.refresherThreshold) {
-        //  '刷新中';
-
-        this.setData({refresher_height: this.props.refresherThreshold})
-      } else {
-        this.data.pagePull = true
-        this.setData({refresher_height: 0})
-      }
+      console.log('aaaaaaaaaaaa')
+      this.setData({refresher_height: this.props.refresherThreshold})
     },
     catch_Touchcancel(e) {
       console.log('on_Touchcancel:', e)

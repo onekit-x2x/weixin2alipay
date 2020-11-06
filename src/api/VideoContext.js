@@ -1,7 +1,8 @@
 /* eslint-disable class-methods-use-this */
 export default class VideoContext {
-  constructor(alipayVideoContext) {
+  constructor(alipayVideoContext, id) {
     this.alipayVideoContext = alipayVideoContext
+    this.id = id
   }
 
   play() {
@@ -21,7 +22,10 @@ export default class VideoContext {
   }
 
   //
-  sendDanmu() {}
+  sendDanmu(data) {
+    const video = getApp().context[this.id]
+    video.sendDanmu(data)
+  }
 
   playbackRate() {}
 

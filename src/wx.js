@@ -233,7 +233,7 @@ export default class wx {
   }
 
   static createVideoContext(videoId) {
-    return new VideoContext(my.createVideoContext(videoId))
+    return new VideoContext(my.createVideoContext(videoId), videoId)
   }
 
   // //////////// WXML ///////////////

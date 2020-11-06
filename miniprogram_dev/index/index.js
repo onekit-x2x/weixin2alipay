@@ -1,7 +1,6 @@
 import {OnekitPage} from '../weixin2alipay/index';
 import {wx} from '../weixin2alipay/index';
 global = {};
-global = {};
 function getRandomColor(){
     const rgb = [
     ];
@@ -13,42 +12,59 @@ function getRandomColor(){
     return ('#' + rgb.join(''));
 };
 OnekitPage({
-    onReady:function(res){
-        this.videoContext = wx.createVideoContext('myVideo');
-    },
-    inputValue:'',
+    // onReady:function(res){
+    //     this.videoContext = wx.createVideoContext('myVideo');
+    // },
+    // inputValue:'',
+    // data:{
+    //     src:'',
+    //     danmuList:[
+    //         {
+    //             text:'第 1s 出现的弹幕',
+    //             color:'#ff0000',
+    //             time:1
+    //         },
+    //         {
+    //             text:'第 3s 出现的弹幕',
+    //             color:'#ff00ff',
+    //             time:3
+    //         }
+    //     ]
+    // },
+    // bindInputBlur:function(e){
+    //     this.inputValue = e.detail.value;
+    // },
+    // bindSendDanmu:function(){
+    //     this.videoContext.sendDanmu({
+    //     text:this.inputValue,
+    //     color:getRandomColor()
+    // });
+    // },
+    // bindPlay:function(){
+    //     this.videoContext.play();
+    // },
+    // bindPause:function(){
+    //     this.videoContext.pause();
+    // },
+    // videoErrorCallback:function(e){
+    //     console.log('视频错误信息:');
+    //     console.log(e.detail.errMsg);
+    // }
     data:{
-        src:'',
-        danmuList:[
-            {
-                text:'第 1s 出现的弹幕',
-                color:'#ff0000',
-                time:1
-            },
-            {
-                text:'第 3s 出现的弹幕',
-                color:'#ff00ff',
-                time:3
-            }
-        ]
+      controls:true
     },
-    bindInputBlur:function(e){
-        this.inputValue = e.detail.value;
-    },
-    bindSendDanmu:function(){
-        this.videoContext.sendDanmu({
-        text:this.inputValue,
-        color:getRandomColor()
-    });
-    },
-    bindPlay:function(){
-        this.videoContext.play();
-    },
-    bindPause:function(){
-        this.videoContext.pause();
-    },
-    videoErrorCallback:function(e){
-        console.log('视频错误信息:');
-        console.log(e.detail.errMsg);
-    }
+  onLoad(){
+    const that = this
+    setInterval(() => {
+      const controls = true
+      console.log("xxxxx")
+      that.setData({controls})
+    }, 1000);
+  },
+  video_controlstoggle(e){
+    console.log('video_controlstoggle',e);
+  },
+    video_seekcomplete(e){
+    console.log('video_seekcomplete',e);
+  }
 });

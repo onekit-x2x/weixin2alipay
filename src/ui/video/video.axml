@@ -29,16 +29,28 @@ onEnded="video_end"
 onTimeUpdate="video_timeupdate" 
 onFullscreenchange="video_fullscreenchange"
 onLoading="video_waiting"
-onError="video_error" 
+onError="video_error"
 ></video>
-<cover-view style="pointer-events: none;
-  top:{{rect.top}}px;left:{{rect.left}}px;
-  width:{{rect.width}}px;height:{{rect.height}}px;">
-<cover-view a:for="{{danmuList}}" a:key="item" style="
-position:absolute;left:750rpx;top:{{item.index*20}}px;background:transparent;
-animation: danmu 3s linear forwards {{item.time}}s;
-color:{{item.color}};">{{item.text}}</cover-view>
+<cover-view 
+style="pointer-events: none;
+  top:{{rect.top}}px;
+  left:{{rect.left}}px;
+  width:{{rect.width}}px;
+  height:{{rect.height}}px;
+  background:#f001;
+  position:absolute;"
+>
+<!--
+  <cover-view a:for="{{danmuList}}" a:key="item" 
+  style="position:absolute;
+    left:750rpx;
+    top:{{item.index*20}}px;
+    background:transparent;
+    animation: danmu 3s linear forwards {{item.time}}s;
+    color:{{item.color}};">{{item.text}}</cover-view>
+    -->
+      <cover-view a:for="{{Object.keys(danmuList)}}" a:for-item="t_time" 
+    style="
+        color:black;
+ background:transparent;">{{danmuList[t_time].text}}xx</cover-view>
 </cover-view>
-<view style="pointer-events: none;
-top:{{rect.top}}px;left:{{rect.left}}px;
-width:{{rect.width}}px;height:{{rect.height}}px;"><slot></slot></view>

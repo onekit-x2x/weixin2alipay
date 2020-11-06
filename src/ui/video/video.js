@@ -1,9 +1,11 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 import wxs_behavior from '../../behavior/wxs_behavior'
+import VideoContextX from '../../api/VideoContextX'
 
 Component({
-  mixins: [wxs_behavior],
+  mixins: [wxs_behavior, VideoContextX],
 
   props: {
     onekitStyle: '',
@@ -47,21 +49,22 @@ Component({
     showScreenLockButton: false,
     showSnapshotButton: false
   },
+  deriveDataFromProps(data_props) {
+    console.log(data_props)
+    this.trigger_Controlstoggle(data_props.controls)
+  },
+  onInit() {
+    getApp().context[this.props.onekitId] = this
+  },
   didMount() {
     const that = this
     my.createSelectorQuery()
       .select('.onekit-video').boundingClientRect().exec((rect) => {
-        const width = rect[0].width
-        const height = rect[0].height
         that.setData({
-          rect: rect[0],
-          width,
-          height
+          rect: rect[0]
         })
       })
-    my.createIntersectionObserver().relativeToViewport().observe('.logo', (res) => {
-      console.log(res.time) // 时间戳
-    })
+      /*
     let lastTime = 0
     let index = 0
     const danmuList = []
@@ -73,8 +76,20 @@ Component({
       danmu.index = index
       index++
       danmuList.push(danmu)
+    } */
+
+    const danmuList = {}
+    for (const danmu of this.props.danmuList) {
+      let danmus = danmuList['t_' + danmu.time]
+      if (!danmus) {
+        danmus = []
+      }
+      danmus.push({text: danmu.text, color: danmu.color, index: danmus.length})
+      danmuList['t_' + danmu.time] = danmus
     }
     this.setData({danmuList})
+    this.trigger_seekcomplete()
+    this.trigger_Controlstoggle(this.props.controls)
   },
   methods: {
     video_start() {
@@ -92,14 +107,16 @@ Component({
         this.props.onEnded({})
       }
     },
-    video_timeupdate() {
+    video_timeupdate(e) {
+      this.currentTime = e.detail.currentTime
       if (this.props.onTimeUpdate) {
-        this.props.onTimeUpdate({})
+        this.props.onTimeUpdate(e.detail)
       }
     },
-    video_fullscreenchange() {
+    video_fullscreenchange(e) {
+      this.trigger_Controlstoggle(this.props.controls && !e.detail.fullScreen)
       if (this.props.onFullScreenChange) {
-        this.props.onFullScreenChange({})
+        this.props.onFullScreenChange(e.detail)
       }
     },
     video_waiting() {
@@ -112,7 +129,33 @@ Component({
         this.props.onError({})
       }
     },
-
-
+    trigger_progress() {
+    },
+    trigger_loadedmetadata() {
+    },
+    trigger_Controlstoggle(show) {
+      if (this.data.show === show) {
+        return
+      }
+      this.data.show = show
+      if (this.props.onControlstoggle) {
+        this.props.onControlstoggle({show})
+      }
+    },
+    trigger_enterpictureinpicture() {},
+    trigger_leavepictureinpicture() {},
+    trigger_seekcomplete(positon) {
+      if (this.props.duration) {
+        const res = my.getSystemInfo()
+        if (res.platform === 'iOS') {
+          positon = this.props.duration * 1000
+        } else if (res.platform === 'Android ') {
+          positon = this.props.duration
+        }
+        if (this.props.onSeekcomplete) {
+          this.props.onSeekcomplete({positon})
+        }
+      }
+    }
   },
 })

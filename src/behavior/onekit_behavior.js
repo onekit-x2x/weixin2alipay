@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default {
   props: {
     onekitId: `id_${Math.random() * 1000}`,
@@ -8,11 +9,10 @@ export default {
     if (!getApp().onekit_nodes) {
       getApp().onekit_nodes = {}
     }
-    getApp().onekit_nodes[this.props.onekitId] = this
+    getApp().onekit_nodes[`#${this.props.onekitId}`] = this
     //
     if (this.props.onekitClass) {
-      getApp().onekit_nodes[this.props.onekitClass] = this
-      getApp().class_id[this.props.onekitClass] = this.props.onekitId
+      getApp().onekit_nodes[`.${this.props.onekitClass}`] = this
     }
   }
 }

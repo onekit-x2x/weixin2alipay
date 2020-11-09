@@ -70,6 +70,9 @@ export default class SelectorQuery {
               wx_res.width = my_res.width
               wx_res.height = my_res.height
             }
+            if (nodeRef.fields.node && nodeRef.selector) {
+              wx_res.node = getApp().onekit_nodes[nodeRef.selector]
+            }
             done(nodeRef, wx_res)
           })
           break

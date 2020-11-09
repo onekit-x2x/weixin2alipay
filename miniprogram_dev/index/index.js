@@ -17,7 +17,7 @@ OnekitPage({
     temp = temp.select('#canvas');
     console.log("select", temp);
     temp = temp.fields({
-   //   node: true,
+      node: true,
       size: true
     }, (res) => { console.log('fields_res', res) });
     console.log("fields", temp);

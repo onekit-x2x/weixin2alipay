@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import NodesRef from './NodesRef'
-
+import CanvasContext from './CanvasContext'
+import VideoContext from './VideoContext'
 
 export default class SelectorQuery {
   constructor() {
@@ -60,7 +61,22 @@ export default class SelectorQuery {
         case 'boundingClientRect':
           alipayNodeRef.boundingClientRect().exec((my_reses) => done(nodeRef, my_reses[0]))
           break
-        case 'context':
+        case 'context': {
+          const node = getApp().onekit_nodes[nodeRef.selector]
+          const id = node.props.onekitId
+          let context
+          switch (node.is) {
+            case '/weixin2alipay/ui/canvas/canvas':
+              context = new CanvasContext(my.createCanvasContext(id), id)
+              break
+            case '/weixin2alipay/ui/video/video':
+              context = new VideoContext(my.createVideoContext(id), id)
+              break
+            default:
+              throw new Error(node.is)
+          }
+          done(nodeRef, context)
+        }
           break
         case 'fields':
           alipayNodeRef.boundingClientRect().exec((my_reses) => {
@@ -77,6 +93,7 @@ export default class SelectorQuery {
           })
           break
         case 'node':
+          done(nodeRef, getApp().onekit_nodes[nodeRef.selector])
           break
         case 'scrollOffset':
           alipayNodeRef.scrollOffset().exec((my_reses) => {

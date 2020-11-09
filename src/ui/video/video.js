@@ -54,7 +54,10 @@ Component({
     this.trigger_Controlstoggle(data_props.controls)
   },
   onInit() {
-    getApp().context[this.props.onekitId] = this
+    if (!getApp().onekit_nodes) {
+      getApp().onekit_nodes = {}
+    }
+    getApp().onekit_nodes[this.props.onekitId] = this
   },
   didMount() {
     const that = this

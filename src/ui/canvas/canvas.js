@@ -7,21 +7,13 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   data: {},
   props: {
-    canvasId: '',
     disableScroll: false,
     type: '',
     width: 0,
     height: 0
   },
 
-
   didMount() {
-    const that = this
-    this.canvasCtx = my.createMapContext(this.props.onekitId)
-
-    my.createSelectorQuery().select('.onekit-canvas').boundingClientRect().exec((rect) => {
-      that.setData({rect: rect[0]})
-    })
   },
   didUpdate() {},
   didUnmount() {},

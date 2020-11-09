@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
+import thekit from 'oneutil'
 import wxs_behavior from './behavior/wxs_behavior'
 import wx from './wx'
-import thekit from './js/TheKit'
 
 export default function OnekitComponent(object) {
   const properties = {}

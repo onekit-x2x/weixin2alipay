@@ -1,6 +1,7 @@
 export default class CanvasContext {
-  constructor(alipayCanvasContext) {
+  constructor(alipayCanvasContext, id) {
     this.alipayCanvasContext = alipayCanvasContext
+    this.id = id
   }
 
   beginPath(a) {

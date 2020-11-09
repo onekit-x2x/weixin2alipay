@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-import {rel2abs} from '../../js/TheKit'
+import {PATH} from 'oneutil'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 
@@ -18,7 +18,7 @@ Component({
     const pages = getCurrentPages()
     if (!this.props.src.indexOf('://')) {
       const currentUrl = pages[pages.length - 1].route
-      const alipay_src = '/' + rel2abs(currentUrl, this.props.src)
+      const alipay_src = '/' + PATH.rel2abs(currentUrl, this.props.src)
       this.setData({src: alipay_src})
     }
   },

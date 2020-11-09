@@ -12,12 +12,23 @@ OnekitPage({
       vy: 2
     };
     this.x = -100;
-    wx.createSelectorQuery().select('#canvas').fields({
-      node: true,
+    var temp = wx.createSelectorQuery();
+    console.log("createSelectorQuery", temp);
+    temp = temp.select('#canvas');
+    console.log("select", temp);
+    temp = temp.fields({
+   //   node: true,
       size: true
-    }).exec(this.init.bind(this));
+    }, (res) => { console.log('fields_res', res) });
+    console.log("fields", temp);
+    temp = temp.select('#canvas').scrollOffset((res) => { console.log("scrollOffset_res", res) });
+    console.log("scrollOffset", temp);
+    temp = temp.exec(this.init.bind(this));
+    console.log("exec", temp);
   },
   init: function (res) {
+    console.log(res)
+    /*
     const width = res[0].width;
     const height = res[0].height;
     const canvas = res[0].node;
@@ -33,7 +44,7 @@ OnekitPage({
     canvas.requestAnimationFrame(renderLoop);
     const img = canvas.createImage();
     img.onload = () => { this._img = img };
-    img.src = './car.png';
+    img.src = './car.png';*/
   },
   render: function (canvas, ctx) {
     ctx.clearRect(0, 0, 300, 300);

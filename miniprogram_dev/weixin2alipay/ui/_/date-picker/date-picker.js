@@ -82,22 +82,18 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 12:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _DATE = __webpack_require__(13);
-
-var _DATE2 = _interopRequireDefault(_DATE);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _oneutil = __webpack_require__(3);
 
 var YEAR_START = 1900;
 var YEAR_END = 2100;
@@ -133,7 +129,7 @@ Component({
     updateDays: function updateDays() {
       var value = (this.data.value || this.props.value).split('-');
       var days = [];
-      var dayCount = _DATE2.default.monthDays(value[0], value[1]);
+      var dayCount = _oneutil.DATE.monthDays(value[0], value[1]);
       for (var d = 1; d <= dayCount; d++) {
         var day = d >= 10 ? d : '0' + d;
         days.push(day + '\u65E5');
@@ -191,26 +187,10 @@ Component({
 
 /***/ }),
 
-/***/ 13:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 3:
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-function monthDays(year, month) {
-  if ([1, 3, 5, 7, 8, 10, 12].indexOf(month) >= 0) {
-    return 31;
-  } else if (month === 2) {
-    if (year % 4 === 0 && year % 100 !== 0 || year % 100 === 0 && year % 400 === 0) {
-      return 29;
-    } else {
-      return 28;
-    }
-  } else {
-    return 30;
-  }
-}
-module.exports = { monthDays: monthDays };
+module.exports = require("oneutil");
 
 /***/ })
 

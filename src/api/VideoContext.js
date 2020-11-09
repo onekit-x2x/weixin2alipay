@@ -23,7 +23,7 @@ export default class VideoContext {
 
   //
   sendDanmu(data) {
-    const video = getApp().context[this.id]
+    const video = getApp().onekit_nodes[this.id]
     video.sendDanmu(data)
   }
 

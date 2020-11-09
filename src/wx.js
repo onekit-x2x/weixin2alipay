@@ -5,12 +5,12 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 
+import thekit from 'oneutil'
 import CanvasContext from './api/CanvasContext'
 import VideoContext from './api/VideoContext'
 import SelectorQuery from './api/SelectorQuery'
 import Context from './api/Context'
 import wx_cloud from './wx.cloud'
-import thekit from './js/TheKit'
 
 export default class wx {
   // ///////////////// animation //////////////////////////
@@ -238,7 +238,7 @@ export default class wx {
 
   // //////////// WXML ///////////////
   static createSelectorQuery() {
-    return new SelectorQuery(my.createSelectorQuery())
+    return new SelectorQuery()
   }
 
   static canvasToTempFilePath(wx_object) {

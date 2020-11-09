@@ -1,4 +1,4 @@
-import DATE from '../../../js/DATE'
+import {DATE} from 'oneutil'
 
 const YEAR_START = 1900
 const YEAR_END = 2100

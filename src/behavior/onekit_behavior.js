@@ -1,7 +1,18 @@
 export default {
   props: {
+    onekitId: `id_${Math.random() * 1000}`,
     onekitClass: '',
-    onekitStyle: '',
-    onekitId: ''
+    onekitStyle: ''
+  },
+  onInit() {
+    if (!getApp().onekit_nodes) {
+      getApp().onekit_nodes = {}
+    }
+    getApp().onekit_nodes[this.props.onekitId] = this
+    //
+    if (this.props.onekitClass) {
+      getApp().onekit_nodes[this.props.onekitClass] = this
+      getApp().class_id[this.props.onekitClass] = this.props.onekitId
+    }
   }
 }

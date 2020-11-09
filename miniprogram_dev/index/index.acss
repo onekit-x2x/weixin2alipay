@@ -1,11 +1,4 @@
-.weui-cells{
-  margin-top: 80rpx;
-  text-align: left;
-}
-.weui-label{
-  width: 5em;
-}
-
-.page-body-button {
-  margin-bottom: 30rpx;
+.intro {
+  margin: 30px;
+  text-align: center;
 }

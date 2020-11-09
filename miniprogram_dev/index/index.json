@@ -9,8 +9,9 @@
     "onekit-picker":"../weixin2alipay/ui/picker/picker",
     "onekit-cover-view":"../weixin2alipay/ui/cover-view/cover-view",
     "onekit-map":"../weixin2alipay/ui/map/map",
-    "onekit-video":"../weixin2alipay/ui/video/video",
+    "onekit-canvas":"../weixin2alipay/ui/canvas/canvas",
 
+    "onekit-video":"../weixin2alipay/ui/video/video",
     "onekit-scroll-view":"../weixin2alipay/ui/scroll-view/scroll-view",
     "onekit-navigator":"../weixin2alipay/ui/navigator/navigator",
     "onekit-button":"../weixin2alipay/ui/button/button",

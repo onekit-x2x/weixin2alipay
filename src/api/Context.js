@@ -1,5 +1,5 @@
 /* eslint-disable prefer-rest-params */
-import thekit from '../js/TheKit'
+import thekit from 'oneutil'
 
 export default class Context {
   constructor() {

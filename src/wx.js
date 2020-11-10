@@ -1,6 +1,3 @@
-/* eslint-disable prefer-spread */
-/* eslint-disable new-cap */
-/* eslint-disable guard-for-in */
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
@@ -9,8 +6,6 @@ import thekit from 'oneutil'
 import CanvasContext from './api/CanvasContext'
 import VideoContext from './api/VideoContext'
 import SelectorQuery from './api/SelectorQuery'
-import Context from './api/Context'
-import wx_cloud from './wx.cloud'
 
 export default class wx {
   // ///////////////// animation //////////////////////////
@@ -169,10 +164,10 @@ export default class wx {
           canvasContext.setShadow(data[0], data[1], data[2], thekit.array2str(data[3]))
           break
         case 'drawImage':
-          canvasContext.drawImage.apply(canvasContext, data)
+          canvasContext.drawImage(canvasContext, ...data)
           break
         case 'fillText':
-          canvasContext.fillText.apply(canvasContext, data)
+          canvasContext.fillText(canvasContext, ...data)
           break
         case 'setLineCap': canvasContext.setLineCap(data[0]); break
         case 'setLineJoin': canvasContext.setLineJoin(data[0]); break
@@ -190,9 +185,9 @@ export default class wx {
               case 'moveTo': canvasContext.moveTo(dt[0], dt[1]); break
               case 'lineTo': canvasContext.lineTo(dt[0], dt[1]); break
               case 'closePath': canvasContext.closePath(); break
-              case 'arc': canvasContext.arc.apply(canvasContext, dt); break
-              case 'quadraticCurveTo': canvasContext.quadraticCurveTo.apply(canvasContext, dt); break
-              case 'bezierCurveTo': canvasContext.bezierCurveTo.apply(canvasContext, dt); break
+              case 'arc': canvasContext.arc(canvasContext, ...dt); break
+              case 'quadraticCurveTo': canvasContext.quadraticCurveTo(canvasContext, ...dt); break
+              case 'bezierCurveTo': canvasContext.bezierCurveTo(canvasContext, ...dt); break
 
               default:
                 console.log('[drawCanvas-strokePath]', dat.method)
@@ -206,7 +201,7 @@ export default class wx {
             const dt = dat.data
             switch (dat.method) {
               case 'rect': canvasContext.fillRect(dt[0], dt[1], dt[2], dt[3]); break
-              case 'arc': canvasContext.arc.apply(canvasContext, dt); break
+              case 'arc': canvasContext.arc(canvasContext, ...dt); break
               default:
                 console.log('[drawCanvas-fillPath]', dat.method)
                 break
@@ -221,11 +216,6 @@ export default class wx {
       }
     }
     canvasContext.draw()
-  }
-
-  static createContext() {
-    const context = new Context()
-    return context
   }
 
   static createCanvasContext(canvasId) {
@@ -443,7 +433,7 @@ export default class wx {
     if (wx_object) {
       my_object = {}
       // eslint-disable-next-line guard-for-in
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'data':
             my_object.text = wx_object[key]
@@ -553,7 +543,7 @@ export default class wx {
   static getNetworkType(wx_object) {
     const my_object = {}
     // eslint-disable-next-line guard-for-in
-    for (const key in wx_object) {
+    for (const key of Object.keys(wx_object)) {
       switch (key) {
         case 'success':
         case 'fail':
@@ -615,7 +605,7 @@ export default class wx {
     if (wx_object) {
       my_object = {}
       // eslint-disable-next-line guard-for-in
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'phoneNumber':
             my_object.number = wx_object[key]
@@ -634,7 +624,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'onlyFromCamera':
             my_object.hideAlbum = wx_object[key]
@@ -741,7 +731,7 @@ export default class wx {
   //
   static stopBluetoothDevicesDiscovery(wx_object) {
     const my_object = {}
-    for (const key in wx_object) {
+    for (const key of Object.keys(wx_object)) {
       switch (key) {
         case 'success':
         case 'fail':
@@ -823,7 +813,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'value':
             my_object.brightness = wx_object[key]
@@ -845,7 +835,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'success':
           case 'fail':
@@ -1022,7 +1012,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'header':
             my_object.headers = wx_object[key]
@@ -1040,7 +1030,7 @@ export default class wx {
         const result = {
           header: res.headers
         }
-        for (const key in wx_object) {
+        for (const key of Object.keys(wx_object)) {
           switch (key) {
             case 'status':
               result.statusCode = res[key]
@@ -1432,7 +1422,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'success':
           case 'fail':
@@ -1467,7 +1457,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'success':
           case 'fail':
@@ -1502,7 +1492,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'success':
           case 'fail':
@@ -1537,7 +1527,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'success':
           case 'fail':
@@ -1572,7 +1562,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'success':
           case 'fail':
@@ -1653,7 +1643,7 @@ export default class wx {
     let my_object
     if (wx_object) {
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'itemList':
             my_object.items = wx_object[key]
@@ -1688,7 +1678,7 @@ export default class wx {
       }
       //
       my_object = {}
-      for (const key in wx_object) {
+      for (const key of Object.keys(wx_object)) {
         switch (key) {
           case 'title':
             my_object.content = wx_object[key]
@@ -1707,7 +1697,7 @@ export default class wx {
 
   static hideToast(wx_object) {
     const my_object = {}
-    for (const key in wx_object) {
+    for (const key of Object.keys(wx_object)) {
       switch (key) {
         case 'success':
         case 'fail':
@@ -1771,7 +1761,7 @@ export default class wx {
     const wx_object = {}
     let key
     if (my_object.showCancel === null || my_object.showCancel) {
-      for (key in my_object) {
+      for (key of Object.keys(my_object)) {
         switch (key) {
           case 'cancelText':
             wx_object.cancelButtonText = my_object[key]
@@ -1787,7 +1777,7 @@ export default class wx {
 
       return my.confirm(wx_object)
     } else {
-      for (key in my_object) {
+      for (key of Object.keys(my_object)) {
         switch (key) {
           default:
             wx_object[key] = my_object[key]
@@ -1803,7 +1793,7 @@ export default class wx {
 
   static hideNavigationBarLoading(wx_object) {
     const my_object = {}
-    for (const key in wx_object) {
+    for (const key of Object.keys(wx_object)) {
       switch (key) {
         case 'success':
         case 'fail':
@@ -1819,7 +1809,7 @@ export default class wx {
 
   static showNavigationBarLoading(wx_object) {
     const my_object = {}
-    for (const key in wx_object) {
+    for (const key of Object.keys(wx_object)) {
       switch (key) {
         case 'success':
         case 'fail':
@@ -1925,6 +1915,6 @@ export default class wx {
 
   // /////////// cloud ////////////////
   static get cloud() {
-    return new wx_cloud()
+    return null
   }
 }

@@ -1,40 +1,125 @@
+/* eslint-disable max-len */
 export default class CanvasContext {
   constructor(alipayCanvasContext, id) {
     this.alipayCanvasContext = alipayCanvasContext
     this.id = id
   }
 
+  arc(x, y, r, sAngle, eAngle, counterclockwise) {
+    return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise)
+  }
+
+  //
+  arcTo(x1, y1, x2, y2, radius) {
+    return this.alipayCanvasContext.arcTo(x1, y1, x2, y2, radius)
+  }
+
   beginPath(a) {
     return this.alipayCanvasContext.beginPath(a)
   }
 
-  save() {
-    return this.alipayCanvasContext.save()
+  bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
+    return this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+  }
+
+  clearRect(x, y, width, height) {
+    return this.alipayCanvasContext.clearRect(x, y, width, height)
+  }
+
+  clip() {
+    return this.alipayCanvasContext.clip()
+  }
+
+  closePath() {
+    return this.alipayCanvasContext.closePath()
+  }
+
+  createCircularGradient(x, y, r) {
+    return this.alipayCanvasContext.createCircularGradient(x, y, r)
+  }
+
+  createLinearGradient(x0, y0, x1, y1) {
+    return this.alipayCanvasContext.createLinearGradient(x0, y0, x1, y1)
+  }
+
+  createPattern(image, repetition) {
+    return this.alipayCanvasContext.createPattern(image, repetition)
+  }
+
+  draw(reserve, callback) {
+    return this.alipayCanvasContext.draw(reserve, callback)
+  }
+
+  drawImage(imageResource, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
+    return this.alipayCanvasContext.drawImage(imageResource, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+  }
+
+  fill() {
+    return this.alipayCanvasContext.fill()
+  }
+
+  fillRect(x, y, width, height) {
+    return this.alipayCanvasContext.fillRect(x, y, width, height)
+  }
+
+  fillText(text, x, y, maxWidth) {
+    return this.alipayCanvasContext.fillText(text, x, y, maxWidth)
+  }
+
+  lineTo(x, y) {
+    return this.alipayCanvasContext.lineTo(x, y)
+  }
+
+  measureText(text) {
+    return this.alipayCanvasContext.measureText(text)
+  }
+
+  moveTo(x, y) {
+    return this.alipayCanvasContext.moveTo(x, y)
+  }
+
+  quadraticCurveTo(cpx, cpy, x, y) {
+    return this.alipayCanvasContext.quadraticCurveTo(cpx, cpy, x, y)
+  }
+
+  rect(x, y, width, height) {
+    return this.alipayCanvasContext.rect(x, y, width, height)
   }
 
   restore() {
     return this.alipayCanvasContext.restore()
   }
 
-  //
-  setGlobalAlpha(alpha) {
-    return this.alipayCanvasContext.setGlobalAlpha(alpha)
+  rotate(rotate) {
+    return this.alipayCanvasContext.rotate(rotate)
+  }
+
+  save() {
+    return this.alipayCanvasContext.save()
+  }
+
+  scale(scaleWidth, scaleHeight) {
+    return this.alipayCanvasContext.scale(scaleWidth, scaleHeight)
   }
 
   setFillStyle(color) {
     return this.alipayCanvasContext.setFillStyle(color)
   }
 
-  setStrokeStyle(color) {
-    return this.alipayCanvasContext.setStrokeStyle(color)
+  setFontSize(fontSize) {
+    return this.alipayCanvasContext.setFontSize(fontSize)
   }
 
-  setShadow(offsetX, offsetY, blur, color) {
-    return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color)
+  setGlobalAlpha(alpha) {
+    return this.alipayCanvasContext.setGlobalAlpha(alpha)
   }
 
   setLineCap(lineCap) {
     return this.alipayCanvasContext.setLineCap(lineCap)
+  }
+
+  setLineDash(pattern, offset) {
+    return this.alipayCanvasContext.setLineDash(pattern, offset)
   }
 
   setLineJoin(lineJoin) {
@@ -49,81 +134,43 @@ export default class CanvasContext {
     return this.alipayCanvasContext.setMiterLimit(miterLimit)
   }
 
-  setFontSize(fontSize) {
-    return this.alipayCanvasContext.setFontSize(fontSize)
+  setShadow(offsetX, offsetY, blur, color) {
+    return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color)
   }
 
-  rotate(rotate) {
-    return this.alipayCanvasContext.rotate(rotate)
+  setStrokeStyle(color) {
+    return this.alipayCanvasContext.setStrokeStyle(color)
   }
 
-  scale(scaleWidth, scaleHeight) {
-    return this.alipayCanvasContext.scale(scaleWidth, scaleHeight)
+  setTextAlign(align) {
+    return this.alipayCanvasContext.setTextAlign(align)
   }
 
-  translate(x, y) {
-    return this.alipayCanvasContext.translate(x, y)
+  setTextBaseline(textBaseline) {
+    return this.alipayCanvasContext.setTextBaseline(textBaseline)
   }
 
-  moveTo(x, y) {
-    return this.alipayCanvasContext.moveTo(x, y)
-  }
-
-  lineTo(x, y) {
-    return this.alipayCanvasContext.lineTo(x, y)
-  }
-
-  closePath() {
-    return this.alipayCanvasContext.closePath()
-  }
-
-  fillText(text, x, y) {
-    return this.alipayCanvasContext.fillText(text, x, y)
-  }
-
-  drawImage(imageResource, sx, sy, sWidth, sHeight) {
-    return this.alipayCanvasContext.drawImage(imageResource, sx, sy, sWidth, sHeight)
-  }
-
-  arc(x, y, r, sAngle, eAngle, counterclockwise) {
-    return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise)
-  }
-
-  quadraticCurveTo(cpx, cpy, x, y) {
-    return this.alipayCanvasContext.quadraticCurveTo(cpx, cpy, x, y)
-  }
-
-  bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
-    return this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
-  }
-
-  //
-  rect(x, y, width, height) {
-    return this.alipayCanvasContext.rect(x, y, width, height)
-  }
-
-  //
-  clearRect(x, y, width, height) {
-    return this.alipayCanvasContext.clearRect(x, y, width, height)
+  setTransform(scaleX, skewX, skewY, scaleY, translateX, translateY) {
+    return this.alipayCanvasContext.setTransform(scaleX, skewX, skewY, scaleY, translateX, translateY)
   }
 
   stroke() {
     return this.alipayCanvasContext.stroke()
   }
 
-  fill() {
-    return this.alipayCanvasContext.fill()
+  strokeRect(x, y, width, height) {
+    return this.alipayCanvasContext.strokeRect(x, y, width, height)
   }
 
-  draw(reserve, callback) {
-    return this.alipayCanvasContext.draw(reserve, callback)
+  strokeText(text, x, y, maxWidth) {
+    return this.alipayCanvasContext.strokeText(text, x, y, maxWidth)
   }
 
-  fillRect(x, y, width, height) {
-    return this.alipayCanvasContext.fillRect(x, y, width, height)
+  transform(scaleX, skewX, skewY, scaleY, translateX, translateY) {
+    return this.alipayCanvasContext.transform(scaleX, skewX, skewY, scaleY, translateX, translateY)
   }
 
-  getActions() {
-    return this.alipayCanvasContext.getActions()
+  translate(x, y) {
+    return this.alipayCanvasContext.translate(x, y)
   }
 }

@@ -9,13 +9,12 @@ export default class CanvasContext {
     return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise)
   }
 
-  //
   arcTo(x1, y1, x2, y2, radius) {
     return this.alipayCanvasContext.arcTo(x1, y1, x2, y2, radius)
   }
 
-  beginPath(a) {
-    return this.alipayCanvasContext.beginPath(a)
+  beginPath() {
+    return this.alipayCanvasContext.beginPath()
   }
 
   bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
@@ -62,8 +61,8 @@ export default class CanvasContext {
     return this.alipayCanvasContext.fillRect(x, y, width, height)
   }
 
-  fillText(text, x, y, maxWidth) {
-    return this.alipayCanvasContext.fillText(text, x, y, maxWidth)
+  fillText(...params) {
+    return this.alipayCanvasContext.fillText(...params)
   }
 
   lineTo(x, y) {

@@ -271,4 +271,71 @@
 <!-- <onekit-video onSeekcomplete="video_seekcomplete" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 
 <!-- <canvas> 2D-->
-<onekit-canvas type="2d" onekit-id="myCanvas" canvas-id="myCanvas" width="500" height="500" onekit-style="width:500px;height:500px;"></onekit-canvas>
+<!-- <onekit-canvas type="2d" onekit-id="myCanvas" canvas-id="myCanvas" width="500" height="500" onekit-style="width:500px;height:500px;"></onekit-canvas> -->
+
+<!-- <onekit-movable-view> -->
+<!-- <onekit-view onekit-class="container">
+
+  <onekit-view onekit-class="page-body">
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title first">onekit-movable-view区域小于movable-area</onekit-view>
+      <movable-area>
+        <onekit-onekit-movable-view x="{{x}}" y="{{y}}" direction="all">text</onekit-onekit-movable-view>
+      </movable-area>
+    </onekit-view>
+    <onekit-view onekit-class="btn-area">
+      <onekit-button onTap="tap" onekit-class="page-body-button" type="primary">点击移动到 (30px, 30px)</onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">onekit-movable-view区域大于movable-area</onekit-view>
+      <movable-area>
+        <onekit-onekit-movable-view onekit-class="max" direction="all">text</onekit-onekit-movable-view>
+      </movable-area>
+    </onekit-view>
+
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">只可以横向移动</onekit-view>
+      <movable-area>
+        <onekit-onekit-movable-view direction="horizontal">text</onekit-onekit-movable-view>
+      </movable-area>
+    </onekit-view>
+
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">只可以纵向移动</onekit-view>
+      <movable-area>
+        <onekit-onekit-movable-view direction="vertical">text</onekit-onekit-movable-view>
+      </movable-area>
+    </onekit-view>
+
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">可超出边界</onekit-view>
+      <movable-area>
+        <onekit-onekit-movable-view direction="all" out-of-bounds>text</onekit-onekit-movable-view>
+      </movable-area>
+    </onekit-view>
+
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">带有惯性</onekit-view>
+      <movable-area>
+        <onekit-onekit-movable-view direction="all" inertia>text</onekit-onekit-movable-view>
+      </movable-area>
+    </onekit-view>
+
+    <onekit-view onekit-class="page-section">
+      <onekit-view onekit-class="page-section-title">可放缩</onekit-view>
+      <movable-area scale-area>
+        <onekit-onekit-movable-view direction="all" onChange="onChange" onScale="onScale" scale scale-min="0.5" scale-max="4" scale-value="{{scale}}">text</onekit-onekit-movable-view>
+      </movable-area>
+    </onekit-view>
+
+    <onekit-view onekit-class="btn-area">
+      <onekit-button onTap="tap2" onekit-class="page-body-button" type="primary">点击放大3倍</onekit-button>
+    </onekit-view>
+  </onekit-view> -->
+
+
+<movable-area>
+    <onekit-movable-view direction="all" onhtouchmove="movable_htouchmove" ontouchmove="movable_touchmove"></onekit-movable-view>
+ <!-- <onekit-movable-view direction="all" catchhtouchmove="movable_htouchmove" catchtouchmove="movable_touchmove"></onekit-movable-view>  -->
+  </movable-area>

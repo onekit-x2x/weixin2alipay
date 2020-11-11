@@ -51,7 +51,7 @@ Component({
   },
   deriveDataFromProps(data_props) {
     console.log(data_props)
-    this.trigger_Controlstoggle(data_props.controls)
+    this.trigger_controlstoggle(data_props.controls)
   },
   onInit() {
     if (!getApp().onekit_nodes) {
@@ -92,7 +92,7 @@ Component({
     }
     this.setData({danmuList})
     this.trigger_seekcomplete()
-    this.trigger_Controlstoggle(this.props.controls)
+    this.trigger_controlstoggle(this.props.controls)
   },
   methods: {
     video_start() {
@@ -117,7 +117,7 @@ Component({
       }
     },
     video_fullscreenchange(e) {
-      this.trigger_Controlstoggle(this.props.controls && !e.detail.fullScreen)
+      this.trigger_controlstoggle(this.props.controls && !e.detail.fullScreen)
       if (this.props.onFullScreenChange) {
         this.props.onFullScreenChange(e.detail)
       }
@@ -136,7 +136,7 @@ Component({
     },
     trigger_loadedmetadata() {
     },
-    trigger_Controlstoggle(show) {
+    trigger_controlstoggle(show) {
       if (this.data.show === show) {
         return
       }

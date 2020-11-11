@@ -16,7 +16,9 @@ scale-max="{{scaleMax}}"
 scale-value="{{scaleValue}}"
 animation="{{animation}}"
 
-onChange="movable_Change"
+onTouchMove="movable_move"
+onCatchMove="movable_move"
+onChange="movable_change"
 onScale="movable_scale"
 >
 <slot></slot>

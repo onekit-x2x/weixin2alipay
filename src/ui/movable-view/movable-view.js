@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
@@ -31,14 +32,53 @@ Component({
   },
   didUnmount() { },
   methods: {
-    movable_Change(e) {
-      if (this.props.onchange) {
-        this.props.onchange(e)
+    movable_change(e) {
+      if (this.props.onChange) {
+        this.props.onChange(e)
       }
     },
     movable_scale(e) {
-      if (this.props.onscale) {
-        this.props.onscale(e)
+      if (this.props.onScale) {
+        this.props.onScale(e)
+      }
+    },
+    movable_move(e) {
+      const dx = this.props.x
+      const dy = this.props.y
+      if (dy < 2 && dx > dy) {
+        console.log('x方向', dx, dy)
+        // this.trigger_htouchmove({e, dx, dy})
+        this.trigger_htouchmove(e)
+      } else if (dx < 2 && dy > dx) {
+        console.log('y方向', dx, dy)
+        // this.trigger_vtouchmove({e, dx, dy})
+        this.trigger_vtouchmove(e)
+      } else {
+        console.log('666666', dx, dy)
+        // this.trigger_htouchmove({e, dx, dy})
+        this.trigger_htouchmove(e)
+        // this.trigger_vtouchmove({e, dx, dy})
+        this.trigger_vtouchmove(e)
+      }
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove(e)
+      }
+    },
+
+    trigger_htouchmove(e) {
+      console.log('xxxxxx')
+      if (this.props.onHtouchmove) {
+        this.props.onHtouchmove(e)
+      } else if (this.props.catchHtouchmove) {
+        this.props.catchHtouchmove(e)
+      }
+    },
+    trigger_vtouchmove(e) {
+      console.log('yyyyyy')
+      if (this.props.onVtouchmove) {
+        this.props.onVtouchmove(e)
+      } else if (this.props.catchVtouchmove) {
+        this.props.catchVtouchmove(e)
       }
     }
   },

@@ -1,3 +1,4 @@
+/******************************** common *********************************/
 * {
     margin: 0;
 }
@@ -15,8 +16,8 @@ page {
 page{
     --onekit-rem:32rpx;
 }
-
-.onekit-cover-image {
+/******************************** v1 *********************************/
+.onekit-cover-image{
     display: block;
     line-height: 1.2;
     overflow: hidden;
@@ -25,7 +26,7 @@ page{
     width: 100%;
 }
 
-.onekit-cover-view {
+.onekit-cover-view{
     display: block;
     line-height: 1.2;                   
     overflow: hidden;
@@ -34,7 +35,7 @@ page{
     font-family: -apple-system;
 }
 
-.onekit-movable-view {
+.onekit-movable-view{
     display: inline-block;
     width: 10px;
     height: 10px;                           
@@ -43,32 +44,32 @@ page{
     position: absolute;
 }
 
-.onekit-scroll-view {
+.onekit-scroll-view{
     display: block;                 
     width: 100%;
 }
 
-.onekit-swiper {
+.onekit-swiper{
     display: block;                 
     height: 150px;
 }
 
-.onekit-swiper-item {
+.onekit-swiper-item{
     display: block;
     overflow: hidden;             
     will-change: transform;
 }
 
-.onekit-view {
+.onekit-view{
     display: block;                 
 }
 
-.onekit-icon {
+.onekit-icon{
     display: inline-block;              
     font-size: 0;
 }
 
-.onekit-progress {
+.onekit-progress{
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;            
@@ -97,14 +98,14 @@ page{
 
 }
 
-.onekit-button_type-default {
+.onekit-button_type-default{
 color: #06ae56;
 background-color: #f2f2f2;
 
 }
 
 
-.onekit-button {
+.onekit-button{
     position: relative;
     display: block;
     margin-left: auto;
@@ -123,7 +124,7 @@ background-color: #f2f2f2;
     background-color: #f8f8f8;
 }
 
-.onekit-button {
+.onekit-button{
     padding: 8px 24px;
     line-height: 1.41176471;
     border-radius: 4px;
@@ -132,17 +133,16 @@ background-color: #f2f2f2;
 }
 
 .onekit-button:not(.onekit-button_size-mini){
-    width: 184px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.onekit-button_type-primary {
+.onekit-button_type-primary{
     color: #fff;
     background-color: #1aad19;          
 }
 
-.onekit-button_type-primary {
+.onekit-button_type-primary{
 background-color: #07c160;
 
 }
@@ -164,86 +164,86 @@ background-image: url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http: //ww
 
 }
 
-.onekit-button_loading_type-primary {
+.onekit-button_loading_type-primary{
     color: rgba(255, 255, 255, .6);         
     background-color: #179b16;
 }
 
-.onekit-button_loading_type-primary {
+.onekit-button_loading_type-primary{
 color: #fff;
 background-color: #06ad56;
 
 }
-.onekit-button_disabled_type-primary {
+.onekit-button_disabled_type-primary{
 color: rgba(0, 0, 0, 0.18) !important;
 background-color: #fafafa !important;
 }
 
-.onekit-button_type-default {
+.onekit-button_type-default{
     color: #000;
     background-color: #f8f8f8;          
 
 }
-.onekit-button_type-default {
+.onekit-button_type-default{
 color: #06ae56;
 background-color: #f2f2f2;
 
 }
 
 
-.onekit-button_disabled_type-default {
+.onekit-button_disabled_type-default{
     color: rgba(0, 0, 0, .3) !important;
     background-color: #f7f7f7 !important;              
 
 }
-.onekit-button_disabled_type-default {
+.onekit-button_disabled_type-default{
 color: rgba(0, 0, 0, 0.18) !important;
 background-color: #fafafa  !important;
 
 }
 
 
-.onekit-button_type-warn {
+.onekit-button_type-warn{
     color: #fff;                        
     background-color: #e64340;
 
 }
-.onekit-button_type-warn {
+.onekit-button_type-warn{
 color: #fa5151;
 background-color: #f2f2f2;
 }
 
 
-.onekit-button_disabled_type-warn {
+.onekit-button_disabled_type-warn{
     background-color: #ec8b89 !important;          
 
 }
 
-.onekit-button_type-warn {
+.onekit-button_type-warn{
 color: #fa5151;
 background-color: #f2f2f2;
 }
 
-.onekit-button_disabled_type-warn {
+.onekit-button_disabled_type-warn{
 color: rgba(0, 0, 0, 0.18) !important;
 background-color: #fafafa !important;
 }
 
 
-.onekit-button_plain {
+.onekit-button_plain{
     color: #353535;
     border: 1px solid #353535;      
     background-color: transparent;
 
 }
 
-.onekit-button_type-primary_plain {
+.onekit-button_type-primary_plain{
    color: #1aad19;                      
     border: 1px solid #1aad19;
     background-color: transparent;
     
 }
-.onekit-button_type-primary_plain {
+.onekit-button_type-primary_plain{
 color: #06ae56;
 border-color: #179c16;
 
@@ -259,7 +259,7 @@ border-width: 0;
     border-color: rgba(0,0,0,.2)  !important;           
     
 }
-.onekit-button_disabled_type-primary_plain {
+.onekit-button_disabled_type-primary_plain{
 color: rgba(0, 0, 0, 1)  !important;
 border:1px solid gray !important;
 border-color: rgba(0, 0, 0, .2)  !important;
@@ -278,7 +278,7 @@ border: 1px solid #353535;
 background-color: transparent;
 
 }
-.onekit-button_type-default_plain {
+.onekit-button_type-default_plain{
 color: #353535;
 border: 1px solid #353535;
 background-color: transparent;
@@ -295,16 +295,16 @@ border-width: 0;
 border-color: rgba(0,0,0,.5)  !important;            
 
 }
-.onekit-button_disabled_plain {
+.onekit-button_disabled_plain{
     color: rgba(0, 0, 0, .2)  !important;
     border-color: rgba(0, 0, 0, .2)  !important;
 
 }
 
-.onekit-button_loading_type-default {
+.onekit-button_loading_type-default{
     color: #000;
 }
-.onekit-button_size-mini {
+.onekit-button_size-mini{
     display: inline-block;
     line-height: 2.3;                       
     font-size: 13px;
@@ -313,16 +313,16 @@ border-color: rgba(0,0,0,.5)  !important;
 }
 
 
-.onekit-checkbox {
+.onekit-checkbox{
     -webkit-tap-highlight-color: transparent;       
     display: inline-block;
 }
 
-.onekit-checkbox-group {
+.onekit-checkbox-group{
     display: block;                         
 }
 
-.onekit-editor {
+.onekit-editor{
     display: block;
     position: relative;
     box-sizing: border-box;
@@ -335,7 +335,7 @@ border-color: rgba(0,0,0,.5)  !important;
     min-height: 200px;
 }
 
-.onekit-input {
+.onekit-input{
     cursor: auto;
     display: block;
     height: calc(1.4*var(--onekit-rem));
@@ -346,15 +346,15 @@ border-color: rgba(0,0,0,.5)  !important;
     min-height: calc(1.4*var(--onekit-rem));
 }
 
-.onekit-picker {
+.onekit-picker{
     display: block;                     
 }
 
-.onekit-picker-view {
+.onekit-picker-view{
     display:flex;                 
 }
 
-.onekit-picker-view-column {
+.onekit-picker-view-column{
     -webkit-flex: 1;
     flex: 1;
     position: relative;
@@ -363,27 +363,27 @@ border-color: rgba(0,0,0,.5)  !important;
     overflow: hidden;
 }
 
-.onekit-radio {
+.onekit-radio{
     -webkit-tap-highlight-color: transparent;
     display: inline-block;                      
 }
 
-.onekit-radio-group {
+.onekit-radio-group{
     display: block;                 
 }
 
-.onekit-slider {
+.onekit-slider{
     margin: 10px 18px;
     padding: 0;                 
     display: block;
 }
 
-.onekit-switch {
+.onekit-switch{
     -webkit-tap-highlight-color: transparent;       
     display: inline-block;
 }
 
-.onekit-textarea {
+.onekit-textarea{
     cursor: auto;
     width: 300px;
     height: 150px;
@@ -392,38 +392,38 @@ border-color: rgba(0,0,0,.5)  !important;
     overflow: hidden;
 }
 
-.onekit-functional-page-navigator {
+.onekit-functional-page-navigator{
     height: auto;
     width: auto;                        
     display: block;
 }
 
-.onekit-navigator {
+.onekit-navigator{
     height: auto;               
     width: auto;
     display: block;
 }
 
-.onekit-audio {
+.onekit-audio{
     display: inline-block;
     line-height: 0;             
 }
 
-.onekit-camera {
+.onekit-camera{
     position: relative;
     width: 100%;                
     display: block;
     overflow: hidden;
 }
 
-.onekit-image {
+.onekit-image{
     width: 320px;
     height: 240px;              
     display: inline-block;
     overflow: hidden;
 }
 
-.onekit-live-player {
+.onekit-live-player{
     width: 300px;
     height: 225px;
     display: inline-block;
@@ -433,7 +433,7 @@ border-color: rgba(0,0,0,.5)  !important;
     background-color: #000;
 }
 
-.onekit-live-pusher {
+.onekit-live-pusher{
     position: relative;
     width: 100%;
     display: block;                         
@@ -441,7 +441,7 @@ border-color: rgba(0,0,0,.5)  !important;
     background-color: #000;
 }
 
-.onekit-video {
+.onekit-video{
     width: 300px;
     height: 225px;
     display: inline-block;               
@@ -451,32 +451,502 @@ border-color: rgba(0,0,0,.5)  !important;
     z-index: 0;
 }
 
-.onekit-map {
+.onekit-map{
     position: relative;
     width: 300px;                    
     height: 150px;
     display: block;
 }
-.onekit-canvas {
+.onekit-canvas{
     width: 300px;
     height: 150px;          
     display: block;              
     position: relative;
 }
 
-.onekit-ad {
+.onekit-ad{
     display: block !important;
     width: 100%;                     
     pointer-events: auto;
     opacity: 1 !important;
 }
 
-.onekit-web-view {
+.onekit-web-view{
     width: 100%;
     height: 100%;                
 }
 
-.onekit-ad {
+.onekit-ad{
+    width: 100% !important;
+    height: 50px !important;        
+
+}
+.onekit-form{
+    width: 100%;
+}
+
+/******************************** v2 *********************************/
+.onekit-cover-image2 {
+    display: block;
+    line-height: 1.2;
+    overflow: hidden;
+    pointer-events: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.onekit-cover-view2 {
+    display: block;
+    line-height: 1.2;                   
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: auto;
+    font-family: -apple-system;
+}
+
+.onekit-movable-view2 {
+    display: inline-block;
+    width: 10px;
+    height: 10px;                           
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.onekit-scroll-view2 {
+    display: block;                 
+    width: 100%;
+}
+
+.onekit-swiper2 {
+    display: block;                 
+    height: 150px;
+}
+
+.onekit-swiper-item2 {
+    display: block;
+    overflow: hidden;             
+    will-change: transform;
+}
+
+.onekit-view2 {
+    display: block;                 
+}
+
+.onekit-icon2 {
+    display: inline-block;              
+    font-size: 0;
+}
+
+.onekit-progress2 {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;            
+    align-items: center;
+}
+
+
+.onekit-button2::after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, .2);        
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.onekit-button2::after {
+    display: none;
+
+}
+
+.onekit-button_type-default2 {
+color: #06ae56;
+background-color: #f2f2f2;
+
+}
+
+
+.onekit-button2 {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;                     
+    text-decoration: none;
+    line-height: 2.55555556;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    color: #000;
+    background-color: #f8f8f8;
+}
+
+.onekit-button2 {
+    padding: 8px 24px;
+    line-height: 1.41176471;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.onekit-button2:not(.onekit-button_size-mini){
+    width: 184px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.onekit-button_type-primary2 {
+    color: #fff;
+    background-color: #1aad19;          
+}
+
+.onekit-button_type-primary2 {
+background-color: #07c160;
+
+}
+.onekit-button_loading2::before {
+content: " ";
+display: inline-block;
+width: 18px;
+height: 18px;
+vertical-align: middle;
+-webkit-animation: wx-button-loading-animate 1s steps(12,end) infinite;
+animation: wx-button-loading-animate 1s steps(12,end) infinite;
+background: transparent url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iciIgd2lkdGg9JzEyMHB4JyBoZWlnaHQ9JzEyMHB4JyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJub25lIiBjbGFzcz0iYmsiPjwvcmVjdD4KICAgIDxyZWN0IHg9JzQ2LjUnIHk9JzQwJyB3aWR0aD0nNycgaGVpZ2h0PScyMCcgcng9JzUnIHJ5PSc1JyBmaWxsPScjRTlFOUU5JwogICAgICAgICAgdHJhbnNmb3JtPSdyb3RhdGUoMCA1MCA1MCkgdHJhbnNsYXRlKDAgLTMwKSc+CiAgICA8L3JlY3Q+CiAgICA8cmVjdCB4PSc0Ni41JyB5PSc0MCcgd2lkdGg9JzcnIGhlaWdodD0nMjAnIHJ4PSc1JyByeT0nNScgZmlsbD0nIzk4OTY5NycKICAgICAgICAgIHRyYW5zZm9ybT0ncm90YXRlKDMwIDUwIDUwKSB0cmFuc2xhdGUoMCAtMzApJz4KICAgICAgICAgICAgICAgICByZXBlYXRDb3VudD0naW5kZWZpbml0ZScvPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyM5Qjk5OUEnCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSg2MCA1MCA1MCkgdHJhbnNsYXRlKDAgLTMwKSc+CiAgICAgICAgICAgICAgICAgcmVwZWF0Q291bnQ9J2luZGVmaW5pdGUnLz4KICAgIDwvcmVjdD4KICAgIDxyZWN0IHg9JzQ2LjUnIHk9JzQwJyB3aWR0aD0nNycgaGVpZ2h0PScyMCcgcng9JzUnIHJ5PSc1JyBmaWxsPScjQTNBMUEyJwogICAgICAgICAgdHJhbnNmb3JtPSdyb3RhdGUoOTAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNBQkE5QUEnCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgxMjAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNCMkIyQjInCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgxNTAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNCQUI4QjknCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgxODAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNDMkMwQzEnCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgyMTAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNDQkNCQ0InCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgyNDAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNEMkQyRDInCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgyNzAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNEQURBREEnCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgzMDAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0PgogICAgPHJlY3QgeD0nNDYuNScgeT0nNDAnIHdpZHRoPSc3JyBoZWlnaHQ9JzIwJyByeD0nNScgcnk9JzUnIGZpbGw9JyNFMkUyRTInCiAgICAgICAgICB0cmFuc2Zvcm09J3JvdGF0ZSgzMzAgNTAgNTApIHRyYW5zbGF0ZSgwIC0zMCknPgogICAgPC9yZWN0Pgo8L3N2Zz4=) no-repeat;
+background-size: 100%;
+
+}
+.onekit-button_loading—type-primary2::before {
+margin: -0.2em 0.34em 0 0;
+background-image: url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http: //www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath fill='none' d='M0 0h100v100H0z'/%3E%3Crect xmlns='http: //www.w3.org/2000/svg' width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.56)' rx='5' ry='5' transform='translate(0 -30)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.5)' rx='5' ry='5' transform='rotate(30 105.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.43)' rx='5' ry='5' transform='rotate(60 75.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.38)' rx='5' ry='5' transform='rotate(90 65 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.32)' rx='5' ry='5' transform='rotate(120 58.66 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.28)' rx='5' ry='5' transform='rotate(150 54.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.25)' rx='5' ry='5' transform='rotate(180 50 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.2)' rx='5' ry='5' transform='rotate(-150 45.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.17)' rx='5' ry='5' transform='rotate(-120 41.34 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.14)' rx='5' ry='5' transform='rotate(-90 35 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.1)' rx='5' ry='5' transform='rotate(-60 24.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.03)' rx='5' ry='5' transform='rotate(-30 -5.98 65)'/%3E%3C/svg%3E");
+
+}
+
+.onekit-button_loading_type-primary2 {
+    color: rgba(255, 255, 255, .6);         
+    background-color: #179b16;
+}
+
+.onekit-button_loading_type-primary2 {
+color: #fff;
+background-color: #06ad56;
+
+}
+.onekit-button_disabled_type-primary2 {
+color: rgba(0, 0, 0, 0.18) !important;
+background-color: #fafafa !important;
+}
+
+.onekit-button_type-default2 {
+    color: #000;
+    background-color: #f8f8f8;          
+
+}
+.onekit-button_type-default2 {
+color: #06ae56;
+background-color: #f2f2f2;
+
+}
+
+
+.onekit-button_disabled_type-default2 {
+    color: rgba(0, 0, 0, .3) !important;
+    background-color: #f7f7f7 !important;              
+
+}
+.onekit-button_disabled_type-default2 {
+color: rgba(0, 0, 0, 0.18) !important;
+background-color: #fafafa  !important;
+
+}
+
+
+.onekit-button_type-warn2 {
+    color: #fff;                        
+    background-color: #e64340;
+
+}
+.onekit-button_type-warn2 {
+color: #fa5151;
+background-color: #f2f2f2;
+}
+
+
+.onekit-button_disabled_type-warn2 {
+    background-color: #ec8b89 !important;          
+
+}
+
+.onekit-button_type-warn2 {
+color: #fa5151;
+background-color: #f2f2f2;
+}
+
+.onekit-button_disabled_type-warn2 {
+color: rgba(0, 0, 0, 0.18) !important;
+background-color: #fafafa !important;
+}
+
+
+.onekit-button_plain2 {
+    color: #353535;
+    border: 1px solid #353535;      
+    background-color: transparent;
+
+}
+
+.onekit-button_type-primary_plain2 {
+   color: #1aad19;                      
+    border: 1px solid #1aad19;
+    background-color: transparent;
+    
+}
+.onekit-button_type-primary_plain2 {
+color: #06ae56;
+border-color: #179c16;
+
+}
+.onekit-button_type-primary_plain2::after {
+border-width: 0;
+
+}
+
+
+.one-kit-button_disabled_type-primary_plain{
+    color: rgba(0,0,0,.2)  !important;                      
+    border-color: rgba(0,0,0,.2)  !important;           
+    
+}
+.onekit-button_disabled_type-primary_plain2 {
+color: rgba(0, 0, 0, 1)  !important;
+border:1px solid gray !important;
+border-color: rgba(0, 0, 0, .2)  !important;
+background-color: transparent !important;
+
+}
+.onekit-button_type-default_plain2::after {
+border-width: 0;
+
+}
+
+
+.onekit-button_type-default_plain{
+    color: #353535;                     
+border: 1px solid #353535;                  
+background-color: transparent;
+
+}
+.onekit-button_type-default_plain2 {
+color: #353535;
+border: 1px solid #353535;
+background-color: transparent;
+
+}
+
+.onekit-button_plain2::after {
+border-width: 0;
+}
+
+
+.onekit-button_disabled_type-default_plain{
+    color: rgba(0,0,0,.2)  !important;
+border-color: rgba(0,0,0,.5)  !important;            
+
+}
+.onekit-button_disabled_plain2 {
+    color: rgba(0, 0, 0, .2)  !important;
+    border-color: rgba(0, 0, 0, .2)  !important;
+
+}
+
+.onekit-button_loading_type-default2 {
+    color: #000;
+}
+.onekit-button_size-mini2 {
+    display: inline-block;
+    line-height: 2.3;                       
+    font-size: 13px;
+    padding: 0 1.34em;
+
+}
+
+
+.onekit-checkbox2 {
+    -webkit-tap-highlight-color: transparent;       
+    display: inline-block;
+}
+
+.onekit-checkbox-group2 {
+    display: block;                         
+}
+
+.onekit-editor2 {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-user-select: text;
+    user-select: text;                     
+    outline: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+}
+
+.onekit-input2 {
+    cursor: auto;
+    display: block;
+    height: calc(1.4*var(--onekit-rem));
+    text-overflow: clip;                        
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: UICTFontTextStyleBody;
+    min-height: calc(1.4*var(--onekit-rem));
+}
+
+.onekit-picker2 {
+    display: block;                     
+}
+
+.onekit-picker-view2 {
+    display:flex;                 
+}
+
+.onekit-picker-view-column2 {
+    -webkit-flex: 1;
+    flex: 1;
+    position: relative;
+    z-index: 0;                     
+    height: 100%;
+    overflow: hidden;
+}
+
+.onekit-radio2 {
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;                      
+}
+
+.onekit-radio-group2 {
+    display: block;                 
+}
+
+.onekit-slider2 {
+    margin: 10px 18px;
+    padding: 0;                 
+    display: block;
+}
+
+.onekit-switch2 {
+    -webkit-tap-highlight-color: transparent;       
+    display: inline-block;
+}
+
+.onekit-textarea2 {
+    cursor: auto;
+    width: 300px;
+    height: 150px;
+    display: block;                 
+    position: relative;
+    overflow: hidden;
+}
+
+.onekit-functional-page-navigator2 {
+    height: auto;
+    width: auto;                        
+    display: block;
+}
+
+.onekit-navigator2 {
+    height: auto;               
+    width: auto;
+    display: block;
+}
+
+.onekit-audio2 {
+    display: inline-block;
+    line-height: 0;             
+}
+
+.onekit-camera2 {
+    position: relative;
+    width: 100%;                
+    display: block;
+    overflow: hidden;
+}
+
+.onekit-image2 {
+    width: 320px;
+    height: 240px;              
+    display: inline-block;
+    overflow: hidden;
+}
+
+.onekit-live-player2 {
+    width: 300px;
+    height: 225px;
+    display: inline-block;
+    line-height: 0;                     
+    overflow: hidden;              
+    position: relative;
+    background-color: #000;
+}
+
+.onekit-live-pusher2 {
+    position: relative;
+    width: 100%;
+    display: block;                         
+    overflow: hidden;
+    background-color: #000;
+}
+
+.onekit-video2 {
+    width: 300px;
+    height: 225px;
+    display: inline-block;               
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+.onekit-map2 {
+    position: relative;
+    width: 300px;                    
+    height: 150px;
+    display: block;
+}
+.onekit-canvas2 {
+    width: 300px;
+    height: 150px;          
+    display: block;              
+    position: relative;
+}
+
+.onekit-ad2 {
+    display: block !important;
+    width: 100%;                     
+    pointer-events: auto;
+    opacity: 1 !important;
+}
+
+.onekit-web-view2 {
+    width: 100%;
+    height: 100%;                
+}
+
+.onekit-ad2 {
     width: 100% !important;
     height: 50px !important;        
 

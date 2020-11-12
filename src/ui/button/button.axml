@@ -1,44 +1,25 @@
-<button
- class="onekit-button 
- onekit-button_size-{{size}}
-  onekit-button_type-{{type}}
-  onekit-button_{{plain?'plain':''}}
-    onekit-button_{{loading?'loading':''}}
- onekit-button_{{disabled?'disabled':''}}
- {{attributeCSS}}  {{onekitClass}}"
-
- style="white-space:normal;height:auto;{{onekitStyle}}"
- id="{{onekitId}}"
- name="{{name}}"
-  scope="phoneNumber"
-  onTap="button_onTap"
-  size="{{size}}"
-  plain="{{plain}}"
+<button onekit-v="v2"
+  class="onekit-button{{onekitVersion}}
+    onekit-button_size-{{size}}{{onekitVersion}}
+    onekit-button_type-{{type}}{{onekitVersion}}
+    onekit-button_{{plain?'plain':''}}{{onekitVersion}}
+    onekit-button_{{disabled?'disabled':''}}{{onekitVersion}}
+    onekit-button_{{loading?'loading':''}}{{onekitVersion}}
+      {{attributeCSS}}  {{onekitClass}}"
+  style="white-space:normal;height:auto;{{onekitStyle}}"
+  id="{{onekitId}}"
+  
   disabled="{{disabled}}"
-
   form-type="{{formType}}"
   open-type="{{openType}}"
   hover-class="{{hoverClass}}"
   hover-stop-propagation="{{hoverStopPropagation}}"
   hover-start-time="{{hoverStartTime}}"
   hover-stay-time="{{hoverStayTime}}"
+  scope="{{scope}}"
 
-  onGetAuthorize="onGetAuthorize"
-  onError="onError"
-  lang="{{lang}}"
-  bindgetuserinfo="{{bindgetuserinfo}}"
-  session-from="{{session-from}}"
-  send-message-title="{{send-message-title}}"
-  send-message-path="{{send-message-path}}"
-  send-message-img="{{send-message-img}}"
-  show-message-card="{{show-message-card}}"
-  bindcontact="{{bindcontact}}"
-  bindgetphonenumber="{{bindgetphonenumber}}"
-  app-parameter="{{app-parameter}}"
-  binderror="{{binderror}}"
-  bindlaunchapp="{{bindlaunchapp}}"
-  bindopensetting="{{bindopensetting}}"
-  aria-label="{{aria-label}}" 
+  onGetAuthorize="button_onGetAuthorize"
+  onTap="button_onTap"
   >
  <slot/>
 </button> 

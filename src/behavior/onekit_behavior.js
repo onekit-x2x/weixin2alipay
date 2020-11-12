@@ -3,7 +3,8 @@ export default {
   props: {
     onekitId: `id_${Math.random() * 1000}`,
     onekitClass: '',
-    onekitStyle: ''
+    onekitStyle: '',
+    onekitVersion: '',
   },
   onInit() {
     if (!getApp().onekit_nodes) {

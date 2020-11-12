@@ -10,7 +10,6 @@ Component({
     hideContact: true
   },
   props: {
-    name: '',
     size: 'default',
     type: 'default',
     plain: false,
@@ -22,6 +21,14 @@ Component({
     hoverStopPropagation: false,
     hoverStartTime: 20,
     hoverStayTime: 70,
+    //
+    lang: 'en',
+    sessionFrom: '',
+    sendMessageTitle: '当前标题',
+    sendMessagePath: '当前分享路径',
+    sendMessageImg: '截图',
+    appParameter: '',
+    showMessageCard: false,
   },
   didMount() {
     let openType
@@ -54,11 +61,10 @@ Component({
     contactBG_tap() {
       this.setData({hideContact: true})
     },
-    onGetAuthorize(e) {
+    button_onGetAuthorize(e) {
       const that = this
       switch (this.props.openType) {
         case 'getUserInfo':
-
           if (that.props.onGetuserinfo) {
             wx.getUserInfo({
               withCredentials: true,
@@ -70,7 +76,6 @@ Component({
           }
           break
         case 'getPhoneNumber':
-
           if (this.props.onGetphonenumber) {
             //  console.log(e)
             wx.getPhoneNumber({
@@ -84,9 +89,6 @@ Component({
         default:
           throw new Error(this.props.openType)
       }
-    },
-    onError(e) {
-      console.log(e)
     },
     button_onTap(e) {
       const that = this
@@ -124,6 +126,38 @@ Component({
       if (that.props.onTap) {
         // /console.log("xxxxxxxxxxxx",e)
         that.props.onTap(e)
+      }
+    },
+
+    //
+    trigger_onGetuserinfo(e) {
+      if (this.props.onGetuserinfo) {
+        this.props.onGetuserinfo(e)
+      }
+    },
+    trigger_onContact(e) {
+      if (this.props.onContact) {
+        this.props.onContact(e)
+      }
+    },
+    trigger_onGetphonenumber(e) {
+      if (this.props.onGetphonenumber) {
+        this.props.onGetphonenumber(e)
+      }
+    },
+    trigger_onError(e) {
+      if (this.props.onError) {
+        this.props.onError(e)
+      }
+    },
+    trigger_onOpensetting(e) {
+      if (this.props.onOpensetting) {
+        this.props.onOpensetting(e)
+      }
+    },
+    trigger_onLaunchapp(e) {
+      if (this.props.onLaunchapp) {
+        this.props.onLaunchapp(e)
       }
     },
   },

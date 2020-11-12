@@ -2,50 +2,32 @@ import { OnekitPage } from '../weixin2alipay/index';
 import { wx } from '../weixin2alipay/index';
 
 global = {};
-var types = [
-    'default',
-    'primary',
-    'warn'
-];
-var pageObject = {
+OnekitPage({
     data:{
-        defaultSize:'default',
-        primarySize:'default',
-        warnSize:'default',
-        disabled:false,
-        plain:false,
-        loading:false
+        focus:false,
+        inputValue:''
     },
-    setDisabled:function(e){
+    bindKeyInput:function(e){
         this.setData({
-        disabled:!this.data.disabled
+        inputValue:e.detail.value
     });
     },
-    setPlain:function(e){
-        this.setData({
-        plain:!this.data.plain
-    });
-    },
-    setLoading:function(e){
-        this.setData({
-        loading:!this.data.loading
-    });
-    },
-    onGotUserInfo:function(e){
-        console.log(e.detail.errMsg);
-        console.log(e.detail.userInfo);
-        console.log(e.detail.rawData);
+    bindReplaceInput:function(e){
+        var value = e.detail.value;
+        var pos = e.detail.cursor;
+        var left;
+        if((pos !== -1)){
+        left = e.detail.value.slice(0,pos);
+        pos = left.replace(/11/,'2').length;
     }
-};
-for(var i = 0;(i < types.length);++i){
-    (function(type){
-        pageObject[type] = function(e){
-        var key = (type + 'Size');
-        var changedData = {};
-        changedData[key] = (this.data[key] === 'default')?'mini':'default';
-        this.setData(changedData);
+        return {
+        value:value.replace(/11/,'2'),
+        cursor:pos
     };
-    })(types[i]);
-};
-OnekitPage(pageObject);
-
+    },
+    bindHideKeyboard:function(e){
+        if((e.detail.value === '123')){
+        wx.hideKeyboard();
+    }
+    }
+});

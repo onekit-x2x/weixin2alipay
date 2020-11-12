@@ -1,9 +1,3 @@
-/** 修改button默认的点击态样式类**/
-.button-hover {
-  background-color: red;
+.page-section{
+  margin-bottom: 20rpx;
 }
-/** 添加自定义button点击态样式类**/
-.other-button-hover {
-  background-color: blue;
-}
-.onekit-button {margin: 10px;}

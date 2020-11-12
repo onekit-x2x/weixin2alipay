@@ -1,5 +1,7 @@
-<web-view id="onekitId" 
+<!-- <web-view id="onekitId" 
  src="http://localhost:8082/index.html?readOnly={{readOnly}}&placeholder={{placeholder}}&showImgSize={{showImgSize}}&showImgToolbar={{showImgToolbar}}&showImgResize={{showImgResize}}"  
  style="display:none;"   
  onMessage="webView_message">
-</web-view>
+</web-view> -->
+
+editor 组件正在优化

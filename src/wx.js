@@ -2,9 +2,8 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 
-import thekit from 'oneutil'
-import CanvasContext from './api/CanvasContext'
 import VideoContext from './api/VideoContext'
+import CameraContext from './api/CameraContext'
 import SelectorQuery from './api/SelectorQuery'
 
 export default class wx {
@@ -141,97 +140,17 @@ export default class wx {
   static getLogManager(wx_object) { return my.getLogManager(wx_object) }
 
   // ///////////////// Canvas ///////////////////
-  // eslint-disable-next-line complexity
-  static drawCanvas(wx_object) {
-    const canvasId = wx_object.canvasId
-    const actions = wx_object.actions
-    const canvasContext = my.createCanvasContext(canvasId)
-    let dt
-    for (const action of actions) {
-      const data = action.data
-      switch (action.method) {
-        case 'save':
-          canvasContext.save()
-          break
-        case 'restore':
-          canvasContext.restore()
-          break
-        case 'setFillStyle':
-          canvasContext.setFillStyle(thekit.array2str(data[1]))
-          break
-        case 'setStrokeStyle':
-          canvasContext.setStrokeStyle(thekit.array2str(data[1]))
-          break
-        case 'setFontSize':
-          canvasContext.setFontSize(data[0])
-          break
-        case 'setGlobalAlpha':
-          canvasContext.setGlobalAlpha(data[0])
-          break
-        case 'setShadow':
-          canvasContext.setShadow(data[0], data[1], data[2], thekit.array2str(data[3]))
-          break
-        case 'drawImage':
-          canvasContext.drawImage(canvasContext, ...data)
-          break
-        case 'fillText':
-          canvasContext.fillText(canvasContext, ...data)
-          break
-        case 'setLineCap': canvasContext.setLineCap(data[0]); break
-        case 'setLineJoin': canvasContext.setLineJoin(data[0]); break
-        case 'setLineWidth': canvasContext.setLineWidth(data[0]); break
-        case 'setMiterLimit': canvasContext.setMiterLimit(data[0]); break
-        case 'rotate': canvasContext.rotate(data[0]); break
-        case 'scale': canvasContext.scale(data[0], data[1]); break
-        case 'translate': canvasContext.translate(data[0], data[1]); break
-        case 'strokePath':
-          canvasContext.beginPath()
-          for (const dat of data) {
-            dt = dat.data
-            switch (dat.method) {
-              case 'rect': canvasContext.strokeRect(dt[0], dt[1], dt[2], dt[3]); break
-              case 'moveTo': canvasContext.moveTo(dt[0], dt[1]); break
-              case 'lineTo': canvasContext.lineTo(dt[0], dt[1]); break
-              case 'closePath': canvasContext.closePath(); break
-              case 'arc': canvasContext.arc(canvasContext, ...dt); break
-              case 'quadraticCurveTo': canvasContext.quadraticCurveTo(canvasContext, ...dt); break
-              case 'bezierCurveTo': canvasContext.bezierCurveTo(canvasContext, ...dt); break
-
-              default:
-                console.log('[drawCanvas-strokePath]', dat.method)
-                break
-            }
-          }
-          canvasContext.stroke()
-          break
-        case 'fillPath':
-          for (const dat of data) {
-            const dt = dat.data
-            switch (dat.method) {
-              case 'rect': canvasContext.fillRect(dt[0], dt[1], dt[2], dt[3]); break
-              case 'arc': canvasContext.arc(canvasContext, ...dt); break
-              default:
-                console.log('[drawCanvas-fillPath]', dat.method)
-                break
-            }
-          }
-          canvasContext.fill()
-          break
-        case 'clearRect': canvasContext.clearRect(data[0], data[1], data[2], data[3]); break
-        default:
-          console.log('[drawCanvas]', action.method)
-          break
-      }
-    }
-    canvasContext.draw()
-  }
 
   static createCanvasContext(canvasId) {
-    return new CanvasContext(my.createCanvasContext(canvasId))
+    return my.createCanvasContext(canvasId)
   }
 
   static createVideoContext(videoId) {
     return new VideoContext(my.createVideoContext(videoId), videoId)
+  }
+
+  static createCameraContext() {
+    return new CameraContext()
   }
 
   // //////////// WXML ///////////////

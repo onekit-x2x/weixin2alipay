@@ -7,7 +7,6 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   data: {},
   props: {
-    name: '',
     value: '',
     placeholder: '',
     placeholderStyle: '',
@@ -17,15 +16,38 @@ Component({
     autoFocus: false,
     focus: false,
     autoHeight: false,
+    //
     fixed: false,
+
+    // 有bug
     cursorSpacing: 0,
+    //
+
     cursor: -1,
     showConfirmBar: true,
     selectionStart: -1,
     selectionEnd: -1,
+
+    // 有bug
     adjustPosition: true,
+    //
+
+    // 系统级别
     holdKeyboard: false,
+    //
+
     disableDefaultPadding: false,
+  },
+  onInit() {
+    getApp().onekit_onKeyboardHeight.push(my_e => {
+      if (this.props.onKeyboardheightchange) {
+        const wx_e = {
+          height: my_e.height,
+          duration: 0
+        }
+        this.props.onKeyboardheightchange(wx_e)
+      }
+    })
   },
   didMount() {},
   didUpdate() {},

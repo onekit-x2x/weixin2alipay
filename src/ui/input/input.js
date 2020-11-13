@@ -16,22 +16,29 @@ Component({
     placeholderClass: '',
     disabled: false,
     maxlength: 140,
-    // 有bug//
+    // 有bug
     cursorSpacing: 0,
+    //
 
     autoFocus: false,
     focus: false,
     confirmType: 'done',
-    // 做不了//
+    // 做不了
     alwaysEmbed: false,
+    //
+
     confirmHold: false,
     cursor: null,
     selectionStart: -1,
     selectionEnd: -1,
-    // 有bug//
+
+    // 有bug
     adjustPosition: true,
-    // 系统级别//
+    //
+
+    // 系统级别
     holdKeyboard: false,
+    //
   },
   onInit() {
     getApp().onekit_onKeyboardHeight.push(my_e => {

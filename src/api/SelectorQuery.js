@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import NodesRef from './NodesRef'
-import CanvasContext from './CanvasContext'
 import VideoContext from './VideoContext'
 
 export default class SelectorQuery {
@@ -67,7 +66,7 @@ export default class SelectorQuery {
           let context
           switch (node.is) {
             case '/weixin2alipay/ui/canvas/canvas':
-              context = new CanvasContext(my.createCanvasContext(id), id)
+              context = my.createCanvasContext(id)
               break
             case '/weixin2alipay/ui/video/video':
               context = new VideoContext(my.createVideoContext(id), id)

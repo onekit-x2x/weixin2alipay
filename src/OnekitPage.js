@@ -2,6 +2,21 @@
 /* eslint-disable camelcase */
 export default function OnekitPage(wx_object) {
   const my_object = {
+    events: {
+      onKeyboardHeight(e) {
+        for (const onKeyboardHeight of getApp().onekit_onKeyboardHeight) {
+          onKeyboardHeight(e)
+        }
+      }
+    },
+    onLoad(query) {
+      if (!getApp().onekit_onKeyboardHeight) {
+        getApp().onekit_onKeyboardHeight = []
+      }
+      if (wx_object.onLoad) {
+        wx_object.onLoad.call(this, query)
+      }
+    },
     animate() {
     },
     selectComponent(selector) {
@@ -48,11 +63,12 @@ export default function OnekitPage(wx_object) {
     switch (key) {
       case 'behaviors':
         break
+      case 'onLoad':
+        break
       default:
         my_object[key] = value
         break
     }
   }
-  wx_object = null
   return Page(my_object)
 }

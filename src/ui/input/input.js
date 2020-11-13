@@ -30,11 +30,23 @@ Component({
     selectionEnd: -1,
     // 有bug//
     adjustPosition: true,
-
+    // 系统级别//
     holdKeyboard: false,
   },
+  onInit() {
+    getApp().onekit_onKeyboardHeight.push(my_e => {
+      if (this.props.onKeyboardheightchange) {
+        const wx_e = {
+          height: my_e.height,
+          duration: 0
+        }
+        this.props.onKeyboardheightchange(wx_e)
+      }
+    })
+  },
   didMount() { },
-  didUpdate() { },
+  didUpdate() {
+  },
   didUnmount() { },
   methods: {
     input_Input(e) {
@@ -47,12 +59,6 @@ Component({
       }
     },
     input_Focus(e) {
-      console.log(this.props.holdKeyboard)
-
-      if (this.props.holdKeyboard) {
-        console.log('xxxx')
-        my.hideKeyboard()
-      }
       if (this.props.onFocus) {
         this.props.onFocus(e)
       }
@@ -66,9 +72,6 @@ Component({
       if (this.props.onConfirm) {
         this.props.onConfirm(e)
       }
-    },
-
-    //
-    trigger_onKeyboardheightchange() {},
+    }
   },
 })

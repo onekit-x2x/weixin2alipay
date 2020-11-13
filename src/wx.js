@@ -14,8 +14,16 @@ export default class wx {
   }
 
   // ////////////////onKeyboardHeightChange//////////////////
-  static onKeyboardHeightChange() {
-
+  static onKeyboardHeightChange(wx_callback) {
+    if (!getApp().onekit_onKeyboardHeight) {
+      getApp().onekit_onKeyboardHeight = []
+    }
+    getApp().onekit_onKeyboardHeight.push((my_res) => {
+      const wx_res = {
+        height: my_res.height
+      }
+      wx_callback(wx_res)
+    })
   }
 
   // /////////////// basic ////////////////////////////////

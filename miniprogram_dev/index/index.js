@@ -29,5 +29,8 @@ OnekitPage({
         if((e.detail.value === '123')){
         wx.hideKeyboard();
     }
+    },
+    input_onKeyboardheightchange(e){
+      console.log(e)
     }
 });

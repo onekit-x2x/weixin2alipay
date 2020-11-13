@@ -436,5 +436,10 @@
 </onekit-view> -->
 
 <onekit-view onekit-style="margin:30px;text-align: center;">
-  <onekit-input focus="true" hold-keyboard="true" placeholder="请输入" onekit-style="background-color:#000000;color:#fff"></onekit-input>
+  <onekit-input 
+    focus="true" 
+    hold-keyboard="true" 
+    placeholder="请输入" 
+    onekit-style="background-color:#000000;color:#fff"
+    onKeyboardheightchange="input_onKeyboardheightchange"></onekit-input>
 </onekit-view>                     

@@ -2,6 +2,7 @@
   id="{{onekitId}}"
   class="onekit-map {{onekitClass}}"
   style="{{onekitStyle}}"
+
   longitude="{{longitude}}"
   latitude="{{latitude}}"
   scale="{{scale}}"
@@ -9,14 +10,26 @@
   polyline="{{polyline}}"
   circles="{{circles}}"
   controls="{{controls}}"
-  polygon="{{polygon}}"
   include-points="{{include-points}}"
   show-location="{{show-location}}"
+  polygon="{{polygons}}"
+  rotate="{{rotate}}"
+  skew="{{skew}}"
+  setting="{{setting}}"
+
+  onTap="map_tap"
+  onMarkerTap="map_MarkerTap"
+  onControlTap="map_ControlTap"
+  onCalloutTap="map_CalloutTap"
+  onRegionChange="map_RegionChange"
 >
 </map>
 
 <cover-view style="position:absolute;pointer-events: none;background-color:transparent;
 width:{{rect.width}}px;height:{{rect.height}}px;
 left:{{rect.left}}px;top:{{rect.top}}px;">
+<!--
+<cover-image a:for="{{groundOverlays}}" src="{{item.src}}" style="pointer-event:none"/>
+-->
 <slot></slot>
 </cover-view>

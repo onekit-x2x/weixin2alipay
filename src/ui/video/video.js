@@ -53,12 +53,6 @@ Component({
     console.log(data_props)
     this.trigger_controlstoggle(data_props.controls)
   },
-  onInit() {
-    if (!getApp().onekit_nodes) {
-      getApp().onekit_nodes = {}
-    }
-    getApp().onekit_nodes[this.props.onekitId] = this
-  },
   didMount() {
     const that = this
     my.createSelectorQuery()

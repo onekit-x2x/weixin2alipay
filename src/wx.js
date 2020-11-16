@@ -5,6 +5,7 @@
 import VideoContext from './api/VideoContext'
 import CameraContext from './api/CameraContext'
 import SelectorQuery from './api/SelectorQuery'
+import MapContext from './api/MapContext'
 
 export default class wx {
   // ///////////////// animation //////////////////////////
@@ -843,7 +844,9 @@ export default class wx {
   static chooseLocation(wx_object) { return my.chooseLocation(wx_object) }
 
   // //////// Media ////////////////////
-  static createMapContext(wx_object) { return my.createMapContext(wx_object) }
+  static createMapContext(mapId) {
+    return new MapContext(my.createMapContext(mapId), mapId)
+  }
 
   static compressImage(wx_object) { return my.compressImage(wx_object) }
 

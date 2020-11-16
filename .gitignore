@@ -963,3 +963,13 @@ miniprogram_dev/index/index.acss
 miniprogram_dev/index/index.axml
 miniprogram_dev/index/index.js
 miniprogram_dev/index/index.json
+miniprogram_dev/index/index.acss
+miniprogram_dev/index/index.axml
+miniprogram_dev/index/index.js
+miniprogram_dev/weixin2alipay/ui/_/bottom-view/bottom-view.js
+miniprogram_dev/weixin2alipay/ui/_/date-picker/date-picker.js
+miniprogram_dev/weixin2alipay/ui/_/mask-view/mask-view.js
+miniprogram_dev/weixin2alipay/ui/_/multiselector-picker/multiselector-picker.js
+miniprogram_dev/weixin2alipay/ui/_/ragion-picker/ragion-picker.js
+miniprogram_dev/weixin2alipay/ui/_/selector-picker/selector-picker.js
+miniprogram_dev/weixin2alipay/ui/_/time-picker/time-picker.js

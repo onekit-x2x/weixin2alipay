@@ -11,7 +11,9 @@
     "onekit-map":"../weixin2alipay/ui/map/map",
     "onekit-canvas":"../weixin2alipay/ui/canvas/canvas",
     "onekit-input":"../weixin2alipay/ui/input/input",
+    "onekit-web-view":"../weixin2alipay/ui/web-view/web-view",
     
+    "onekit-camera":"../weixin2alipay/ui/camera/camera",
     "onekit-movable-view":"../weixin2alipay/ui/movable-view/movable-view",
     "onekit-video":"../weixin2alipay/ui/video/video",
     "onekit-scroll-view":"../weixin2alipay/ui/scroll-view/scroll-view",

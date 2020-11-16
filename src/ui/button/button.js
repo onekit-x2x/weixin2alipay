@@ -130,32 +130,32 @@ Component({
     },
 
     //
-    trigger_onGetuserinfo(e) {
+    trigger_Getuserinfo(e) {
       if (this.props.onGetuserinfo) {
         this.props.onGetuserinfo(e)
       }
     },
-    trigger_onContact(e) {
+    trigger_Contact(e) {
       if (this.props.onContact) {
         this.props.onContact(e)
       }
     },
-    trigger_onGetphonenumber(e) {
+    trigger_Getphonenumber(e) {
       if (this.props.onGetphonenumber) {
         this.props.onGetphonenumber(e)
       }
     },
-    trigger_onError(e) {
+    trigger_Error(e) {
       if (this.props.onError) {
         this.props.onError(e)
       }
     },
-    trigger_onOpensetting(e) {
+    trigger_Opensetting(e) {
       if (this.props.onOpensetting) {
         this.props.onOpensetting(e)
       }
     },
-    trigger_onLaunchapp(e) {
+    trigger_Launchapp(e) {
       if (this.props.onLaunchapp) {
         this.props.onLaunchapp(e)
       }

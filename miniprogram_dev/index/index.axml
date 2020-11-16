@@ -434,12 +434,37 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
-<onekit-view onekit-style="margin:30px;text-align: center;">
+<!-- <onekit-view onekit-style="margin:30px;text-align: center;">
   <onekit-input 
     focus="true" 
     hold-keyboard="true" 
     placeholder="请输入" 
     onekit-style="background-color:#000000;color:#fff"
     onKeyboardheightchange="input_onKeyboardheightchange"></onekit-input>
-</onekit-view>                     
+</onekit-view> -->
+
+<!-- <camera> -->
+<!-- <onekit-view onekit-class="page-body">
+  <onekit-view onekit-class="page-body-wrapper">
+    <onekit-camera device-position="back" flash="off" onError="error" onekit-style="width: 100%; height: 300px;"></onekit-camera>
+    <onekit-view onekit-class="btn-area">
+      <onekit-button type="primary" onTap="takePhoto">拍照</onekit-button>
+    </onekit-view>
+    <onekit-view onekit-class="btn-area">
+      <onekit-button type="primary" onTap="startRecord">开始录像</onekit-button>
+    </onekit-view>
+    <onekit-view onekit-class="btn-area">
+      <onekit-button type="primary" onTap="stopRecord">结束录像</onekit-button>
+    </onekit-view>
+    <onekit-view onekit-class="preview-tips">预览</onekit-view>
+    <onekit-image a:if="{{src}}" mode="widthFix" src="{{src}}"></onekit-image>
+    <onekit-video a:if="{{videoSrc}}" onekit-class="video" src="{{videoSrc}}"></onekit-video>
+  </onekit-view>
+</onekit-view> -->
+
+<!-- <web-view> -->
+<onekit-view onekit-class="page-body">
+  <onekit-view onekit-class="page-section page-section-gap">
+    <onekit-web-view src="https://onekitwx.com" onError="webview_error"></onekit-web-view>
+  </onekit-view>
+</onekit-view>

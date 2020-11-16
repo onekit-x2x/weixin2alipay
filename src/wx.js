@@ -119,21 +119,21 @@ export default class wx {
 
   static getLaunchOptionsSync(wx_object) { return my.getLaunchOptionsSync(wx_object) }
 
-  static offPageNotFound(wx_object) { return my.offPageNotFound(wx_object) }
+  static offPageNotFound() { getApp().onekit_onError = null }
 
-  static onPageNotFound(wx_object) { return my.onPageNotFound(wx_object) }
+  static onPageNotFound(callback) { getApp().onekit_onPageNotFound = callback }
 
-  static offError(wx_object) { return my.offError(wx_object) }
+  static offError() { getApp().onekit_onError = null }
 
-  static onError(wx_object) { return my.onError(wx_object) }
+  static onError(callback) { getApp().onekit_onError = callback }
 
-  static offAppShow(wx_object) { return my.offAppShow(wx_object) }
+  static offAppShow() { getApp().onekit_onError = null }
 
-  static onAppShow(wx_object) { return my.onAppShow(wx_object) }
+  static onAppShow(callback) { getApp().onekit_onError = callback }
 
-  static offAppHide(wx_object) { return my.offAppHide(wx_object) }
+  static offAppHide() { getApp().onekit_onError = null }
 
-  static onAppHide(wx_object) { return my.onAppHide(wx_object) }
+  static onAppHide(callback) { getApp().onekit_onError = callback }
 
   static setEnableDebug(wx_object) { return my.setEnableDebug(wx_object) }
 

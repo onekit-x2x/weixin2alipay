@@ -3,6 +3,7 @@ id="{{onekitId}}"
 class="onekit-web-view {{onekitClass}}"
 style="{{onekitStyle}}"
 src="{{src}}"
+
 onMessage="webView_Message"
 >
 <slot>

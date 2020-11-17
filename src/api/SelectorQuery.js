@@ -61,7 +61,7 @@ export default class SelectorQuery {
           alipayNodeRef.boundingClientRect().exec((my_reses) => done(nodeRef, my_reses[0]))
           break
         case 'context': {
-          const node = getApp().onekit_nodes[nodeRef.selector]
+          const node = this.onekit_nodes[nodeRef.selector]
           const id = node.props.onekitId
           let context
           switch (node.is) {
@@ -86,13 +86,13 @@ export default class SelectorQuery {
               wx_res.height = my_res.height
             }
             if (nodeRef.fields.node && nodeRef.selector) {
-              wx_res.node = getApp().onekit_nodes[nodeRef.selector]
+              wx_res.node = this.onekit_nodes[nodeRef.selector]
             }
             done(nodeRef, wx_res)
           })
           break
         case 'node':
-          done(nodeRef, getApp().onekit_nodes[nodeRef.selector])
+          done(nodeRef, this.onekit_nodes[nodeRef.selector])
           break
         case 'scrollOffset':
           alipayNodeRef.scrollOffset().exec((my_reses) => {

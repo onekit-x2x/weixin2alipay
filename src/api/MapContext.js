@@ -4,7 +4,7 @@ export default class MapContext {
   constructor(alipayMapContext, id) {
     this.alipayMapContext = alipayMapContext
     this.id = id
-    this.map = getApp().onekit_nodes[id]
+    this.map = this.onekit_nodes[id]
   }
 
   addGroundOverlay(object) {

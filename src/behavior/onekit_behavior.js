@@ -7,13 +7,13 @@ export default {
     onekitVersion: '',
   },
   onInit() {
-    if (!getApp().onekit_nodes) {
-      getApp().onekit_nodes = {}
+    if (!this.onekit_nodes) {
+      this.onekit_nodes = {}
     }
-    getApp().onekit_nodes[`#${this.props.onekitId}`] = this
+    this.onekit_nodes[`#${this.props.onekitId}`] = this
     //
     if (this.props.onekitClass) {
-      getApp().onekit_nodes[`.${this.props.onekitClass}`] = this
+      this.onekit_nodes[`.${this.props.onekitClass}`] = this
     }
   }
 }

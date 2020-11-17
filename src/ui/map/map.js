@@ -1,33 +1,23 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
+import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 
 Component({
-  mixins: [wxs_behavior],
+  mixins: [onekit_behavior, wxs_behavior],
   data: {
     groundOverlays: []
   },
   props: {
-    onekitId: 'onekit-map',
-    onekitClass: '',
-    onekitStyle: '',
     longitude(longitude) {
       this.setData({longitude})
     },
     latitude(latitude) {
       this.setData({latitude})
     },
-    scale(scale) {
-      this.setData({scale})
-    },
-    //
-    minScale(minScale) {
-      this.setData({minScale})
-    },
-    maxScale(maxScale) {
-      this.setData({maxScale})
-    },
-    //
+    scale: 16,
+    minScale: 3,
+    maxScale: 20,
     markers(markers) {
       this.setData({markers})
     },
@@ -52,11 +42,11 @@ Component({
     polygons(polygon) {
       this.setData({polygon})
     },
+
+    //
     subkey(subkey) {
       this.setData({subkey})
     },
-
-    //
     layerStyle(layerStyle) {
       this.setData({layerStyle})
     },
@@ -68,19 +58,17 @@ Component({
     skew(skew) {
       this.setData({skew})
     },
+
+    // 支付宝暂时不支持3D'
     'enable-3D': function () {
       console.log('[onekit]enable-3D')
     },
     'show-compass': function (showCompass) {
       this.mapCtx.showsCompass({isShowCompass: showCompass})
     },
-
-    //
     'show-scale': function () {
       console.log()
     },
-    //
-
     'enable-overlooking': function (enableOverlooking) {
       this.mapCtx.gestureEnable({isGestureEnable: enableOverlooking})
     },
@@ -93,8 +81,6 @@ Component({
     'enable-rotate': function (enableRotate) {
       this.mapCtx.gestureEnable({isGestureEnable: enableRotate})
     },
-
-    //
     'enable-satellite': function () {
       console.log()
     },
@@ -107,13 +93,17 @@ Component({
     'enable-building': function () {
       console.log()
     },
+    //
+
     setting(setting) {
       this.setData({setting})
     }
   },
   didMount() {
     const that = this
-    this.mapCtx = my.createMapContext(this.props.onekitId)
+    const scale = Math.max(that.props.scale, that.props.minScale)
+    that.setData({scale})
+    that.mapCtx = my.createMapContext(that.props.onekitId)
 
     my.createSelectorQuery().select('.onekit-map').boundingClientRect().exec((rect) => {
       that.setData({rect: rect[0]})

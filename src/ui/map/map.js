@@ -62,12 +62,15 @@ Component({
     // 支付宝暂时不支持3D'
     'enable-3D': function () {
       console.log('[onekit]enable-3D')
+      my.showToast({
+        content: '支付宝暂时不支持3D',
+      })
     },
     'show-compass': function (showCompass) {
       this.mapCtx.showsCompass({isShowCompass: showCompass})
     },
-    'show-scale': function () {
-      console.log()
+    'show-scale': function (showsScale) {
+      this.mapCtx.showsScale({isShowsScale: showsScale})
     },
     'enable-overlooking': function (enableOverlooking) {
       this.mapCtx.gestureEnable({isGestureEnable: enableOverlooking})
@@ -75,41 +78,54 @@ Component({
     'enable-zoom': function (enableZoom) {
       this.mapCtx.showsScale({isShowsScale: enableZoom})
     },
-    'enable-scroll': function () {
-      console.log('[onekit]enable-scroll')
+    'enable-scroll': function (enableScroll) {
+      this.mapCtx.gestureEnable({isGestureEnable: enableScroll})
     },
     'enable-rotate': function (enableRotate) {
       this.mapCtx.gestureEnable({isGestureEnable: enableRotate})
     },
-    'enable-satellite': function () {
-      console.log()
+    'enable-satellite': function (trafficEnabled) {
+      this.mapCtx.updateComponents({setting: {trafficEnabled}})
     },
-    'enable-traffic': function () {
-      console.log()
+    'enable-traffic': function (trafficEnabled) {
+      this.mapCtx.updateComponents({setting: {trafficEnabled}})
     },
-    'enableP-poi': function () {
-      console.log()
+    'enableP-poi': function (enablePPoi) {
+      this.mapCtx.updateComponents({setting: {showMapText: enablePPoi}})
     },
     'enable-building': function () {
-      console.log()
+      console.log('[onekit]enable-building')
+      my.showToast({
+        content: '支付宝暂时不支持展示建筑物',
+      })
     },
-    //
-
-    setting(setting) {
-      this.setData({setting})
+    setting() {
+      const set = this.mapCtx.updateComponents.setting
+      set.skew = 0
+      set.rotate = 0
+      set.showLocation = false
+      set.subKey = ''
+      set.layerStyle = 1
+      set.enable3D = true
+      set.replase(/tiltGesturesEnabled/g, 'enableOverlooking')
+      set.replase(/showMapText/g, 'enableSatellite')
+      this.mapCtx.updateComponents({set})
     }
   },
   didMount() {
     const that = this
     const scale = Math.max(that.props.scale, that.props.minScale)
     that.setData({scale})
-    that.mapCtx = my.createMapContext(that.props.onekitId)
+
+    this.mapCtx = my.createMapContext(this.props.onekitId)
 
     my.createSelectorQuery().select('.onekit-map').boundingClientRect().exec((rect) => {
       that.setData({rect: rect[0]})
     })
   },
-  didUpdate() { },
+  didUpdate() {
+    this.trigger_updated()
+  },
   didUnmount() { },
   methods: {
     addGroundOverlay(object) {
@@ -122,7 +138,7 @@ Component({
       }
     },
 
-    //
+    // 做不了
     trigger_labeltap(e) {
       if (this.props.onLabelTap) {
         this.props.onLabelTap(e)
@@ -146,13 +162,14 @@ Component({
       }
     },
 
-    //
     trigger_updated(e) {
-      if (this.props.onUpdated) {
-        this.props.onUpdated(e)
+      this.mapCtx = my.createMapContext(this.props.onekitId)
+      if (this.mapCtx.updateComponents) {
+        if (this.props.onUpdated) {
+          this.props.onUpdated(e)
+        }
       }
     },
-    //
 
     map_RegionChange(e) {
       if (this.props.onRegionChange) {
@@ -162,6 +179,7 @@ Component({
 
     //
     trigger_poitap(e) {
+      this.mapCtx = my.createMapContext(this.props.onekitId)
       if (this.props.onPoiTap) {
         this.props.onPoiTap(e)
       }

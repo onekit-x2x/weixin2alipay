@@ -4,19 +4,31 @@ export default class MapContext {
   constructor(alipayMapContext, id) {
     this.alipayMapContext = alipayMapContext
     this.id = id
-    this.map = this.onekit_nodes[id]
+    // this.map = this.onekit_nodes[id]
   }
 
-  addGroundOverlay(object) {
-    this.map.addGroundOverlay(object)
+  addGroundOverlay(data) {
+    // 支付宝组件ground-overlays
+    const map = this.onekit_nodes[this.id]
+    map.addGroundOverlay(data)
   }
 
-  addMarkers(object) {
-    console.log(object)
+  addMarkers() {
+    // const marker = {}
+    // marker.push({markers, clear})
+    // console.log(marker)
   }
 
   fromScreenLocation(object) {
     console.log(object)
+  }
+
+  getCenterLocation(object) {
+    return this.alipayMapContext.getCenterLocation(object)
+  }
+
+  getRegion(object) {
+    return this.alipayMapContext.getRegion(object)
   }
 
   getRotate(object) {
@@ -56,6 +68,10 @@ export default class MapContext {
   }
 
   removeGroundOverlay(object) {
+    console.log(object)
+  }
+
+  removeMarkers(object) {
     console.log(object)
   }
 

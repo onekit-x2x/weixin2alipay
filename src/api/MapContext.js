@@ -64,40 +64,12 @@ export default class MapContext {
 
   moveAlong(wx_object) {
     const map = getApp().onekit_nodes[`_${this.id}`]
-    map.initMarkerCluster(wx_object)
+    map.moveAlong(wx_object)
   }
 
-  static moveToLocation(wx_object) {
-    console.log(wx_object)
-    // if (!wx_object) {
-    //   return
-    // }
-    // const wx_longitude = wx_object.longitude
-    // const wx_latitude = wx_object.latitude
-    // const wx_success = wx_object.success
-    // const wx_fail = wx_object.fail
-    // const wx_complete = wx_object.complete
-    // wx_object = null
-
-    // PROMISE((SUCCESS, FAIL) => {
-    //   const my_object = {
-    //     longitude: wx_longitude,
-    //     latitude: wx_latitude,
-    //     success(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       SUCCESS(wx_res)
-    //     },
-    //     fail(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       FAIL(wx_res)
-    //     }
-    //   }
-    //   my.moveToLocation(my_object)
-    // }, wx_success, wx_fail, wx_complete)
+  moveToLocation(wx_object) {
+    const map = getApp().onekit_nodes[`_${this.id}`]
+    map.moveToLocation(wx_object)
   }
 
   on(eventName, handlers) {
@@ -105,36 +77,9 @@ export default class MapContext {
     map.on(eventName, handlers)
   }
 
-  static openMapApp() {
-    // if (!wx_object) {
-    //   return
-    // }
-    // const wx_longitude = wx_object.longitude
-    // const wx_latitude = wx_object.latitude
-    // const wx_success = wx_object.success
-    // const wx_fail = wx_object.fail
-    // const wx_complete = wx_object.complete
-    // wx_object = null
-
-    // PROMISE((SUCCESS, FAIL) => {
-    //   const my_object = {
-    //     longitude: wx_longitude,
-    //     latitude: wx_latitude,
-    //     success(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       SUCCESS(wx_res)
-    //     },
-    //     fail(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       FAIL(wx_res)
-    //     }
-    //   }
-    //   my.moveToLocation(my_object)
-    // }, wx_success, wx_fail, wx_complete)
+  openMapApp(wx_object) {
+    const map = getApp().onekit_nodes[`_${this.id}`]
+    map.openMapApp(wx_object)
   }
 
   static removeGroundOverlay() {

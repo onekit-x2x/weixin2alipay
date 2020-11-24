@@ -10,14 +10,53 @@ module.exports = {
     on: {}
   },
   methods: {
-    addGroundOverlay(data) {
-      const visible = this.data.visible
-      const opacity = this.data.opacity
-      data.src = this.data.image
-      data.bounds = this.data.includePoints
-      visible.push(data)
-      opacity.push(data)
-      this.setData({visible, opacity})
+    addGroundOverlay(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_id = wx_object.id
+      const wx_src = wx_object.src
+      const wx_bounds = wx_object.bounds
+      let wx_visible = wx_object.visible
+      const wx_zIndex = wx_object.zIndex
+      // 未完成
+      // const wx_opacity = wx_object.opacity
+      //
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_id || !wx_src || !wx_bounds) {
+          FAIL({errMsg: 'addGroundOverlay:err'})
+          return
+        }
+        const markerLevel = this.data.markers.markerLevel
+        let alpha = this.data.groundOverlays.alpha
+        if (wx_visible) {
+          alpha = 1
+        } else {
+          alpha = 0
+        }
+        // if (wx_opacity) {
+        //   filter:alpha(opacity:30)
+        // }
+        wx_visible = alpha
+        this.setData({
+          markerLevel = wx_id,
+          'ground-overlays': [{
+            'include-points': wx_bounds,
+            image: wx_src,
+            zIndex: wx_zIndex
+          }]
+        })
+        const wx_res = {
+          errMsg: 'addGroundOverlay:ok'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
     },
     addMarkers(wx_object) {
       console.log(wx_object)
@@ -33,7 +72,7 @@ module.exports = {
       // //////////
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_markers) {
-          FAIL({errMsg: 'xxxxxx'})
+          FAIL({errMsg: 'addMarkers:error'})
           return
         }
         const markers = wx_clear ? [] : this.data.markers
@@ -43,7 +82,9 @@ module.exports = {
         })
         const clusters = this._getClusters()
 
-        const wx_res = {}
+        const wx_res = {
+          errMsg: 'addMarkers:ok'
+        }
         SUCCESS(wx_res)
         this.trigger_markerClusterCreate(clusters)
       }, wx_success, wx_fail, wx_complete)
@@ -61,7 +102,8 @@ module.exports = {
       PROMISE((SUCCESS) => {
         const wx_res = {
           latitude: this.data.latitude,
-          longitude: this.data.longitude
+          longitude: this.data.longitude,
+          errMsg: 'fromScreenLocation:ok'
         }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
@@ -79,7 +121,7 @@ module.exports = {
       PROMISE((SUCCESS) => {
         const wx_res = {
           rotate: this.data.route,
-          errMsg: 'xxxx'
+          errMsg: 'getRotate:ok'
         }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
@@ -97,7 +139,7 @@ module.exports = {
       PROMISE((SUCCESS) => {
         const wx_res = {
           scale: this.data.scale,
-          errMsg: 'xxxx'
+          errMsg: 'getScale:ok'
         }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
@@ -115,7 +157,7 @@ module.exports = {
       PROMISE((SUCCESS) => {
         const wx_res = {
           skew: this.data.skew,
-          errMsg: 'xxxx'
+          errMsg: 'getSkew:ok'
         }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
@@ -134,7 +176,7 @@ module.exports = {
       // //////////
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_points) {
-          FAIL({errMsg: 'xxxxxx'})
+          FAIL({errMsg: 'includePoints:error'})
           return
         }
         this.setData({
@@ -147,6 +189,7 @@ module.exports = {
           }
         })
         const wx_res = {
+          errMsg: 'includePoints:ok'
         }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
@@ -166,7 +209,9 @@ module.exports = {
       // //////////
       PROMISE((SUCCESS) => {
         this.trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize)
-        const wx_res = {}
+        const wx_res = {
+          errMsg: 'initMarkerCluster:ok'
+        }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
     },
@@ -178,13 +223,19 @@ module.exports = {
       const wx_markerId = wx_object.markerId
       const wx_path = wx_object.path
       const wx_autoRotate = wx_object.autoRotate
-      // const wx_duration = wx_object.duration
+      const wx_duration = wx_object.duration
+      // 未完成
       const wx_success = wx_object.success
+      //
       const wx_fail = wx_object.fail
       const wx_complete = wx_object.complete
       wx_object = null
       // //////////
-      PROMISE((SUCCESS) => {
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_markerId || !wx_path || !wx_duration) {
+          FAIL({errMsg: 'moveAlong:error'})
+          return
+        }
         const markers = this.data.markers.id
         markers.push(...wx_markerId)
         this.setData({
@@ -192,7 +243,78 @@ module.exports = {
         })
         this.trigger_markerClusterCreate(wx_path, wx_autoRotate)
 
-        const wx_res = {}
+        const wx_res = {
+          errMsg: 'moveToLocation:ok'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    moveToLocation(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_longitude = wx_object.longitude
+      const wx_latitude = wx_object.latitude
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      const showLocation = this.data.showLocation
+      if (showLocation) {
+        PROMISE((SUCCESS) => {
+          this.setData({
+            longitude: wx_longitude,
+            latitude: wx_latitude
+          })
+          const wx_res = {
+            errMsg: 'moveToLocation:ok'
+          }
+          SUCCESS(wx_res)
+        }, wx_success, wx_fail, wx_complete)
+      }
+    },
+    on(wx_object) {
+      if (!wx_object) {
+        return
+      }
+      const wx_markerClusterCreate = wx_object.clusters
+      const wx_markerClusterClick = wx_object.latitude
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      PROMISE((SUCCESS) => {
+        this.trigger_markerClusterCreate(wx_markerClusterCreate, wx_markerClusterClick)
+        const wx_res = {
+          errMsg: 'on:ok'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    openMapApp(wx_object) {
+      // 未完成
+      if (!wx_object) {
+        return
+      }
+      const wx_longitude = wx_object.longitude
+      const wx_latitude = wx_object.latitude
+      const wx_destination = wx_object.destination
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_longitude || !wx_latitude || !wx_destination) {
+          FAIL({errMsg: 'openMapApp:error'})
+          return
+        }
+        const wx_res = {
+          errMsg: 'openMapApp:ok'
+        }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
     },

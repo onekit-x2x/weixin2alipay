@@ -12,7 +12,19 @@ Component({
       right: 0,
       top: 0,
       bottom: 0
-    }
+    },
+    'ground-overlays': [{
+      'include-points': [{
+        latitude: null,
+        longitude: null,
+      }, {
+        latitude: null,
+        longitude: null,
+      }],
+      image: '',
+      alpha: 1,
+      zIndex: null
+    }]
   },
   props: {
     longitude(longitude) {

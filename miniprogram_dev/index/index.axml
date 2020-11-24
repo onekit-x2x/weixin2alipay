@@ -470,7 +470,7 @@
 </onekit-view> -->
 
 <!-- <map> -->
-<onekit-view onekit-class="page-body">
+<!-- <onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section page-section-gap">
     <onekit-map onekit-id="myMap" onekit-style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" show-location></onekit-map>
   </onekit-view>
@@ -480,4 +480,5 @@
     <onekit-button onTap="translateMarker" onekit-class="page-body-button" type="primary">移动标注</onekit-button>
     <onekit-button onTap="includePoints" onekit-class="page-body-button" type="primary">缩放视野展示所有经纬度</onekit-button>
   </onekit-view>
-</onekit-view>
+</onekit-view> -->
+<onekit-map onekit-id="myMap" onekit-style="width: 100%; height: 300px;" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></onekit-map>

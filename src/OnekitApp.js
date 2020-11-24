@@ -3,9 +3,10 @@
 
 export default function OnekitApp(wx_object) {
   const my_object = {
+    onekit_nodes: {},
     onLaunch() {
       my.onError(my_error => {
-        console.error('xxxxx', my_error)
+        console.error('[my.onError]', my_error)
         const wx_error = my_error
         if (getApp().onekit_onError) {
           getApp().onekit_onError(wx_error)

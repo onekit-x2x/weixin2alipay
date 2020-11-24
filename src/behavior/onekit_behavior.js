@@ -1,19 +1,19 @@
 /* eslint-disable no-console */
 export default {
   props: {
-    onekitId: `id_${Math.random() * 1000}`,
+    onekitId: '', // `id_${Math.random() * 1000}`,
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: '',
   },
+  data: {},
   onInit() {
-    if (!this.onekit_nodes) {
-      this.onekit_nodes = {}
+    if (this.props.onekitId) {
+      getApp().onekit_nodes[`_${this.props.onekitId}`] = this
     }
-    this.onekit_nodes[`#${this.props.onekitId}`] = this
     //
     if (this.props.onekitClass) {
-      this.onekit_nodes[`.${this.props.onekitClass}`] = this
+      getApp().onekit_nodes[`__${this.props.onekitClass}`] = this
     }
   }
 }

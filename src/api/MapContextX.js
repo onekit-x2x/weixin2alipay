@@ -1,8 +1,14 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
+import {PROMISE} from 'oneutil'
 import LngLat2px from '../js/LngLat2px'
+// import PX2LNTLAT from '../ui/map/PX2LNTLAT'
 
 module.exports = {
+  data: {
+    on: {}
+  },
   methods: {
     addGroundOverlay(data) {
       const visible = this.data.visible
@@ -13,8 +19,206 @@ module.exports = {
       opacity.push(data)
       this.setData({visible, opacity})
     },
+    addMarkers(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_markers = wx_object.markers
+      const wx_clear = wx_object.clear || false
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_markers) {
+          FAIL({errMsg: 'xxxxxx'})
+          return
+        }
+        const markers = wx_clear ? [] : this.data.markers
+        markers.push(...wx_markers)
+        this.setData({
+          markers
+        })
+        const clusters = this._getClusters()
 
-    _getCluster(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW, allMarkers, gridSize) {
+        const wx_res = {}
+        SUCCESS(wx_res)
+        this.trigger_markerClusterCreate(clusters)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    fromScreenLocation(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS) => {
+        const wx_res = {
+          latitude: this.data.latitude,
+          longitude: this.data.longitude
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    getRotate(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS) => {
+        const wx_res = {
+          rotate: this.data.route,
+          errMsg: 'xxxx'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    getScale(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS) => {
+        const wx_res = {
+          scale: this.data.scale,
+          errMsg: 'xxxx'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    getSkew(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS) => {
+        const wx_res = {
+          skew: this.data.skew,
+          errMsg: 'xxxx'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    includePoints(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_points = wx_object.points
+      const wx_padding = wx_object.padding
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_points) {
+          FAIL({errMsg: 'xxxxxx'})
+          return
+        }
+        this.setData({
+          includePoints: wx_points,
+          'include-padding': {
+            left: wx_padding[3],
+            right: wx_padding[1],
+            top: wx_padding[0],
+            bottom: wx_padding[2]
+          }
+        })
+        const wx_res = {
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    initMarkerCluster(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_enableDefaultStyle = wx_object.enableDefaultStyle
+      const wx_zoomOnClick = wx_object.zoomOnClick
+      const wx_gridSize = wx_object.gridSize
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS) => {
+        this.trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize)
+        const wx_res = {}
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    moveAlong(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_markerId = wx_object.markerId
+      const wx_path = wx_object.path
+      const wx_autoRotate = wx_object.autoRotate
+      // const wx_duration = wx_object.duration
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+      // //////////
+      PROMISE((SUCCESS) => {
+        const markers = this.data.markers.id
+        markers.push(...wx_markerId)
+        this.setData({
+          markers
+        })
+        this.trigger_markerClusterCreate(wx_path, wx_autoRotate)
+
+        const wx_res = {}
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+
+    //
+    trigger_markerClusterCreate(clusters) {
+      if (this.on.markerClusterCreate) {
+        this.on.markerClusterCreate({clusters})
+      }
+    },
+    trigger_moveAlong(markerId, path, autoRotate, duration) {
+      if (this.on.moveAlong) {
+        this.on.moveAlong({
+          markerId, path, autoRotate, duration
+        })
+      }
+    },
+    _getClusters() {
+      let mapWidth
+      let mapHeight
+      let lngNE
+      let latNE
+      let lngSW
+      let latSW
+      let allMarkers
+      let gridSize
       function Area(p0, p1, p2) {
         let area = 0.0
         area = p0.longitude * p1.latitude + p1.longitude * p2.latitude + p2.longitude * p0.latitude - p1.longitude * p0.latitude - p2.longitude * p1.latitude - p0.longitude * p2.latitude
@@ -60,6 +264,10 @@ module.exports = {
           const dx = marker1.x - marker2.x
           const dy = marker1.y - marker2.yj
           const gridSizeMarkers = dx * dx + dy * dy
+          // let enableDefaultStyle
+          // if (enableDefaultStyle) {
+
+          // }
           if (gridSizeMarkers <= gridSize * gridSize) {
             const id1 = marker1.id
             const id2 = marker2.id
@@ -76,6 +284,10 @@ module.exports = {
                 break
               }
             }
+            // let zoomOnClick
+            // if (zoomOnClick) {
+
+            // }
             if (!isFind) {
               const clusterId = clusters.length + 1
               clusters.push({clusterId, markerIds: [id1, id2]})
@@ -87,6 +299,37 @@ module.exports = {
         const marksers = sortedRagionMarkersWithXY.filter(marker => cluster.markerIds.indexOf(marker.id))
         cluster.center = getPolygonAreaCenter(marksers)
         return cluster
+      })
+    },
+    _getMapMove() {
+      let autoRotate
+      // let duration
+      let allMarkers
+      const markerId = getApp().onekit_nodes[`_${this.id}`]
+      const lng,
+      const lat,
+      const path = [{
+        lng, lat
+      }]
+      allMarkers.map((r, theta) => {
+        for (const i in path) {
+          if (markerId) {
+            r = Math.floor(Math.sqrt((path[i].lng - path[i - 1].lng) * (path[i].lng - path[i - 1].lng) + (path[i].lat - path[i - 1].lng) * (path[i].lat - path[i - 1].lng)))
+            theta = Math.atan((path[i].lng - path[i - 1].lng) / (path[i].lat - path[i - 1].lng))
+            if ((theta >= 0 && theta < Math.PI) && (((path[i].lat - path[i - 1].lng) < 0 && (path[i].lng - path[i - 1].lng) > 0) || ((path[i].lat - path[i - 1].lng) < 0 && (path[i].lng - path[i - 1].lng) < 0))) {
+              theta = Math.PI + theta
+            }
+
+            //
+            if (autoRotate) {
+              theta = 0
+            }
+            // if (duration) {
+            //   const setDuration = duration
+            // }
+          }
+        }
+        return true
       })
     }
   }

@@ -1,4 +1,6 @@
 /* eslint-disable class-methods-use-this */
+
+
 export default class VideoContext {
   constructor(alipayVideoContext, id) {
     this.alipayVideoContext = alipayVideoContext
@@ -23,7 +25,7 @@ export default class VideoContext {
 
   //
   sendDanmu(data) {
-    const video = this.onekit_nodes[this.id]
+    const video = getApp().onekit_nodes[this.id]
     video.sendDanmu(data)
   }
 

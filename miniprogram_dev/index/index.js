@@ -4,73 +4,44 @@ import { wx } from '../weixin2alipay/index';
 global = {};
 OnekitPage({
     data:{
-        latitude:23.099994,
+        atitude:23.099994,
         longitude:113.32452,
         markers:[
             {
-                id:1,
                 latitude:23.099994,
-                longitude:113.32452,
-                name:'T.I.T 创意园'
-            }
-        ],
-        covers:[
-            {
-                latitude:23.099994,
-                longitude:113.34452,
-                iconPath:'/image/location.png'
+                longitude:113.32452
             },
             {
                 latitude:23.099994,
-                longitude:113.30452,
-                iconPath:'/image/location.png'
+                longitude:113.32252
+            },
+            {
+                latitude:23.099994,
+                longitude:113.32652
+            },
+            {
+                latitude:23.096994,
+                longitude:113.32952
             }
         ]
     },
-    onReady:function(e){
-        this.mapCtx = wx.createMapContext('myMap');
-    },
-    getCenterLocation:function(){
-        this.mapCtx.getCenterLocation({
-        success:function(res){
-            console.log(res.longitude);
-            console.log(res.latitude);
-        }
-      });
-    },
-    moveToLocation:function(){
-      this.mapCtx.moveToLocation();
-    },
-    translateMarker:function(){
-        this.mapCtx.translateMarker({
-        markerId:1,
-        autoRotate:true,
-        duration:1000,
-        destination:{
-            latitude:23.10229,
-            longitude:113.3345211
-        },
-        animationEnd:function(){
-            console.log('animation end');
-        }
-    });
-    },
-    includePoints:function(){
-        this.mapCtx.includePoints({
+    onLoad:function(){
+        var that = this;
+        const ctx = wx.createMapContext('myMap');
+        ctx.includePoints({
+        points:this.data.markers,
         padding:[
-            10
+            '10',
+            '10',
+            '30',
+            '10'
         ],
-        points:[
-            {
-                latitude:23.10229,
-                longitude:113.3345211
-            },
-            {
-                latitude:23.00229,
-                longitude:113.3345211
-            }
-        ]
+        success:function(e){
+            console.log(e,'232323');
+        },
+        fail:function(e){
+            console.log('da');
+        }
     });
     }
 });
-

@@ -6,7 +6,13 @@ import wxs_behavior from '../../behavior/wxs_behavior'
 Component({
   mixins: [onekit_behavior, wxs_behavior],
   data: {
-    groundOverlays: []
+    groundOverlays: [],
+    'include-padding': {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    }
   },
   props: {
     longitude(longitude) {
@@ -111,6 +117,9 @@ Component({
       set.replase(/showMapText/g, 'enableSatellite')
       this.mapCtx.updateComponents({set})
     }
+  },
+  onInit() {
+    console.log('onInit', this)
   },
   didMount() {
     const that = this

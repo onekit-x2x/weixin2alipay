@@ -249,32 +249,6 @@ module.exports = {
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
     },
-    moveToLocation(wx_object) {
-      console.log(wx_object)
-      if (!wx_object) {
-        return
-      }
-      const wx_longitude = wx_object.longitude
-      const wx_latitude = wx_object.latitude
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
-
-      const showLocation = this.data.showLocation
-      if (showLocation) {
-        PROMISE((SUCCESS) => {
-          this.setData({
-            longitude: wx_longitude,
-            latitude: wx_latitude
-          })
-          const wx_res = {
-            errMsg: 'moveToLocation:ok'
-          }
-          SUCCESS(wx_res)
-        }, wx_success, wx_fail, wx_complete)
-      }
-    },
     on(wx_object) {
       if (!wx_object) {
         return
@@ -295,7 +269,6 @@ module.exports = {
       }, wx_success, wx_fail, wx_complete)
     },
     openMapApp(wx_object) {
-      // 未完成
       if (!wx_object) {
         return
       }
@@ -312,8 +285,34 @@ module.exports = {
           FAIL({errMsg: 'openMapApp:error'})
           return
         }
+        my.openLocation({
+          latitude: wx_longitude,
+          longitude: wx_latitude,
+          name: wx_destination
+        })
         const wx_res = {
           errMsg: 'openMapApp:ok'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    removeGroundOverlay(wx_object) {
+      if (!wx_object) {
+        return
+      }
+      const wx_id = wx_object.id
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_id) {
+          FAIL({errMsg: 'removeGroundOverlay:error'})
+          return
+        }
+        const wx_res = {
+          errMsg: 'removeGroundOverlay:ok'
         }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)

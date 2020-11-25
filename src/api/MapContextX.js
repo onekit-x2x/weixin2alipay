@@ -224,9 +224,7 @@ module.exports = {
       const wx_path = wx_object.path
       const wx_autoRotate = wx_object.autoRotate
       const wx_duration = wx_object.duration
-      // 未完成
       const wx_success = wx_object.success
-      //
       const wx_fail = wx_object.fail
       const wx_complete = wx_object.complete
       wx_object = null
@@ -236,17 +234,25 @@ module.exports = {
           FAIL({errMsg: 'moveAlong:error'})
           return
         }
-        const markers = this.data.markers.id
-        markers.push(...wx_markerId)
-        this.setData({
-          markers
-        })
-        this.trigger_markerClusterCreate(wx_path, wx_autoRotate)
-
-        const wx_res = {
-          errMsg: 'moveToLocation:ok'
+        const my_object = {
+          polylineId: wx_markerId,
+          points: wx_path,
+          duration: wx_duration,
+          success() {
+            const wx_res = {
+              errMsg: 'moveAlong:ok'
+            }
+            SUCCESS(wx_res)
+          },
+          fail() {
+            const wx_res = {
+              errMsg: 'moveToLocation:ok'
+            }
+            FAIL(wx_res)
+          }
         }
-        SUCCESS(wx_res)
+        my.smoothMovePolyline(my_object)
+        this.trigger_markerClusterCreate(wx_autoRotate)
       }, wx_success, wx_fail, wx_complete)
     },
     on(wx_object) {
@@ -311,10 +317,75 @@ module.exports = {
           FAIL({errMsg: 'removeGroundOverlay:error'})
           return
         }
+        this.trigger_removeGroundOverlay(wx_id)
         const wx_res = {
           errMsg: 'removeGroundOverlay:ok'
         }
         SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    removeMarkers(wx_object) {
+      if (!wx_object) {
+        return
+      }
+      const wx_longitude = wx_object.longitude
+      const wx_latitude = wx_object.latitude
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      PROMISE((SUCCESS, FAIL) => {
+        const my_object = {
+          remove: {
+            longitude: wx_longitude,
+            latitude: wx_latitude,
+          },
+          success() {
+            const wx_res = {
+              errMsg: 'removeMarkers:ok'
+            }
+            SUCCESS(wx_res)
+          },
+          fail() {
+            const wx_res = {
+              errMsg: 'removeMarkers:error'
+            }
+            FAIL(wx_res)
+          }
+        }
+        my.changeMarkers(my_object)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    setCenterOffset(wx_object) {
+      if (!wx_object) {
+        return
+      }
+      const wx_longitude = wx_object.longitude
+      const wx_latitude = wx_object.latitude
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      PROMISE((SUCCESS, FAIL) => {
+        const my_object = {
+          longitude: wx_longitude,
+          latitude: wx_latitude,
+          success(my_res) {
+            const wx_res = {
+              errMsg: my_res.errMsg
+            }
+            SUCCESS(wx_res)
+          },
+          fail(my_res) {
+            const wx_res = {
+              errMsg: my_res.errMsg
+            }
+            FAIL(wx_res)
+          }
+        }
+        my.moveToLocation(my_object)
       }, wx_success, wx_fail, wx_complete)
     },
 
@@ -329,6 +400,11 @@ module.exports = {
         this.on.moveAlong({
           markerId, path, autoRotate, duration
         })
+      }
+    },
+    trigger_removeGroundOverlay(id) {
+      if (this.on.removeGroundOverlay) {
+        this.on.removeGroundOverlay({id})
       }
     },
     _getClusters() {
@@ -452,6 +528,22 @@ module.exports = {
         }
         return true
       })
+    },
+    _getremoveGroundOverlay() {
+      const id
+      function removeClass(ele, cName) {
+        const arr = ele.className.split(' ')
+        const arr1 = cName.split(' ')
+        for (let i = 0; i < arr1.length; i++) {
+          for (let j = 0; j < arr.length; j++) {
+            if (arr1[i] === arr[j]) {
+              arr.splice(j, 1)
+            }
+          }
+        }
+        ele.className = arr.join(' ')
+      }
+      return removeClass(id)
     }
   }
 }

@@ -86,68 +86,14 @@ export default class MapContext {
     map.removeGroundOverlay(wx_object)
   }
 
-  static removeMarkers() {
-    // if (!wx_object) {
-    //   return
-    // }
-    // const wx_longitude = wx_object.longitude
-    // const wx_latitude = wx_object.latitude
-    // const wx_success = wx_object.success
-    // const wx_fail = wx_object.fail
-    // const wx_complete = wx_object.complete
-    // wx_object = null
-
-    // PROMISE((SUCCESS, FAIL) => {
-    //   const my_object = {
-    //     longitude: wx_longitude,
-    //     latitude: wx_latitude,
-    //     success(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       SUCCESS(wx_res)
-    //     },
-    //     fail(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       FAIL(wx_res)
-    //     }
-    //   }
-    //   my.moveToLocation(my_object)
-    // }, wx_success, wx_fail, wx_complete)
+  removeMarkers(wx_object) {
+    const map = getApp().onekit_nodes[`_${this.id}`]
+    map.removeMarkers(wx_object)
   }
 
-  static setCenterOffset() {
-    // if (!wx_object) {
-    //   return
-    // }
-    // const wx_longitude = wx_object.longitude
-    // const wx_latitude = wx_object.latitude
-    // const wx_success = wx_object.success
-    // const wx_fail = wx_object.fail
-    // const wx_complete = wx_object.complete
-    // wx_object = null
-
-    // PROMISE((SUCCESS, FAIL) => {
-    //   const my_object = {
-    //     longitude: wx_longitude,
-    //     latitude: wx_latitude,
-    //     success(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       SUCCESS(wx_res)
-    //     },
-    //     fail(my_res) {
-    //       const wx_res = {
-    //         errMsg: my_res.errMsg
-    //       }
-    //       FAIL(wx_res)
-    //     }
-    //   }
-    //   my.moveToLocation(my_object)
-    // }, wx_success, wx_fail, wx_complete)
+  setCenterOffset(wx_object) {
+    const map = getApp().onekit_nodes[`_${this.id}`]
+    map.setCenterOffset(wx_object)
   }
 
   static toScreenLocation() {

@@ -357,35 +357,61 @@ module.exports = {
         my.changeMarkers(my_object)
       }, wx_success, wx_fail, wx_complete)
     },
-    setCenterOffset(wx_object) {
+    setCenterOffset() {
+      // 未完成
+      // if (!wx_object) {
+      //   return
+      // }
+      // const wx_longitude = wx_object.longitude
+      // const wx_latitude = wx_object.latitude
+      // const wx_success = wx_object.success
+      // const wx_fail = wx_object.fail
+      // const wx_complete = wx_object.complete
+      // wx_object = null
+
+      // PROMISE((SUCCESS, FAIL) => {
+      //   const my_object = {
+      //     longitude: wx_longitude,
+      //     latitude: wx_latitude,
+      //     success(my_res) {
+      //       const wx_res = {
+      //         errMsg: my_res.errMsg
+      //       }
+      //       SUCCESS(wx_res)
+      //     },
+      //     fail(my_res) {
+      //       const wx_res = {
+      //         errMsg: my_res.errMsg
+      //       }
+      //       FAIL(wx_res)
+      //     }
+      //   }
+      //   my.moveToLocation(my_object)
+      // }, wx_success, wx_fail, wx_complete)
+    },
+    toScreenLocation(wx_object) {
       if (!wx_object) {
         return
       }
-      const wx_longitude = wx_object.longitude
-      const wx_latitude = wx_object.latitude
       const wx_success = wx_object.success
       const wx_fail = wx_object.fail
       const wx_complete = wx_object.complete
       wx_object = null
 
-      PROMISE((SUCCESS, FAIL) => {
-        const my_object = {
-          longitude: wx_longitude,
-          latitude: wx_latitude,
-          success(my_res) {
-            const wx_res = {
-              errMsg: my_res.errMsg
-            }
-            SUCCESS(wx_res)
-          },
-          fail(my_res) {
-            const wx_res = {
-              errMsg: my_res.errMsg
-            }
-            FAIL(wx_res)
-          }
+      PROMISE((SUCCESS) => {
+        let mapWidth
+        let mapHeight
+        let lngNE
+        let latNE
+        let lngSW
+        let latSW
+        const lngLat2px = new LngLat2px(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW)
+        const wx_res = {
+          errMsg: 'toScreenLocation:ok',
+          x: lngLat2px.lngSW,
+          y: lngLat2px.latNE
         }
-        my.moveToLocation(my_object)
+        SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
     },
 

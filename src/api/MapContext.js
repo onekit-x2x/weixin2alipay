@@ -13,10 +13,10 @@ export default class MapContext {
     this.id = id
   }
 
-  addGroundOverlay(data) {
+  addGroundOverlay(wx_object) {
     // 支付宝组件ground-overlays
     const map = getApp().onekit_nodes[`_${this.id}`]
-    map.addGroundOverlay(data)
+    map.addGroundOverlay(wx_object)
   }
 
   addMarkers(wx_object) {

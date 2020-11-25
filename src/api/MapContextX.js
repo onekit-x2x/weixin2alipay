@@ -40,10 +40,10 @@ module.exports = {
         } else {
           alpha = 0
         }
+        wx_visible = alpha
         // if (wx_opacity) {
         //   filter:alpha(opacity:30)
         // }
-        wx_visible = alpha
         this.setData({
           markerLevel = wx_id,
           'ground-overlays': [{
@@ -328,18 +328,21 @@ module.exports = {
       if (!wx_object) {
         return
       }
-      const wx_longitude = wx_object.longitude
-      const wx_latitude = wx_object.latitude
+      const wx_markerIds = wx_object.markerIds
       const wx_success = wx_object.success
       const wx_fail = wx_object.fail
       const wx_complete = wx_object.complete
       wx_object = null
 
       PROMISE((SUCCESS, FAIL) => {
+        if (!wx_markerIds) {
+          FAIL({errMsg: 'removeMarkers:error'})
+          return
+        }
         const my_object = {
           remove: {
-            longitude: wx_longitude,
-            latitude: wx_latitude,
+            longitude: wx_markerIds.longitude,
+            latitude: wx_markerIds.latitude,
           },
           success() {
             const wx_res = {
@@ -357,37 +360,27 @@ module.exports = {
         my.changeMarkers(my_object)
       }, wx_success, wx_fail, wx_complete)
     },
-    setCenterOffset() {
+    setCenterOffset(wx_object) {
       // 未完成
-      // if (!wx_object) {
-      //   return
-      // }
-      // const wx_longitude = wx_object.longitude
-      // const wx_latitude = wx_object.latitude
-      // const wx_success = wx_object.success
-      // const wx_fail = wx_object.fail
-      // const wx_complete = wx_object.complete
-      // wx_object = null
+      if (!wx_object) {
+        return
+      }
+      const wx_offset = wx_object.offset || [0.5, 0.5]
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
 
-      // PROMISE((SUCCESS, FAIL) => {
-      //   const my_object = {
-      //     longitude: wx_longitude,
-      //     latitude: wx_latitude,
-      //     success(my_res) {
-      //       const wx_res = {
-      //         errMsg: my_res.errMsg
-      //       }
-      //       SUCCESS(wx_res)
-      //     },
-      //     fail(my_res) {
-      //       const wx_res = {
-      //         errMsg: my_res.errMsg
-      //       }
-      //       FAIL(wx_res)
-      //     }
-      //   }
-      //   my.moveToLocation(my_object)
-      // }, wx_success, wx_fail, wx_complete)
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_offset) {
+          FAIL({errMsg: 'setCenterOffset:error'})
+          return
+        }
+        const wx_res = {
+          errMsg: 'setCenterOffset:ok'
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
     },
     toScreenLocation(wx_object) {
       if (!wx_object) {
@@ -410,6 +403,54 @@ module.exports = {
           errMsg: 'toScreenLocation:ok',
           x: lngLat2px.lngSW,
           y: lngLat2px.latNE
+        }
+        SUCCESS(wx_res)
+      }, wx_success, wx_fail, wx_complete)
+    },
+    updateGroundOverlay(wx_object) {
+      console.log(wx_object)
+      if (!wx_object) {
+        return
+      }
+      const wx_id = wx_object.id
+      const wx_src = wx_object.src
+      const wx_bounds = wx_object.bounds
+      let wx_visible = wx_object.visible
+      const wx_zIndex = wx_object.zIndex
+      // 未完成
+      // const wx_opacity = wx_object.opacity
+      //
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
+      wx_object = null
+
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_id || !wx_src || !wx_bounds) {
+          FAIL({errMsg: 'updateGroundOverlay:err'})
+          return
+        }
+        const markerLevel = this.data.markers.markerLevel
+        let alpha = this.data.groundOverlays.alpha
+        if (wx_visible) {
+          alpha = 1
+        } else {
+          alpha = 0
+        }
+        wx_visible = alpha
+        // if (wx_opacity) {
+        //   filter:alpha(opacity:30)
+        // }
+        this.setData({
+          markerLevel = wx_id,
+          'ground-overlays': [{
+            'include-points': wx_bounds,
+            image: wx_src,
+            zIndex: wx_zIndex
+          }]
+        })
+        const wx_res = {
+          errMsg: 'updateGroundOverlay:ok'
         }
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
@@ -570,6 +611,35 @@ module.exports = {
         ele.className = arr.join(' ')
       }
       return removeClass(id)
-    }
+    },
+    /* _getsetCenterOffset() {
+      let mapWidth
+      let mapHeight
+      const offset = new Array(2)
+
+      function CenterArea(x, y) {
+        let circleCentrerX
+        let circleCentrerY
+        const r
+        let paddingLeft
+        let paddingRight
+        x = offset[0]
+        y = offset[1]
+        if ((x > 0.25 * mapWidth && x < 0.75 * mapWidth) && (y > 0.25 * mapHeight && y < 0.75 * mapHeight) && (r > 0 && r < 0.5 * mapHeight)) {
+          if ((x === 0.5) && (y === 0.5)) {
+            circleCentrerX = x
+            circleCentrerY = y
+
+            // const circle = document.createElement('div')
+            // 记得remove
+
+            // circle.setAttrbute('style', `width:${r * 2};height:${r * 2};borderRadius: 50%;paddingLeft:${paddingLeft};paddingRight:${paddingRight};opacity:0`)
+
+            paddingLeft = circleCentrerX - r
+            paddingRight = circleCentrerY - r
+          }
+        }
+      }
+    } */
   }
 }

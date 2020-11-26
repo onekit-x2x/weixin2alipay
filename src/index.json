@@ -8,7 +8,6 @@
     "_/selector-picker":"./ui/_/selector-picker/selector-picker",
     "_/time-picker":"./ui/_/time-picker/time-picker",
     "ad": "./ui/ad/ad",
-    "audio":"./ui/audio/audio",
     "button": "./ui/button/button",
     "camera":"./ui/camera/camera",
     "canvas":"./ui/canvas/canvas",

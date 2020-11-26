@@ -1,23 +1,17 @@
-<view
+<navigator
 id="{{onekitId}}"
 class="onekit-navigator {{onekitClass}}"
 style="{{onekitStyle}}"
-target="{{target}}"
-url="{{url}}"
+
 open-type="{{openType}}"
-delta="{{delta}}"
-app-id="appId"
-path="path"
-extra-data="{{extraData}}"
-version="{{version}}"
 hover-class="{{hoverClass}}"
-hover-stop-propagation="{{hoverStopPropagation}}"
 hover-start-time="{{hoverStartTime}}"
 hover-stay-time="{{hoverStayTime}}"
-onTap="view_tap"
-onsuccess="navigator_success"
-onfail="navigator_fail"
-oncomplete="navigator_complete"
+url="{{url}}"
+
+onTap="navigator_tap"
 >
 <slot></slot>
-</view>
+</navigator>
+
+<view a:if="hoverStopPropagation==={{hoverStopPropagation}}" onTap="view_tap"><view>

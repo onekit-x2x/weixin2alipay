@@ -27,7 +27,7 @@ Component({
   },
   didUnmount() {},
   methods: {
-    view_tap() {
+    navigator_tap(e) {
       const target = this.props.target
       const openType = this.props.openType
       // let version
@@ -47,19 +47,63 @@ Component({
         case 'self':
           switch (openType) {
             case 'navigate':
-              my.navigateTo({url: this.props.url})
+              my.navigateTo({
+                url: this.props.url,
+                success: () => {
+                  this.trigger_Success()
+                },
+                fail: () => {
+                  this.trigger_Fail()
+                },
+                complete: () => {
+                  this.trigger_Complete()
+                }
+              })
               break
             case 'redirectTo':
-              my.redirectTo({url: this.props.url})
+              my.redirectTo({
+                url: this.props.url,
+                success: () => {
+                  this.trigger_Success()
+                },
+                fail: () => {
+                  this.trigger_Fail()
+                },
+                complete: () => {
+                  this.trigger_Complete()
+                }
+              })
               break
             case 'switchTab':
-              my.switchTab({url: this.props.url})
+              my.switchTab({
+                url: this.props.url,
+                success: () => {
+                  this.trigger_Success()
+                },
+                fail: () => {
+                  this.trigger_Fail()
+                },
+                complete: () => {
+                  this.trigger_Complete()
+                }
+              })
               break
             case 'reLaunch':
-              my.reLaunch({url: this.props.url})
+              my.reLaunch({
+                url: this.props.url,
+                success: () => {
+                  this.trigger_Success()
+                },
+                fail: () => {
+                  this.trigger_Fail()
+                },
+                complete: () => {
+                  this.trigger_Complete()
+                }
+              })
               break
             case 'navigateBack':
-              my.navigateBack({url: this.props.url})
+              my.navigateBack({delta: this.props.delta})
               break
             case 'exit':
               my.alert({
@@ -74,26 +118,46 @@ Component({
           my.navigateToMiniProgram({
             appId: this.props.appId,
             path: this.props.path,
-            extraData: this.props.extraData
+            extraData: this.props.extraData,
+            // envVersion:this.props.version
+            success: () => {
+              this.trigger_Success()
+            },
+            fail: () => {
+              this.trigger_Fail()
+            },
+            complete: () => {
+              this.trigger_Complete()
+            }
           })
           break
         default:
           break
       }
-    },
-    navigator_success(e) {
-      if (this.props.onsuccess) {
-        this.props.onsuccess(e)
+      if (this.props.onTap) {
+        this.props.onTap(e)
       }
     },
-    navigator_fail(e) {
-      if (this.props.onfail) {
-        this.props.onfail(e)
+    view_tap(e) {
+      if (!this.props.hoverStopPropagation) {
+        if (this.props.onTap) {
+          this.props.onTap(e)
+        }
       }
     },
-    navigator_complete(e) {
-      if (this.props.oncomplete) {
-        this.props.oncomplete(e)
+    trigger_Success(e) {
+      if (this.props.onSuccess) {
+        this.props.onSuccess(e)
+      }
+    },
+    trigger_Fail(e) {
+      if (this.props.onFail) {
+        this.props.onFail(e)
+      }
+    },
+    trigger_Complete(e) {
+      if (this.props.onComplete) {
+        this.props.onComplete(e)
       }
     },
   },

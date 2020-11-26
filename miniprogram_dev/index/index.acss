@@ -1,8 +1,8 @@
-.page-section-gap{
-  box-sizing: border-box;
-  padding: 0 30rpx;
+/** 修改默认的navigator点击态 **/
+.navigator-hover {
+    color:blue;
 }
-
-.page-body-button {
-  margin-bottom: 30rpx;
+/** 自定义其他点击态样式类 **/
+.other-navigator-hover {
+    color:red;
 }

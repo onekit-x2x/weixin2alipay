@@ -176,15 +176,15 @@
 </onekit-view> -->
 
 <!--<navigator> -->
-<!-- <onekit-view onekit-class="btn-area">
+<onekit-view onekit-class="btn-area">
   <onekit-navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</onekit-navigator>
   <onekit-navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</onekit-navigator>
   
-  <onekit-navigator url="/my/my?title=my" open-type="switchTab" hover-class="other-navigator-hover">跳转到Tab</onekit-navigator>
+  <!-- <onekit-navigator url="/my/my?title=my" open-type="switchTab" hover-class="other-navigator-hover">跳转到Tab</onekit-navigator>
   <onekit-navigator target="miniProgram" open-type="exit">exit</onekit-navigator>
   <onekit-navigator url="/navigate/navigate?title=navigate" open-type="reLaunch" hover-class="navigator-hover">reLaunch</onekit-navigator>
-  <onekit-navigator target="miniProgram" open-type="navigate" app-id="" path extra-data version="release">打开绑定的小程序</onekit-navigator>
-</onekit-view> -->
+  <onekit-navigator target="miniProgram" open-type="navigate" app-id="" path extra-data version="release">打开绑定的小程序</onekit-navigator> -->
+</onekit-view>
 
 <!-- <scroll-view> -->
 <!-- <onekit-view onekit-class="container">
@@ -484,4 +484,4 @@
 <!-- <onekit-map onekit-id="myMap" onekit-style="width: 100%; height: 300px;" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></onekit-map> -->
 
 <!-- <aria-component> -->
-<view aria-role="button"  aria-label="提交表单">提交</view>
+<!-- <view aria-role="button"  aria-label="提交表单">提交</view> -->

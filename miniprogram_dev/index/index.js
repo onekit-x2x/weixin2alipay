@@ -3,9 +3,16 @@ import { wx } from '../weixin2alipay/index';
 
 global = {};
 OnekitPage({
-    onLoad:function(options){
+    data:{
+        nbFrontColor:'#000000',
+        nbBackgroundColor:'#ffffff'
+    },
+    onLoad:function(){
         this.setData({
-        title:options.title
+        nbTitle:'新标题',
+        nbLoading:true,
+        nbFrontColor:'#ffffff',
+        nbBackgroundColor:'#000000'
     });
     }
 });

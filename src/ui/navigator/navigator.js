@@ -105,31 +105,40 @@ Component({
             case 'navigateBack':
               my.navigateBack({delta: this.props.delta})
               break
-            case 'exit':
-              my.alert({
-                content: '请点击右上角⨂按钮'
-              })
-              break
             default:
               break
           }
           break
         case 'miniProgram':
-          my.navigateToMiniProgram({
-            appId: this.props.appId,
-            path: this.props.path,
-            extraData: this.props.extraData,
-            // envVersion:this.props.version
-            success: () => {
-              this.trigger_Success()
-            },
-            fail: () => {
-              this.trigger_Fail()
-            },
-            complete: () => {
-              this.trigger_Complete()
-            }
-          })
+          switch (openType) {
+            case ('app-id' && 'path' && 'extraData'):
+            // case ('app-id' && 'path' && 'extraData' && 'version'):
+            // 完成不了
+              my.navigateToMiniProgram({
+                appId: this.props.appId,
+                path: this.props.path,
+                extraData: this.props.extraData,
+                // envVersion:this.props.version
+                success: () => {
+                  this.trigger_Success()
+                },
+                fail: () => {
+                  this.trigger_Fail()
+                },
+                complete: () => {
+                  this.trigger_Complete()
+                }
+              })
+              break
+            // exit支付宝小程序自带
+            // case 'exit':
+            //   my.alert({
+            //     content: '请点击右上角⨂按钮'
+            //   })
+            //   break
+            default:
+              break
+          }
           break
         default:
           break

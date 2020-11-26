@@ -175,17 +175,6 @@
   </onekit-view>
 </onekit-view> -->
 
-<!--<navigator> -->
-<onekit-view onekit-class="btn-area">
-  <onekit-navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</onekit-navigator>
-  <onekit-navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</onekit-navigator>
-  
-  <!-- <onekit-navigator url="/my/my?title=my" open-type="switchTab" hover-class="other-navigator-hover">跳转到Tab</onekit-navigator>
-  <onekit-navigator target="miniProgram" open-type="exit">exit</onekit-navigator>
-  <onekit-navigator url="/navigate/navigate?title=navigate" open-type="reLaunch" hover-class="navigator-hover">reLaunch</onekit-navigator>
-  <onekit-navigator target="miniProgram" open-type="navigate" app-id="" path extra-data version="release">打开绑定的小程序</onekit-navigator> -->
-</onekit-view>
-
 <!-- <scroll-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
@@ -485,3 +474,20 @@
 
 <!-- <aria-component> -->
 <!-- <view aria-role="button"  aria-label="提交表单">提交</view> -->
+
+<!--<navigator> -->
+<!-- <onekit-view onekit-class="btn-area">
+  <onekit-navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</onekit-navigator>
+  <onekit-navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</onekit-navigator>
+  
+  <onekit-navigator url="/my/my?title=my" open-type="switchTab" hover-class="other-navigator-hover">切换 Tab</onekit-navigator>
+  <onekit-navigator target="miniProgram" open-type="exit">exit</onekit-navigator>
+  <onekit-navigator url="/navigate/navigate?title=navigate" open-type="reLaunch" hover-class="navigator-hover">reLaunch</onekit-navigator> -->
+  <!-- 跳转小程序未实现 -->
+  <!-- <onekit-navigator target="miniProgram" open-type="navigate" app-id="2021002102609481" path="pages/index/index" extra-data version="release">打开绑定的小程序</onekit-navigator> -->
+<!-- </onekit-view> -->
+
+<!-- <page-meta> -->
+<onekit-page-meta>
+  <onekit-navigation-bar title="{{nbTitle}}" loading="{{nbLoading}}" front-color="{{nbFrontColor}}" background-color="{{nbBackgroundColor}}" color-animation-duration="2000" color-animation-timing-func="easeIn"></onekit-navigation-bar>
+</onekit-page-meta>

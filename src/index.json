@@ -8,7 +8,6 @@
     "_/selector-picker":"./ui/_/selector-picker/selector-picker",
     "_/time-picker":"./ui/_/time-picker/time-picker",
     "ad": "./ui/ad/ad",
-    "aria-component":"./ui/aria-component/aria-component",
     "audio":"./ui/audio/audio",
     "button": "./ui/button/button",
     "camera":"./ui/camera/camera",

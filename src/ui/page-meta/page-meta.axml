@@ -3,5 +3,5 @@ id="{{onekitId}}"
 class="onekit-page-meta {{onekitClass}}"
 style="{{onekitStyle}}"
 >
-<slot/>
+New Page
 </view>

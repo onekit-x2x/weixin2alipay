@@ -11,8 +11,10 @@ Component({
     loading: false,
     frontColor: null, // 支付宝自动改变黑白颜色
     backgroundColor: null,
+    // 动画和时长暂时实现不了
     colorAnimationduration: null,
     colorAnimationTimingFunc: null,
+
     // 'color-animation-duration': function (colorAnimationduration) {
     //   this.animation({colorAnimationduration})
     // },
@@ -39,6 +41,7 @@ Component({
       my.showNavigationBarLoading()
     }
 
+    // 动画和时长暂时实现不了
     // this.animation = my.createAnimation()
     if (colorAnimationduration && colorAnimationTimingFunc) {
       my.createAnimation({

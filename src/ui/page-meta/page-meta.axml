@@ -1,5 +1,7 @@
 <view
 id="{{onekitId}}"
+class="onekit-page-meta {{onekitClass}}"
+style="{{onekitStyle}}"
 >
-  New Component
+<slot/>
 </view>

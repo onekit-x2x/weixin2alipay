@@ -5,11 +5,40 @@ import weixin_behavior from '../../behavior/weixin_behavior'
 
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
-  data: {},
+  data: {
+    backgroundTextStyle: null,
+    backgroundColor: null,
+    backgroundColorTop: null,
+    backgroundColorBottom: null,
+    rootBackgroundColor: null,
+    scrollTop: '',
+    scrollDuration: 300,
+    pageStyle: '',
+    bodyFontSize: '',
+    rootFontSize: '',
+    pageOrientation: '',
+  },
   props: {
   },
-  didMount() {},
+  didMount() {
+  },
   didUpdate() {},
   didUnmount() {},
-  methods: {},
+  methods: {
+    trigger_resize(e) {
+      if (this.props.onResize) {
+        this.props.onResize(e)
+      }
+    },
+    trigger_scroll(e) {
+      if (this.props.onScroll) {
+        this.props.onScroll(e)
+      }
+    },
+    trigger_scrolldone(e) {
+      if (this.props.onScrolldone) {
+        this.props.onScrolldone(e)
+      }
+    }
+  },
 })

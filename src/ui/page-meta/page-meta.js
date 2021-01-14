@@ -18,24 +18,22 @@ Component({
     rootFontSize: '',
     pageOrientation: '',
   },
-  props: {
-  },
-  didMount() {
-  },
+  props: {},
+  didMount() {},
   didUpdate() {},
   didUnmount() {},
   methods: {
-    trigger_resize(e) {
+    _trigger_resize(e) {
       if (this.props.onResize) {
         this.props.onResize(e)
       }
     },
-    trigger_scroll(e) {
+    _trigger_scroll(e) {
       if (this.props.onScroll) {
         this.props.onScroll(e)
       }
     },
-    trigger_scrolldone(e) {
+    _trigger_scrolldone(e) {
       if (this.props.onScrolldone) {
         this.props.onScrolldone(e)
       }

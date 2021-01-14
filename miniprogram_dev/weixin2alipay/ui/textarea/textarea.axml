@@ -1,0 +1,21 @@
+<textarea
+id="{{onekitId}}"
+class="onekit-textarea {{onekitClass}}"
+style="{{onekitStyle}}"
+
+value="{{value}}"
+placeholder="{{placeholder}}"
+placeholder-style="{{placeholderStyle}}"
+placeholder-class="{{placeholderClass}}"
+disabled="{{disabled}}"
+maxlength="{{maxlength}}"
+focus="{{focus || autoFocus}}"
+auto-height="{{autoHeight}}"
+
+onInput="textarea_Input"
+onFocus="textarea_Focus"
+onBlur="textarea_Blur"
+onConfirm="textarea_Confirm"
+>
+<slot></slot>
+</textarea>

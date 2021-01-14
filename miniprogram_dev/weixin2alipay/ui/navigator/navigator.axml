@@ -1,0 +1,17 @@
+<navigator
+id="{{onekitId}}"
+class="onekit-navigator {{onekitClass}}"
+style="{{onekitStyle}}"
+
+open-type="{{openType}}"
+hover-class="{{hoverClass}}"
+hover-start-time="{{hoverStartTime}}"
+hover-stay-time="{{hoverStayTime}}"
+url="{{url}}"
+
+onTap="navigator_tap"
+>
+<slot></slot>
+</navigator>
+
+<view a:if="hoverStopPropagation==={{hoverStopPropagation}}" onTap="view_tap"><view>

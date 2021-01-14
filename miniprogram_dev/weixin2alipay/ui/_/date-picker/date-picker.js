@@ -99,9 +99,6 @@ var YEAR_START = 1900;
 var YEAR_END = 2100;
 Component({
   props: {
-    onekitStyle: '',
-    onekitClass: '',
-    onekitId: '',
     headerText: '',
     disabled: false,
     range: [],

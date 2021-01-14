@@ -9,17 +9,18 @@ Component({
   props: {
     src: ''
   },
-  didMount() {},
-  didUpdate() {},
-  didUnmount() {},
   methods: {
-    coverImage_tap() {
-      if (this.props.onload) {
-        this.props.onload()
+    // 做不了
+    _trigger_load(e) {
+      if (this.props.onLoad) {
+        this.props.onLoad(e)
       }
-      if (this.props.onerror) {
-        this.props.onerror()
+    },
+    // 做不了
+    _trigger_error(e) {
+      if (this.props.onError) {
+        this.props.onError(e)
       }
-    }
+    },
   },
 })

@@ -10,8 +10,7 @@ Component({
   props: {
     src: '',
   },
-  onInit() {
-  },
+  onInit() {},
   didMount() {
 
   },
@@ -25,13 +24,13 @@ Component({
     },
 
     //
-    trigger_Load(e) {
+    _trigger_Load(e) {
       if (this.props.onLoad) {
         this.props.onLoad(e)
       }
     },
     /*
-    trigger_Error(e) {
+    _trigger_Error(e) {
       if (this.props.onError) {
         this.props.onError(e)
       }

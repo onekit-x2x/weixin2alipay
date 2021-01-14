@@ -6,14 +6,9 @@ import weixin_behavior from '../../behavior/weixin_behavior'
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   props: {
-    hoverClass: '',
+    hoverClass: 'none',
     hoverStopPropagation: false,
     hoverStartTime: 50,
     hoverStayTime: 400,
-  },
-  didMount() { },
-  didUpdate() { },
-  didUnmount() { },
-  methods: {
   },
 })

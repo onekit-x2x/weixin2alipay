@@ -1,0 +1,33 @@
+<button onekit-v="v2"
+  class="onekit-button{{onekitVersion}}
+    onekit-button_size-{{size}}{{onekitVersion}}
+    onekit-button_type-{{type}}{{onekitVersion}}
+    onekit-button_{{plain?'plain':''}}{{onekitVersion}}
+    onekit-button_{{disabled?'disabled':''}}{{onekitVersion}}
+    onekit-button_{{loading?'loading':''}}{{onekitVersion}}
+      {{attributeCSS}}  {{onekitClass}}"
+  style="white-space:normal;height:auto;{{onekitStyle}}"
+  id="{{onekitId}}"
+  
+  disabled="{{disabled}}"
+  form-type="{{formType}}"
+  open-type="{{openType}}"
+  hover-class="{{hoverClass}}"
+  hover-stop-propagation="{{hoverStopPropagation}}"
+  hover-start-time="{{hoverStartTime}}"
+  hover-stay-time="{{hoverStayTime}}"
+  scope="{{scope}}"
+
+  onGetAuthorize="button_onGetAuthorize"
+  onTap="button_onTap"
+  >
+ <slot/>
+</button> 
+<!--
+<cover-view  onTap="contactBG_tap" > 
+  <view   onTap="contactBG_tap" hidden="{{hideContact}}" style="padding-top:200rpx;text-align: center; width: 750rpx;height:100%;position:absolute;left:0;top:0;font-size: 20px;background-color: rgba(0, 0, 0, 0.5)"
+<contact-button size="400rpx" tnt-inst-id="FUCPINMW" scene="SCE00038444"/>
+</view>
+</cover-view>
+
+-->

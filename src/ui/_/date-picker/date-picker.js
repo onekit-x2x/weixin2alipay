@@ -4,9 +4,6 @@ const YEAR_START = 1900
 const YEAR_END = 2100
 Component({
   props: {
-    onekitStyle: '',
-    onekitClass: '',
-    onekitId: '',
     headerText: '',
     disabled: false,
     range: [],

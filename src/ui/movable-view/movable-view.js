@@ -22,15 +22,6 @@ Component({
     scaleValue: 1,
     animation: true
   },
-  didMount() { },
-  didUpdate() {
-    const data = {}
-    for (const p of Object.keys(this.props)) {
-      data[p] = this.props[p]
-    }
-    this.setData(data)
-  },
-  didUnmount() { },
   methods: {
     movable_change(e) {
       if (this.props.onChange) {
@@ -46,35 +37,26 @@ Component({
       const dx = this.props.x
       const dy = this.props.y
       if (dy < 2 && dx > dy) {
-        console.log('x方向', dx, dy)
-        // this.trigger_htouchmove({e, dx, dy})
-        this.trigger_htouchmove(e)
+        this._trigger_htouchmove(e)
       } else if (dx < 2 && dy > dx) {
-        console.log('y方向', dx, dy)
-        // this.trigger_vtouchmove({e, dx, dy})
-        this.trigger_vtouchmove(e)
+        this._trigger_vtouchmove(e)
       } else {
-        console.log('666666', dx, dy)
-        // this.trigger_htouchmove({e, dx, dy})
-        this.trigger_htouchmove(e)
-        // this.trigger_vtouchmove({e, dx, dy})
-        this.trigger_vtouchmove(e)
+        this._trigger_htouchmove(e)
+        this._trigger_vtouchmove(e)
       }
       if (this.props.onTouchmove) {
         this.props.onTouchmove(e)
       }
     },
 
-    trigger_htouchmove(e) {
-      console.log('xxxxxx')
+    _trigger_htouchmove(e) {
       if (this.props.onHtouchmove) {
         this.props.onHtouchmove(e)
       } else if (this.props.catchHtouchmove) {
         this.props.catchHtouchmove(e)
       }
     },
-    trigger_vtouchmove(e) {
-      console.log('yyyyyy')
+    _trigger_vtouchmove(e) {
       if (this.props.onVtouchmove) {
         this.props.onVtouchmove(e)
       } else if (this.props.catchVtouchmove) {

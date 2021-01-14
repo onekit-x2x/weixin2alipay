@@ -34,9 +34,16 @@ Component({
     let openType
     let scope
     switch (this.props.openType) {
-      case 'getPhoneNumber': openType = 'getAuthorize'; scope = 'phoneNumber'; break
-      case 'getUserInfo': openType = 'getAuthorize'; scope = 'userInfo'; break
-      default: openType = this.props.openType
+      case 'getPhoneNumber':
+        openType = 'getAuthorize'
+        scope = 'phoneNumber'
+        break
+      case 'getUserInfo':
+        openType = 'getAuthorize'
+        scope = 'userInfo'
+        break
+      default:
+        openType = this.props.openType
     }
     //
     let attributeCSS = 'onekit-button'
@@ -53,13 +60,19 @@ Component({
       attributeCSS += '_plain'
     }
     console.log(attributeCSS)
-    this.setData({openType, scope, attributeCSS})
+    this.setData({
+      openType,
+      scope,
+      attributeCSS
+    })
   },
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   methods: {
     contactBG_tap() {
-      this.setData({hideContact: true})
+      this.setData({
+        hideContact: true
+      })
     },
     button_onGetAuthorize(e) {
       const that = this
@@ -95,7 +108,9 @@ Component({
       if (that.props.openType) {
         switch (that.props.openType) {
           case 'contact':
-            that.setData({hideContact: false})
+            that.setData({
+              hideContact: false
+            })
             break
           case 'share':
             wx.showShareMenu({
@@ -128,34 +143,33 @@ Component({
         that.props.onTap(e)
       }
     },
-
     //
-    trigger_Getuserinfo(e) {
+    _trigger_Getuserinfo(e) {
       if (this.props.onGetuserinfo) {
         this.props.onGetuserinfo(e)
       }
     },
-    trigger_Contact(e) {
+    _trigger_Contact(e) {
       if (this.props.onContact) {
         this.props.onContact(e)
       }
     },
-    trigger_Getphonenumber(e) {
+    _trigger_Getphonenumber(e) {
       if (this.props.onGetphonenumber) {
         this.props.onGetphonenumber(e)
       }
     },
-    trigger_Error(e) {
+    _trigger_Error(e) {
       if (this.props.onError) {
         this.props.onError(e)
       }
     },
-    trigger_Opensetting(e) {
+    _trigger_Opensetting(e) {
       if (this.props.onOpensetting) {
         this.props.onOpensetting(e)
       }
     },
-    trigger_Launchapp(e) {
+    _trigger_Launchapp(e) {
       if (this.props.onLaunchapp) {
         this.props.onLaunchapp(e)
       }

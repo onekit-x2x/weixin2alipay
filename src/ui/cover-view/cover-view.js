@@ -7,6 +7,7 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   data: {},
   props: {
+    // 做不了
     scrollTop: ''
   },
   didMount() {},

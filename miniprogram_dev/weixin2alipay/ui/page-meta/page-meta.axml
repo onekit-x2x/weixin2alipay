@@ -1,0 +1,7 @@
+<view
+id="{{onekitId}}"
+class="onekit-page-meta {{onekitClass}}"
+style="{{onekitStyle}}"
+>
+New Page
+</view>

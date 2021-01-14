@@ -15,5 +15,33 @@ export default {
     if (this.props.onekitClass) {
       getApp().onekit_nodes[`__${this.props.onekitClass}`] = this
     }
+  },
+  methods: {
+    _e(detail, dataset) {
+      // currentTarget: {
+      //   dataset: {},
+      //   id: '',
+      //   offsetLeft: ret[0].left,
+      //   offsetTop: ret[0].top
+      // },
+      // detail: {
+      //   curPercent: parseInt(curPercent, 10)
+      // },
+      // mark: {},
+      // mut: false,
+      // target: {
+      //   dataset: {},
+      //   id: '',
+      //   offsetLeft: ret[0].left,
+      //   offsetTop: ret[0].top
+      // },
+      // timeStamp: 8888888, //
+      // type: 'activeend',
+      // _userTap: false
+      return {
+        detail: detail || {},
+        dataset: dataset || {}
+      }
+    }
   }
 }

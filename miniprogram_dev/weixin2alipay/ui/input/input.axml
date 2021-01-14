@@ -1,0 +1,26 @@
+<input
+id="{{onekitId}}"
+class="onekit-input {{onekitClass}}"
+style="{{onekitStyle}}"
+value="{{value}}"
+type="{{type}}"
+password="{{password}}"
+placeholder="{{placeholder}}"
+placeholder-style="{{placeholderStyle}}"
+placeholder-class="{{placeholderClass}}"
+disabled="{{disabled}}"
+maxlength="{{maxlength}}"
+focus="{{focus || autoFocus}}"
+confirm-type="{{confirmType}}"
+confirm-hold="{{confirmHold}}"
+cursor="{{cursor}}"
+selection-start="{{selectionStart}}"
+selection-end="{{selectionEnd}}"
+
+onInput="input_Input"
+onFocus="input_Focus"
+onBlur="input_Blur"
+onConfirm="input_Confirm"
+>
+<slot></slot>
+</input>

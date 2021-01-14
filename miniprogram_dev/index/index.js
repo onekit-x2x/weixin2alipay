@@ -7,6 +7,9 @@ OnekitPage({
         nbFrontColor:'#000000',
         nbBackgroundColor:'#ffffff'
     },
+    activeend(e){
+        console.log(e);
+    },
     onLoad:function(){
         this.setData({
         nbTitle:'新标题',

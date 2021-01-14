@@ -18,23 +18,48 @@ Component({
     vertical: false,
     previousMargin: '0px',
     nextMargin: '0px',
+    //
+    snapToEdge: false,
+    displayMultipleItems: 1,
+    easingFunction: ''
   },
-  didMount() {},
+  didMount() {
+    if (this.props.easingFunction) {
+      switch (this.props.easingFunction) {
+        case 'default':
+          this.setData({easingFunction: 'ease'})
+          break
+        case 'linear':
+          this.setData({easingFunction: 'linear'})
+          break
+        case 'easeInCubic':
+          this.setData({easingFunction: 'ease-in'})
+          break
+        case 'easeOutCubic':
+          this.setData({easingFunction: 'ease-out'})
+          break
+        case 'easeInOutCubic':
+          this.setData({easingFunction: 'ease-in-out'})
+          break
+        default:
+          break
+      }
+    }
+  },
   didUpdate() {},
   didUnmount() {},
   methods: {
-
-    swiper_Change() {
+    swiper_change() {
       if (this.props.onChange) {
         this.props.onChange()
       }
     },
-    swiper_Transition() {
+    swiper_transition() {
       if (this.props.onTransition) {
         this.props.onTransition()
       }
     },
-    swiper_AnimationEnd() {
+    swiper_animationfinish() {
       if (this.props.onAnimationEnd) {
         this.props.onAnimationfinish()
       }

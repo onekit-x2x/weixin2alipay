@@ -13,11 +13,10 @@
 </onekit-view> -->
 
 <!--<progress> -->
-<!-- <onekit-progress percent="20" show-info></onekit-progress>
+<onekit-progress percent="20" show-info></onekit-progress>
 <onekit-progress percent="40" stroke-width="12"></onekit-progress>
 <onekit-progress percent="60" color="pink"></onekit-progress>
-<onekit-progress percent="60" active-color="pink"></onekit-progress>
-<onekit-progress percent="80" active></onekit-progress> -->
+<onekit-progress percent="80" active onActiveend="activeend"></onekit-progress>
 
 <!--<image> -->
 <!-- <onekit-view onekit-class="page">
@@ -488,6 +487,6 @@
 <!-- </onekit-view> -->
 
 <!-- <page-meta> -->
-<onekit-page-meta>
+<!-- <onekit-page-meta>
   <onekit-navigation-bar title="{{nbTitle}}" loading="{{nbLoading}}" front-color="{{nbFrontColor}}" background-color="{{nbBackgroundColor}}" color-animation-duration="2000" color-animation-timing-func="easeIn"></onekit-navigation-bar>
-</onekit-page-meta>
+</onekit-page-meta> -->

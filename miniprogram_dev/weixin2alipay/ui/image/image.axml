@@ -1,0 +1,13 @@
+<image
+id="{{onekitId}}"
+class="onekit-image {{onekitClass}}"
+style="{{onekitStyle}}"
+mode="{{mode}}"
+src="{{src}}"
+webp="{{webp}}"
+lazy-load="{{lazyLoad}}"
+show-menu-by-longpress="showMenuByLongpress"
+onError="image_error"
+onLoad="image_load"
+onLongTap="image_longTap"
+/>

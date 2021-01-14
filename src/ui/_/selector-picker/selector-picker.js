@@ -1,8 +1,5 @@
 Component({
   props: {
-    onekitStyle: '',
-    onekitClass: '',
-    onekitId: '',
     headerText: '',
     range: [],
     'range-key': '',

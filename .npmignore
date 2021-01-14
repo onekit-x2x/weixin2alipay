@@ -11,6 +11,7 @@ yarn-error.log*
 test
 tools
 docs
-miniprogram_dev
-node_modules
+miniprogram_dev/
+miniprogram_dist/
+node_modules/
 coverage

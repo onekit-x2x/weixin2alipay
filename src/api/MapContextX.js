@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-import {PROMISE} from 'oneutil'
+import {
+  PROMISE
+} from 'oneutil'
 import LngLat2px from '../js/LngLat2px'
 // import PX2LNTLAT from '../ui/map/PX2LNTLAT'
 
@@ -30,7 +32,9 @@ module.exports = {
 
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_id || !wx_src || !wx_bounds) {
-          FAIL({errMsg: 'addGroundOverlay:err'})
+          FAIL({
+            errMsg: 'addGroundOverlay:err'
+          })
           return
         }
         const markerLevel = this.data.markers.markerLevel
@@ -72,7 +76,9 @@ module.exports = {
       // //////////
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_markers) {
-          FAIL({errMsg: 'addMarkers:error'})
+          FAIL({
+            errMsg: 'addMarkers:error'
+          })
           return
         }
         const markers = wx_clear ? [] : this.data.markers
@@ -86,7 +92,7 @@ module.exports = {
           errMsg: 'addMarkers:ok'
         }
         SUCCESS(wx_res)
-        this.trigger_markerClusterCreate(clusters)
+        this._trigger_markerClusterCreate(clusters)
       }, wx_success, wx_fail, wx_complete)
     },
     fromScreenLocation(wx_object) {
@@ -176,7 +182,9 @@ module.exports = {
       // //////////
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_points) {
-          FAIL({errMsg: 'includePoints:error'})
+          FAIL({
+            errMsg: 'includePoints:error'
+          })
           return
         }
         this.setData({
@@ -208,7 +216,7 @@ module.exports = {
       wx_object = null
       // //////////
       PROMISE((SUCCESS) => {
-        this.trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize)
+        this._trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize)
         const wx_res = {
           errMsg: 'initMarkerCluster:ok'
         }
@@ -231,7 +239,9 @@ module.exports = {
       // //////////
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_markerId || !wx_path || !wx_duration) {
-          FAIL({errMsg: 'moveAlong:error'})
+          FAIL({
+            errMsg: 'moveAlong:error'
+          })
           return
         }
         const my_object = {
@@ -252,7 +262,7 @@ module.exports = {
           }
         }
         my.smoothMovePolyline(my_object)
-        this.trigger_markerClusterCreate(wx_autoRotate)
+        this._trigger_markerClusterCreate(wx_autoRotate)
       }, wx_success, wx_fail, wx_complete)
     },
     on(wx_object) {
@@ -267,7 +277,7 @@ module.exports = {
       wx_object = null
 
       PROMISE((SUCCESS) => {
-        this.trigger_markerClusterCreate(wx_markerClusterCreate, wx_markerClusterClick)
+        this._trigger_markerClusterCreate(wx_markerClusterCreate, wx_markerClusterClick)
         const wx_res = {
           errMsg: 'on:ok'
         }
@@ -288,7 +298,9 @@ module.exports = {
 
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_longitude || !wx_latitude || !wx_destination) {
-          FAIL({errMsg: 'openMapApp:error'})
+          FAIL({
+            errMsg: 'openMapApp:error'
+          })
           return
         }
         my.openLocation({
@@ -314,10 +326,12 @@ module.exports = {
 
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_id) {
-          FAIL({errMsg: 'removeGroundOverlay:error'})
+          FAIL({
+            errMsg: 'removeGroundOverlay:error'
+          })
           return
         }
-        this.trigger_removeGroundOverlay(wx_id)
+        this._trigger_removeGroundOverlay(wx_id)
         const wx_res = {
           errMsg: 'removeGroundOverlay:ok'
         }
@@ -336,7 +350,9 @@ module.exports = {
 
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_markerIds) {
-          FAIL({errMsg: 'removeMarkers:error'})
+          FAIL({
+            errMsg: 'removeMarkers:error'
+          })
           return
         }
         const my_object = {
@@ -373,7 +389,9 @@ module.exports = {
 
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_offset) {
-          FAIL({errMsg: 'setCenterOffset:error'})
+          FAIL({
+            errMsg: 'setCenterOffset:error'
+          })
           return
         }
         const wx_res = {
@@ -427,7 +445,9 @@ module.exports = {
 
       PROMISE((SUCCESS, FAIL) => {
         if (!wx_id || !wx_src || !wx_bounds) {
-          FAIL({errMsg: 'updateGroundOverlay:err'})
+          FAIL({
+            errMsg: 'updateGroundOverlay:err'
+          })
           return
         }
         const markerLevel = this.data.markers.markerLevel
@@ -457,21 +477,28 @@ module.exports = {
     },
 
     //
-    trigger_markerClusterCreate(clusters) {
+    _trigger_markerClusterCreate(clusters) {
       if (this.on.markerClusterCreate) {
-        this.on.markerClusterCreate({clusters})
-      }
-    },
-    trigger_moveAlong(markerId, path, autoRotate, duration) {
-      if (this.on.moveAlong) {
-        this.on.moveAlong({
-          markerId, path, autoRotate, duration
+        this.on.markerClusterCreate({
+          clusters
         })
       }
     },
-    trigger_removeGroundOverlay(id) {
+    _trigger_moveAlong(markerId, path, autoRotate, duration) {
+      if (this.on.moveAlong) {
+        this.on.moveAlong({
+          markerId,
+          path,
+          autoRotate,
+          duration
+        })
+      }
+    },
+    _trigger_removeGroundOverlay(id) {
       if (this.on.removeGroundOverlay) {
-        this.on.removeGroundOverlay({id})
+        this.on.removeGroundOverlay({
+          id
+        })
       }
     },
     _getClusters() {
@@ -483,6 +510,7 @@ module.exports = {
       let latSW
       let allMarkers
       let gridSize
+
       function Area(p0, p1, p2) {
         let area = 0.0
         area = p0.longitude * p1.latitude + p1.longitude * p2.latitude + p2.longitude * p0.latitude - p1.longitude * p0.latitude - p2.longitude * p1.latitude - p0.longitude * p2.latitude
@@ -506,7 +534,10 @@ module.exports = {
         }
         const longitude = sum_x / sum_area / 3
         const latitude = sum_y / sum_area / 3
-        return {longitude, latitude}
+        return {
+          longitude,
+          latitude
+        }
       }
       const ragionMarkers = allMarkers.filter(marker => ((lngSW < marker.lng < lngNE) && (latSW < marker.lat < latNE)))
       // 3
@@ -554,7 +585,10 @@ module.exports = {
             // }
             if (!isFind) {
               const clusterId = clusters.length + 1
-              clusters.push({clusterId, markerIds: [id1, id2]})
+              clusters.push({
+                clusterId,
+                markerIds: [id1, id2]
+              })
             }
           }
         }
@@ -571,10 +605,11 @@ module.exports = {
       let allMarkers
       const markerId = getApp().onekit_nodes[`_${this.id}`]
       const lng,
-      const lat,
-      const path = [{
-        lng, lat
-      }]
+        const lat,
+          const path = [{
+            lng,
+            lat
+          }]
       allMarkers.map((r, theta) => {
         for (const i in path) {
           if (markerId) {
@@ -598,6 +633,7 @@ module.exports = {
     },
     _getremoveGroundOverlay() {
       const id
+
       function removeClass(ele, cName) {
         const arr = ele.className.split(' ')
         const arr1 = cName.split(' ')

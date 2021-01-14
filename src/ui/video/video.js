@@ -51,7 +51,7 @@ Component({
   },
   deriveDataFromProps(data_props) {
     console.log(data_props)
-    this.trigger_controlstoggle(data_props.controls)
+    this._trigger_controlstoggle(data_props.controls)
   },
   didMount() {
     const that = this
@@ -61,7 +61,7 @@ Component({
           rect: rect[0]
         })
       })
-      /*
+    /*
     let lastTime = 0
     let index = 0
     const danmuList = []
@@ -81,12 +81,18 @@ Component({
       if (!danmus) {
         danmus = []
       }
-      danmus.push({text: danmu.text, color: danmu.color, index: danmus.length})
+      danmus.push({
+        text: danmu.text,
+        color: danmu.color,
+        index: danmus.length
+      })
       danmuList['t_' + danmu.time] = danmus
     }
-    this.setData({danmuList})
-    this.trigger_seekcomplete()
-    this.trigger_controlstoggle(this.props.controls)
+    this.setData({
+      danmuList
+    })
+    this._trigger_seekcomplete()
+    this._trigger_controlstoggle(this.props.controls)
   },
   methods: {
     video_start() {
@@ -111,7 +117,7 @@ Component({
       }
     },
     video_fullscreenchange(e) {
-      this.trigger_controlstoggle(this.props.controls && !e.detail.fullScreen)
+      this._trigger_controlstoggle(this.props.controls && !e.detail.fullScreen)
       if (this.props.onFullScreenChange) {
         this.props.onFullScreenChange(e.detail)
       }
@@ -126,22 +132,22 @@ Component({
         this.props.onError({})
       }
     },
-    trigger_progress() {
-    },
-    trigger_loadedmetadata() {
-    },
-    trigger_controlstoggle(show) {
+    _trigger_progress() {},
+    _trigger_loadedmetadata() {},
+    _trigger_controlstoggle(show) {
       if (this.data.show === show) {
         return
       }
       this.data.show = show
       if (this.props.onControlstoggle) {
-        this.props.onControlstoggle({show})
+        this.props.onControlstoggle({
+          show
+        })
       }
     },
-    trigger_enterpictureinpicture() {},
-    trigger_leavepictureinpicture() {},
-    trigger_seekcomplete(positon) {
+    _trigger_enterpictureinpicture() {},
+    _trigger_leavepictureinpicture() {},
+    _trigger_seekcomplete(positon) {
       if (this.props.duration) {
         const res = my.getSystemInfo()
         if (res.platform === 'iOS') {
@@ -150,7 +156,9 @@ Component({
           positon = this.props.duration
         }
         if (this.props.onSeekcomplete) {
-          this.props.onSeekcomplete({positon})
+          this.props.onSeekcomplete({
+            positon
+          })
         }
       }
     }

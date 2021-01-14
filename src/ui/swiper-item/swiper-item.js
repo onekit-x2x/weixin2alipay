@@ -7,7 +7,7 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   data: {},
   props: {
-    index: 0
+    itemId: '',
   },
   didMount() {
   },

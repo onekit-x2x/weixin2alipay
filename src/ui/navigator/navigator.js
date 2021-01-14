@@ -21,10 +21,8 @@ Component({
     hoverStartTime: 50,
     hoverStayTime: 600
   },
-  didMount() {
-  },
-  didUpdate() {
-  },
+  didMount() {},
+  didUpdate() {},
   didUnmount() {},
   methods: {
     navigator_tap(e) {
@@ -50,13 +48,13 @@ Component({
               my.navigateTo({
                 url: this.props.url,
                 success: () => {
-                  this.trigger_Success()
+                  this._trigger_Success()
                 },
                 fail: () => {
-                  this.trigger_Fail()
+                  this._trigger_Fail()
                 },
                 complete: () => {
-                  this.trigger_Complete()
+                  this._trigger_Complete()
                 }
               })
               break
@@ -64,13 +62,13 @@ Component({
               my.redirectTo({
                 url: this.props.url,
                 success: () => {
-                  this.trigger_Success()
+                  this._trigger_Success()
                 },
                 fail: () => {
-                  this.trigger_Fail()
+                  this._trigger_Fail()
                 },
                 complete: () => {
-                  this.trigger_Complete()
+                  this._trigger_Complete()
                 }
               })
               break
@@ -78,13 +76,13 @@ Component({
               my.switchTab({
                 url: this.props.url,
                 success: () => {
-                  this.trigger_Success()
+                  this._trigger_Success()
                 },
                 fail: () => {
-                  this.trigger_Fail()
+                  this._trigger_Fail()
                 },
                 complete: () => {
-                  this.trigger_Complete()
+                  this._trigger_Complete()
                 }
               })
               break
@@ -92,18 +90,20 @@ Component({
               my.reLaunch({
                 url: this.props.url,
                 success: () => {
-                  this.trigger_Success()
+                  this._trigger_Success()
                 },
                 fail: () => {
-                  this.trigger_Fail()
+                  this._trigger_Fail()
                 },
                 complete: () => {
-                  this.trigger_Complete()
+                  this._trigger_Complete()
                 }
               })
               break
             case 'navigateBack':
-              my.navigateBack({delta: this.props.delta})
+              my.navigateBack({
+                delta: this.props.delta
+              })
               break
             default:
               break
@@ -112,30 +112,30 @@ Component({
         case 'miniProgram':
           switch (openType) {
             case ('app-id' && 'path' && 'extraData'):
-            // case ('app-id' && 'path' && 'extraData' && 'version'):
-            // 完成不了
+              // case ('app-id' && 'path' && 'extraData' && 'version'):
+              // 完成不了
               my.navigateToMiniProgram({
                 appId: this.props.appId,
                 path: this.props.path,
                 extraData: this.props.extraData,
                 // envVersion:this.props.version
                 success: () => {
-                  this.trigger_Success()
+                  this._trigger_Success()
                 },
                 fail: () => {
-                  this.trigger_Fail()
+                  this._trigger_Fail()
                 },
                 complete: () => {
-                  this.trigger_Complete()
+                  this._trigger_Complete()
                 }
               })
               break
-            // exit支付宝小程序自带
-            // case 'exit':
-            //   my.alert({
-            //     content: '请点击右上角⨂按钮'
-            //   })
-            //   break
+              // exit支付宝小程序自带
+              // case 'exit':
+              //   my.alert({
+              //     content: '请点击右上角⨂按钮'
+              //   })
+              //   break
             default:
               break
           }
@@ -154,17 +154,17 @@ Component({
         }
       }
     },
-    trigger_Success(e) {
+    _trigger_Success(e) {
       if (this.props.onSuccess) {
         this.props.onSuccess(e)
       }
     },
-    trigger_Fail(e) {
+    _trigger_Fail(e) {
       if (this.props.onFail) {
         this.props.onFail(e)
       }
     },
-    trigger_Complete(e) {
+    _trigger_Complete(e) {
       if (this.props.onComplete) {
         this.props.onComplete(e)
       }

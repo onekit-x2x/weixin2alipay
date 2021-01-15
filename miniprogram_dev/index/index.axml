@@ -492,7 +492,7 @@
 </onekit-page-meta> -->
 
 <!-- <textarea> -->
-<!-- <onekit-view onekit-class="page-body">
+<onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section">
     <onekit-view onekit-class="page-section-title">输入区域高度自适应，不会出现滚动条</onekit-view>
     <onekit-view onekit-class="textarea-wrp">
@@ -506,4 +506,4 @@
       <onekit-textarea auto-focus="true" onekit-style="height: 3em"></onekit-textarea>
     </onekit-view>
   </onekit-view>
-</onekit-view> -->
+</onekit-view>

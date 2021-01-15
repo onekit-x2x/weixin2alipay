@@ -16,20 +16,20 @@ Component({
   },
   didMount() {},
   methods: {
-    pickerView_Change(detail) {
+    pickerView_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail)
+        this.props.onChange(e)
       }
     },
     // 做不了
-    _trigger_Pickstart(detail) {
+    _trigger_Pickstart(e) {
       if (this.props.onPickstart) {
-        this.props.onPickstart(detail)
+        this.props.onPickstart(e)
       }
     },
-    _trigger_Pickend(detail) {
+    _trigger_Pickend(e) {
       if (this.props.onPickend) {
-        this.props.onPickend(detail)
+        this.props.onPickend(e)
       }
     },
   },

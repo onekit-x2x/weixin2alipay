@@ -1,21 +1,20 @@
 <textarea
-id="{{onekitId}}"
-class="onekit-textarea {{onekitClass}}"
-style="{{onekitStyle}}"
+  class="onekit-textarea {{onekitClass}}"
+  style="position:{{fixed}};{{onekitStyle}}"
+  id="{{onekitId}}"
 
-value="{{value}}"
-placeholder="{{placeholder}}"
-placeholder-style="{{placeholderStyle}}"
-placeholder-class="{{placeholderClass}}"
-disabled="{{disabled}}"
-maxlength="{{maxlength}}"
-focus="{{focus || autoFocus}}"
-auto-height="{{autoHeight}}"
+  name="{{name}}"
+  value="{{value}}"
+  placeholder="{{placeholder}}"
+  placeholder-style="{{placeholderStyle}}"
+  placeholder-class="{{placeholderClass}}"
+  disabled="{{disabled}}"
+  maxlength="{{maxlength}}"
+  focus="{{autoFocus || focus}}"
+  auto-height="{{autoHeight}}"
 
-onInput="textarea_Input"
-onFocus="textarea_Focus"
-onBlur="textarea_Blur"
-onConfirm="textarea_Confirm"
->
-<slot></slot>
-</textarea>
+  onInput="textarea_Input"
+  onFocus="textarea_Focus"
+  onBlur="textarea_Blur"
+  onConfirm="textarea_Confirm"
+/>

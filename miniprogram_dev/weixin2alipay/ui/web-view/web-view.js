@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(detail) {
+    ui_tap: function ui_tap(e) {
       if (this.props.onTap) {
-        this.props.onTap(detail);
+        this.props.onTap(e);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -307,9 +307,9 @@ Component({
 
 
     //
-    _trigger_Load: function _trigger_Load(detail) {
+    _trigger_Load: function _trigger_Load(e) {
       if (this.props.onLoad) {
-        this.props.onLoad(detail);
+        this.props.onLoad(e);
       }
     }
   }

@@ -3,9 +3,9 @@
 export default function OnekitPage(wx_object) {
   const my_object = {
     events: {
-      onKeyboardHeight(detail) {
+      onKeyboardHeight(e) {
         for (const onKeyboardHeight of getApp().onekit_onKeyboardHeight) {
-          onKeyboardHeight(detail)
+          onKeyboardHeight(e)
         }
       }
     },

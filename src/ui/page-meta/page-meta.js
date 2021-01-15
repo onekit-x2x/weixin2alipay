@@ -23,19 +23,19 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    _trigger_resize(detail) {
+    _trigger_resize(e) {
       if (this.props.onResize) {
-        this.props.onResize(detail)
+        this.props.onResize(e)
       }
     },
-    _trigger_scroll(detail) {
+    _trigger_scroll(e) {
       if (this.props.onScroll) {
-        this.props.onScroll(detail)
+        this.props.onScroll(e)
       }
     },
-    _trigger_scrolldone(detail) {
+    _trigger_scrolldone(e) {
       if (this.props.onScrolldone) {
-        this.props.onScrolldone(detail)
+        this.props.onScrolldone(e)
       }
     }
   },

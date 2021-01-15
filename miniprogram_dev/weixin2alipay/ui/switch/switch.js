@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(detail) {
+    ui_tap: function ui_tap(e) {
       if (this.props.onTap) {
-        this.props.onTap(detail);
+        this.props.onTap(e);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -298,21 +298,15 @@ Component({
     color: '#04BE02',
     value: ''
   },
-  didMount: function didMount() {},
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
-
   methods: {
-    switch_Change: function switch_Change(detail) {
-      console.log('switch_Change', detail);
+    switch_Change: function switch_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail);
+        this.props.onChange(e);
       }
     },
-    checkbox_Change: function checkbox_Change(detail) {
-      console.log('checkbox_Change', detail);
+    checkbox_Change: function checkbox_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail);
+        this.props.onChange(e);
       }
     }
   }

@@ -3349,7 +3349,7 @@ Component({
           break;
         case 'getPhoneNumber':
           if (this.props.onGetphonenumber) {
-            //  console.log(detail)
+            //  console.log(e)
             _wx2.default.getPhoneNumber({
               success: function success(res) {
                 e.detail = res;
@@ -3362,7 +3362,7 @@ Component({
           throw new Error(this.props.openType);
       }
     },
-    button_onTap: function button_onTap(detail) {
+    button_onTap: function button_onTap(e) {
       var that = this;
       if (that.props.openType) {
         switch (that.props.openType) {
@@ -3395,39 +3395,39 @@ Component({
       }
       if (that.props.onTap) {
         // /console.log("xxxxxxxxxxxx",e)
-        that.props.onTap(detail);
+        that.props.onTap(e);
       }
     },
 
     //
-    _trigger_Getuserinfo: function _trigger_Getuserinfo(detail) {
+    _trigger_Getuserinfo: function _trigger_Getuserinfo(e) {
       if (this.props.onGetuserinfo) {
-        this.props.onGetuserinfo(detail);
+        this.props.onGetuserinfo(e);
       }
     },
-    _trigger_Contact: function _trigger_Contact(detail) {
+    _trigger_Contact: function _trigger_Contact(e) {
       if (this.props.onContact) {
-        this.props.onContact(detail);
+        this.props.onContact(e);
       }
     },
-    _trigger_Getphonenumber: function _trigger_Getphonenumber(detail) {
+    _trigger_Getphonenumber: function _trigger_Getphonenumber(e) {
       if (this.props.onGetphonenumber) {
-        this.props.onGetphonenumber(detail);
+        this.props.onGetphonenumber(e);
       }
     },
-    _trigger_Error: function _trigger_Error(detail) {
+    _trigger_Error: function _trigger_Error(e) {
       if (this.props.onError) {
-        this.props.onError(detail);
+        this.props.onError(e);
       }
     },
-    _trigger_Opensetting: function _trigger_Opensetting(detail) {
+    _trigger_Opensetting: function _trigger_Opensetting(e) {
       if (this.props.onOpensetting) {
-        this.props.onOpensetting(detail);
+        this.props.onOpensetting(e);
       }
     },
-    _trigger_Launchapp: function _trigger_Launchapp(detail) {
+    _trigger_Launchapp: function _trigger_Launchapp(e) {
       if (this.props.onLaunchapp) {
-        this.props.onLaunchapp(detail);
+        this.props.onLaunchapp(e);
       }
     }
   }

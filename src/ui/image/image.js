@@ -29,14 +29,14 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    image_error(detail) {
+    image_error(e) {
       if (this.props.onError) {
-        this.props.onError(detail)
+        this.props.onError(e)
       }
     },
-    image_load(detail) {
+    image_load(e) {
       if (this.props.onLoad) {
-        this.props.onLoad(detail)
+        this.props.onLoad(e)
       }
     },
     onShareAppMessage() {

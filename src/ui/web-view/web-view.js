@@ -24,15 +24,15 @@ Component({
     },
 
     //
-    _trigger_Load(detail) {
+    _trigger_Load(e) {
       if (this.props.onLoad) {
-        this.props.onLoad(detail)
+        this.props.onLoad(e)
       }
     },
     /*
-    _trigger_Error(detail) {
+    _trigger_Error(e) {
       if (this.props.onError) {
-        this.props.onError(detail)
+        this.props.onError(e)
       }
     }, */
   },

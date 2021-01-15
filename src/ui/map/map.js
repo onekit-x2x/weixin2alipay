@@ -211,61 +211,61 @@ Component({
       console.log('addGroundOverlay', object)
     },
 
-    map_tap(detail) {
+    map_tap(e) {
       if (this.props.onTap) {
-        this.props.onTap(detail)
+        this.props.onTap(e)
       }
     },
 
     // 做不了
-    _trigger_labeltap(detail) {
+    _trigger_labeltap(e) {
       if (this.props.onLabelTap) {
-        this.props.onLabelTap(detail)
+        this.props.onLabelTap(e)
       }
     },
     //
 
-    map_MarkerTap(detail) {
+    map_MarkerTap(e) {
       if (this.props.onMarkerTap) {
-        this.props.onMarkerTap(detail)
+        this.props.onMarkerTap(e)
       }
     },
-    map_ControlTap(detail) {
+    map_ControlTap(e) {
       if (this.props.onControltap) {
-        this.props.onControltap(detail)
+        this.props.onControltap(e)
       }
     },
-    map_CalloutTap(detail) {
+    map_CalloutTap(e) {
       if (this.props.onCalloutTap) {
-        this.props.onCalloutTap(detail)
+        this.props.onCalloutTap(e)
       }
     },
 
-    _trigger_updated(detail) {
+    _trigger_updated(e) {
       this.mapCtx = my.createMapContext(this.props.onekitId)
       if (this.mapCtx.updateComponents) {
         if (this.props.onUpdated) {
-          this.props.onUpdated(detail)
+          this.props.onUpdated(e)
         }
       }
     },
 
-    map_RegionChange(detail) {
+    map_RegionChange(e) {
       if (this.props.onRegionChange) {
-        this.props.onRegionChange(detail)
+        this.props.onRegionChange(e)
       }
     },
 
     //
-    _trigger_poitap(detail) {
+    _trigger_poitap(e) {
       this.mapCtx = my.createMapContext(this.props.onekitId)
       if (this.props.onPoiTap) {
-        this.props.onPoiTap(detail)
+        this.props.onPoiTap(e)
       }
     },
-    _trigger_anchorpointtap(detail) {
+    _trigger_anchorpointtap(e) {
       if (this.props.onAnchorPointTap) {
-        this.props.onAnchorPointTap(detail)
+        this.props.onAnchorPointTap(e)
       }
     }
   },

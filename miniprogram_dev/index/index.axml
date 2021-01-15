@@ -1,14 +1,14 @@
 <!--<text> -->
 <!-- <onekit-view>
   <onekit-text>&gt;</onekit-text>
-</onekit-view>
-<onekit-view>
+  </onekit-view>
+  <onekit-view>
   <onekit-text user-select = "true">hhh</onekit-text>
-</onekit-view>
-<onekit-view>
+  </onekit-view>
+  <onekit-view>
   <onekit-text space="emsp">&gt;</onekit-text>
-</onekit-view>
-<onekit-view>
+  </onekit-view>
+  <onekit-view>
   <onekit-text decode>&gt;</onekit-text>
 </onekit-view> -->
 
@@ -87,7 +87,7 @@
 </onekit-view> -->
 
 <!--<slider> -->
-<onekit-view onekit-class="page">
+<!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
     <onekit-text onekit-class="page__title">slider</onekit-text>
     <onekit-text onekit-class="page__desc">滑块</onekit-text>
@@ -118,7 +118,7 @@
       </onekit-view>
     </onekit-view>
   </onekit-view>
-</onekit-view>
+</onekit-view> -->
 
 <!--<picker> -->
 <!-- <onekit-view onekit-class="section">
@@ -490,3 +490,20 @@
 <!-- <onekit-page-meta>
   <onekit-navigation-bar title="{{nbTitle}}" loading="{{nbLoading}}" front-color="{{nbFrontColor}}" background-color="{{nbBackgroundColor}}" color-animation-duration="2000" color-animation-timing-func="easeIn"></onekit-navigation-bar>
 </onekit-page-meta> -->
+
+<!-- <textarea> -->
+<onekit-view onekit-class="page-body">
+  <onekit-view onekit-class="page-section">
+    <onekit-view onekit-class="page-section-title">输入区域高度自适应，不会出现滚动条</onekit-view>
+    <onekit-view onekit-class="textarea-wrp">
+      <onekit-textarea onBlur="bindTextAreaBlur" auto-height></onekit-textarea>
+    </onekit-view>
+  </onekit-view>
+
+  <onekit-view onekit-class="page-section">
+    <onekit-view onekit-class="page-section-title">这是一个可以自动聚焦的textarea</onekit-view>
+    <onekit-view onekit-class="textarea-wrp">
+      <onekit-textarea auto-focus="true" onekit-style="height: 3em"></onekit-textarea>
+    </onekit-view>
+  </onekit-view>
+</onekit-view>

@@ -19,19 +19,19 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    picker_Cancle(detail) {
+    picker_Cancle(e) {
       if (this.props.onCancle) {
-        this.props.onCancle(detail)
+        this.props.onCancle(e)
       }
     },
-    picker_Change(detail) {
+    picker_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail)
+        this.props.onChange(e)
       }
     },
-    picker_Columnchange(detail) {
+    picker_Columnchange(e) {
       if (this.props.onColumnchange) {
-        this.props.onColumnchange(detail)
+        this.props.onColumnchange(e)
       }
     }
   },

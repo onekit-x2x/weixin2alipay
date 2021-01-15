@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(detail) {
+    ui_tap: function ui_tap(e) {
       if (this.props.onTap) {
-        this.props.onTap(detail);
+        this.props.onTap(e);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -291,6 +291,7 @@ Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   data: {},
   props: {
+    name: '',
     value: '',
     placeholder: '',
     placeholderStyle: '',
@@ -300,27 +301,22 @@ Component({
     autoFocus: false,
     focus: false,
     autoHeight: false,
-    //
     fixed: false,
-
     // 有bug
     cursorSpacing: 0,
     //
-
     cursor: -1,
     showConfirmBar: true,
     selectionStart: -1,
     selectionEnd: -1,
-
     // 有bug
     adjustPosition: true,
     //
-
     // 系统级别
     holdKeyboard: false,
     //
-
-    disableDefaultPadding: false
+    disableDefaultPadding: false,
+    confirmType: 'return'
   },
   onInit: function onInit() {
     var _this = this;
@@ -335,33 +331,52 @@ Component({
       }
     });
   },
-  didMount: function didMount() {},
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
+  didMount: function didMount() {
+    var fixed = this.props.fixed;
+    console.log('1', fixed);
+    if (!fixed) {
+      console.log('2', fixed);
+      fixed = null;
+    } else {
+      fixed = 'fixed';
+    }
+    console.log('3', fixed);
+    this.setData({
+      fixed: fixed
+    });
+  },
 
   methods: {
-    textarea_Input: function textarea_Input() {
+    textarea_Input: function textarea_Input(e) {
       if (this.props.onInput) {
-        this.props.onInput({});
+        this.props.onInput(e);
       }
     },
-    textarea_Focus: function textarea_Focus() {
+    textarea_Focus: function textarea_Focus(e) {
       if (this.props.onFocus) {
-        this.props.onFocus({});
+        this.props.onFocus(e);
       }
     },
-    textarea_Blur: function textarea_Blur(detail) {
+    textarea_Blur: function textarea_Blur(e) {
       if (this.props.onBlur) {
-        this.props.onBlur(detail);
+        this.props.onBlur(e);
       }
     },
-    textarea_Confirm: function textarea_Confirm() {
+    textarea_Confirm: function textarea_Confirm(e) {
       if (this.props.onConfirm) {
-        this.props.onConfirm({});
+        this.props.onConfirm(e);
+      }
+    },
+
+    // 做不了
+    _trigger_Keyboardheightchange: function _trigger_Keyboardheightchange(e) {
+      if (this.props.onKeyboardheightchange) {
+        this.props.onKeyboardheightchange(e);
       }
     }
   }
-}); /* eslint-disable camelcase */
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 /***/ })
 

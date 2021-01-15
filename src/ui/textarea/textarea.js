@@ -7,6 +7,7 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   data: {},
   props: {
+    name: '',
     value: '',
     placeholder: '',
     placeholderStyle: '',
@@ -16,27 +17,22 @@ Component({
     autoFocus: false,
     focus: false,
     autoHeight: false,
-    //
     fixed: false,
-
     // 有bug
     cursorSpacing: 0,
     //
-
     cursor: -1,
     showConfirmBar: true,
     selectionStart: -1,
     selectionEnd: -1,
-
     // 有bug
     adjustPosition: true,
     //
-
     // 系统级别
     holdKeyboard: false,
     //
-
     disableDefaultPadding: false,
+    confirmType: 'return'
   },
   onInit() {
     getApp().onekit_onKeyboardHeight.push(my_e => {
@@ -49,28 +45,42 @@ Component({
       }
     })
   },
-  didMount() {},
-  didUpdate() {},
-  didUnmount() {},
+  didMount() {
+    let fixed = this.props.fixed
+    if (!fixed) {
+      fixed = null
+    } else {
+      fixed = 'fixed'
+    }
+    this.setData({
+      fixed
+    })
+  },
   methods: {
-    textarea_Input() {
+    textarea_Input(e) {
       if (this.props.onInput) {
-        this.props.onInput({})
+        this.props.onInput(e)
       }
     },
-    textarea_Focus() {
+    textarea_Focus(e) {
       if (this.props.onFocus) {
-        this.props.onFocus({})
+        this.props.onFocus(e)
       }
     },
-    textarea_Blur(detail) {
+    textarea_Blur(e) {
       if (this.props.onBlur) {
-        this.props.onBlur(detail)
+        this.props.onBlur(e)
       }
     },
-    textarea_Confirm() {
+    textarea_Confirm(e) {
       if (this.props.onConfirm) {
-        this.props.onConfirm({})
+        this.props.onConfirm(e)
+      }
+    },
+    // 做不了
+    _trigger_Keyboardheightchange(e) {
+      if (this.props.onKeyboardheightchange) {
+        this.props.onKeyboardheightchange(e)
       }
     }
   },

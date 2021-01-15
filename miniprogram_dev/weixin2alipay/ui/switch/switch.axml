@@ -1,23 +1,23 @@
 <switch a:if ="{{type=='switch'}}"
-id="{{onekitId}}"
-class="onekit-switch {{onekitClass}}"
-style="{{onekitStyle}}"
-checked="{{checked}}"
-type="{{type}}"
-disabled="{{disabled}}"
-color="{{color}}"
-onChange="switch_Change">
+  id="{{onekitId}}"
+  class="onekit-switch {{onekitClass}}"
+  style="{{onekitStyle}}"
+  checked="{{checked}}"
+  type="{{type}}"
+  disabled="{{disabled}}"
+  color="{{color}}"
+  onChange="switch_Change">
 <slot/>
 </switch>
 
 <checkbox a:elif = "{{type=='checkbox'}}"
-id="{{onekitId}}"
-class="onekit-switch {{onekitClass}}"
-style="{{onekitStyle}}"
-value="{{value}}"
-checked="{{checked}}"
-disabled="{{disabled}}"
-color="{{color}}"
-onChange="checkbox_Change">
+  id="{{onekitId}}"
+  class="onekit-switch {{onekitClass}}"
+  style="{{onekitStyle}}"
+  value="{{value}}"
+  checked="{{checked}}"
+  disabled="{{disabled}}"
+  color="{{color}}"
+  onChange="checkbox_Change">
 <slot/>
 </checkbox>

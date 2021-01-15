@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(detail) {
+    ui_tap: function ui_tap(e) {
       if (this.props.onTap) {
-        this.props.onTap(detail);
+        this.props.onTap(e);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -306,43 +306,43 @@ Component({
     animation: true
   },
   methods: {
-    movable_change: function movable_change(detail) {
+    movable_change: function movable_change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail);
+        this.props.onChange(e);
       }
     },
-    movable_scale: function movable_scale(detail) {
+    movable_scale: function movable_scale(e) {
       if (this.props.onScale) {
-        this.props.onScale(detail);
+        this.props.onScale(e);
       }
     },
-    movable_move: function movable_move(detail) {
+    movable_move: function movable_move(e) {
       var dx = this.props.x;
       var dy = this.props.y;
       if (dy < 2 && dx > dy) {
-        this._trigger_htouchmove(detail);
+        this._trigger_htouchmove(e);
       } else if (dx < 2 && dy > dx) {
-        this._trigger_vtouchmove(detail);
+        this._trigger_vtouchmove(e);
       } else {
-        this._trigger_htouchmove(detail);
-        this._trigger_vtouchmove(detail);
+        this._trigger_htouchmove(e);
+        this._trigger_vtouchmove(e);
       }
       if (this.props.onTouchmove) {
-        this.props.onTouchmove(detail);
+        this.props.onTouchmove(e);
       }
     },
-    _trigger_htouchmove: function _trigger_htouchmove(detail) {
+    _trigger_htouchmove: function _trigger_htouchmove(e) {
       if (this.props.onHtouchmove) {
-        this.props.onHtouchmove(detail);
+        this.props.onHtouchmove(e);
       } else if (this.props.catchHtouchmove) {
-        this.props.catchHtouchmove(detail);
+        this.props.catchHtouchmove(e);
       }
     },
-    _trigger_vtouchmove: function _trigger_vtouchmove(detail) {
+    _trigger_vtouchmove: function _trigger_vtouchmove(e) {
       if (this.props.onVtouchmove) {
-        this.props.onVtouchmove(detail);
+        this.props.onVtouchmove(e);
       } else if (this.props.catchVtouchmove) {
-        this.props.catchVtouchmove(detail);
+        this.props.catchVtouchmove(e);
       }
     }
   }

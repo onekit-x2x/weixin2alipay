@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(detail) {
+    ui_tap: function ui_tap(e) {
       if (this.props.onTap) {
-        this.props.onTap(detail);
+        this.props.onTap(e);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -326,18 +326,16 @@ Component({
       activeColor: activeColor
     });
   },
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
 
   methods: {
-    slider_Change: function slider_Change(detail) {
+    slider_Change: function slider_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail);
+        this.props.onChange(e);
       }
     },
-    slider_Changing: function slider_Changing(detail) {
+    slider_Changing: function slider_Changing(e) {
       if (this.props.onChanging) {
-        this.props.onChanging(detail);
+        this.props.onChanging(e);
       }
     }
   }

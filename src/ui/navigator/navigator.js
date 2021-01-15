@@ -25,7 +25,7 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    navigator_tap(detail) {
+    navigator_tap(e) {
       const target = this.props.target
       const openType = this.props.openType
       // let version
@@ -144,29 +144,29 @@ Component({
           break
       }
       if (this.props.onTap) {
-        this.props.onTap(detail)
+        this.props.onTap(e)
       }
     },
-    view_tap(detail) {
+    view_tap(e) {
       if (!this.props.hoverStopPropagation) {
         if (this.props.onTap) {
-          this.props.onTap(detail)
+          this.props.onTap(e)
         }
       }
     },
-    _trigger_Success(detail) {
+    _trigger_Success(e) {
       if (this.props.onSuccess) {
-        this.props.onSuccess(detail)
+        this.props.onSuccess(e)
       }
     },
-    _trigger_Fail(detail) {
+    _trigger_Fail(e) {
       if (this.props.onFail) {
-        this.props.onFail(detail)
+        this.props.onFail(e)
       }
     },
-    _trigger_Complete(detail) {
+    _trigger_Complete(e) {
       if (this.props.onComplete) {
-        this.props.onComplete(detail)
+        this.props.onComplete(e)
       }
     },
   },

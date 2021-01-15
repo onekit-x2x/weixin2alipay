@@ -42,17 +42,15 @@ Component({
       activeColor
     })
   },
-  didUpdate() {},
-  didUnmount() {},
   methods: {
-    slider_Change(detail) {
+    slider_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail)
+        this.props.onChange(e)
       }
     },
-    slider_Changing(detail) {
+    slider_Changing(e) {
       if (this.props.onChanging) {
-        this.props.onChanging(detail)
+        this.props.onChanging(e)
       }
     }
   },

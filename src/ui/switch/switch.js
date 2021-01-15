@@ -15,20 +15,15 @@ Component({
     color: '#04BE02',
     value: ''
   },
-  didMount() {},
-  didUpdate() {},
-  didUnmount() {},
   methods: {
-    switch_Change(detail) {
-      console.log('switch_Change', detail)
+    switch_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail)
+        this.props.onChange(e)
       }
     },
-    checkbox_Change(detail) {
-      console.log('checkbox_Change', detail)
+    checkbox_Change(e) {
       if (this.props.onChange) {
-        this.props.onChange(detail)
+        this.props.onChange(e)
       }
     }
   },

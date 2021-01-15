@@ -1,0 +1,12 @@
+
+<checkbox
+  id="{{onekitId}}"
+  class="onekit-checkbox {{onekitClass}}"
+ style="{{onekitStyle}}"
+  name="{{name}}"
+  value="{{value}}" 
+  disabled="{{disabled}}"
+  checked="{{checked}}"
+  color="{{color}}">
+<slot/>
+</checkbox>

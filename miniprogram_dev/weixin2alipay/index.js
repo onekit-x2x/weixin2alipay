@@ -3418,7 +3418,7 @@ exports.default = OnekitPage;
 function OnekitPage(wx_object) {
   var my_object = {
     events: {
-      onKeyboardHeight: function onKeyboardHeight(e) {
+      onKeyboardHeight: function onKeyboardHeight(detail) {
         for (var _iterator = getApp().onekit_onKeyboardHeight, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
           var _ref;
 
@@ -3433,7 +3433,7 @@ function OnekitPage(wx_object) {
 
           var onKeyboardHeight = _ref;
 
-          onKeyboardHeight(e);
+          onKeyboardHeight(detail);
         }
       }
     },

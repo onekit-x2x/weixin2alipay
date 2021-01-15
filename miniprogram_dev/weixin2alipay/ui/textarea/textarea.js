@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -350,9 +350,9 @@ Component({
         this.props.onFocus({});
       }
     },
-    textarea_Blur: function textarea_Blur(e) {
+    textarea_Blur: function textarea_Blur(detail) {
       if (this.props.onBlur) {
-        this.props.onBlur(e);
+        this.props.onBlur(detail);
       }
     },
     textarea_Confirm: function textarea_Confirm() {

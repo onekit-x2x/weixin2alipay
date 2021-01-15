@@ -23,7 +23,10 @@ Component({
       const minute = m >= 10 ? m : ('0' + m)
       minutes.push(minute)
     }
-    this.setData({hours, minutes})
+    this.setData({
+      hours,
+      minutes
+    })
   },
   didUpdate() {},
   didUnmount() {},
@@ -34,30 +37,46 @@ Component({
       }
       let time = this.props.value.split(':')
       time = [parseInt(time[0], 10), parseInt(time[1], 10)]
-      this.setData({time, show: true})
+      this.setData({
+        time,
+        show: true
+      })
     },
     time_cancle() {
-      this.setData({show: false})
+      this.setData({
+        show: false
+      })
       if (this.props.onCancle) {
         this.props.onCancle()
       }
     },
     time_confirm() {
-      this.setData({show: false})
+      this.setData({
+        show: false
+      })
       if (this.props.onChange) {
-        this.props.onChange({detail: {value: this.data.value}})
+        this.props.onChange({
+          detail: {
+            value: this.data.value
+          }
+        })
       }
     },
     time_change(e) {
       const current = e.detail.value
-      let h = current[0]; h = h >= 10 ? h : ('0' + h)
-      let m = current[1]; m = m >= 10 ? m : ('0' + m)
+      let h = current[0]
+      h = h >= 10 ? h : ('0' + h)
+      let m = current[1]
+      m = m >= 10 ? m : ('0' + m)
       const value = `${h}:${m}`
       if (this.props.start) {
         if (value < this.props.start) {
           let time = this.props.start.split(':')
           time = [parseInt(time[0], 10), parseInt(time[1], 10)]
-          this.setData({value: this.props.start, time})
+          this.setData({
+            value: this.props.start,
+            time
+          })
           return
         }
       }
@@ -65,7 +84,10 @@ Component({
         if (value > this.props.end) {
           let time = this.props.end.split(':')
           time = [parseInt(time[0], 10), parseInt(time[1], 10)]
-          this.setData({value: this.props.end, time})
+          this.setData({
+            value: this.props.end,
+            time
+          })
           return
         }
       }

@@ -39,8 +39,8 @@ Component({
     FastDeceleration: false,
   },
   didMount() {},
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   onupper() {
 
   },
@@ -99,7 +99,9 @@ Component({
         // moveDiff至少要等于loading的高度
         // 当滑动小于规定的临界值时
         distance = this.data.diff
-        this.setData({text: 'zzzzzzz'})
+        this.setData({
+          text: 'zzzzzzz'
+        })
 
         //
         console.log('下拉可刷新')
@@ -116,13 +118,17 @@ Component({
       }
       if (distance > 0) {
         if (this.props.onRefresherpulling) {
-          e.detail = {dy: distance}
+          e.detail = {
+            dy: distance
+          }
           this.props.onRefresherpulling()
         }
         //  e.preventDefault();
         // 滑动的距离
         this.css(refresher, 0)
-        this.setData({refresher_height: distance})
+        this.setData({
+          refresher_height: distance
+        })
       }
     },
     catch_Touchend() {
@@ -130,7 +136,9 @@ Component({
         return
       }
       if (!this.data.touch || !this.data.moved) {
-        this.setData({refresher_height: 0})
+        this.setData({
+          refresher_height: 0
+        })
         return
       }
 
@@ -143,20 +151,26 @@ Component({
       } else {
         console.log('bbbbbbbbbbbbb')
         this.data.pagePulling = false
-        this.setData({refresher_height: 0})
+        this.setData({
+          refresher_height: 0
+        })
       }
     },
     stopPull() {
       console.log('stopPull')
       this.css(refresher, 300)
-      this.setData({refresher_height: 0})
+      this.setData({
+        refresher_height: 0
+      })
       setTimeout(() => {
         this.data.pagePulling = false // 控制在刷新期间，重复向下拉动，不做任何操作
       }, 300)
     },
     startPull() {
       console.log('aaaaaaaaaaaa')
-      this.setData({refresher_height: this.props.refresherThreshold})
+      this.setData({
+        refresher_height: this.props.refresherThreshold
+      })
     },
     catch_Touchcancel(e) {
       console.log('on_Touchcancel:', e)

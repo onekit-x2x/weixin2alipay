@@ -1,12 +1,11 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 module.exports = {
-  props: {
-  },
+  props: {},
   methods: {
-    ui_tap(e) {
+    ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e)
+        this.props.onTap(detail)
       }
     },
     ui_touchstart() {

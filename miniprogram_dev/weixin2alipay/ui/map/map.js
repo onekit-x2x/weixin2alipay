@@ -422,62 +422,62 @@ Component({
     addGroundOverlay: function addGroundOverlay(object) {
       console.log('addGroundOverlay', object);
     },
-    map_tap: function map_tap(e) {
+    map_tap: function map_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
 
 
     // 做不了
-    _trigger_labeltap: function _trigger_labeltap(e) {
+    _trigger_labeltap: function _trigger_labeltap(detail) {
       if (this.props.onLabelTap) {
-        this.props.onLabelTap(e);
+        this.props.onLabelTap(detail);
       }
     },
 
     //
 
-    map_MarkerTap: function map_MarkerTap(e) {
+    map_MarkerTap: function map_MarkerTap(detail) {
       if (this.props.onMarkerTap) {
-        this.props.onMarkerTap(e);
+        this.props.onMarkerTap(detail);
       }
     },
-    map_ControlTap: function map_ControlTap(e) {
+    map_ControlTap: function map_ControlTap(detail) {
       if (this.props.onControltap) {
-        this.props.onControltap(e);
+        this.props.onControltap(detail);
       }
     },
-    map_CalloutTap: function map_CalloutTap(e) {
+    map_CalloutTap: function map_CalloutTap(detail) {
       if (this.props.onCalloutTap) {
-        this.props.onCalloutTap(e);
+        this.props.onCalloutTap(detail);
       }
     },
-    _trigger_updated: function _trigger_updated(e) {
+    _trigger_updated: function _trigger_updated(detail) {
       this.mapCtx = my.createMapContext(this.props.onekitId);
       if (this.mapCtx.updateComponents) {
         if (this.props.onUpdated) {
-          this.props.onUpdated(e);
+          this.props.onUpdated(detail);
         }
       }
     },
-    map_RegionChange: function map_RegionChange(e) {
+    map_RegionChange: function map_RegionChange(detail) {
       if (this.props.onRegionChange) {
-        this.props.onRegionChange(e);
+        this.props.onRegionChange(detail);
       }
     },
 
 
     //
-    _trigger_poitap: function _trigger_poitap(e) {
+    _trigger_poitap: function _trigger_poitap(detail) {
       this.mapCtx = my.createMapContext(this.props.onekitId);
       if (this.props.onPoiTap) {
-        this.props.onPoiTap(e);
+        this.props.onPoiTap(detail);
       }
     },
-    _trigger_anchorpointtap: function _trigger_anchorpointtap(e) {
+    _trigger_anchorpointtap: function _trigger_anchorpointtap(detail) {
       if (this.props.onAnchorPointTap) {
-        this.props.onAnchorPointTap(e);
+        this.props.onAnchorPointTap(detail);
       }
     }
   }

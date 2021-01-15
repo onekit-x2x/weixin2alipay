@@ -16,22 +16,22 @@ Component({
     end: '',
   },
   didMount() {},
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   methods: {
-    picker_Cancle(e) {
+    picker_Cancle(detail) {
       if (this.props.onCancle) {
-        this.props.onCancle(e)
+        this.props.onCancle(detail)
       }
     },
-    picker_Change(e) {
+    picker_Change(detail) {
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange(detail)
       }
     },
-    picker_Columnchange(e) {
+    picker_Columnchange(detail) {
       if (this.props.onColumnchange) {
-        this.props.onColumnchange(e)
+        this.props.onColumnchange(detail)
       }
     }
   },

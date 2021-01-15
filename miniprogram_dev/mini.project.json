@@ -1,5 +1,7 @@
 {
   "component2": true,
-  "enableParallelLoader": true,
-  "axmlStrictCheck": false
+  "enableDistFileMinify": true,
+  "node_modules_es6_whitelist":[
+    "oneutil"
+  ]
 }

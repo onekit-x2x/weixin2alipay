@@ -117,7 +117,10 @@ Component({
       var month = m >= 10 ? m : '0' + m;
       months.push(month + '\u6708');
     }
-    this.setData({ years: years, months: months });
+    this.setData({
+      years: years,
+      months: months
+    });
   },
   didUpdate: function didUpdate() {},
   didUnmount: function didUnmount() {},
@@ -131,7 +134,9 @@ Component({
         var day = d >= 10 ? d : '0' + d;
         days.push(day + '\u65E5');
       }
-      this.setData({ days: days });
+      this.setData({
+        days: days
+      });
     },
     date_show: function date_show() {
       if (this.props.disabled) {
@@ -139,32 +144,48 @@ Component({
       }
       var date = this.props.value.split('-');
       date = [date[0] - YEAR_START, date[1] - 1, date[2] - 1];
-      this.setData({ date: date, show: true });
+      this.setData({
+        date: date,
+        show: true
+      });
       this.updateDays();
     },
     date_cancle: function date_cancle() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onCancle) {
         this.props.onCancle();
       }
     },
     date_confirm: function date_confirm() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onChange) {
-        this.props.onChange({ detail: { value: this.data.value } });
+        this.props.onChange({
+          detail: {
+            value: this.data.value
+          }
+        });
       }
     },
     date_change: function date_change(e) {
       var current = e.detail.value;
       var y = current[0] + YEAR_START;
-      var m = current[1] + 1;m = m >= 10 ? m : '0' + m;
-      var d = current[2] + 1;d = d >= 10 ? d : '0' + d;
+      var m = current[1] + 1;
+      m = m >= 10 ? m : '0' + m;
+      var d = current[2] + 1;
+      d = d >= 10 ? d : '0' + d;
       var value = y + '-' + m + '-' + d;
       if (this.props.start) {
         if (value < this.props.start) {
           var date = this.props.start.split('-');
           date = [date[0] - YEAR_START, date[1] - 1, date[2] - 1];
-          this.setData({ value: this.props.start, date: date });
+          this.setData({
+            value: this.props.start,
+            date: date
+          });
           return;
         }
       }
@@ -172,7 +193,10 @@ Component({
         if (value > this.props.end) {
           var _date = this.props.end.split('-');
           _date = [_date[0] - YEAR_START, _date[1] - 1, _date[2] - 1];
-          this.setData({ value: this.props.end, date: _date });
+          this.setData({
+            value: this.props.end,
+            date: _date
+          });
           return;
         }
       }

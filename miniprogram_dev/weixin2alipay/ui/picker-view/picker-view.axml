@@ -1,18 +1,15 @@
 <picker-view
-id="{{onekitId}}"
-name="{{name}}"
-class="onekit-picker-view {{onekitClass}}"
-style="{{onekitStyle}}"
-value="{{value}}"
-indicator-style="{{indicatorStyle}}"
-indicator-class="{{indicatorClass}}"
-mask-style="{{maskStyle}}"
-mask-class="{{maskClass}}"
-onChange="pickerView_Change"
+  class="onekit-picker-view {{onekitClass}}"
+  style="{{onekitStyle}}"
+  id="{{onekitId}}"
+  
+  name="{{name}}"
+  value="{{value}}"
+  indicator-style="{{indicatorStyle}}"
+  indicator-class="{{indicatorClass}}"
+  mask-style="{{maskStyle}}"
+  mask-class="{{maskClass}}"
+  onChange="pickerView_Change"
 >
-
-<slot>
-</slot>
-
-
+<slot></slot>
 </picker-view>

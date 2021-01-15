@@ -23,11 +23,13 @@ Component({
     this.livePlayerCtx = my.createMapContext(this.props.onekitId)
 
     my.createSelectorQuery().select('.onekit-live-player').boundingClientRect().exec((rect) => {
-      that.setData({rect: rect[0]})
+      that.setData({
+        rect: rect[0]
+      })
     })
   },
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   methods: {
     live_player_statechange(e) {
       console.log('live_player_statechange', e)

@@ -118,7 +118,10 @@ Component({
       var minute = m >= 10 ? m : '0' + m;
       minutes.push(minute);
     }
-    this.setData({ hours: hours, minutes: minutes });
+    this.setData({
+      hours: hours,
+      minutes: minutes
+    });
   },
   didUpdate: function didUpdate() {},
   didUnmount: function didUnmount() {},
@@ -130,30 +133,46 @@ Component({
       }
       var time = this.props.value.split(':');
       time = [parseInt(time[0], 10), parseInt(time[1], 10)];
-      this.setData({ time: time, show: true });
+      this.setData({
+        time: time,
+        show: true
+      });
     },
     time_cancle: function time_cancle() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onCancle) {
         this.props.onCancle();
       }
     },
     time_confirm: function time_confirm() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onChange) {
-        this.props.onChange({ detail: { value: this.data.value } });
+        this.props.onChange({
+          detail: {
+            value: this.data.value
+          }
+        });
       }
     },
     time_change: function time_change(e) {
       var current = e.detail.value;
-      var h = current[0];h = h >= 10 ? h : '0' + h;
-      var m = current[1];m = m >= 10 ? m : '0' + m;
+      var h = current[0];
+      h = h >= 10 ? h : '0' + h;
+      var m = current[1];
+      m = m >= 10 ? m : '0' + m;
       var value = h + ':' + m;
       if (this.props.start) {
         if (value < this.props.start) {
           var time = this.props.start.split(':');
           time = [parseInt(time[0], 10), parseInt(time[1], 10)];
-          this.setData({ value: this.props.start, time: time });
+          this.setData({
+            value: this.props.start,
+            time: time
+          });
           return;
         }
       }
@@ -161,7 +180,10 @@ Component({
         if (value > this.props.end) {
           var _time = this.props.end.split(':');
           _time = [parseInt(_time[0], 10), parseInt(_time[1], 10)];
-          this.setData({ value: this.props.end, time: _time });
+          this.setData({
+            value: this.props.end,
+            time: _time
+          });
           return;
         }
       }

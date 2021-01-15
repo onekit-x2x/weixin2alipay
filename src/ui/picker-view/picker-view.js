@@ -15,13 +15,22 @@ Component({
     maskClass: ''
   },
   didMount() {},
-  didUpdate() {},
-  didUnmount() {},
   methods: {
-    pickerView_Change(e) {
+    pickerView_Change(detail) {
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange(detail)
       }
-    }
+    },
+    // 做不了
+    _trigger_Pickstart(detail) {
+      if (this.props.onPickstart) {
+        this.props.onPickstart(detail)
+      }
+    },
+    _trigger_Pickend(detail) {
+      if (this.props.onPickend) {
+        this.props.onPickend(detail)
+      }
+    },
   },
 })

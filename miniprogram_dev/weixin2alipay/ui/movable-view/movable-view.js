@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -306,43 +306,43 @@ Component({
     animation: true
   },
   methods: {
-    movable_change: function movable_change(e) {
+    movable_change: function movable_change(detail) {
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange(detail);
       }
     },
-    movable_scale: function movable_scale(e) {
+    movable_scale: function movable_scale(detail) {
       if (this.props.onScale) {
-        this.props.onScale(e);
+        this.props.onScale(detail);
       }
     },
-    movable_move: function movable_move(e) {
+    movable_move: function movable_move(detail) {
       var dx = this.props.x;
       var dy = this.props.y;
       if (dy < 2 && dx > dy) {
-        this._trigger_htouchmove(e);
+        this._trigger_htouchmove(detail);
       } else if (dx < 2 && dy > dx) {
-        this._trigger_vtouchmove(e);
+        this._trigger_vtouchmove(detail);
       } else {
-        this._trigger_htouchmove(e);
-        this._trigger_vtouchmove(e);
+        this._trigger_htouchmove(detail);
+        this._trigger_vtouchmove(detail);
       }
       if (this.props.onTouchmove) {
-        this.props.onTouchmove(e);
+        this.props.onTouchmove(detail);
       }
     },
-    _trigger_htouchmove: function _trigger_htouchmove(e) {
+    _trigger_htouchmove: function _trigger_htouchmove(detail) {
       if (this.props.onHtouchmove) {
-        this.props.onHtouchmove(e);
+        this.props.onHtouchmove(detail);
       } else if (this.props.catchHtouchmove) {
-        this.props.catchHtouchmove(e);
+        this.props.catchHtouchmove(detail);
       }
     },
-    _trigger_vtouchmove: function _trigger_vtouchmove(e) {
+    _trigger_vtouchmove: function _trigger_vtouchmove(detail) {
       if (this.props.onVtouchmove) {
-        this.props.onVtouchmove(e);
+        this.props.onVtouchmove(detail);
       } else if (this.props.catchVtouchmove) {
-        this.props.catchVtouchmove(e);
+        this.props.catchVtouchmove(detail);
       }
     }
   }

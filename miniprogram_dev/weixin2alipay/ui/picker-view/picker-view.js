@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -299,13 +299,23 @@ Component({
     maskClass: ''
   },
   didMount: function didMount() {},
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
 
   methods: {
-    pickerView_Change: function pickerView_Change(e) {
+    pickerView_Change: function pickerView_Change(detail) {
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange(detail);
+      }
+    },
+
+    // 做不了
+    _trigger_Pickstart: function _trigger_Pickstart(detail) {
+      if (this.props.onPickstart) {
+        this.props.onPickstart(detail);
+      }
+    },
+    _trigger_Pickend: function _trigger_Pickend(detail) {
+      if (this.props.onPickend) {
+        this.props.onPickend(detail);
       }
     }
   }

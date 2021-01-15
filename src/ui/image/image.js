@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-import {PATH} from 'oneutil'
+import {
+  PATH
+} from 'oneutil'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 
@@ -19,20 +21,22 @@ Component({
     if (!this.props.src.indexOf('://')) {
       const currentUrl = pages[pages.length - 1].route
       const alipay_src = '/' + PATH.rel2abs(currentUrl, this.props.src)
-      this.setData({src: alipay_src})
+      this.setData({
+        src: alipay_src
+      })
     }
   },
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   methods: {
-    image_error(e) {
+    image_error(detail) {
       if (this.props.onError) {
-        this.props.onError(e)
+        this.props.onError(detail)
       }
     },
-    image_load(e) {
+    image_load(detail) {
       if (this.props.onLoad) {
-        this.props.onLoad(e)
+        this.props.onLoad(detail)
       }
     },
     onShareAppMessage() {
@@ -47,7 +51,9 @@ Component({
         my.showActionSheet({
           items: ['发送给朋友', '收藏', '保存图片', '识别图片的小程序码'],
           cancelButtonText: '取消',
-          success: ({index}) => {
+          success: ({
+            index
+          }) => {
             if (index === -1) {
               return
             }

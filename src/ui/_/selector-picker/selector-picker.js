@@ -12,18 +12,29 @@ Component({
         return
       }
       const select = [this.props.value]
-      this.setData({select, show: true})
+      this.setData({
+        select,
+        show: true
+      })
     },
     selector_cancle() {
-      this.setData({show: false})
+      this.setData({
+        show: false
+      })
       if (this.props.onCancle) {
         this.props.onCancle()
       }
     },
     selector_confirm() {
-      this.setData({show: false})
+      this.setData({
+        show: false
+      })
       if (this.props.onChange) {
-        this.props.onChange({detail: {value: this.data.value}})
+        this.props.onChange({
+          detail: {
+            value: this.data.value
+          }
+        })
       }
     },
     selector_change(e) {

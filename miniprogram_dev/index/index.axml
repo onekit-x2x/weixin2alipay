@@ -13,10 +13,10 @@
 </onekit-view> -->
 
 <!--<progress> -->
-<onekit-progress percent="20" show-info></onekit-progress>
+<!-- <onekit-progress percent="20" show-info></onekit-progress>
 <onekit-progress percent="40" stroke-width="12"></onekit-progress>
 <onekit-progress percent="60" color="pink"></onekit-progress>
-<onekit-progress percent="80" active onActiveend="activeend"></onekit-progress>
+<onekit-progress percent="80" active onActiveend="activeend"></onekit-progress> -->
 
 <!--<image> -->
 <!-- <onekit-view onekit-class="page">
@@ -87,7 +87,7 @@
 </onekit-view> -->
 
 <!--<slider> -->
-<!-- <onekit-view onekit-class="page">
+<onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
     <onekit-text onekit-class="page__title">slider</onekit-text>
     <onekit-text onekit-class="page__desc">滑块</onekit-text>
@@ -118,7 +118,7 @@
       </onekit-view>
     </onekit-view>
   </onekit-view>
-</onekit-view> -->
+</onekit-view>
 
 <!--<picker> -->
 <!-- <onekit-view onekit-class="section">

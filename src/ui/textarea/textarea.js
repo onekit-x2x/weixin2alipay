@@ -63,9 +63,9 @@ Component({
         this.props.onFocus({})
       }
     },
-    textarea_Blur(e) {
+    textarea_Blur(detail) {
       if (this.props.onBlur) {
-        this.props.onBlur(e)
+        this.props.onBlur(detail)
       }
     },
     textarea_Confirm() {

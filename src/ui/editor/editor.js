@@ -19,8 +19,8 @@ Component({
     this.webView = my.createWebViewContext('webView')
     this.props.onReady()
   },
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   methods: {
     webView_message(e) {
       const data = e.detail.data
@@ -53,10 +53,12 @@ Component({
                 this.props.onStatuschange()
               }
               break
-            default: break
+            default:
+              break
           }
           break
-        default: break
+        default:
+          break
       }
     },
 
@@ -71,11 +73,15 @@ Component({
 
 
     insertImage(object) {
-      this.webView.postMessage({insertImage: object.text})
+      this.webView.postMessage({
+        insertImage: object.text
+      })
     },
 
     insertText(object) {
-      this.webView.postMessage({insertText: object.text})
+      this.webView.postMessage({
+        insertText: object.text
+      })
     },
 
     // eslint-disable-next-line no-unused-vars

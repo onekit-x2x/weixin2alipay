@@ -4,7 +4,7 @@ class="onekit-text {{onekitClass}}"
 style="{{onekitStyle}}"
 space="{{space}}"
 decode="{{decode}}"
-selectable="{{userSelect||selectable}}"
+selectable="{{selectable || userSelect}}"
 >
 <slot>
 </slot>

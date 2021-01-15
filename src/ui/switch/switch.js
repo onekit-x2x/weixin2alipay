@@ -19,16 +19,16 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    switch_Change(e) {
-      console.log('switch_Change', e)
+    switch_Change(detail) {
+      console.log('switch_Change', detail)
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange(detail)
       }
     },
-    checkbox_Change(e) {
-      console.log('checkbox_Change', e)
+    checkbox_Change(detail) {
+      console.log('checkbox_Change', detail)
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange(detail)
       }
     }
   },

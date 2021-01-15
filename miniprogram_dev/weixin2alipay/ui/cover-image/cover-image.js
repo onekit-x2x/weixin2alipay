@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -295,16 +295,16 @@ Component({
   },
   methods: {
     // 做不了
-    _trigger_load: function _trigger_load(e) {
+    _trigger_load: function _trigger_load(detail) {
       if (this.props.onLoad) {
-        this.props.onLoad(e);
+        this.props.onLoad(detail);
       }
     },
 
     // 做不了
-    _trigger_error: function _trigger_error(e) {
+    _trigger_error: function _trigger_error(detail) {
       if (this.props.onError) {
-        this.props.onError(e);
+        this.props.onError(detail);
       }
     }
   }

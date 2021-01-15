@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -309,7 +309,7 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    navigator_tap: function navigator_tap(e) {
+    navigator_tap: function navigator_tap(detail) {
       var _this = this;
 
       var target = this.props.target;
@@ -430,29 +430,29 @@ Component({
           break;
       }
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
-    view_tap: function view_tap(e) {
+    view_tap: function view_tap(detail) {
       if (!this.props.hoverStopPropagation) {
         if (this.props.onTap) {
-          this.props.onTap(e);
+          this.props.onTap(detail);
         }
       }
     },
-    _trigger_Success: function _trigger_Success(e) {
+    _trigger_Success: function _trigger_Success(detail) {
       if (this.props.onSuccess) {
-        this.props.onSuccess(e);
+        this.props.onSuccess(detail);
       }
     },
-    _trigger_Fail: function _trigger_Fail(e) {
+    _trigger_Fail: function _trigger_Fail(detail) {
       if (this.props.onFail) {
-        this.props.onFail(e);
+        this.props.onFail(detail);
       }
     },
-    _trigger_Complete: function _trigger_Complete(e) {
+    _trigger_Complete: function _trigger_Complete(detail) {
       if (this.props.onComplete) {
-        this.props.onComplete(e);
+        this.props.onComplete(detail);
       }
     }
   }

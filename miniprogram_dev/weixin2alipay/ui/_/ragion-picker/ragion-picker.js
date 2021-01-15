@@ -119,7 +119,11 @@ Component({
   },
   data: {
     provinces: _provices2.default,
-    ragion: { value: [], code: [], postcode: null }
+    ragion: {
+      value: [],
+      code: [],
+      postcode: null
+    }
   },
   didMount: function didMount() {
     var value = this.props.value;
@@ -131,7 +135,9 @@ Component({
       for (var p = 0; p < this.data.provinces.length; p++) {
         if (this.data.provinces[p].name === value[0]) {
           var i = [this.props.customItem ? p + 1 : p];
-          this.setData({ provinceIndexes: i });
+          this.setData({
+            provinceIndexes: i
+          });
           this.provinceChange(p);
           break;
         }
@@ -139,7 +145,9 @@ Component({
       for (var c = 0; c < this.data.citys.length; c++) {
         if (this.data.citys[c].name === value[1]) {
           var _i = [this.props.customItem ? c + 1 : c];
-          this.setData({ cityIndexes: _i });
+          this.setData({
+            cityIndexes: _i
+          });
           this.cityChange(c);
           break;
         }
@@ -147,7 +155,9 @@ Component({
       for (var t = 0; t < this.data.towns.length; t++) {
         if (this.data.towns[t].name === value[2]) {
           var _i2 = [this.props.customItem ? t + 1 : t];
-          this.setData({ townIndexes: _i2 });
+          this.setData({
+            townIndexes: _i2
+          });
           this.townChange(t);
           break;
         }
@@ -157,7 +167,10 @@ Component({
       if (index < 0) {
         this.data.ragion.value[0] = this.props.customItem;
         this.data.ragion.code = [];
-        this.setData({ citys: [], cityIndexes: [0] });
+        this.setData({
+          citys: [],
+          cityIndexes: [0]
+        });
         return;
       }
       var province = this.data.provinces[index];
@@ -167,7 +180,10 @@ Component({
       this.data.ragion.code[0] = province.id;
       //
       var i = this.props.customItem ? 0 : 1;
-      this.setData({ citys: citys, cityIndexes: [i] });
+      this.setData({
+        citys: citys,
+        cityIndexes: [i]
+      });
     },
     cityChange: function cityChange(index) {
       if (index < 0) {
@@ -183,7 +199,10 @@ Component({
           default:
             break;
         }
-        this.setData({ towns: [], townIndexes: [0] });
+        this.setData({
+          towns: [],
+          townIndexes: [0]
+        });
         return;
       }
       var city = this.data.citys[index];
@@ -193,7 +212,10 @@ Component({
       this.data.ragion.code[1] = city.id;
       //
       var i = this.props.customItem ? 0 : 1;
-      this.setData({ towns: towns, townIndexes: [i] });
+      this.setData({
+        towns: towns,
+        townIndexes: [i]
+      });
     },
     townChange: function townChange(index) {
       if (index < 0) {
@@ -226,18 +248,27 @@ Component({
       }
       var value = this.data.ragion.value;
       this.init(value);
-      this.setData({ show: true, provinceIndexes: this.data.provinceIndexes });
+      this.setData({
+        show: true,
+        provinceIndexes: this.data.provinceIndexes
+      });
     },
     ragion_cancle: function ragion_cancle() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onCancle) {
         this.props.onCancle();
       }
     },
     ragion_confirm: function ragion_confirm() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onChange) {
-        this.props.onChange({ detail: this.data.ragion });
+        this.props.onChange({
+          detail: this.data.ragion
+        });
       }
     },
     province_change: function province_change(e) {

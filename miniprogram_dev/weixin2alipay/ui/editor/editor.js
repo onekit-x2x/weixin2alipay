@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -350,10 +350,14 @@ Component({
     format: function format(name, value) {},
     insertDivider: function insertDivider() {},
     insertImage: function insertImage(object) {
-      this.webView.postMessage({ insertImage: object.text });
+      this.webView.postMessage({
+        insertImage: object.text
+      });
     },
     insertText: function insertText(object) {
-      this.webView.postMessage({ insertText: object.text });
+      this.webView.postMessage({
+        insertText: object.text
+      });
     },
 
 

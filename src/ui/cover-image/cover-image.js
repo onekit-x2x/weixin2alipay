@@ -11,15 +11,15 @@ Component({
   },
   methods: {
     // 做不了
-    _trigger_load(e) {
+    _trigger_load(detail) {
       if (this.props.onLoad) {
-        this.props.onLoad(e)
+        this.props.onLoad(detail)
       }
     },
     // 做不了
-    _trigger_error(e) {
+    _trigger_error(detail) {
       if (this.props.onError) {
-        this.props.onError(e)
+        this.props.onError(detail)
       }
     },
   },

@@ -107,18 +107,29 @@ Component({
         return;
       }
       var select = [this.props.value];
-      this.setData({ select: select, show: true });
+      this.setData({
+        select: select,
+        show: true
+      });
     },
     selector_cancle: function selector_cancle() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onCancle) {
         this.props.onCancle();
       }
     },
     selector_confirm: function selector_confirm() {
-      this.setData({ show: false });
+      this.setData({
+        show: false
+      });
       if (this.props.onChange) {
-        this.props.onChange({ detail: { value: this.data.value } });
+        this.props.onChange({
+          detail: {
+            value: this.data.value
+          }
+        });
       }
     },
     selector_change: function selector_change(e) {

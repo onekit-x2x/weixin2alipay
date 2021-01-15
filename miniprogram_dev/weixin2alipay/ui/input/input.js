@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -341,28 +341,37 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    input_Input: function input_Input(e) {
+    input_Input: function input_Input(detail) {
       if (this.props.onInput) {
-        var result = this.props.onInput(e);
+        var result = this.props.onInput(detail);
         if (result) {
           var value = result.value;
-          this.setData({ value: value });
+          this.setData({
+            value: value
+          });
         }
       }
     },
-    input_Focus: function input_Focus(e) {
+    input_Focus: function input_Focus(detail) {
       if (this.props.onFocus) {
-        this.props.onFocus(e);
+        this.props.onFocus(detail);
       }
     },
-    input_Blur: function input_Blur(e) {
+    input_Blur: function input_Blur(detail) {
       if (this.props.onBlur) {
-        this.props.onBlur(e);
+        this.props.onBlur(detail);
       }
     },
-    input_Confirm: function input_Confirm(e) {
+    input_Confirm: function input_Confirm(detail) {
       if (this.props.onConfirm) {
-        this.props.onConfirm(e);
+        this.props.onConfirm(detail);
+      }
+    },
+
+    // 做不了
+    _trigger_Keyboardheightchange: function _trigger_Keyboardheightchange(detail) {
+      if (this.props.onKeyboardheightchange) {
+        this.props.onKeyboardheightchange(detail);
       }
     }
   }

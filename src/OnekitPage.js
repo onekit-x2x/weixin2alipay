@@ -3,9 +3,9 @@
 export default function OnekitPage(wx_object) {
   const my_object = {
     events: {
-      onKeyboardHeight(e) {
+      onKeyboardHeight(detail) {
         for (const onKeyboardHeight of getApp().onekit_onKeyboardHeight) {
-          onKeyboardHeight(e)
+          onKeyboardHeight(detail)
         }
       }
     },
@@ -17,11 +17,10 @@ export default function OnekitPage(wx_object) {
         wx_object.onLoad.call(this, query)
       }
     },
-    animate() {
-    },
+    animate() {},
     selectComponent(selector) {
-    // selector = selector.replace(".","$");
-    // selector = selector.replace("-","_");
+      // selector = selector.replace(".","$");
+      // selector = selector.replace("-","_");
       for (const key of Object.keys(this)) {
         if (key.indexOf(selector) >= 0) {
           return this[key]
@@ -31,7 +30,7 @@ export default function OnekitPage(wx_object) {
     },
     selectAllComponents(selector) {
       //  selector = selector.replace(".","$");
-    //   selector = selector.replace("-","_");
+      //   selector = selector.replace("-","_");
       for (const key of Object.keys(this)) {
         if (key.indexOf(selector) >= 0) {
           return [this[key]]

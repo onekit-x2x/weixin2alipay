@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -308,19 +308,19 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    _trigger_resize: function _trigger_resize(e) {
+    _trigger_resize: function _trigger_resize(detail) {
       if (this.props.onResize) {
-        this.props.onResize(e);
+        this.props.onResize(detail);
       }
     },
-    _trigger_scroll: function _trigger_scroll(e) {
+    _trigger_scroll: function _trigger_scroll(detail) {
       if (this.props.onScroll) {
-        this.props.onScroll(e);
+        this.props.onScroll(detail);
       }
     },
-    _trigger_scrolldone: function _trigger_scrolldone(e) {
+    _trigger_scrolldone: function _trigger_scrolldone(detail) {
       if (this.props.onScrolldone) {
-        this.props.onScrolldone(e);
+        this.props.onScrolldone(detail);
       }
     }
   }

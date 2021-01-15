@@ -3342,18 +3342,18 @@ Component({
               withCredentials: true,
               success: function success(res) {
                 e.detail = res;
-                that.props.onGetuserinfo(e);
+                that.props.onGetuserinfo(e.detail);
               }
             });
           }
           break;
         case 'getPhoneNumber':
           if (this.props.onGetphonenumber) {
-            //  console.log(e)
+            //  console.log(detail)
             _wx2.default.getPhoneNumber({
               success: function success(res) {
                 e.detail = res;
-                that.props.onGetphonenumber(e);
+                that.props.onGetphonenumber(e.detail);
               }
             });
           }
@@ -3362,7 +3362,7 @@ Component({
           throw new Error(this.props.openType);
       }
     },
-    button_onTap: function button_onTap(e) {
+    button_onTap: function button_onTap(detail) {
       var that = this;
       if (that.props.openType) {
         switch (that.props.openType) {
@@ -3395,40 +3395,39 @@ Component({
       }
       if (that.props.onTap) {
         // /console.log("xxxxxxxxxxxx",e)
-        that.props.onTap(e);
+        that.props.onTap(detail);
       }
     },
-
 
     //
-    _trigger_Getuserinfo: function _trigger_Getuserinfo(e) {
+    _trigger_Getuserinfo: function _trigger_Getuserinfo(detail) {
       if (this.props.onGetuserinfo) {
-        this.props.onGetuserinfo(e);
+        this.props.onGetuserinfo(detail);
       }
     },
-    _trigger_Contact: function _trigger_Contact(e) {
+    _trigger_Contact: function _trigger_Contact(detail) {
       if (this.props.onContact) {
-        this.props.onContact(e);
+        this.props.onContact(detail);
       }
     },
-    _trigger_Getphonenumber: function _trigger_Getphonenumber(e) {
+    _trigger_Getphonenumber: function _trigger_Getphonenumber(detail) {
       if (this.props.onGetphonenumber) {
-        this.props.onGetphonenumber(e);
+        this.props.onGetphonenumber(detail);
       }
     },
-    _trigger_Error: function _trigger_Error(e) {
+    _trigger_Error: function _trigger_Error(detail) {
       if (this.props.onError) {
-        this.props.onError(e);
+        this.props.onError(detail);
       }
     },
-    _trigger_Opensetting: function _trigger_Opensetting(e) {
+    _trigger_Opensetting: function _trigger_Opensetting(detail) {
       if (this.props.onOpensetting) {
-        this.props.onOpensetting(e);
+        this.props.onOpensetting(detail);
       }
     },
-    _trigger_Launchapp: function _trigger_Launchapp(e) {
+    _trigger_Launchapp: function _trigger_Launchapp(detail) {
       if (this.props.onLaunchapp) {
-        this.props.onLaunchapp(e);
+        this.props.onLaunchapp(detail);
       }
     }
   }

@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -306,7 +306,9 @@ Component({
     this.livePlayerCtx = my.createMapContext(this.props.onekitId);
 
     my.createSelectorQuery().select('.onekit-live-player').boundingClientRect().exec(function (rect) {
-      that.setData({ rect: rect[0] });
+      that.setData({
+        rect: rect[0]
+      });
     });
   },
   didUpdate: function didUpdate() {},

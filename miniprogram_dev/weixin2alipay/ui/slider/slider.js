@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -291,35 +291,53 @@ Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   data: {},
   props: {
+    name: '',
     min: 0,
     max: 100,
     step: 1,
     disabled: false,
     value: 0,
-    color: '#e9e9e9',
-    selectedColor: '#1aad19',
-    activeColor: '#1aad19',
-    backgroundColor: '#e9e9e9',
+    color: '',
+    selectedColor: '',
+    activeColor: '',
+    backgroundColor: '',
     blockSize: 28,
     blockColor: '#ffffff',
     showValue: false
   },
   didMount: function didMount() {
     var value = Math.max(this.props.value, this.props.min);
-    this.setData({ value: value });
+    var backgroundColor = void 0;
+    var activeColor = void 0;
+    if (this.props.color || this.props.selectedColor) {
+      backgroundColor = this.props.color;
+      activeColor = this.props.selectedColor;
+    } else if (this.props.backgroundColor) {
+      backgroundColor = this.props.backgroundColor;
+      activeColor = this.props.activeColor;
+    } else {
+      backgroundColor = '#e9e9e9';
+      activeColor = '#1aad19';
+    }
+
+    this.setData({
+      value: value,
+      backgroundColor: backgroundColor,
+      activeColor: activeColor
+    });
   },
   didUpdate: function didUpdate() {},
   didUnmount: function didUnmount() {},
 
   methods: {
-    slider_Change: function slider_Change(e) {
+    slider_Change: function slider_Change(detail) {
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange(detail);
       }
     },
-    slider_Changing: function slider_Changing(e) {
+    slider_Changing: function slider_Changing(detail) {
       if (this.props.onChanging) {
-        this.props.onChanging(e);
+        this.props.onChanging(detail);
       }
     }
   }

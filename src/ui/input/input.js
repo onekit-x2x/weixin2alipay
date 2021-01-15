@@ -51,33 +51,40 @@ Component({
       }
     })
   },
-  didMount() { },
-  didUpdate() {
-  },
-  didUnmount() { },
+  didMount() {},
+  didUpdate() {},
+  didUnmount() {},
   methods: {
-    input_Input(e) {
+    input_Input(detail) {
       if (this.props.onInput) {
-        const result = this.props.onInput(e)
+        const result = this.props.onInput(detail)
         if (result) {
           const value = result.value
-          this.setData({value})
+          this.setData({
+            value
+          })
         }
       }
     },
-    input_Focus(e) {
+    input_Focus(detail) {
       if (this.props.onFocus) {
-        this.props.onFocus(e)
+        this.props.onFocus(detail)
       }
     },
-    input_Blur(e) {
+    input_Blur(detail) {
       if (this.props.onBlur) {
-        this.props.onBlur(e)
+        this.props.onBlur(detail)
       }
     },
-    input_Confirm(e) {
+    input_Confirm(detail) {
       if (this.props.onConfirm) {
-        this.props.onConfirm(e)
+        this.props.onConfirm(detail)
+      }
+    },
+    // 做不了
+    _trigger_Keyboardheightchange(detail) {
+      if (this.props.onKeyboardheightchange) {
+        this.props.onKeyboardheightchange(detail)
       }
     }
   },

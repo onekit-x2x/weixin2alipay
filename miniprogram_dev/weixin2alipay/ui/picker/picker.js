@@ -202,9 +202,9 @@ exports.default = {
 module.exports = {
   props: {},
   methods: {
-    ui_tap: function ui_tap(e) {
+    ui_tap: function ui_tap(detail) {
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap(detail);
       }
     },
     ui_touchstart: function ui_touchstart() {
@@ -304,19 +304,19 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    picker_Cancle: function picker_Cancle(e) {
+    picker_Cancle: function picker_Cancle(detail) {
       if (this.props.onCancle) {
-        this.props.onCancle(e);
+        this.props.onCancle(detail);
       }
     },
-    picker_Change: function picker_Change(e) {
+    picker_Change: function picker_Change(detail) {
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange(detail);
       }
     },
-    picker_Columnchange: function picker_Columnchange(e) {
+    picker_Columnchange: function picker_Columnchange(detail) {
       if (this.props.onColumnchange) {
-        this.props.onColumnchange(e);
+        this.props.onColumnchange(detail);
       }
     }
   }

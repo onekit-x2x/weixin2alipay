@@ -224,21 +224,23 @@ Component({
     if (!this.props.src.indexOf('://')) {
       var currentUrl = pages[pages.length - 1].route;
       var alipay_src = '/' + _oneutil.PATH.rel2abs(currentUrl, this.props.src);
-      this.setData({ src: alipay_src });
+      this.setData({
+        src: alipay_src
+      });
     }
   },
   didUpdate: function didUpdate() {},
   didUnmount: function didUnmount() {},
 
   methods: {
-    image_error: function image_error(e) {
+    image_error: function image_error(detail) {
       if (this.props.onError) {
-        this.props.onError(e);
+        this.props.onError(detail);
       }
     },
-    image_load: function image_load(e) {
+    image_load: function image_load(detail) {
       if (this.props.onLoad) {
-        this.props.onLoad(e);
+        this.props.onLoad(detail);
       }
     },
     onShareAppMessage: function onShareAppMessage() {

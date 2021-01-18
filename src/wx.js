@@ -185,8 +185,8 @@ export default class wx {
     return new VideoContext(my.createVideoContext(videoId), videoId)
   }
 
-  static createCameraContext(id) {
-    return new CameraContext(my.createCameraContext(id))
+  static createCameraContext() {
+    return new CameraContext(getApp().onekit_camera)
   }
 
   // //////////// WXML ///////////////

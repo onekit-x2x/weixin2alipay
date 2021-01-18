@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -267,7 +267,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 51:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -333,14 +333,11 @@ Component({
   },
   didMount: function didMount() {
     var fixed = this.props.fixed;
-    console.log('1', fixed);
     if (!fixed) {
-      console.log('2', fixed);
       fixed = null;
     } else {
       fixed = 'fixed';
     }
-    console.log('3', fixed);
     this.setData({
       fixed: fixed
     });
@@ -375,8 +372,7 @@ Component({
       }
     }
   }
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
+}); /* eslint-disable camelcase */
 
 /***/ })
 

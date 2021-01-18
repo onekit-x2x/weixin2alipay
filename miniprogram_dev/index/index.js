@@ -37,11 +37,34 @@ global = {};
 // OnekitPage(pageData)
 
 //textarea
+// OnekitPage({
+//     data:{
+//         focus:false
+//       },
+//     bindTextAreaBlur:function(e){
+//       console.log(e.detail.value)
+//     }
+//   })
+
+//camera
 OnekitPage({
-    data:{
-        focus:false
-      },
-    bindTextAreaBlur:function(e){
-      console.log(e.detail.value)
+    takePhoto:function(){
+      const ctx = wx.createCameraContext()
+      ctx.takePhoto({
+        quality:'high',
+        success:(res)=>{this.setData({
+            src:res.tempImagePath
+          })}
+      })
+    },
+    error:function(e){
+      console.log(e.detail)
     }
   })
+
+//button
+// OnekitPage({
+//   button_tap(){
+//     console.log('xxxx')
+//   }
+// })

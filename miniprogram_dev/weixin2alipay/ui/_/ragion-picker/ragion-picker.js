@@ -82,26 +82,26 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 15:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _provices = __webpack_require__(16);
+var _provices = __webpack_require__(14);
 
 var _provices2 = _interopRequireDefault(_provices);
 
-var _citys = __webpack_require__(17);
+var _citys = __webpack_require__(15);
 
 var _citys2 = _interopRequireDefault(_citys);
 
-var _towns = __webpack_require__(18);
+var _towns = __webpack_require__(16);
 
 var _towns2 = _interopRequireDefault(_towns);
 
@@ -295,7 +295,7 @@ Component({
 
 /***/ }),
 
-/***/ 16:
+/***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -305,7 +305,7 @@ module.exports = [{ id: '110000', name: '北京市' }, { id: '120000', name: '�
 
 /***/ }),
 
-/***/ 17:
+/***/ 15:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -350,7 +350,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 18:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

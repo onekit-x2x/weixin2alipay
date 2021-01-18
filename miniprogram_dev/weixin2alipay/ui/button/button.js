@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 22);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -188,7 +188,81 @@ exports.default = {
 };
 
 /***/ }),
-/* 2 */,
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = {
+  props: {},
+  methods: {
+    ui_tap: function ui_tap(e) {
+      if (this.props.onTap) {
+        this.props.onTap(e);
+      }
+    },
+    ui_touchstart: function ui_touchstart() {
+      if (this.props.onTouchstart) {
+        this.props.onTouchstart();
+      }
+    },
+    ui_touchmove: function ui_touchmove() {
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove();
+      }
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      if (this.props.onTouchcancel) {
+        this.props.onTouchcancel();
+      }
+    },
+    ui_touchend: function ui_touchend() {
+      if (this.props.onTouchend) {
+        this.props.onTouchend();
+      }
+    },
+    ui_longpress: function ui_longpress() {
+      if (this.props.onLongpress) {
+        this.props.onLongpress();
+      }
+    },
+    ui_longtap: function ui_longtap() {
+      if (this.props.onLongtap) {
+        this.props.onLongtap();
+      }
+    },
+    ui_transitionend: function ui_transitionend() {
+      if (this.props.onTransitionend) {
+        this.props.onTransitionend();
+      }
+    },
+    ui_animationstart: function ui_animationstart() {
+      if (this.props.onAnimationstart) {
+        this.props.onAnimationstart();
+      }
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      if (this.props.onAnimationiteration) {
+        this.props.onAnimationiteration();
+      }
+    },
+    ui_animationend: function ui_animationend() {
+      if (this.props.onAnimationend) {
+        this.props.onAnimationend();
+      }
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      if (this.props.onTouchforcechange) {
+        this.props.onTouchforcechange();
+      }
+    }
+  }
+};
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -270,19 +344,18 @@ var _createClass = function () { function defineProperties(target, props) { for 
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 
+// import CameraContext from './api/CameraContext'
+
+
 var _VideoContext = __webpack_require__(3);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _CameraContext = __webpack_require__(6);
-
-var _CameraContext2 = _interopRequireDefault(_CameraContext);
-
-var _SelectorQuery = __webpack_require__(8);
+var _SelectorQuery = __webpack_require__(6);
 
 var _SelectorQuery2 = _interopRequireDefault(_SelectorQuery);
 
-var _MapContext = __webpack_require__(10);
+var _MapContext = __webpack_require__(8);
 
 var _MapContext2 = _interopRequireDefault(_MapContext);
 
@@ -367,7 +440,12 @@ var wx = function () {
         pixelRatio: res.pixelRatio,
         platform: res.platform,
         safeArea: {
-          height: res.screenHeight, width: res.screenWidth, bottom: res.screenHeight, top: 0, left: 0, right: res.screenWidth
+          height: res.screenHeight,
+          width: res.screenWidth,
+          bottom: res.screenHeight,
+          top: 0,
+          left: 0,
+          right: res.screenWidth
         },
         screenHeight: res.screenHeight,
         screenWidth: res.screenWidth,
@@ -472,7 +550,7 @@ var wx = function () {
   };
 
   wx.createCameraContext = function createCameraContext() {
-    return new _CameraContext2.default();
+    return my.createCameraContext();
   };
 
   // //////////// WXML ///////////////
@@ -637,6 +715,15 @@ var wx = function () {
     });
   };
 
+  wx.offAccelerometerChange = function offAccelerometerChange(callback) {
+    my.offAccelerometerChange(function (res) {
+      if (wx._stopAccelerometer) {
+        return;
+      }
+      callback(res);
+    });
+  };
+
   wx.stopAccelerometer = function stopAccelerometer(wx_object) {
     wx._stopAccelerometer = true;
     if (wx_object.success) {
@@ -665,6 +752,7 @@ var wx = function () {
     my.getSystemInfo({
       success: function success(res) {
         var percent = res.currentBattery;
+
         function toPoint(percent) {
           var str = percent.replace('%', '');
           str /= 100;
@@ -711,7 +799,9 @@ var wx = function () {
     var my_object = {};
     if (wx_object) {
       my_object.success = function (res) {
-        var result = { data: res.text };
+        var result = {
+          data: res.text
+        };
         if (wx_object.success) {
           wx_object.success(result);
         }
@@ -894,7 +984,9 @@ var wx = function () {
       }
     }
     my_object.success = function (res) {
-      var result = { networkType: wx._network(res).networkType };
+      var result = {
+        networkType: wx._network(res).networkType
+      };
       if (wx_object.success) {
         wx_object.success(result);
       }
@@ -928,7 +1020,10 @@ var wx = function () {
     } else {
       networkType = 'NONE';
     }
-    return { isConnected: res.networkAvailable, networkType: networkType.toLowerCase() };
+    return {
+      isConnected: res.networkAvailable,
+      networkType: networkType.toLowerCase()
+    };
   };
 
   wx.onNetworkStatusChange = function onNetworkStatusChange(callack) {
@@ -1160,7 +1255,9 @@ var wx = function () {
   wx.openBluetoothAdapter = function openBluetoothAdapter(wx_object) {
     var my_object = {};
     my_object.success = function () {
-      var result = { errMsg: 'openBluetoothAdapter:ok' };
+      var result = {
+        errMsg: 'openBluetoothAdapter:ok'
+      };
       if (wx_object.success) {
         wx_object.success(result);
       }
@@ -1325,7 +1422,9 @@ var wx = function () {
       }
     }
     my_object.success = function (res) {
-      var result = { value: res.brightness };
+      var result = {
+        value: res.brightness
+      };
       if (wx_object.success) {
         wx_object.success(result);
       }
@@ -1386,7 +1485,9 @@ var wx = function () {
     my.saveFile({
       apFilePath: wx_object.tempFilePath,
       success: function success(res) {
-        var result = { savedFilePath: res.apFilePath };
+        var result = {
+          savedFilePath: res.apFilePath
+        };
         if (wx_object.success) {
           wx_object.success(result);
         }
@@ -1469,7 +1570,10 @@ var wx = function () {
           var path = _ref8;
 
           tempFilePaths.push(path);
-          tempFiles.push({ path: path, size: 1000000 });
+          tempFiles.push({
+            path: path,
+            size: 1000000
+          });
         }
         var result = {
           tempFilePaths: tempFilePaths,
@@ -1878,6 +1982,7 @@ var wx = function () {
     if (!getApp().onekit._opendataCallbacks) {
       getApp().onekit._opendataCallbacks = [];
     }
+
     function _success(res) {
       var opendata = res.userInfo;
       getApp().onekit._opendata = opendata;
@@ -2379,7 +2484,10 @@ var wx = function () {
   };
 
   wx.setStorageSync = function setStorageSync(key, value) {
-    return my.setStorageSync({ key: key, data: value });
+    return my.setStorageSync({
+      key: key,
+      data: value
+    });
   };
 
   wx.setStorage = function setStorage(wx_object) {
@@ -2387,7 +2495,9 @@ var wx = function () {
   };
 
   wx.getStorageSync = function getStorageSync(key) {
-    var result = my.getStorageSync({ key: key });
+    var result = my.getStorageSync({
+      key: key
+    });
     if (!result) {
       return '';
     } else if (result.data) {
@@ -2434,7 +2544,9 @@ var wx = function () {
         }
       }
       my_object.success = function (res) {
-        var result = { tapIndex: res.index };
+        var result = {
+          tapIndex: res.index
+        };
         if (wx_object.success) {
           wx_object.success(result);
         }
@@ -2840,73 +2952,7 @@ exports.default = wx;
 
 exports.__esModule = true;
 
-var _CameraFrameListener = __webpack_require__(7);
-
-var _CameraFrameListener2 = _interopRequireDefault(_CameraFrameListener);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /* eslint-disable class-methods-use-this */
-
-
-var CameraContext = function () {
-  function CameraContext() {
-    _classCallCheck(this, CameraContext);
-  }
-
-  CameraContext.prototype.onCameraFrame = function onCameraFrame() {
-    return new _CameraFrameListener2.default();
-  };
-
-  CameraContext.prototype.setZoom = function setZoom() {};
-
-  CameraContext.prototype.startRecord = function startRecord() {};
-
-  CameraContext.prototype.stopRecord = function stopRecord() {};
-
-  CameraContext.prototype.takePhoto = function takePhoto() {};
-
-  return CameraContext;
-}();
-
-exports.default = CameraContext;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/* eslint-disable class-methods-use-this */
-var CameraFrameListener = function () {
-  function CameraFrameListener() {
-    _classCallCheck(this, CameraFrameListener);
-  }
-
-  CameraFrameListener.prototype.start = function start() {};
-
-  CameraFrameListener.prototype.stop = function stop() {};
-
-  return CameraFrameListener;
-}();
-
-exports.default = CameraFrameListener;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _NodesRef = __webpack_require__(9);
+var _NodesRef = __webpack_require__(7);
 
 var _NodesRef2 = _interopRequireDefault(_NodesRef);
 
@@ -3043,7 +3089,7 @@ var SelectorQuery = function () {
 exports.default = SelectorQuery;
 
 /***/ }),
-/* 9 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3101,7 +3147,7 @@ var NodesRef = function () {
 exports.default = NodesRef;
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3231,6 +3277,8 @@ var MapContext = function () {
 exports.default = MapContext;
 
 /***/ }),
+/* 9 */,
+/* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
@@ -3240,9 +3288,7 @@ exports.default = MapContext;
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3251,6 +3297,10 @@ exports.default = MapContext;
 var _wx = __webpack_require__(4);
 
 var _wx2 = _interopRequireDefault(_wx);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 var _onekit_behavior = __webpack_require__(1);
 
@@ -3262,8 +3312,10 @@ var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 Component({
-  mixins: [_onekit_behavior2.default, _wxs_behavior2.default],
+  mixins: [_weixin_behavior2.default, _onekit_behavior2.default, _wxs_behavior2.default],
   data: {
     hideContact: true
   },
@@ -3317,7 +3369,6 @@ Component({
     if (this.props.plain) {
       attributeCSS += '_plain';
     }
-    console.log(attributeCSS);
     this.setData({
       openType: openType,
       scope: scope,
@@ -3394,7 +3445,6 @@ Component({
         }
       }
       if (that.props.onTap) {
-        // /console.log("xxxxxxxxxxxx",e)
         that.props.onTap(e);
       }
     },
@@ -3431,8 +3481,7 @@ Component({
       }
     }
   }
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
+});
 
 /***/ })
 /******/ ]);

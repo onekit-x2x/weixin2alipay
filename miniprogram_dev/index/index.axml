@@ -1,4 +1,4 @@
-<!--<text> -->
+<!-- <text> -->
 <!-- <onekit-view>
   <onekit-text>&gt;</onekit-text>
   </onekit-view>
@@ -11,14 +11,12 @@
   <onekit-view>
   <onekit-text decode>&gt;</onekit-text>
 </onekit-view> -->
-
-<!--<progress> -->
+<!-- <progress> -->
 <!-- <onekit-progress percent="20" show-info></onekit-progress>
 <onekit-progress percent="40" stroke-width="12"></onekit-progress>
 <onekit-progress percent="60" color="pink"></onekit-progress>
 <onekit-progress percent="80" active onActiveend="activeend"></onekit-progress> -->
-
-<!--<image> -->
+<!-- <image> -->
 <!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
     <onekit-text onekit-class="page__title">image</onekit-text>
@@ -35,8 +33,7 @@
 </onekit-view> -->
 <!-- <onekit-image src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" show-menu-by-longpress/> -->
 <!-- <onekit-image src="https://gw.alipayobjects.com/zos/skylark-tools/public/files/37daa426d7ff9385724ad798f0e0380b.png" show-menu-by-longpress/> -->
-
-<!--<view> -->
+<!-- <view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section">
@@ -62,8 +59,7 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
-<!--<switch> -->
+<!-- <switch> -->
 <!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
     <onekit-text onekit-class="page__title">switch</onekit-text>
@@ -84,8 +80,7 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
-<!--<slider> -->
+<!-- <slider> -->
 <!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
     <onekit-text onekit-class="page__title">slider</onekit-text>
@@ -118,8 +113,7 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
-<!--<picker> -->
+<!-- <picker> -->
 <!-- <onekit-view onekit-class="section">
   <onekit-view onekit-class="section__title">普通选择器</onekit-view>
   <onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
@@ -150,8 +144,7 @@
     <onekit-view onekit-class="picker">当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}</onekit-view>
   </onekit-picker>
 </onekit-view> -->
-
-<!--<switch> -->
+<!-- <switch> -->
 <!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
     <onekit-text onekit-class="page__title">switch</onekit-text>
@@ -172,7 +165,6 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
 <!-- <scroll-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
@@ -202,7 +194,6 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
 <!-- <onekit-scroll-view refresher-enabled refresher-triggered="{{triggered}}" refresher-threshold onRefresherrefresh="refresherrefresh" onRefresherpulling="refresherpulling" onRefresherrestore="refresherrestore" onRefresherabort="refresherabort">
   <onekit-view>
     <onekit-text>{{counter}}</onekit-text>
@@ -210,7 +201,6 @@
     <onekit-button onTap="div">-</onekit-button>
   </onekit-view>
 </onekit-scroll-view> -->
-
 <!-- <cover-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
@@ -229,9 +219,8 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
 <!-- <video> -->
-<!-- <onekit-view onekit-class="page-body">
+<onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section tc">
     <onekit-video onekit-id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" onError="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></onekit-video>
 
@@ -251,15 +240,11 @@
       <onekit-button onTap="bindPause" onekit-class="page-body-button" type="primary">暂停</onekit-button>
     </onekit-view>
   </onekit-view>
-</onekit-view> -->
-
+</onekit-view>
 <!-- <onekit-video controls="{{controls}}" onControlstoggle="video_controlstoggle" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
-
 <!-- <onekit-video onSeekcomplete="video_seekcomplete" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
-
-<!-- <canvas> 2D-->
+<!-- <canvas> 2D -->
 <!-- <onekit-canvas type="2d" onekit-id="myCanvas" canvas-id="myCanvas" width="500" height="500" onekit-style="width:500px;height:500px;"></onekit-canvas> -->
-
 <!-- <onekit-movable-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
@@ -319,14 +304,10 @@
       <onekit-button onTap="tap2" onekit-class="page-body-button" type="primary">点击放大3倍</onekit-button>
     </onekit-view>
   </onekit-view> -->
-
-
 <!-- <movable-area>
     <onekit-movable-view direction="all" onhtouchmove="movable_htouchmove" ontouchmove="movable_touchmove"></onekit-movable-view>
  <onekit-movable-view direction="all" catchhtouchmove="movable_htouchmove" catchtouchmove="movable_touchmove"></onekit-movable-view> 
   </movable-area> -->
-
-
 <!-- <button> -->
 <!-- <onekit-button onekit-version="" type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" onTap="default" hover-class="other-button-hover"> default </onekit-button>
 <onekit-button onekit-version="2" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" onTap="primary"> primary </onekit-button>
@@ -337,7 +318,6 @@
 <onekit-button open-type="contact">进入客服会话</onekit-button>
 <onekit-button open-type="getUserInfo" lang="zh_CN" onGetuserinfo="onGotUserInfo">获取用户信息</onekit-button> -->
 <!-- <onekit-button onTap="button_tap">hhhh</onekit-button> -->
-
 <!-- <input> -->
 <!-- <onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section">
@@ -429,9 +409,8 @@
     onekit-style="background-color:#000000;color:#fff"
     onKeyboardheightchange="input_onKeyboardheightchange"></onekit-input>
 </onekit-view> -->
-
 <!-- <camera> -->
-<onekit-view onekit-class="page-body">
+<!-- <onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-body-wrapper">
     <onekit-camera device-position="back" flash="off" onError="error" onekit-style="width: 100%; height: 300px;"></onekit-camera>
     <onekit-view onekit-class="btn-area">
@@ -447,19 +426,17 @@
     <onekit-image a:if="{{src}}" mode="widthFix" src="{{src}}"></onekit-image>
     <onekit-video a:if="{{videoSrc}}" onekit-class="video" src="{{videoSrc}}"></onekit-video>
   </onekit-view>
-</onekit-view>
+</onekit-view> -->
 <!-- <onekit-camera device-position="back" flash="off" onError="error" onekit-style="width: 100%; height: 300px;"></onekit-camera>
 <onekit-button type="primary" onTap="takePhoto">拍照</onekit-button>
 <onekit-view>预览</onekit-view>
 <onekit-image mode="widthFix" src="{{src}}"></onekit-image> -->
-
 <!-- <web-view> -->
 <!-- <onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section page-section-gap">
     <onekit-web-view src="https://onekitwx.com" onError="webview_error"></onekit-web-view>
   </onekit-view>
 </onekit-view> -->
-
 <!-- <map> -->
 <!-- <onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section page-section-gap">
@@ -473,11 +450,9 @@
   </onekit-view>
 </onekit-view> -->
 <!-- <onekit-map onekit-id="myMap" onekit-style="width: 100%; height: 300px;" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></onekit-map> -->
-
 <!-- <aria-component> -->
 <!-- <view aria-role="button"  aria-label="提交表单">提交</view> -->
-
-<!--<navigator> -->
+<!-- <navigator> -->
 <!-- <onekit-view onekit-class="btn-area">
   <onekit-navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</onekit-navigator>
   <onekit-navigator url="../redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">在当前页打开</onekit-navigator>
@@ -485,15 +460,13 @@
   <onekit-navigator url="/my/my?title=my" open-type="switchTab" hover-class="other-navigator-hover">切换 Tab</onekit-navigator>
   <onekit-navigator target="miniProgram" open-type="exit">exit</onekit-navigator>
   <onekit-navigator url="/navigate/navigate?title=navigate" open-type="reLaunch" hover-class="navigator-hover">reLaunch</onekit-navigator> -->
-  <!-- 跳转小程序未实现 -->
-  <!-- <onekit-navigator target="miniProgram" open-type="navigate" app-id="2021002102609481" path="pages/index/index" extra-data version="release">打开绑定的小程序</onekit-navigator> -->
+<!-- 跳转小程序未实现 -->
+<!-- <onekit-navigator target="miniProgram" open-type="navigate" app-id="2021002102609481" path="pages/index/index" extra-data version="release">打开绑定的小程序</onekit-navigator> -->
 <!-- </onekit-view> -->
-
 <!-- <page-meta> -->
 <!-- <onekit-page-meta>
   <onekit-navigation-bar title="{{nbTitle}}" loading="{{nbLoading}}" front-color="{{nbFrontColor}}" background-color="{{nbBackgroundColor}}" color-animation-duration="2000" color-animation-timing-func="easeIn"></onekit-navigation-bar>
 </onekit-page-meta> -->
-
 <!-- <textarea> -->
 <!-- <onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section">

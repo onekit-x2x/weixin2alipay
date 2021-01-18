@@ -1,28 +1,26 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
+import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
-import VideoContextX from '../../api/VideoContextX'
+import weixin_behavior from '../../behavior/weixin_behavior'
 
 Component({
-  mixins: [wxs_behavior, VideoContextX],
-
+  mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
   props: {
-    onekitStyle: '',
-    onekitClass: '',
-    onekitId: 'onekit-video',
     src: '',
     duration: null,
     controls: true,
     danmuList: [],
     danmuBtn: false,
     enableDanmu: false,
-    autoplay: true,
+    autoplay: false,
     loop: false,
     muted: false,
-    initialTime: '',
+    initialTime: 0,
     pagGesture: false,
-    direction: '',
+    direction: null,
+    //
     showProgress: true,
     showFullscreenBtn: true,
     showPlayBtn: true,
@@ -31,15 +29,17 @@ Component({
     objectFit: 'contain',
     poster: '',
     showMuteBtn: true,
-
     //
     title: '',
+    //
     playBtnPosition: 'button',
     enablePlayGesture: false,
+    //
     autoPauseIfNavigate: true,
     autoPauseIfOpenNative: true,
     vslideGesture: false,
     vslideGestureInFullscreen: true,
+    //
     adUnitId: '',
     posterForCrawler: '',
     showCastingButton: false,
@@ -95,7 +95,7 @@ Component({
     this._trigger_controlstoggle(this.props.controls)
   },
   methods: {
-    video_start() {
+    video_play() {
       if (this.props.onPlay) {
         this.props.onPlay({})
       }
@@ -132,8 +132,16 @@ Component({
         this.props.onError({})
       }
     },
-    _trigger_progress() {},
-    _trigger_loadedmetadata() {},
+    _trigger_progress() {
+      if (this.props.onProgress) {
+        this.props.onProgress({})
+      }
+    },
+    video_loadedmetadata() {
+      if (this.props.onLoadedmetadata) {
+        this.props.onLoadedmetadata({})
+      }
+    },
     _trigger_controlstoggle(show) {
       if (this.data.show === show) {
         return
@@ -145,8 +153,16 @@ Component({
         })
       }
     },
-    _trigger_enterpictureinpicture() {},
-    _trigger_leavepictureinpicture() {},
+    _trigger_enterpictureinpicture() {
+      if (this.props.onEnterpictureinpicture) {
+        this.props.onEnterpictureinpicture({})
+      }
+    },
+    _trigger_leavepictureinpicture() {
+      if (this.props.onLeavepictureinpicture) {
+        this.props.onLeavepictureinpicture({})
+      }
+    },
     _trigger_seekcomplete(positon) {
       if (this.props.duration) {
         const res = my.getSystemInfo()

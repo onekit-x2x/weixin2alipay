@@ -1,16 +1,21 @@
-/* eslint-disable class-methods-use-this */
-import CameraFrameListener from './CameraFrameListener'
-
 export default class CameraContext {
-  onCameraFrame() {
-    return new CameraFrameListener()
+  constructor(myCameraContext) {
+    this.myCameraContext = myCameraContext
   }
 
-  setZoom() {}
+  takePhoto(object) {
+    return this.myCameraContext.takePhoto(object)
+  }
 
-  startRecord() {}
+  startRecord(object) {
+    return this.myCameraContext.startRecord(object)
+  }
 
-  stopRecord() {}
+  stopRecord(object) {
+    return this.myCameraContext.stopRecord(object)
+  }
 
-  takePhoto() {}
+  onCameraFrame(callback) {
+    return this.myCameraContext.onCameraFrame(callback)
+  }
 }

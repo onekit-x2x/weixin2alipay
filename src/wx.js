@@ -3,7 +3,7 @@
 /* eslint-disable camelcase */
 
 import VideoContext from './api/VideoContext'
-// import CameraContext from './api/CameraContext'
+import CameraContext from './api/CameraContext'
 import SelectorQuery from './api/SelectorQuery'
 import MapContext from './api/MapContext'
 
@@ -185,8 +185,8 @@ export default class wx {
     return new VideoContext(my.createVideoContext(videoId), videoId)
   }
 
-  static createCameraContext() {
-    return my.createCameraContext()
+  static createCameraContext(id) {
+    return new CameraContext(my.createCameraContext(id))
   }
 
   // //////////// WXML ///////////////

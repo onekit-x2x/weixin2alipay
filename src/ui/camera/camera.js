@@ -11,11 +11,16 @@ Component({
     flash: 'auto'
   },
   didMount() {
-    const that = this
-    this.cameraCtx = my.createMapContext(this.props.onekitId)
-
+    const onekitId = this.props.onekitId || `id_${Math.random() * 1000}`
+    this.setData({
+      onekitId
+    })
+    getApp().onekit_camera = my.createCameraContext(onekitId)
+    //
     my.createSelectorQuery().select('.onekit-camera').boundingClientRect().exec((rect) => {
-      that.setData({rect: rect[0]})
+      this.setData({
+        rect: rect[0]
+      })
     })
   },
   didUpdate() {},

@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 44);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -143,7 +143,7 @@ exports.__esModule = true;
 /* eslint-disable no-console */
 exports.default = {
   props: {
-    onekitId: '', // `id_${Math.random() * 1000}`,
+    onekitId: '',
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: ''
@@ -191,11 +191,91 @@ exports.default = {
 
 /***/ }),
 
-/***/ 43:
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = {
+  props: {},
+  methods: {
+    ui_tap: function ui_tap(e) {
+      if (this.props.onTap) {
+        this.props.onTap(e);
+      }
+    },
+    ui_touchstart: function ui_touchstart() {
+      if (this.props.onTouchstart) {
+        this.props.onTouchstart();
+      }
+    },
+    ui_touchmove: function ui_touchmove() {
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove();
+      }
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      if (this.props.onTouchcancel) {
+        this.props.onTouchcancel();
+      }
+    },
+    ui_touchend: function ui_touchend() {
+      if (this.props.onTouchend) {
+        this.props.onTouchend();
+      }
+    },
+    ui_longpress: function ui_longpress() {
+      if (this.props.onLongpress) {
+        this.props.onLongpress();
+      }
+    },
+    ui_longtap: function ui_longtap() {
+      if (this.props.onLongtap) {
+        this.props.onLongtap();
+      }
+    },
+    ui_transitionend: function ui_transitionend() {
+      if (this.props.onTransitionend) {
+        this.props.onTransitionend();
+      }
+    },
+    ui_animationstart: function ui_animationstart() {
+      if (this.props.onAnimationstart) {
+        this.props.onAnimationstart();
+      }
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      if (this.props.onAnimationiteration) {
+        this.props.onAnimationiteration();
+      }
+    },
+    ui_animationend: function ui_animationend() {
+      if (this.props.onAnimationend) {
+        this.props.onAnimationend();
+      }
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      if (this.props.onTouchforcechange) {
+        this.props.onTouchforcechange();
+      }
+    }
+  }
+};
+
+/***/ }),
+
+/***/ 44:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 var _onekit_behavior = __webpack_require__(1);
 
@@ -207,13 +287,11 @@ var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable no-lonely-if */
-/* eslint-disable max-len */
-/* eslint-disable no-console */
+var refresher = void 0; /* eslint-disable max-len */
 /* eslint-disable camelcase */
-var refresher = void 0;
+
 Component({
-  mixins: [_onekit_behavior2.default, _wxs_behavior2.default],
+  mixins: [_weixin_behavior2.default, _onekit_behavior2.default, _wxs_behavior2.default],
   data: {
     refresher_height: 0,
     pagePulling: false

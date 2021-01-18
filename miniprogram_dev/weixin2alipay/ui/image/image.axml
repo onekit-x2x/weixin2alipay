@@ -1,13 +1,13 @@
 <image
-id="{{onekitId}}"
 class="onekit-image {{onekitClass}}"
 style="{{onekitStyle}}"
-mode="{{mode}}"
+id="{{onekitId}}"
+
 src="{{src}}"
-webp="{{webp}}"
+mode="{{mode}}"
 lazy-load="{{lazyLoad}}"
-show-menu-by-longpress="showMenuByLongpress"
-onError="image_error"
+
 onLoad="image_load"
+onError="image_error"
 onLongTap="image_longTap"
 />

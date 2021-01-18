@@ -1,13 +1,12 @@
-/* eslint-disable no-lonely-if */
 /* eslint-disable max-len */
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
+import weixin_behavior from '../../behavior/weixin_behavior'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 
 let refresher
 Component({
-  mixins: [onekit_behavior, wxs_behavior],
+  mixins: [weixin_behavior, onekit_behavior, wxs_behavior],
   data: {
     refresher_height: 0,
     pagePulling: false

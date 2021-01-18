@@ -27,15 +27,14 @@
   <onekit-view onekit-class="page__bd">
     <onekit-view a:for="{{array}}" a:for-item='item' onekit-class="section section_gap">
       <onekit-view onekit-class="section__title">{{item.text}}</onekit-view>
-        <onekit-view onekit-class="section__ctn">
-          <onekit-image onekit-style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"></onekit-image>
-        </onekit-view>
+      <onekit-view onekit-class="section__ctn">
+        <onekit-image onekit-style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"></onekit-image>
       </onekit-view>
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-<!-- <onekit-image src="https://www.baidu.com/img/flexible/logo/pc/result.png" show-menu-by-longpress/>
-<onekit-image src="https://gw.alipayobjects.com/zos/skylark-tools/public/files/37daa426d7ff9385724ad798f0e0380b.png" show-menu-by-longpress/> -->
+<!-- <onekit-image src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" show-menu-by-longpress/> -->
+<!-- <onekit-image src="https://gw.alipayobjects.com/zos/skylark-tools/public/files/37daa426d7ff9385724ad798f0e0380b.png" show-menu-by-longpress/> -->
 
 <!--<view> -->
 <!-- <onekit-view onekit-class="container">

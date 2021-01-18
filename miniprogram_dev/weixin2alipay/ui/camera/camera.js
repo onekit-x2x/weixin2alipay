@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -143,7 +143,7 @@ exports.__esModule = true;
 /* eslint-disable no-console */
 exports.default = {
   props: {
-    onekitId: '', // `id_${Math.random() * 1000}`,
+    onekitId: '',
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: ''
@@ -267,7 +267,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -295,11 +295,17 @@ Component({
     flash: 'auto'
   },
   didMount: function didMount() {
-    var that = this;
-    this.cameraCtx = my.createMapContext(this.props.onekitId);
+    var _this = this;
 
+    var onekitId = this.props.onekitId || 'id_' + Math.random() * 1000;
+    this.setData({
+      onekitId: onekitId
+    });
+    getApp().onekit_camera = my.createCameraContext(onekitId);
     my.createSelectorQuery().select('.onekit-camera').boundingClientRect().exec(function (rect) {
-      that.setData({ rect: rect[0] });
+      _this.setData({
+        rect: rect[0]
+      });
     });
   },
   didUpdate: function didUpdate() {},

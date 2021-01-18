@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 export default {
   props: {
-    onekitId: '', // `id_${Math.random() * 1000}`,
+    onekitId: '',
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: '',

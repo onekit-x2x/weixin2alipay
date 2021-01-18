@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -143,7 +143,7 @@ exports.__esModule = true;
 /* eslint-disable no-console */
 exports.default = {
   props: {
-    onekitId: '', // `id_${Math.random() * 1000}`,
+    onekitId: '',
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: ''
@@ -185,6 +185,82 @@ exports.default = {
         detail: detail || {},
         dataset: dataset || {}
       };
+    }
+  }
+};
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = {
+  props: {},
+  methods: {
+    ui_tap: function ui_tap(e) {
+      if (this.props.onTap) {
+        this.props.onTap(e);
+      }
+    },
+    ui_touchstart: function ui_touchstart() {
+      if (this.props.onTouchstart) {
+        this.props.onTouchstart();
+      }
+    },
+    ui_touchmove: function ui_touchmove() {
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove();
+      }
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      if (this.props.onTouchcancel) {
+        this.props.onTouchcancel();
+      }
+    },
+    ui_touchend: function ui_touchend() {
+      if (this.props.onTouchend) {
+        this.props.onTouchend();
+      }
+    },
+    ui_longpress: function ui_longpress() {
+      if (this.props.onLongpress) {
+        this.props.onLongpress();
+      }
+    },
+    ui_longtap: function ui_longtap() {
+      if (this.props.onLongtap) {
+        this.props.onLongtap();
+      }
+    },
+    ui_transitionend: function ui_transitionend() {
+      if (this.props.onTransitionend) {
+        this.props.onTransitionend();
+      }
+    },
+    ui_animationstart: function ui_animationstart() {
+      if (this.props.onAnimationstart) {
+        this.props.onAnimationstart();
+      }
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      if (this.props.onAnimationiteration) {
+        this.props.onAnimationiteration();
+      }
+    },
+    ui_animationend: function ui_animationend() {
+      if (this.props.onAnimationend) {
+        this.props.onAnimationend();
+      }
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      if (this.props.onTouchforcechange) {
+        this.props.onTouchforcechange();
+      }
     }
   }
 };
@@ -261,7 +337,7 @@ exports.default = VideoContext;
 
 /***/ }),
 
-/***/ 37:
+/***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -270,6 +346,10 @@ exports.default = VideoContext;
 var _wx = __webpack_require__(4);
 
 var _wx2 = _interopRequireDefault(_wx);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 var _onekit_behavior = __webpack_require__(1);
 
@@ -281,8 +361,10 @@ var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 Component({
-  mixins: [_onekit_behavior2.default, _wxs_behavior2.default],
+  mixins: [_weixin_behavior2.default, _onekit_behavior2.default, _wxs_behavior2.default],
   data: {},
   props: {},
 
@@ -323,8 +405,7 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {}
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
+});
 
 /***/ }),
 
@@ -340,18 +421,19 @@ var _createClass = function () { function defineProperties(target, props) { for 
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 
-// import CameraContext from './api/CameraContext'
-
-
 var _VideoContext = __webpack_require__(3);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _SelectorQuery = __webpack_require__(6);
+var _CameraContext = __webpack_require__(6);
+
+var _CameraContext2 = _interopRequireDefault(_CameraContext);
+
+var _SelectorQuery = __webpack_require__(7);
 
 var _SelectorQuery2 = _interopRequireDefault(_SelectorQuery);
 
-var _MapContext = __webpack_require__(8);
+var _MapContext = __webpack_require__(9);
 
 var _MapContext2 = _interopRequireDefault(_MapContext);
 
@@ -546,7 +628,7 @@ var wx = function () {
   };
 
   wx.createCameraContext = function createCameraContext() {
-    return my.createCameraContext();
+    return new _CameraContext2.default(getApp().onekit_camera);
   };
 
   // //////////// WXML ///////////////
@@ -2948,7 +3030,47 @@ exports.default = wx;
 
 exports.__esModule = true;
 
-var _NodesRef = __webpack_require__(7);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CameraContext = function () {
+  function CameraContext(myCameraContext) {
+    _classCallCheck(this, CameraContext);
+
+    this.myCameraContext = myCameraContext;
+  }
+
+  CameraContext.prototype.takePhoto = function takePhoto(object) {
+    return this.myCameraContext.takePhoto(object);
+  };
+
+  CameraContext.prototype.startRecord = function startRecord(object) {
+    return this.myCameraContext.startRecord(object);
+  };
+
+  CameraContext.prototype.stopRecord = function stopRecord(object) {
+    return this.myCameraContext.stopRecord(object);
+  };
+
+  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
+    return this.myCameraContext.onCameraFrame(callback);
+  };
+
+  return CameraContext;
+}();
+
+exports.default = CameraContext;
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _NodesRef = __webpack_require__(8);
 
 var _NodesRef2 = _interopRequireDefault(_NodesRef);
 
@@ -3086,7 +3208,7 @@ exports.default = SelectorQuery;
 
 /***/ }),
 
-/***/ 7:
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3145,7 +3267,7 @@ exports.default = NodesRef;
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

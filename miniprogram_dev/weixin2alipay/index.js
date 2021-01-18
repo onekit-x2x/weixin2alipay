@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 55);
+/******/ 	return __webpack_require__(__webpack_require__.s = 56);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -215,18 +215,19 @@ var _createClass = function () { function defineProperties(target, props) { for 
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 
-// import CameraContext from './api/CameraContext'
-
-
 var _VideoContext = __webpack_require__(3);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _SelectorQuery = __webpack_require__(6);
+var _CameraContext = __webpack_require__(6);
+
+var _CameraContext2 = _interopRequireDefault(_CameraContext);
+
+var _SelectorQuery = __webpack_require__(7);
 
 var _SelectorQuery2 = _interopRequireDefault(_SelectorQuery);
 
-var _MapContext = __webpack_require__(8);
+var _MapContext = __webpack_require__(9);
 
 var _MapContext2 = _interopRequireDefault(_MapContext);
 
@@ -421,7 +422,7 @@ var wx = function () {
   };
 
   wx.createCameraContext = function createCameraContext() {
-    return my.createCameraContext();
+    return new _CameraContext2.default(getApp().onekit_camera);
   };
 
   // //////////// WXML ///////////////
@@ -2822,7 +2823,7 @@ module.exports = require("oneutil");
 
 /***/ }),
 
-/***/ 55:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2830,22 +2831,22 @@ module.exports = require("oneutil");
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLOBAL = exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(56);
+var OnekitApp_1 = __webpack_require__(57);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(57);
+var OnekitBehavior_1 = __webpack_require__(58);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(58);
+var OnekitComponent_1 = __webpack_require__(59);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(59);
+var OnekitPage_1 = __webpack_require__(60);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(4);
 exports.wx = wx_1.default;
-var global_1 = __webpack_require__(60);
+var global_1 = __webpack_require__(61);
 exports.GLOBAL = global_1.default;
 
 /***/ }),
 
-/***/ 56:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2943,7 +2944,7 @@ function OnekitApp(wx_object) {
 
 /***/ }),
 
-/***/ 57:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3070,7 +3071,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3271,7 +3272,47 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 59:
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CameraContext = function () {
+  function CameraContext(myCameraContext) {
+    _classCallCheck(this, CameraContext);
+
+    this.myCameraContext = myCameraContext;
+  }
+
+  CameraContext.prototype.takePhoto = function takePhoto(object) {
+    return this.myCameraContext.takePhoto(object);
+  };
+
+  CameraContext.prototype.startRecord = function startRecord(object) {
+    return this.myCameraContext.startRecord(object);
+  };
+
+  CameraContext.prototype.stopRecord = function stopRecord(object) {
+    return this.myCameraContext.stopRecord(object);
+  };
+
+  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
+    return this.myCameraContext.onCameraFrame(callback);
+  };
+
+  return CameraContext;
+}();
+
+exports.default = CameraContext;
+
+/***/ }),
+
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3446,7 +3487,7 @@ function OnekitPage(wx_object) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3454,7 +3495,53 @@ function OnekitPage(wx_object) {
 
 exports.__esModule = true;
 
-var _NodesRef = __webpack_require__(7);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var global = function () {
+  function global() {
+    _classCallCheck(this, global);
+  }
+
+  global.btoa = function (_btoa) {
+    function btoa() {
+      return _btoa.apply(this, arguments);
+    }
+
+    btoa.toString = function () {
+      return _btoa.toString();
+    };
+
+    return btoa;
+  }(function () {
+    // eslint-disable-next-line no-undef
+    return btoa();
+  });
+
+  _createClass(global, null, [{
+    key: "isDemo",
+    get: function get() {
+      return false;
+    }
+  }]);
+
+  return global;
+}();
+
+exports.default = global;
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _NodesRef = __webpack_require__(8);
 
 var _NodesRef2 = _interopRequireDefault(_NodesRef);
 
@@ -3592,53 +3679,7 @@ exports.default = SelectorQuery;
 
 /***/ }),
 
-/***/ 60:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var global = function () {
-  function global() {
-    _classCallCheck(this, global);
-  }
-
-  global.btoa = function (_btoa) {
-    function btoa() {
-      return _btoa.apply(this, arguments);
-    }
-
-    btoa.toString = function () {
-      return _btoa.toString();
-    };
-
-    return btoa;
-  }(function () {
-    // eslint-disable-next-line no-undef
-    return btoa();
-  });
-
-  _createClass(global, null, [{
-    key: "isDemo",
-    get: function get() {
-      return false;
-    }
-  }]);
-
-  return global;
-}();
-
-exports.default = global;
-
-/***/ }),
-
-/***/ 7:
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3697,7 +3738,7 @@ exports.default = NodesRef;
 
 /***/ }),
 
-/***/ 8:
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

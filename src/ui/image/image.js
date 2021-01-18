@@ -3,15 +3,17 @@
 import {
   PATH
 } from 'oneutil'
+import weixin_behavior from '../../behavior/weixin_behavior'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 
 Component({
-  mixins: [onekit_behavior, wxs_behavior],
+  mixins: [weixin_behavior, onekit_behavior, wxs_behavior],
   data: {},
   props: {
     src: '',
     mode: 'scaleToFill',
+    // 不支持
     webp: false,
     lazyLoad: false,
     showMenuByLongpress: false
@@ -26,8 +28,6 @@ Component({
       })
     }
   },
-  didUpdate() {},
-  didUnmount() {},
   methods: {
     image_error(e) {
       if (this.props.onError) {
@@ -47,7 +47,7 @@ Component({
       }
     },
     image_longTap() {
-      if (this.props.showMenuByLongpress === true) {
+      if (this.props.showMenuByLongpress) {
         my.showActionSheet({
           items: ['发送给朋友', '收藏', '保存图片', '识别图片的小程序码'],
           cancelButtonText: '取消',
@@ -78,10 +78,18 @@ Component({
                 })
                 break
               case 3:
-                my.ix.onCodeScan((r) => {
-                  if (r.success) {
-                    console.log('code: ' + r.code)
-                  }
+                // my.ix.onCodeScan((r) => {
+                //   if (r.success) {
+                //     console.log('code: ' + r.code)
+                //   }
+                // })
+                my.scan({
+                  scanType: ['qrCode', 'barCode'],
+                  success: (res) => {
+                    my.alert({
+                      title: res.code
+                    })
+                  },
                 })
                 break
               default:

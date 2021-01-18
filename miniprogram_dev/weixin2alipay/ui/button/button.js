@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -141,7 +141,7 @@ exports.__esModule = true;
 /* eslint-disable no-console */
 exports.default = {
   props: {
-    onekitId: '', // `id_${Math.random() * 1000}`,
+    onekitId: '',
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: ''
@@ -344,18 +344,19 @@ var _createClass = function () { function defineProperties(target, props) { for 
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 
-// import CameraContext from './api/CameraContext'
-
-
 var _VideoContext = __webpack_require__(3);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _SelectorQuery = __webpack_require__(6);
+var _CameraContext = __webpack_require__(6);
+
+var _CameraContext2 = _interopRequireDefault(_CameraContext);
+
+var _SelectorQuery = __webpack_require__(7);
 
 var _SelectorQuery2 = _interopRequireDefault(_SelectorQuery);
 
-var _MapContext = __webpack_require__(8);
+var _MapContext = __webpack_require__(9);
 
 var _MapContext2 = _interopRequireDefault(_MapContext);
 
@@ -550,7 +551,7 @@ var wx = function () {
   };
 
   wx.createCameraContext = function createCameraContext() {
-    return my.createCameraContext();
+    return new _CameraContext2.default(getApp().onekit_camera);
   };
 
   // //////////// WXML ///////////////
@@ -2952,7 +2953,46 @@ exports.default = wx;
 
 exports.__esModule = true;
 
-var _NodesRef = __webpack_require__(7);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CameraContext = function () {
+  function CameraContext(myCameraContext) {
+    _classCallCheck(this, CameraContext);
+
+    this.myCameraContext = myCameraContext;
+  }
+
+  CameraContext.prototype.takePhoto = function takePhoto(object) {
+    return this.myCameraContext.takePhoto(object);
+  };
+
+  CameraContext.prototype.startRecord = function startRecord(object) {
+    return this.myCameraContext.startRecord(object);
+  };
+
+  CameraContext.prototype.stopRecord = function stopRecord(object) {
+    return this.myCameraContext.stopRecord(object);
+  };
+
+  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
+    return this.myCameraContext.onCameraFrame(callback);
+  };
+
+  return CameraContext;
+}();
+
+exports.default = CameraContext;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _NodesRef = __webpack_require__(8);
 
 var _NodesRef2 = _interopRequireDefault(_NodesRef);
 
@@ -3089,7 +3129,7 @@ var SelectorQuery = function () {
 exports.default = SelectorQuery;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3147,7 +3187,7 @@ var NodesRef = function () {
 exports.default = NodesRef;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3277,7 +3317,6 @@ var MapContext = function () {
 exports.default = MapContext;
 
 /***/ }),
-/* 9 */,
 /* 10 */,
 /* 11 */,
 /* 12 */,
@@ -3288,7 +3327,8 @@ exports.default = MapContext;
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */
+/* 20 */,
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

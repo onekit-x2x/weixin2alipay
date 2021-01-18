@@ -8,5 +8,4 @@ flash="{{flash}}"
 onstop="camera_stop"
 onerror="camera_error"
 >
-    
 </camera>

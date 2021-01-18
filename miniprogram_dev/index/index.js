@@ -47,22 +47,53 @@ global = {};
 //   })
 
 //camera
+// OnekitPage({
+//     takePhoto:function(){
+//       console.log('xxx')
+//       const ctx = wx.createCameraContext()
+//       console.log(ctx)
+//       ctx.takePhoto({
+//         quality:'high',
+//         success:(res)=>{
+//           console.log(res)
+//           this.setData({
+//             src:res.tempImagePath
+//           })
+//         },
+//         fail:(res) =>{
+//           console.log('fail', res)
+//         }
+//       })
+//     },
+//     error:function(e){
+//       console.log(e.detail)
+//     }
+//   })
 OnekitPage({
+    onLoad:function(){
+          console.log('onLoad')
+      this.ctx = wx.createCameraContext()
+      console.log(this.ctx)
+    },
     takePhoto:function(){
-      console.log('xxx')
-      const ctx = wx.createCameraContext()
-      console.log(ctx)
-      ctx.takePhoto({
+      this.ctx.takePhoto({
         quality:'high',
-        success:(res)=>{
-          console.log(res)
-          this.setData({
+        success:(res)=>{this.setData({
             src:res.tempImagePath
-          })
-        },
-        fail:(res) =>{
-          console.log('fail', res)
-        }
+          })}
+      })
+    },
+    startRecord:function(){
+      this.ctx.startRecord({
+        success:(res)=>{console.log('startRecord')}
+      })
+    },
+    stopRecord:function(){
+      this.ctx.stopRecord({
+        success:(res)=>{this.setData({
+            src:res.tempThumbPath,
+            videoSrc:res.tempVideoPath
+          })}
       })
     },
     error:function(e){

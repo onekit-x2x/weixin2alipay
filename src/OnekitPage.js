@@ -13,8 +13,14 @@ export default function OnekitPage(wx_object) {
       if (!getApp().onekit_onKeyboardHeight) {
         getApp().onekit_onKeyboardHeight = []
       }
+      this.query = query
+    },
+    onReady() {
       if (wx_object.onLoad) {
-        wx_object.onLoad.call(this, query)
+        wx_object.onLoad.call(this, this.query)
+      }
+      if (wx_object.onReady) {
+        wx_object.onReady.call(this)
       }
     },
     animate() {},

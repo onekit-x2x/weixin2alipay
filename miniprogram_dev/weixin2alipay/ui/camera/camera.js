@@ -302,6 +302,7 @@ Component({
       onekitId: onekitId
     });
     getApp().onekit_camera = my.createCameraContext(onekitId);
+    //
     my.createSelectorQuery().select('.onekit-camera').boundingClientRect().exec(function (rect) {
       _this.setData({
         rect: rect[0]

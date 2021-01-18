@@ -336,7 +336,7 @@ Component({
 
       if (this.props.showMenuByLongpress) {
         my.showActionSheet({
-          items: ['发送给朋友', '收藏', '保存图片', '识别图片的小程序码'],
+          items: ['转发', '保存图片', '收藏'],
           cancelButtonText: '取消',
           success: function success(_ref) {
             var index = _ref.index;
@@ -360,21 +360,6 @@ Component({
                   success: function success() {
                     my.alert({
                       title: '保存成功'
-                    });
-                  }
-                });
-                break;
-              case 3:
-                // my.ix.onCodeScan((r) => {
-                //   if (r.success) {
-                //     console.log('code: ' + r.code)
-                //   }
-                // })
-                my.scan({
-                  scanType: ['qrCode', 'barCode'],
-                  success: function success(res) {
-                    my.alert({
-                      title: res.code
                     });
                   }
                 });

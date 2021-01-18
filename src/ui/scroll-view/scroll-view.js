@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 import weixin_behavior from '../../behavior/weixin_behavior'

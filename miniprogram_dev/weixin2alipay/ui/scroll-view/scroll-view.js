@@ -287,7 +287,8 @@ var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var refresher = void 0; /* eslint-disable max-len */
+var refresher = void 0; /* eslint-disable no-console */
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 
 Component({

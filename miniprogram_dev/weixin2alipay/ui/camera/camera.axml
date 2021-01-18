@@ -8,11 +8,4 @@ flash="{{flash}}"
 onstop="camera_stop"
 onerror="camera_error"
 >
-    
 </camera>
-
-<!-- <cover-view style="position:absolute;pointer-events: none;background-color:transparent;
-width:{{rect.width}}px;height:{{rect.height}}px;
-left:{{rect.left}}px;top:{{rect.top}}px;">
-<slot></slot>
-</cover-view> -->

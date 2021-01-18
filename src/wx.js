@@ -3,7 +3,7 @@
 /* eslint-disable camelcase */
 
 import VideoContext from './api/VideoContext'
-import CameraContext from './api/CameraContext'
+// import CameraContext from './api/CameraContext'
 import SelectorQuery from './api/SelectorQuery'
 import MapContext from './api/MapContext'
 
@@ -27,7 +27,9 @@ export default class wx {
   }
 
   // /////////////// basic ////////////////////////////////
-  static canIUse() { return true }
+  static canIUse() {
+    return true
+  }
 
   static _getSystemInfo(result) {
     result.SDKVersion = '2.7.0'
@@ -74,7 +76,12 @@ export default class wx {
         pixelRatio: res.pixelRatio,
         platform: res.platform,
         safeArea: {
-          height: res.screenHeight, width: res.screenWidth, bottom: res.screenHeight, top: 0, left: 0, right: res.screenWidth
+          height: res.screenHeight,
+          width: res.screenWidth,
+          bottom: res.screenHeight,
+          top: 0,
+          left: 0,
+          right: res.screenWidth
         },
         screenHeight: res.screenHeight,
         screenWidth: res.screenWidth,
@@ -86,8 +93,12 @@ export default class wx {
       }
 
       result = wx._getSystemInfo(result)
-      if (wx_object.success) { wx_object.success(result) }
-      if (wx_object.fail) { wx_object.fail(result) }
+      if (wx_object.success) {
+        wx_object.success(result)
+      }
+      if (wx_object.fail) {
+        wx_object.fail(result)
+      }
     }
     my_object.fail = function (res) {
       if (wx_object.fail) {
@@ -116,29 +127,53 @@ export default class wx {
     return base64Content
   }
 
-  static getUpdateManager(wx_object) { return my.getUpdateManager(wx_object) }
+  static getUpdateManager(wx_object) {
+    return my.getUpdateManager(wx_object)
+  }
 
-  static getLaunchOptionsSync(wx_object) { return my.getLaunchOptionsSync(wx_object) }
+  static getLaunchOptionsSync(wx_object) {
+    return my.getLaunchOptionsSync(wx_object)
+  }
 
-  static offPageNotFound() { getApp().onekit_onError = null }
+  static offPageNotFound() {
+    getApp().onekit_onError = null
+  }
 
-  static onPageNotFound(callback) { getApp().onekit_onPageNotFound = callback }
+  static onPageNotFound(callback) {
+    getApp().onekit_onPageNotFound = callback
+  }
 
-  static offError() { getApp().onekit_onError = null }
+  static offError() {
+    getApp().onekit_onError = null
+  }
 
-  static onError(callback) { getApp().onekit_onError = callback }
+  static onError(callback) {
+    getApp().onekit_onError = callback
+  }
 
-  static offAppShow() { getApp().onekit_onError = null }
+  static offAppShow() {
+    getApp().onekit_onError = null
+  }
 
-  static onAppShow(callback) { getApp().onekit_onError = callback }
+  static onAppShow(callback) {
+    getApp().onekit_onError = callback
+  }
 
-  static offAppHide() { getApp().onekit_onError = null }
+  static offAppHide() {
+    getApp().onekit_onError = null
+  }
 
-  static onAppHide(callback) { getApp().onekit_onError = callback }
+  static onAppHide(callback) {
+    getApp().onekit_onError = callback
+  }
 
-  static setEnableDebug(wx_object) { return my.setEnableDebug(wx_object) }
+  static setEnableDebug(wx_object) {
+    return my.setEnableDebug(wx_object)
+  }
 
-  static getLogManager(wx_object) { return my.getLogManager(wx_object) }
+  static getLogManager(wx_object) {
+    return my.getLogManager(wx_object)
+  }
 
   // ///////////////// Canvas ///////////////////
 
@@ -151,7 +186,7 @@ export default class wx {
   }
 
   static createCameraContext() {
-    return new CameraContext()
+    return my.createCameraContext()
   }
 
   // //////////// WXML ///////////////
@@ -186,36 +221,66 @@ export default class wx {
     return my.canvasToTempFilePath(my_object)
   }
 
-  static canvasPutImageData(wx_object) { return my.canvasPutImageData(wx_object) }
+  static canvasPutImageData(wx_object) {
+    return my.canvasPutImageData(wx_object)
+  }
 
-  static canvasGetImageData(wx_object) { return my.canvasGetImageData(wx_object) }
+  static canvasGetImageData(wx_object) {
+    return my.canvasGetImageData(wx_object)
+  }
 
   // //////////// Device //////////////////
-  static onBeaconServiceChange(wx_object) { return my.onBeaconServiceChange(wx_object) }
+  static onBeaconServiceChange(wx_object) {
+    return my.onBeaconServiceChange(wx_object)
+  }
 
-  static onBeaconUpdate(wx_object) { return my.onBeaconUpdate(wx_object) }
+  static onBeaconUpdate(wx_object) {
+    return my.onBeaconUpdate(wx_object)
+  }
 
-  static getBeacons(wx_object) { return my.getBeacons(wx_object) }
+  static getBeacons(wx_object) {
+    return my.getBeacons(wx_object)
+  }
 
-  static stopBeaconDiscovery(wx_object) { return my.stopBeaconDiscovery(wx_object) }
+  static stopBeaconDiscovery(wx_object) {
+    return my.stopBeaconDiscovery(wx_object)
+  }
 
-  static startBeaconDiscovery(wx_object) { return my.startBeaconDiscovery(wx_object) }
+  static startBeaconDiscovery(wx_object) {
+    return my.startBeaconDiscovery(wx_object)
+  }
 
-  static stopWifi(wx_object) { return my.stopWifi(wx_object) }
+  static stopWifi(wx_object) {
+    return my.stopWifi(wx_object)
+  }
 
-  static startWifi(wx_object) { return my.startWifi(wx_object) }
+  static startWifi(wx_object) {
+    return my.startWifi(wx_object)
+  }
 
-  static setWifiList(wx_object) { return my.setWifiList(wx_object) }
+  static setWifiList(wx_object) {
+    return my.setWifiList(wx_object)
+  }
 
-  static onWifiConnected(wx_object) { return my.onWifiConnected(wx_object) }
+  static onWifiConnected(wx_object) {
+    return my.onWifiConnected(wx_object)
+  }
 
-  static onGetWifiList(wx_object) { return my.onGetWifiList(wx_object) }
+  static onGetWifiList(wx_object) {
+    return my.onGetWifiList(wx_object)
+  }
 
-  static getWifiList(wx_object) { return my.getWifiList(wx_object) }
+  static getWifiList(wx_object) {
+    return my.getWifiList(wx_object)
+  }
 
-  static getConnectedWifi(wx_object) { return my.getConnectedWifi(wx_object) }
+  static getConnectedWifi(wx_object) {
+    return my.getConnectedWifi(wx_object)
+  }
 
-  static connectWifi(wx_object) { return my.connectWifi(wx_object) }
+  static connectWifi(wx_object) {
+    return my.connectWifi(wx_object)
+  }
 
   // ///////////////////////////////////////////
   static setBackgroundFetchToken(my_object) {
@@ -282,6 +347,15 @@ export default class wx {
     })
   }
 
+  static offAccelerometerChange(callback) {
+    my.offAccelerometerChange(function (res) {
+      if (wx._stopAccelerometer) {
+        return
+      }
+      callback(res)
+    })
+  }
+
   static stopAccelerometer(wx_object) {
     wx._stopAccelerometer = true
     if (wx_object.success) {
@@ -302,12 +376,15 @@ export default class wx {
     }
   }
 
-  static getBatteryInfoSync(wx_object) { return my.getBatteryInfoSync(wx_object) }
+  static getBatteryInfoSync(wx_object) {
+    return my.getBatteryInfoSync(wx_object)
+  }
 
   static _getBatteryInfo(result) {
     my.getSystemInfo({
       success: (res) => {
         const percent = res.currentBattery
+
         function toPoint(percent) {
           let str = percent.replace('%', '')
           str /= 100
@@ -329,12 +406,20 @@ export default class wx {
         isCharging: false,
       }
       result = wx._getBatteryInfo(result)
-      if (wx_object.success) { wx_object.success(result) }
-      if (wx_object.fail) { wx_object.fail(result) }
+      if (wx_object.success) {
+        wx_object.success(result)
+      }
+      if (wx_object.fail) {
+        wx_object.fail(result)
+      }
     }
     my_object.fail = function (res) {
-      if (wx_object.success) { wx_object.success(res) }
-      if (wx_object.fail) { wx_object.fail(res) }
+      if (wx_object.success) {
+        wx_object.success(res)
+      }
+      if (wx_object.fail) {
+        wx_object.fail(res)
+      }
     }
     return my.getSystemInfo(my_object)
   }
@@ -344,13 +429,23 @@ export default class wx {
     const my_object = {}
     if (wx_object) {
       my_object.success = function (res) {
-        const result = {data: res.text}
-        if (wx_object.success) { wx_object.success(result) }
-        if (wx_object.fail) { wx_object.fail(result) }
+        const result = {
+          data: res.text
+        }
+        if (wx_object.success) {
+          wx_object.success(result)
+        }
+        if (wx_object.fail) {
+          wx_object.fail(result)
+        }
       }
       my_object.fail = function (res) {
-        if (wx_object.success) { wx_object.success(res) }
-        if (wx_object.fail) { wx_object.fail(res) }
+        if (wx_object.success) {
+          wx_object.success(res)
+        }
+        if (wx_object.fail) {
+          wx_object.fail(res)
+        }
       }
     }
     return my.getClipboard(my_object)
@@ -461,11 +556,17 @@ export default class wx {
   }
 
   //
-  static onDeviceMotionChange(wx_object) { return my.onDeviceMotionChange(wx_object) }
+  static onDeviceMotionChange(wx_object) {
+    return my.onDeviceMotionChange(wx_object)
+  }
 
-  static stopDeviceMotionListening(wx_object) { return my.stopDeviceMotionListening(wx_object) }
+  static stopDeviceMotionListening(wx_object) {
+    return my.stopDeviceMotionListening(wx_object)
+  }
 
-  static startDeviceMotionListening(wx_object) { return my.startDeviceMotionListening(wx_object) }
+  static startDeviceMotionListening(wx_object) {
+    return my.startDeviceMotionListening(wx_object)
+  }
 
   //
   static getNetworkType(wx_object) {
@@ -483,7 +584,9 @@ export default class wx {
       }
     }
     my_object.success = function (res) {
-      const result = {networkType: wx._network(res).networkType}
+      const result = {
+        networkType: wx._network(res).networkType
+      }
       if (wx_object.success) {
         wx_object.success(result)
       }
@@ -517,7 +620,10 @@ export default class wx {
     } else {
       networkType = 'NONE'
     }
-    return {isConnected: res.networkAvailable, networkType: networkType.toLowerCase()}
+    return {
+      isConnected: res.networkAvailable,
+      networkType: networkType.toLowerCase()
+    }
   }
 
   static onNetworkStatusChange(callack) {
@@ -635,26 +741,46 @@ export default class wx {
   }
 
   //
-  static onMemoryWarning(wx_object) { return my.onMemoryWarning(wx_object) }
+  static onMemoryWarning(wx_object) {
+    return my.onMemoryWarning(wx_object)
+  }
 
   //
-  static writeBLECharacteristicValue(wx_object) { return my.writeBLECharacteristicValue(wx_object) }
+  static writeBLECharacteristicValue(wx_object) {
+    return my.writeBLECharacteristicValue(wx_object)
+  }
 
-  static readBLECharacteristicValue(wx_object) { return my.readBLECharacteristicValue(wx_object) }
+  static readBLECharacteristicValue(wx_object) {
+    return my.readBLECharacteristicValue(wx_object)
+  }
 
-  static onBLEConnectionStateChange(wx_object) { return my.onBLEConnectionStateChange(wx_object) }
+  static onBLEConnectionStateChange(wx_object) {
+    return my.onBLEConnectionStateChange(wx_object)
+  }
 
-  static onBLECharacteristicValueChange(wx_object) { return my.onBLECharacteristicValueChange(wx_object) }
+  static onBLECharacteristicValueChange(wx_object) {
+    return my.onBLECharacteristicValueChange(wx_object)
+  }
 
-  static notifyBLECharacteristicValueChange(wx_object) { return my.notifyBLECharacteristicValueChange(wx_object) }
+  static notifyBLECharacteristicValueChange(wx_object) {
+    return my.notifyBLECharacteristicValueChange(wx_object)
+  }
 
-  static getBLEDeviceServices(wx_object) { return my.getBLEDeviceServices(wx_object) }
+  static getBLEDeviceServices(wx_object) {
+    return my.getBLEDeviceServices(wx_object)
+  }
 
-  static getBLEDeviceCharacteristics(wx_object) { return my.getBLEDeviceCharacteristics(wx_object) }
+  static getBLEDeviceCharacteristics(wx_object) {
+    return my.getBLEDeviceCharacteristics(wx_object)
+  }
 
-  static createBLEConnection(wx_object) { return my.createBLEConnection(wx_object) }
+  static createBLEConnection(wx_object) {
+    return my.createBLEConnection(wx_object)
+  }
 
-  static closeBLEConnection(wx_object) { return my.closeBLEConnection(wx_object) }
+  static closeBLEConnection(wx_object) {
+    return my.closeBLEConnection(wx_object)
+  }
 
   //
   static stopBluetoothDevicesDiscovery(wx_object) {
@@ -681,22 +807,38 @@ export default class wx {
   static openBluetoothAdapter(wx_object) {
     const my_object = {}
     my_object.success = function () {
-      const result = {errMsg: 'openBluetoothAdapter:ok'}
-      if (wx_object.success) { wx_object.success(result) }
-      if (wx_object.complete) { wx_object.complete(result) }
+      const result = {
+        errMsg: 'openBluetoothAdapter:ok'
+      }
+      if (wx_object.success) {
+        wx_object.success(result)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(result)
+      }
     }
     my_object.fail = function (res) {
-      if (wx_object.success) { wx_object.success(res) }
-      if (wx_object.complete) { wx_object.complete(res) }
+      if (wx_object.success) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
     }
     return my.openBluetoothAdapter(my_object)
   }
 
-  static onBluetoothDeviceFound(wx_object) { return my.onBluetoothDeviceFound(wx_object) }
+  static onBluetoothDeviceFound(wx_object) {
+    return my.onBluetoothDeviceFound(wx_object)
+  }
 
-  static onBluetoothAdapterStateChange(wx_object) { return my.onBluetoothAdapterStateChange(wx_object) }
+  static onBluetoothAdapterStateChange(wx_object) {
+    return my.onBluetoothAdapterStateChange(wx_object)
+  }
 
-  static getConnectedBluetoothDevices(wx_object) { return my.getConnectedBluetoothDevices(wx_object) }
+  static getConnectedBluetoothDevices(wx_object) {
+    return my.getConnectedBluetoothDevices(wx_object)
+  }
 
   static getBluetoothDevices(wx_object) {
     const my_object = {}
@@ -709,32 +851,54 @@ export default class wx {
             errMsg: 'closeBluetoothAdapter:ok'
           }
           result.devices = res.devices
-          if (wx_object.success) { wx_object.success(result) }
-          if (wx_object.complete) { wx_object.complete(result) }
+          if (wx_object.success) {
+            wx_object.success(result)
+          }
+          if (wx_object.complete) {
+            wx_object.complete(result)
+          }
         }
       })
     }
     my_object.fail = function (res) {
-      if (wx_object.success) { wx_object.success(res) }
-      if (wx_object.complete) { wx_object.complete(res) }
+      if (wx_object.success) {
+        wx_object.success(res)
+      }
+      if (wx_object.complete) {
+        wx_object.complete(res)
+      }
     }
     return my.getBluetoothDevices(my_object)
   }
 
-  static getBluetoothAdapterState(wx_object) { return my.getBluetoothAdapterState(wx_object) }
+  static getBluetoothAdapterState(wx_object) {
+    return my.getBluetoothAdapterState(wx_object)
+  }
 
-  static closeBluetoothAdapter(wx_object) { return my.closeBluetoothAdapter(wx_object) }
+  static closeBluetoothAdapter(wx_object) {
+    return my.closeBluetoothAdapter(wx_object)
+  }
 
   //
-  static stopHCE(wx_object) { return my.stopHCE(wx_object) }
+  static stopHCE(wx_object) {
+    return my.stopHCE(wx_object)
+  }
 
-  static startHCE(wx_object) { return my.startHCE(wx_object) }
+  static startHCE(wx_object) {
+    return my.startHCE(wx_object)
+  }
 
-  static sendHCEMessage(wx_object) { return my.sendHCEMessage(wx_object) }
+  static sendHCEMessage(wx_object) {
+    return my.sendHCEMessage(wx_object)
+  }
 
-  static onHCEMessage(wx_object) { return my.onHCEMessage(wx_object) }
+  static onHCEMessage(wx_object) {
+    return my.onHCEMessage(wx_object)
+  }
 
-  static getHCEState(wx_object) { return my.getHCEState(wx_object) }
+  static getHCEState(wx_object) {
+    return my.getHCEState(wx_object)
+  }
 
   //
   static setScreenBrightness(wx_object) {
@@ -755,9 +919,13 @@ export default class wx {
     return my.setScreenBrightness(my_object)
   }
 
-  static setKeepScreenOn(wx_object) { return my.setKeepScreenOn(wx_object) }
+  static setKeepScreenOn(wx_object) {
+    return my.setKeepScreenOn(wx_object)
+  }
 
-  static onUserCaptureScreen(wx_object) { return my.onUserCaptureScreen(wx_object) }
+  static onUserCaptureScreen(wx_object) {
+    return my.onUserCaptureScreen(wx_object)
+  }
 
   static getScreenBrightness(wx_object) {
     let my_object
@@ -776,7 +944,9 @@ export default class wx {
       }
     }
     my_object.success = function (res) {
-      const result = {value: res.brightness}
+      const result = {
+        value: res.brightness
+      }
       if (wx_object.success) {
         wx_object.success(result)
       }
@@ -796,28 +966,46 @@ export default class wx {
   }
 
   // ///////////////// Ext //////////////
-  static getExtConfigSync(wx_object) { return my.getExtConfigSync(wx_object) }
+  static getExtConfigSync(wx_object) {
+    return my.getExtConfigSync(wx_object)
+  }
 
-  static getExtConfig(wx_object) { return my.getExtConfig(wx_object) }
+  static getExtConfig(wx_object) {
+    return my.getExtConfig(wx_object)
+  }
 
   // ////////////////// File //////////
-  static getFileSystemManager(wx_object) { return my.getFileSystemManager(wx_object) }
+  static getFileSystemManager(wx_object) {
+    return my.getFileSystemManager(wx_object)
+  }
 
-  static getFileInfo(wx_object) { return my.getFileInfo(wx_object) }
+  static getFileInfo(wx_object) {
+    return my.getFileInfo(wx_object)
+  }
 
-  static removeSavedFile(wx_object) { return my.removeSavedFile(wx_object) }
+  static removeSavedFile(wx_object) {
+    return my.removeSavedFile(wx_object)
+  }
 
-  static getSavedFileInfo(wx_object) { return my.getSavedFileInfo(wx_object) }
+  static getSavedFileInfo(wx_object) {
+    return my.getSavedFileInfo(wx_object)
+  }
 
-  static getSavedFileList(wx_object) { return my.getSavedFileList(wx_object) }
+  static getSavedFileList(wx_object) {
+    return my.getSavedFileList(wx_object)
+  }
 
-  static openDocument(wx_object) { return my.openDocument(wx_object) }
+  static openDocument(wx_object) {
+    return my.openDocument(wx_object)
+  }
 
   static saveFile(wx_object) {
     my.saveFile({
       apFilePath: wx_object.tempFilePath,
       success(res) {
-        const result = {savedFilePath: res.apFilePath}
+        const result = {
+          savedFilePath: res.apFilePath
+        }
         if (wx_object.success) {
           wx_object.success(result)
         }
@@ -837,24 +1025,38 @@ export default class wx {
   }
 
   // ////////// Location ///////////////
-  static openLocation(wx_object) { return my.openLocation(wx_object) }
+  static openLocation(wx_object) {
+    return my.openLocation(wx_object)
+  }
 
-  static getLocation(wx_object) { return my.getLocation(wx_object) }
+  static getLocation(wx_object) {
+    return my.getLocation(wx_object)
+  }
 
-  static chooseLocation(wx_object) { return my.chooseLocation(wx_object) }
+  static chooseLocation(wx_object) {
+    return my.chooseLocation(wx_object)
+  }
 
   // //////// Media ////////////////////
   static createMapContext(mapId) {
     return new MapContext(my.createMapContext(mapId), mapId)
   }
 
-  static compressImage(wx_object) { return my.compressImage(wx_object) }
+  static compressImage(wx_object) {
+    return my.compressImage(wx_object)
+  }
 
-  static saveImageToPhotosAlbum(wx_object) { return my.saveImageToPhotosAlbum(wx_object) }
+  static saveImageToPhotosAlbum(wx_object) {
+    return my.saveImageToPhotosAlbum(wx_object)
+  }
 
-  static getImageInfo(wx_object) { return my.getImageInfo(wx_object) }
+  static getImageInfo(wx_object) {
+    return my.getImageInfo(wx_object)
+  }
 
-  static previewImage(wx_object) { return my.previewImage(wx_object) }
+  static previewImage(wx_object) {
+    return my.previewImage(wx_object)
+  }
 
   static chooseImage(wx_object) {
     if (!wx_object.count) {
@@ -869,7 +1071,10 @@ export default class wx {
         const tempFiles = []
         for (const path of res.apFilePaths) {
           tempFilePaths.push(path)
-          tempFiles.push({path, size: 1000000})
+          tempFiles.push({
+            path,
+            size: 1000000
+          })
         }
         const result = {
           tempFilePaths,
@@ -893,49 +1098,93 @@ export default class wx {
     })
   }
 
-  static saveVideoToPhotosAlbum(wx_object) { return my.saveVideoToPhotosAlbum(wx_object) }
+  static saveVideoToPhotosAlbum(wx_object) {
+    return my.saveVideoToPhotosAlbum(wx_object)
+  }
 
-  static chooseVideo(wx_object) { return my.chooseVideo(wx_object) }
+  static chooseVideo(wx_object) {
+    return my.chooseVideo(wx_object)
+  }
 
-  static stopVoice(wx_object) { return my.stopVoice(wx_object) }
+  static stopVoice(wx_object) {
+    return my.stopVoice(wx_object)
+  }
 
-  static pauseVoice(wx_object) { return my.pauseVoice(wx_object) }
+  static pauseVoice(wx_object) {
+    return my.pauseVoice(wx_object)
+  }
 
-  static playVoice(wx_object) { return my.playVoice(wx_object) }
+  static playVoice(wx_object) {
+    return my.playVoice(wx_object)
+  }
 
-  static setInnerAudioOption(wx_object) { return my.setInnerAudioOption(wx_object) }
+  static setInnerAudioOption(wx_object) {
+    return my.setInnerAudioOption(wx_object)
+  }
 
-  static getAvailableAudioSources(wx_object) { return my.getAvailableAudioSources(wx_object) }
+  static getAvailableAudioSources(wx_object) {
+    return my.getAvailableAudioSources(wx_object)
+  }
 
-  static createInnerAudioContext(wx_object) { return my.createInnerAudioContext(wx_object) }
+  static createInnerAudioContext(wx_object) {
+    return my.createInnerAudioContext(wx_object)
+  }
 
-  static createAudioContext(wx_object) { return my.createAudioContext(wx_object) }
+  static createAudioContext(wx_object) {
+    return my.createAudioContext(wx_object)
+  }
 
-  static onBackgroundAudioStop(wx_object) { return my.onBackgroundAudioStop(wx_object) }
+  static onBackgroundAudioStop(wx_object) {
+    return my.onBackgroundAudioStop(wx_object)
+  }
 
-  static onBackgroundAudioPause(wx_object) { return my.onBackgroundAudioPause(wx_object) }
+  static onBackgroundAudioPause(wx_object) {
+    return my.onBackgroundAudioPause(wx_object)
+  }
 
-  static onBackgroundAudioPlay(wx_object) { return my.onBackgroundAudioPlay(wx_object) }
+  static onBackgroundAudioPlay(wx_object) {
+    return my.onBackgroundAudioPlay(wx_object)
+  }
 
-  static stopBackgroundAudio(wx_object) { return my.stopBackgroundAudio(wx_object) }
+  static stopBackgroundAudio(wx_object) {
+    return my.stopBackgroundAudio(wx_object)
+  }
 
-  static seekBackgroundAudio(wx_object) { return my.seekBackgroundAudio(wx_object) }
+  static seekBackgroundAudio(wx_object) {
+    return my.seekBackgroundAudio(wx_object)
+  }
 
-  static pauseBackgroundAudio(wx_object) { return my.pauseBackgroundAudio(wx_object) }
+  static pauseBackgroundAudio(wx_object) {
+    return my.pauseBackgroundAudio(wx_object)
+  }
 
-  static playBackgroundAudio(wx_object) { return my.playBackgroundAudio(wx_object) }
+  static playBackgroundAudio(wx_object) {
+    return my.playBackgroundAudio(wx_object)
+  }
 
-  static getBackgroundAudioPlayerState(wx_object) { return my.getBackgroundAudioPlayerState(wx_object) }
+  static getBackgroundAudioPlayerState(wx_object) {
+    return my.getBackgroundAudioPlayerState(wx_object)
+  }
 
-  static getBackgroundAudioManager(wx_object) { return my.getBackgroundAudioManager(wx_object) }
+  static getBackgroundAudioManager(wx_object) {
+    return my.getBackgroundAudioManager(wx_object)
+  }
 
-  static createLivePusherContext(wx_object) { return my.createLivePusherContext(wx_object) }
+  static createLivePusherContext(wx_object) {
+    return my.createLivePusherContext(wx_object)
+  }
 
-  static startRecord(wx_object) { return my.startRecord(wx_object) }
+  static startRecord(wx_object) {
+    return my.startRecord(wx_object)
+  }
 
-  static stopRecord(wx_object) { return my.stopRecord(wx_object) }
+  static stopRecord(wx_object) {
+    return my.stopRecord(wx_object)
+  }
 
-  static getRecorderManager(wx_object) { return my.getRecorderManager(wx_object) }
+  static getRecorderManager(wx_object) {
+    return my.getRecorderManager(wx_object)
+  }
 
   // ////////////// Network ///////////////
   static request(wx_object) {
@@ -992,7 +1241,9 @@ export default class wx {
     return my.httpRequest(my_object)
   }
 
-  static downloadFile(wx_object) { return my.downloadFile(wx_object) }
+  static downloadFile(wx_object) {
+    return my.downloadFile(wx_object)
+  }
 
   static uploadFile(wx_object) {
     my.uploadFile({
@@ -1009,37 +1260,69 @@ export default class wx {
   }
 
   //
-  static connectSocket(wx_object) { return my.connectSocket(wx_object) }
+  static connectSocket(wx_object) {
+    return my.connectSocket(wx_object)
+  }
 
-  static onSocketError(wx_object) { return my.onSocketError(wx_object) }
+  static onSocketError(wx_object) {
+    return my.onSocketError(wx_object)
+  }
 
-  static onSocketMessage(wx_object) { return my.onSocketMessage(wx_object) }
+  static onSocketMessage(wx_object) {
+    return my.onSocketMessage(wx_object)
+  }
 
-  static onSocketClose(wx_object) { return my.onSocketClose(wx_object) }
+  static onSocketClose(wx_object) {
+    return my.onSocketClose(wx_object)
+  }
 
-  static onSocketOpen(wx_object) { return my.onSocketOpen(wx_object) }
+  static onSocketOpen(wx_object) {
+    return my.onSocketOpen(wx_object)
+  }
 
-  static sendSocketMessage(wx_object) { return my.sendSocketMessage(wx_object) }
+  static sendSocketMessage(wx_object) {
+    return my.sendSocketMessage(wx_object)
+  }
 
-  static closeSocket(wx_object) { return my.closeSocket(wx_object) }
+  static closeSocket(wx_object) {
+    return my.closeSocket(wx_object)
+  }
 
-  static offLocalServiceResolveFail(callbck) { return my.offLocalServiceResolveFail(callbck) }
+  static offLocalServiceResolveFail(callbck) {
+    return my.offLocalServiceResolveFail(callbck)
+  }
 
-  static onLocalServiceResolveFail(callbck) { return my.onLocalServiceResolveFail(callbck) }
+  static onLocalServiceResolveFail(callbck) {
+    return my.onLocalServiceResolveFail(callbck)
+  }
 
-  static onLocalServiceDiscoveryStop(callbck) { return my.onLocalServiceDiscoveryStop(callbck) }
+  static onLocalServiceDiscoveryStop(callbck) {
+    return my.onLocalServiceDiscoveryStop(callbck)
+  }
 
-  static offLocalServiceLost(callbck) { return my.offLocalServiceLost(callbck) }
+  static offLocalServiceLost(callbck) {
+    return my.offLocalServiceLost(callbck)
+  }
 
-  static onLocalServiceLost(callbck) { return my.onLocalServiceLost(callbck) }
+  static onLocalServiceLost(callbck) {
+    return my.onLocalServiceLost(callbck)
+  }
 
-  static offLocalServiceFound(callbck) { return my.offLocalServiceFound(callbck) }
+  static offLocalServiceFound(callbck) {
+    return my.offLocalServiceFound(callbck)
+  }
 
-  static onLocalServiceFound(callbck) { return my.onLocalServiceFound(callbck) }
+  static onLocalServiceFound(callbck) {
+    return my.onLocalServiceFound(callbck)
+  }
 
-  static stopLocalServiceDiscovery(wx_object) { return my.stopLocalServiceDiscovery(wx_object) }
+  static stopLocalServiceDiscovery(wx_object) {
+    return my.stopLocalServiceDiscovery(wx_object)
+  }
 
-  static startLocalServiceDiscovery(wx_object) { return my.startLocalServiceDiscovery(wx_object) }
+  static startLocalServiceDiscovery(wx_object) {
+    return my.startLocalServiceDiscovery(wx_object)
+  }
 
   // /////// Open Interface //////////
   static _checkSession() {
@@ -1168,6 +1451,7 @@ export default class wx {
     if (!getApp().onekit._opendataCallbacks) {
       getApp().onekit._opendataCallbacks = []
     }
+
     function success(res) {
       const opendata = res.userInfo
       getApp().onekit._opendata = opendata
@@ -1268,15 +1552,25 @@ export default class wx {
     })
   }
 
-  static navigateToMiniProgram(wx_object) { return my.navigateToMiniProgram(wx_object) }
+  static navigateToMiniProgram(wx_object) {
+    return my.navigateToMiniProgram(wx_object)
+  }
 
-  static navigateBackMiniProgram(wx_object) { return my.navigateBackMiniProgram(wx_object) }
+  static navigateBackMiniProgram(wx_object) {
+    return my.navigateBackMiniProgram(wx_object)
+  }
 
-  static getAccountInfoSync(wx_object) { return my.getAccountInfoSync(wx_object) }
+  static getAccountInfoSync(wx_object) {
+    return my.getAccountInfoSync(wx_object)
+  }
 
-  static reportMonitor(wx_object) { return my.reportMonitor(wx_object) }
+  static reportMonitor(wx_object) {
+    return my.reportMonitor(wx_object)
+  }
 
-  static reportAnalytics(wx_object) { return my.reportAnalytics(wx_object) }
+  static reportAnalytics(wx_object) {
+    return my.reportAnalytics(wx_object)
+  }
 
   static requestPayment(wx_object) {
     const tradeNO = wx_object.package.split('=')[1]
@@ -1290,13 +1584,21 @@ export default class wx {
     return my.tradePay(my_object)
   }
 
-  static authorize(wx_object) { return my.authorize(wx_object) }
+  static authorize(wx_object) {
+    return my.authorize(wx_object)
+  }
 
-  static openSetting(wx_object) { return my.openSetting(wx_object) }
+  static openSetting(wx_object) {
+    return my.openSetting(wx_object)
+  }
 
-  static getSetting(wx_object) { return my.getSetting(wx_object) }
+  static getSetting(wx_object) {
+    return my.getSetting(wx_object)
+  }
 
-  static chooseAddress(wx_object) { return my.chooseAddress(wx_object) }
+  static chooseAddress(wx_object) {
+    return my.chooseAddress(wx_object)
+  }
 
   static openCard(wx_object) {
     my.openCardList()
@@ -1335,17 +1637,29 @@ export default class wx {
     })
   }
 
-  static chooseInvoiceTitle(wx_object) { return my.chooseInvoiceTitle(wx_object) }
+  static chooseInvoiceTitle(wx_object) {
+    return my.chooseInvoiceTitle(wx_object)
+  }
 
-  static chooseInvoice(wx_object) { return my.chooseInvoice(wx_object) }
+  static chooseInvoice(wx_object) {
+    return my.chooseInvoice(wx_object)
+  }
 
-  static startSoterAuthentication(wx_object) { return my.startSoterAuthentication(wx_object) }
+  static startSoterAuthentication(wx_object) {
+    return my.startSoterAuthentication(wx_object)
+  }
 
-  static checkIsSupportSoterAuthentication(wx_object) { return my.checkIsSupportSoterAuthentication(wx_object) }
+  static checkIsSupportSoterAuthentication(wx_object) {
+    return my.checkIsSupportSoterAuthentication(wx_object)
+  }
 
-  static checkIsSoterEnrolledInDevice(wx_object) { return my.checkIsSoterEnrolledInDevice(wx_object) }
+  static checkIsSoterEnrolledInDevice(wx_object) {
+    return my.checkIsSoterEnrolledInDevice(wx_object)
+  }
 
-  static getWeRunData(wx_object) { return my.getWeRunData(wx_object) }
+  static getWeRunData(wx_object) {
+    return my.getWeRunData(wx_object)
+  }
 
   // //////// Router //////////////
   static navigateBack(wx_object) {
@@ -1524,7 +1838,9 @@ export default class wx {
   }
 
   // /////////// Share /////////////
-  static updateShareMenu(wx_object) { return my.updateShareMenu(wx_object) }
+  static updateShareMenu(wx_object) {
+    return my.updateShareMenu(wx_object)
+  }
 
   static showShareMenu() {
     my.navigateTo({
@@ -1532,29 +1848,54 @@ export default class wx {
     })
   }
 
-  static hideShareMenu(wx_object) { return my.hideShareMenu(wx_object) }
+  static hideShareMenu(wx_object) {
+    return my.hideShareMenu(wx_object)
+  }
 
-  static getShareInfo(wx_object) { return my.getShareInfo(wx_object) }
+  static getShareInfo(wx_object) {
+    return my.getShareInfo(wx_object)
+  }
 
   // ///////////// Storage //////////////
-  static getStorageInfoSync(wx_object) { return my.getStorageInfoSync(wx_object) }
+  static getStorageInfoSync(wx_object) {
+    return my.getStorageInfoSync(wx_object)
+  }
 
-  static getStorageInfo(wx_object) { return my.getStorageInfo(wx_object) }
+  static getStorageInfo(wx_object) {
+    return my.getStorageInfo(wx_object)
+  }
 
-  static clearStorageSync(wx_object) { return my.clearStorageSync(wx_object) }
+  static clearStorageSync(wx_object) {
+    return my.clearStorageSync(wx_object)
+  }
 
-  static clearStorage(wx_object) { return my.clearStorage(wx_object) }
+  static clearStorage(wx_object) {
+    return my.clearStorage(wx_object)
+  }
 
-  static removeStorageSync(wx_object) { return my.removeStorageSync(wx_object) }
+  static removeStorageSync(wx_object) {
+    return my.removeStorageSync(wx_object)
+  }
 
-  static removeStorage(wx_object) { return my.removeStorage(wx_object) }
+  static removeStorage(wx_object) {
+    return my.removeStorage(wx_object)
+  }
 
-  static setStorageSync(key, value) { return my.setStorageSync({key, data: value}) }
+  static setStorageSync(key, value) {
+    return my.setStorageSync({
+      key,
+      data: value
+    })
+  }
 
-  static setStorage(wx_object) { return my.setStorage(wx_object) }
+  static setStorage(wx_object) {
+    return my.setStorage(wx_object)
+  }
 
   static getStorageSync(key) {
-    const result = my.getStorageSync({key})
+    const result = my.getStorageSync({
+      key
+    })
     if (!result) {
       return ''
     } else if (result.data) {
@@ -1566,7 +1907,9 @@ export default class wx {
     }
   }
 
-  static getStorage(wx_object) { return my.getStorage(wx_object) }
+  static getStorage(wx_object) {
+    return my.getStorage(wx_object)
+  }
 
   // //////////// UI ////////////////
   static showActionSheet(wx_object) {
@@ -1584,7 +1927,9 @@ export default class wx {
         }
       }
       my_object.success = function (res) {
-        const result = {tapIndex: res.index}
+        const result = {
+          tapIndex: res.index
+        }
         if (wx_object.success) {
           wx_object.success(result)
         }
@@ -1598,7 +1943,9 @@ export default class wx {
 
   // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
   // static redirectTo(wx_object) { return my.redirectTo(wx_object); }
-  static hideLoading(wx_object) { return my.hideLoading(wx_object) }
+  static hideLoading(wx_object) {
+    return my.hideLoading(wx_object)
+  }
 
   static showLoading(wx_object) {
     let my_object
@@ -1719,7 +2066,9 @@ export default class wx {
     }
   }
 
-  static setNavigationBarColor(wx_object) { return my.setNavigationBarColor(wx_object) }
+  static setNavigationBarColor(wx_object) {
+    return my.setNavigationBarColor(wx_object)
+  }
 
   static hideNavigationBarLoading(wx_object) {
     const my_object = {}
@@ -1753,29 +2102,53 @@ export default class wx {
     return my.showNavigationBarLoading(my_object)
   }
 
-  static setNaivgationBarTitle(wx_object) { return my.setNavigationBar(wx_object) }
+  static setNaivgationBarTitle(wx_object) {
+    return my.setNavigationBar(wx_object)
+  }
 
-  static setBackgroundTextStyle(wx_object) { return my.setBackgroundTextStyle(wx_object) }
+  static setBackgroundTextStyle(wx_object) {
+    return my.setBackgroundTextStyle(wx_object)
+  }
 
-  static setBackgroundColor(wx_object) { return my.setBackgroundColor(wx_object) }
+  static setBackgroundColor(wx_object) {
+    return my.setBackgroundColor(wx_object)
+  }
 
-  static setTabBarItem(wx_object) { return my.setTabBarItem(wx_object) }
+  static setTabBarItem(wx_object) {
+    return my.setTabBarItem(wx_object)
+  }
 
-  static setTabBarStyle(wx_object) { return my.setTabBarStyle(wx_object) }
+  static setTabBarStyle(wx_object) {
+    return my.setTabBarStyle(wx_object)
+  }
 
-  static hideTabBar(wx_object) { return my.hideTabBar(wx_object) }
+  static hideTabBar(wx_object) {
+    return my.hideTabBar(wx_object)
+  }
 
-  static showTabBar(wx_object) { return my.showTabBar(wx_object) }
+  static showTabBar(wx_object) {
+    return my.showTabBar(wx_object)
+  }
 
-  static hideTabBarRedDot(wx_object) { return my.hideTabBarRedDot(wx_object) }
+  static hideTabBarRedDot(wx_object) {
+    return my.hideTabBarRedDot(wx_object)
+  }
 
-  static showTabBarRedDot(wx_object) { return my.showTabBarRedDot(wx_object) }
+  static showTabBarRedDot(wx_object) {
+    return my.showTabBarRedDot(wx_object)
+  }
 
-  static removeTabBarBadge(wx_object) { return my.removeTabBarBadge(wx_object) }
+  static removeTabBarBadge(wx_object) {
+    return my.removeTabBarBadge(wx_object)
+  }
 
-  static setTabBarBadge(wx_object) { return my.setTabBarBadge(wx_object) }
+  static setTabBarBadge(wx_object) {
+    return my.setTabBarBadge(wx_object)
+  }
 
-  static loadFontFace(wx_object) { return my.loadFontFace(wx_object) }
+  static loadFontFace(wx_object) {
+    return my.loadFontFace(wx_object)
+  }
 
   static stopPullDownRefresh(wx_object) {
     const my_object = {}
@@ -1823,25 +2196,43 @@ export default class wx {
     return my.startPullDownRefresh(my_object)
   }
 
-  static pageScrollTo(wx_object) { return my.pageScrollTo(wx_object) }
+  static pageScrollTo(wx_object) {
+    return my.pageScrollTo(wx_object)
+  }
 
-  static setTopBarText(wx_object) { return my.setTopBarText(wx_object) }
+  static setTopBarText(wx_object) {
+    return my.setTopBarText(wx_object)
+  }
 
-  static nextTick(wx_object) { return my.nextTick(wx_object) }
+  static nextTick(wx_object) {
+    return my.nextTick(wx_object)
+  }
 
-  static getMenuButtonBoundingClientRect(wx_object) { return my.getMenuButtonBoundingClientRect(wx_object) }
+  static getMenuButtonBoundingClientRect(wx_object) {
+    return my.getMenuButtonBoundingClientRect(wx_object)
+  }
 
-  static offWindowResize(wx_object) { return my.offWindowResize(wx_object) }
+  static offWindowResize(wx_object) {
+    return my.offWindowResize(wx_object)
+  }
 
-  static onWindowResize(wx_object) { return my.onWindowResize(wx_object) }
+  static onWindowResize(wx_object) {
+    return my.onWindowResize(wx_object)
+  }
 
   // //////////// Worker ///////////////
-  static createWorker(wx_object) { return my.createWorker(wx_object) }
+  static createWorker(wx_object) {
+    return my.createWorker(wx_object)
+  }
 
-  static createIntersectionObserver(wx_object) { return my.createIntersectionObserver(wx_object) }
+  static createIntersectionObserver(wx_object) {
+    return my.createIntersectionObserver(wx_object)
+  }
 
   // ///////////////////////////////////
-  static hideKeyboard(wx_object) { return my.hideKeyboard(wx_object) }
+  static hideKeyboard(wx_object) {
+    return my.hideKeyboard(wx_object)
+  }
 
   // /////////// cloud ////////////////
   static get cloud() {

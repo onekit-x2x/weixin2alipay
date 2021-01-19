@@ -273,7 +273,7 @@ module.exports = {
 "use strict";
 
 
-var _oneutil = __webpack_require__(5);
+var _oneutil = __webpack_require__(4);
 
 var _weixin_behavior = __webpack_require__(2);
 
@@ -379,7 +379,7 @@ Component({
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil");

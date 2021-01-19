@@ -35,6 +35,10 @@ page{
     font-family: -apple-system;
 }
 
+cover-view{
+  background: transparent;
+}
+
 .onekit-movable-view{
     display: inline-block;
     width: 10px;

@@ -40,7 +40,6 @@
     "textarea":"./ui/textarea/textarea",
     "video":"./ui/video/video",
     "view":"./ui/view/view",
-    "voip-room":"./ui/voip-room/voip-room",
-    "web-view":"./ui/web-view/web-view"
+    "voip-room":"./ui/voip-room/voip-room"
   }
 }

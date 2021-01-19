@@ -7,7 +7,6 @@
 
 export default class MapContext {
   constructor(alipayMapContext, id) {
-    console.log(alipayMapContext, id)
     this.alipayMapContext = alipayMapContext
     console.log(alipayMapContext)
     this.id = id

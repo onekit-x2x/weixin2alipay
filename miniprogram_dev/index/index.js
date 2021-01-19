@@ -257,85 +257,158 @@ global = {};
 //   })
 
 //canvas
-const app = getApp()
+// const app = getApp()
+// OnekitPage({
+//     data:{},
+//     onLoad:function(){
+//       this.position = {
+//         x:150,
+//         y:150,
+//         vx:2,
+//         vy:2
+//       }
+//       this.x = -100
+//       wx.createSelectorQuery().select('#canvas').fields({
+//     node:true,
+//     size:true
+//   }).exec(this.init.bind(this))
+//     },
+//     init:function(res){
+//       console.log(res)
+//       const width = res[0].width
+//       const height = res[0].height
+//       const canvas = res[0].node
+//       const ctx = canvas.getContext('2d')
+//       const dpr = wx.getSystemInfoSync().pixelRatio
+//       canvas.width = width * dpr
+//       canvas.height = height * dpr
+//       ctx.scale(dpr,dpr)
+//       const renderLoop = ()=>{
+//       this.render(canvas,ctx)
+//       canvas.requestAnimationFrame(renderLoop)
+//     }
+//       canvas.requestAnimationFrame(renderLoop)
+//       const img = canvas.createImage()
+//       img.onload = ()=>{this._img = img}
+//       img.src = './car.png'
+//     },
+//     render:function(canvas,ctx){
+//       ctx.clearRect(0,0,300,300)
+//       this.drawBall(ctx)
+//       this.drawCar(ctx)
+//     },
+//     drawBall:function(ctx){
+//       const p = this.position
+//       p.x += p.vx
+//       p.y += p.vy
+//       if(p.x >= 300){
+//       p.vx = -2;
+//     }
+//       if(p.x <= 7){
+//       p.vx = 2;
+//     }
+//       if(p.y >= 300){
+//       p.vy = -2;
+//     }
+//       if(p.y <= 7){
+//       p.vy = 2;
+//     }
+//       function ball(x,y){
+//       ctx.beginPath()
+//       ctx.arc(x,y,5,0,Math.PI * 2)
+//       ctx.fillStyle = '#1aad19'
+//       ctx.strokeStyle = 'rgba(1,1,1,0)'
+//       ctx.fill()
+//       ctx.stroke()
+//     }
+//       ball(p.x,150)
+//       ball(150,p.y)
+//       ball(300 - p.x,150)
+//       ball(150,300 - p.y)
+//       ball(p.x,p.y)
+//       ball(300 - p.x,300 - p.y)
+//       ball(p.x,300 - p.y)
+//       ball(300 - p.x,p.y)
+//     },
+//     drawCar:function(ctx){
+//       if(!this._img)return
+//       if(this.x > 350){
+//       this.x = -100;
+//     }
+//       ctx.drawImage(this._img,this.x++,150 - 25,100,50)
+//       ctx.restore()
+//     }
+//   })
+
+//map
 OnekitPage({
-    data:{},
-    onLoad:function(){
-      this.position = {
-        x:150,
-        y:150,
-        vx:2,
-        vy:2
-      }
-      this.x = -100
-      wx.createSelectorQuery().select('#canvas').fields({
-    node:true,
-    size:true
-  }).exec(this.init.bind(this))
+    data:{
+        latitude:23.099994,
+        longitude:113.32452,
+        markers:[
+          {
+              id:1,
+              latitude:23.099994,
+              longitude:113.32452,
+              name:'T.I.T 创意园'
+            }
+        ],
+        covers:[
+          {
+              latitude:23.099994,
+              longitude:113.34452,
+              iconPath:'/image/location.png'
+            },
+          {
+              latitude:23.099994,
+              longitude:113.30452,
+              iconPath:'/image/location.png'
+            }
+        ]
+      },
+    onReady:function(e){
+      this.mapCtx = wx.createMapContext('myMap')
     },
-    init:function(res){
-      console.log(res)
-      const width = res[0].width
-      const height = res[0].height
-      const canvas = res[0].node
-      const ctx = canvas.getContext('2d')
-      const dpr = wx.getSystemInfoSync().pixelRatio
-      canvas.width = width * dpr
-      canvas.height = height * dpr
-      ctx.scale(dpr,dpr)
-      const renderLoop = ()=>{
-      this.render(canvas,ctx)
-      canvas.requestAnimationFrame(renderLoop)
-    }
-      canvas.requestAnimationFrame(renderLoop)
-      const img = canvas.createImage()
-      img.onload = ()=>{this._img = img}
-      img.src = './car.png'
+    getCenterLocation:function(){
+      this.mapCtx.getCenterLocation({
+        success:function(res){
+          console.log(res.longitude)
+          console.log(res.latitude)
+        }
+      })
     },
-    render:function(canvas,ctx){
-      ctx.clearRect(0,0,300,300)
-      this.drawBall(ctx)
-      this.drawCar(ctx)
+    moveToLocation:function(){
+      this.mapCtx.moveToLocation()
     },
-    drawBall:function(ctx){
-      const p = this.position
-      p.x += p.vx
-      p.y += p.vy
-      if(p.x >= 300){
-      p.vx = -2;
-    }
-      if(p.x <= 7){
-      p.vx = 2;
-    }
-      if(p.y >= 300){
-      p.vy = -2;
-    }
-      if(p.y <= 7){
-      p.vy = 2;
-    }
-      function ball(x,y){
-      ctx.beginPath()
-      ctx.arc(x,y,5,0,Math.PI * 2)
-      ctx.fillStyle = '#1aad19'
-      ctx.strokeStyle = 'rgba(1,1,1,0)'
-      ctx.fill()
-      ctx.stroke()
-    }
-      ball(p.x,150)
-      ball(150,p.y)
-      ball(300 - p.x,150)
-      ball(150,300 - p.y)
-      ball(p.x,p.y)
-      ball(300 - p.x,300 - p.y)
-      ball(p.x,300 - p.y)
-      ball(300 - p.x,p.y)
+    translateMarker:function(){
+      this.mapCtx.translateMarker({
+        markerId:1,
+        autoRotate:true,
+        duration:1000,
+        destination:{
+            latitude:23.10229,
+            longitude:113.3345211
+          },
+        animationEnd:function(){
+          console.log('animation end')
+        }
+      })
     },
-    drawCar:function(ctx){
-      if(!this._img)return
-      if(this.x > 350){
-      this.x = -100;
-    }
-      ctx.drawImage(this._img,this.x++,150 - 25,100,50)
-      ctx.restore()
+    includePoints:function(){
+      this.mapCtx.includePoints({
+        padding:[
+          10
+        ],
+        points:[
+          {
+              latitude:23.10229,
+              longitude:113.3345211
+            },
+          {
+              latitude:23.00229,
+              longitude:113.3345211
+            }
+        ]
+      })
     }
   })

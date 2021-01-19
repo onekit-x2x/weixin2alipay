@@ -1,6 +1,7 @@
 {
   "pages": [
-    "index/index"
+    "index/index",
+    "index/picture-in-picture"
   ],
   "window": {
     "navigationBarTextStyle": "black",

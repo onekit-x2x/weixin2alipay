@@ -27,7 +27,7 @@
   onLoading="video_waiting"
   onError="video_error"
   onFullscreenchange="video_fullscreenchange"
-  onRenderStart="video_loadedmetadata"
+  onRenderStart="video_renderstart"
 ></video>
 <cover-view 
 style="pointer-events: none;

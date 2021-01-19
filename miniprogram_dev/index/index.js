@@ -193,6 +193,7 @@ OnekitPage({
     },
     inputValue:'',
     data:{
+        enableAutoRotation:true,
         src:'',
         danmuList:[
           {
@@ -236,7 +237,6 @@ OnekitPage({
       console.log('退出小窗模式')
     },
     bindPlayVideo:function(){
-      console.log('1')
       this.videoContext.play()
     },
     bindSendDanmu:function(){
@@ -248,5 +248,10 @@ OnekitPage({
     videoErrorCallback:function(e){
       console.log('视频错误信息:')
       console.log(e.detail.errMsg)
+    },
+    handleSwitchChange:function(e){
+      this.setData({
+        enableAutoRotation:e.detail.value
+      })
     }
   })

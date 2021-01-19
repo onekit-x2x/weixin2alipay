@@ -219,30 +219,44 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-<!-- <video> -->
-<onekit-view onekit-class="page-body">
-  <onekit-view onekit-class="page-section tc">
-    <onekit-video onekit-id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" onError="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></onekit-video>
 
-    <onekit-view onekit-class="weui-cells">
-      <onekit-view onekit-class="weui-cell weui-cell_input">
-        <onekit-view onekit-class="weui-cell__hd">
-          <onekit-view onekit-class="weui-label">弹幕内容</onekit-view>
-        </onekit-view>
-        <onekit-view onekit-class="weui-cell__bd">
-          <onekit-input onBlur="bindInputBlur" onekit-class="weui-input" type="text" placeholder="在此处输入弹幕内容"></onekit-input>
+<!-- <video> -->
+<onekit-view onekit-class="container">
+  <onekit-view onekit-class="page-body">
+    <onekit-view onekit-class="page-section tc">
+      <onekit-video onekit-id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" onError="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-casting-button show-screen-lock-button show-center-play-btn="{{false}}" show-play-btn="{{true}}" controls picture-in-picture-mode="{{['push', 'pop']}}" onEnterpictureinpicture="bindVideoEnterPictureInPicture" onLeavepictureinpicture="bindVideoLeavePictureInPicture" enable-auto-rotation="{{enableAutoRotation}}"></onekit-video>
+      <onekit-view onekit-class="auto-rotate-container">
+        <onekit-view>开启自动旋转</onekit-view>
+        <onekit-view>
+          <onekit-switch model:checked="{{ enableAutoRotation }}" onChange="handleSwitchChange"></onekit-switch>
         </onekit-view>
       </onekit-view>
-    </onekit-view>
-    <onekit-view onekit-class="btn-area">
-      <onekit-button onTap="bindSendDanmu" onekit-class="page-body-button" type="primary" formType="submit">发送弹幕</onekit-button>
-      <onekit-button onTap="bindPlay" onekit-class="page-body-button" type="primary">播放</onekit-button>
-      <onekit-button onTap="bindPause" onekit-class="page-body-button" type="primary">暂停</onekit-button>
+      <onekit-view onekit-class="weui-cells">
+        <onekit-view onekit-class="weui-cell weui-cell_input">
+          <onekit-view onekit-class="weui-cell__hd">
+            <onekit-view onekit-class="weui-label">弹幕内容</onekit-view>
+          </onekit-view>
+          <onekit-view onekit-class="weui-cell__bd">
+            <onekit-input onBlur="bindInputBlur" onekit-class="weui-input" type="text" placeholder="在此处输入弹幕内容"></onekit-input>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
+      <onekit-view onekit-class="btn-area">
+        <onekit-button onTap="bindSendDanmu" onekit-class="page-body-button" type="primary" formType="submit">发送弹幕</onekit-button>
+      </onekit-view>
+      <onekit-view onekit-class="btn-area">
+        <onekit-navigator url="./picture-in-picture" hover-class="other-navigator-hover">
+          <onekit-button type="primary" onekit-class="page-body-button" onTap="bindPlayVideo">小窗模式</onekit-button>
+        </onekit-navigator>
+      </onekit-view>
+      
     </onekit-view>
   </onekit-view>
 </onekit-view>
+
 <!-- <onekit-video controls="{{controls}}" onControlstoggle="video_controlstoggle" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 <!-- <onekit-video onSeekcomplete="video_seekcomplete" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
+
 <!-- <canvas> 2D -->
 <!-- <onekit-canvas type="2d" onekit-id="myCanvas" canvas-id="myCanvas" width="500" height="500" onekit-style="width:500px;height:500px;"></onekit-canvas> -->
 <!-- <onekit-movable-view> -->

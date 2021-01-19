@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 56);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2823,7 +2823,7 @@ module.exports = require("oneutil");
 
 /***/ }),
 
-/***/ 56:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2831,22 +2831,22 @@ module.exports = require("oneutil");
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLOBAL = exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(57);
+var OnekitApp_1 = __webpack_require__(56);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(58);
+var OnekitBehavior_1 = __webpack_require__(57);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(59);
+var OnekitComponent_1 = __webpack_require__(58);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(60);
+var OnekitPage_1 = __webpack_require__(59);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(4);
 exports.wx = wx_1.default;
-var global_1 = __webpack_require__(61);
+var global_1 = __webpack_require__(60);
 exports.GLOBAL = global_1.default;
 
 /***/ }),
 
-/***/ 57:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2944,7 +2944,7 @@ function OnekitApp(wx_object) {
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3071,7 +3071,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 59:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3272,47 +3272,7 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var CameraContext = function () {
-  function CameraContext(myCameraContext) {
-    _classCallCheck(this, CameraContext);
-
-    this.myCameraContext = myCameraContext;
-  }
-
-  CameraContext.prototype.takePhoto = function takePhoto(object) {
-    return this.myCameraContext.takePhoto(object);
-  };
-
-  CameraContext.prototype.startRecord = function startRecord(object) {
-    return this.myCameraContext.startRecord(object);
-  };
-
-  CameraContext.prototype.stopRecord = function stopRecord(object) {
-    return this.myCameraContext.stopRecord(object);
-  };
-
-  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
-    return this.myCameraContext.onCameraFrame(callback);
-  };
-
-  return CameraContext;
-}();
-
-exports.default = CameraContext;
-
-/***/ }),
-
-/***/ 60:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3493,7 +3453,47 @@ function OnekitPage(wx_object) {
 
 /***/ }),
 
-/***/ 61:
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CameraContext = function () {
+  function CameraContext(myCameraContext) {
+    _classCallCheck(this, CameraContext);
+
+    this.myCameraContext = myCameraContext;
+  }
+
+  CameraContext.prototype.takePhoto = function takePhoto(object) {
+    return this.myCameraContext.takePhoto(object);
+  };
+
+  CameraContext.prototype.startRecord = function startRecord(object) {
+    return this.myCameraContext.startRecord(object);
+  };
+
+  CameraContext.prototype.stopRecord = function stopRecord(object) {
+    return this.myCameraContext.stopRecord(object);
+  };
+
+  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
+    return this.myCameraContext.onCameraFrame(callback);
+  };
+
+  return CameraContext;
+}();
+
+exports.default = CameraContext;
+
+/***/ }),
+
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

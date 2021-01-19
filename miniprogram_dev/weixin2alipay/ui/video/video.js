@@ -133,44 +133,179 @@ exports.default = {
 
 /***/ }),
 
+/***/ 1:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+/* eslint-disable no-console */
+exports.default = {
+  props: {
+    onekitId: '',
+    onekitClass: '',
+    onekitStyle: '',
+    onekitVersion: ''
+  },
+  data: {},
+  onInit: function onInit() {
+    if (this.props.onekitId) {
+      getApp().onekit_nodes['_' + this.props.onekitId] = this;
+    }
+    //
+    if (this.props.onekitClass) {
+      getApp().onekit_nodes['__' + this.props.onekitClass] = this;
+    }
+  },
+
+  methods: {
+    _e: function _e(detail, dataset) {
+      // currentTarget: {
+      //   dataset: {},
+      //   id: '',
+      //   offsetLeft: ret[0].left,
+      //   offsetTop: ret[0].top
+      // },
+      // detail: {
+      //   curPercent: parseInt(curPercent, 10)
+      // },
+      // mark: {},
+      // mut: false,
+      // target: {
+      //   dataset: {},
+      //   id: '',
+      //   offsetLeft: ret[0].left,
+      //   offsetTop: ret[0].top
+      // },
+      // timeStamp: 8888888, //
+      // type: 'activeend',
+      // _userTap: false
+      return {
+        detail: detail || {},
+        dataset: dataset || {}
+      };
+    }
+  }
+};
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = {
+  props: {},
+  methods: {
+    ui_tap: function ui_tap(e) {
+      if (this.props.onTap) {
+        this.props.onTap(e);
+      }
+    },
+    ui_touchstart: function ui_touchstart() {
+      if (this.props.onTouchstart) {
+        this.props.onTouchstart();
+      }
+    },
+    ui_touchmove: function ui_touchmove() {
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove();
+      }
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      if (this.props.onTouchcancel) {
+        this.props.onTouchcancel();
+      }
+    },
+    ui_touchend: function ui_touchend() {
+      if (this.props.onTouchend) {
+        this.props.onTouchend();
+      }
+    },
+    ui_longpress: function ui_longpress() {
+      if (this.props.onLongpress) {
+        this.props.onLongpress();
+      }
+    },
+    ui_longtap: function ui_longtap() {
+      if (this.props.onLongtap) {
+        this.props.onLongtap();
+      }
+    },
+    ui_transitionend: function ui_transitionend() {
+      if (this.props.onTransitionend) {
+        this.props.onTransitionend();
+      }
+    },
+    ui_animationstart: function ui_animationstart() {
+      if (this.props.onAnimationstart) {
+        this.props.onAnimationstart();
+      }
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      if (this.props.onAnimationiteration) {
+        this.props.onAnimationiteration();
+      }
+    },
+    ui_animationend: function ui_animationend() {
+      if (this.props.onAnimationend) {
+        this.props.onAnimationend();
+      }
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      if (this.props.onTouchforcechange) {
+        this.props.onTouchforcechange();
+      }
+    }
+  }
+};
+
+/***/ }),
+
 /***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
 var _wxs_behavior = __webpack_require__(0);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
-var _VideoContextX = __webpack_require__(52);
+var _weixin_behavior = __webpack_require__(2);
 
-var _VideoContextX2 = _interopRequireDefault(_VideoContextX);
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable max-len */
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
 Component({
-  mixins: [_wxs_behavior2.default, _VideoContextX2.default],
-
+  mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  data: {
+    pictureinpicture: 'none'
+  },
   props: {
-    onekitStyle: '',
-    onekitClass: '',
-    onekitId: 'onekit-video',
     src: '',
     duration: null,
     controls: true,
     danmuList: [],
     danmuBtn: false,
     enableDanmu: false,
-    autoplay: true,
+    autoplay: false,
     loop: false,
     muted: false,
-    initialTime: '',
+    initialTime: 0,
     pagGesture: false,
-    direction: '',
+    direction: null,
+    //
     showProgress: true,
     showFullscreenBtn: true,
     showPlayBtn: true,
@@ -179,26 +314,28 @@ Component({
     objectFit: 'contain',
     poster: '',
     showMuteBtn: true,
-
     //
     title: '',
     playBtnPosition: 'button',
     enablePlayGesture: false,
+    //
     autoPauseIfNavigate: true,
     autoPauseIfOpenNative: true,
     vslideGesture: false,
     vslideGestureInFullscreen: true,
+    //
     adUnitId: '',
+    //
     posterForCrawler: '',
+    //
     showCastingButton: false,
-    pictureInPictureMode:  false || [],
+    pictureInPictureMode: [],
     pictureInPictureShowPprogress: false,
     enableAutoRotation: false,
     showScreenLockButton: false,
     showSnapshotButton: false
   },
   deriveDataFromProps: function deriveDataFromProps(data_props) {
-    console.log(data_props);
     this._trigger_controlstoggle(data_props.controls);
   },
   didMount: function didMount() {
@@ -208,55 +345,27 @@ Component({
         rect: rect[0]
       });
     });
-    /*
-    let lastTime = 0
-    let index = 0
-    const danmuList = []
-    for (const danmu of this.props.danmuList) {
-      if (lastTime < danmu.time) {
-        index = 0
-        lastTime = danmu.time
-      }
-      danmu.index = index
-      index++
-      danmuList.push(danmu)
-    } */
-
-    var danmuList = {};
-    for (var _iterator = this.props.danmuList, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-      var _ref;
-
-      if (_isArray) {
-        if (_i >= _iterator.length) break;
-        _ref = _iterator[_i++];
-      } else {
-        _i = _iterator.next();
-        if (_i.done) break;
-        _ref = _i.value;
-      }
-
-      var danmu = _ref;
-
-      var danmus = danmuList['t_' + danmu.time];
-      if (!danmus) {
-        danmus = [];
-      }
-      danmus.push({
-        text: danmu.text,
-        color: danmu.color,
-        index: danmus.length
-      });
-      danmuList['t_' + danmu.time] = danmus;
-    }
-    this.setData({
-      danmuList: danmuList
-    });
     this._trigger_seekcomplete();
     this._trigger_controlstoggle(this.props.controls);
+    //
+    if (this.props.playBtnPosition === 'center') {
+      this.data.showPlayBtn = false;
+      this.data.showCenterPlayBtn = true;
+    } else if (this.props.playBtnPosition === 'bottom') {
+      this.data.showPlayBtn = true;
+      this.data.showCenterPlayBtn = false;
+    }
+    //
+    if (!this.props.pictureInPictureMode || this.props.pictureInPictureMode.length <= 0) {
+      this.data.pictureinpicture = 'none';
+    } else {
+      this.data.pictureinpicture = 'miniprogram';
+    }
+    this.setData(this.data);
   },
 
   methods: {
-    video_start: function video_start() {
+    video_play: function video_play() {
       if (this.props.onPlay) {
         this.props.onPlay({});
       }
@@ -293,8 +402,16 @@ Component({
         this.props.onError({});
       }
     },
-    _trigger_progress: function _trigger_progress() {},
-    _trigger_loadedmetadata: function _trigger_loadedmetadata() {},
+    _trigger_progress: function _trigger_progress() {
+      if (this.props.onProgress) {
+        this.props.onProgress({});
+      }
+    },
+    video_loadedmetadata: function video_loadedmetadata() {
+      //   if (this.props.onLoadedmetadata) {
+      //     this.props.onLoadedmetadata({})
+      //   }
+    },
     _trigger_controlstoggle: function _trigger_controlstoggle(show) {
       if (this.data.show === show) {
         return;
@@ -306,8 +423,16 @@ Component({
         });
       }
     },
-    _trigger_enterpictureinpicture: function _trigger_enterpictureinpicture() {},
-    _trigger_leavepictureinpicture: function _trigger_leavepictureinpicture() {},
+    _trigger_enterpictureinpicture: function _trigger_enterpictureinpicture() {
+      if (this.props.onEnterpictureinpicture) {
+        this.props.onEnterpictureinpicture({});
+      }
+    },
+    _trigger_leavepictureinpicture: function _trigger_leavepictureinpicture() {
+      if (this.props.onLeavepictureinpicture) {
+        this.props.onLeavepictureinpicture({});
+      }
+    },
     _trigger_seekcomplete: function _trigger_seekcomplete(positon) {
       if (this.props.duration) {
         var res = my.getSystemInfo();
@@ -324,27 +449,9 @@ Component({
       }
     }
   }
-});
-
-/***/ }),
-
-/***/ 52:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
+}); /* eslint-disable max-len */
 /* eslint-disable no-console */
-module.exports = {
-  methods: {
-    sendDanmu: function sendDanmu() {
-      //   const danmuList = this.data.danmuList
-      //   data.time = this.data.currentTime
-      //   danmuList.push(data)
-      //   this.setData({danmuList})
-    }
-  }
-};
+/* eslint-disable camelcase */
 
 /***/ })
 

@@ -7,6 +7,9 @@ import weixin_behavior from '../../behavior/weixin_behavior'
 
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
+  data: {
+    pictureinpicture: 'none'
+  },
   props: {
     src: '',
     duration: null,
@@ -31,7 +34,6 @@ Component({
     showMuteBtn: true,
     //
     title: '',
-    //
     playBtnPosition: 'button',
     enablePlayGesture: false,
     //
@@ -41,16 +43,17 @@ Component({
     vslideGestureInFullscreen: true,
     //
     adUnitId: '',
+    //
     posterForCrawler: '',
+    //
     showCastingButton: false,
-    pictureInPictureMode: '' || [],
+    pictureInPictureMode: [],
     pictureInPictureShowPprogress: false,
     enableAutoRotation: false,
     showScreenLockButton: false,
-    showSnapshotButton: false
+    showSnapshotButton: false,
   },
   deriveDataFromProps(data_props) {
-    console.log(data_props)
     this._trigger_controlstoggle(data_props.controls)
   },
   didMount() {
@@ -61,38 +64,23 @@ Component({
           rect: rect[0]
         })
       })
-    /*
-    let lastTime = 0
-    let index = 0
-    const danmuList = []
-    for (const danmu of this.props.danmuList) {
-      if (lastTime < danmu.time) {
-        index = 0
-        lastTime = danmu.time
-      }
-      danmu.index = index
-      index++
-      danmuList.push(danmu)
-    } */
-
-    const danmuList = {}
-    for (const danmu of this.props.danmuList) {
-      let danmus = danmuList['t_' + danmu.time]
-      if (!danmus) {
-        danmus = []
-      }
-      danmus.push({
-        text: danmu.text,
-        color: danmu.color,
-        index: danmus.length
-      })
-      danmuList['t_' + danmu.time] = danmus
-    }
-    this.setData({
-      danmuList
-    })
     this._trigger_seekcomplete()
     this._trigger_controlstoggle(this.props.controls)
+    //
+    if (this.props.playBtnPosition === 'center') {
+      this.data.showPlayBtn = false
+      this.data.showCenterPlayBtn = true
+    } else if (this.props.playBtnPosition === 'bottom') {
+      this.data.showPlayBtn = true
+      this.data.showCenterPlayBtn = false
+    }
+    //
+    if ((!this.props.pictureInPictureMode) || (this.props.pictureInPictureMode.length <= 0)) {
+      this.data.pictureinpicture = 'none'
+    } else {
+      this.data.pictureinpicture = 'miniprogram'
+    }
+    this.setData(this.data)
   },
   methods: {
     video_play() {
@@ -132,15 +120,18 @@ Component({
         this.props.onError({})
       }
     },
+    //
     _trigger_progress() {
       if (this.props.onProgress) {
         this.props.onProgress({})
       }
     },
-    video_loadedmetadata() {
-      if (this.props.onLoadedmetadata) {
-        this.props.onLoadedmetadata({})
-      }
+    //
+    video_renderstart(e) {
+      console.log('[video.renderstart]', e)
+      //   if (this.props.onLoadedmetadata) {
+      //     this.props.onLoadedmetadata({})
+      //   }
     },
     _trigger_controlstoggle(show) {
       if (this.data.show === show) {
@@ -153,11 +144,13 @@ Component({
         })
       }
     },
+    //
     _trigger_enterpictureinpicture() {
       if (this.props.onEnterpictureinpicture) {
         this.props.onEnterpictureinpicture({})
       }
     },
+    //
     _trigger_leavepictureinpicture() {
       if (this.props.onLeavepictureinpicture) {
         this.props.onLeavepictureinpicture({})

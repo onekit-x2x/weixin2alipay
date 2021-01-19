@@ -402,12 +402,17 @@ Component({
         this.props.onError({});
       }
     },
+
+    //
     _trigger_progress: function _trigger_progress() {
       if (this.props.onProgress) {
         this.props.onProgress({});
       }
     },
-    video_loadedmetadata: function video_loadedmetadata() {
+
+    //
+    video_renderstart: function video_renderstart(e) {
+      console.log('[video.renderstart]', e);
       //   if (this.props.onLoadedmetadata) {
       //     this.props.onLoadedmetadata({})
       //   }
@@ -423,11 +428,15 @@ Component({
         });
       }
     },
+
+    //
     _trigger_enterpictureinpicture: function _trigger_enterpictureinpicture() {
       if (this.props.onEnterpictureinpicture) {
         this.props.onEnterpictureinpicture({});
       }
     },
+
+    //
     _trigger_leavepictureinpicture: function _trigger_leavepictureinpicture() {
       if (this.props.onLeavepictureinpicture) {
         this.props.onLeavepictureinpicture({});

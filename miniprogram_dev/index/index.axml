@@ -221,7 +221,7 @@
 </onekit-view> -->
 
 <!-- <video> -->
-<onekit-view onekit-class="container">
+<!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section tc">
       <onekit-video onekit-id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" onError="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-casting-button show-screen-lock-button show-center-play-btn="{{false}}" show-play-btn="{{true}}" controls picture-in-picture-mode="{{['push', 'pop']}}" onEnterpictureinpicture="bindVideoEnterPictureInPicture" onLeavepictureinpicture="bindVideoLeavePictureInPicture" enable-auto-rotation="{{enableAutoRotation}}"></onekit-video>
@@ -252,13 +252,13 @@
       
     </onekit-view>
   </onekit-view>
-</onekit-view>
-
+</onekit-view> -->
 <!-- <onekit-video controls="{{controls}}" onControlstoggle="video_controlstoggle" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 <!-- <onekit-video onSeekcomplete="video_seekcomplete" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 
 <!-- <canvas> 2D -->
-<!-- <onekit-canvas type="2d" onekit-id="myCanvas" canvas-id="myCanvas" width="500" height="500" onekit-style="width:500px;height:500px;"></onekit-canvas> -->
+<onekit-canvas type="2d" onekit-id="canvas" style="width: 300px; height: 300px;"></onekit-canvas>
+
 <!-- <onekit-movable-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">

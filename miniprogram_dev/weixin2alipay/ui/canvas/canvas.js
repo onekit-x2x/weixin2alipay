@@ -291,44 +291,55 @@ Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   data: {},
   props: {
-    disableScroll: false,
-    type: '',
-    width: 0,
-    height: 0
+    type: '2d',
+    canvasId: '',
+    disableScroll: false
   },
 
-  didMount: function didMount() {},
+  didMount: function didMount() {
+    var onekitId = this.props.canvasId || this.props.onekitId;
+    this.setData({ onekitId: onekitId });
+  },
   didUpdate: function didUpdate() {},
   didUnmount: function didUnmount() {},
 
   methods: {
-    canvas_TouchStart: function canvas_TouchStart() {
+    canvas_touchstart: function canvas_touchstart() {
       if (this.props.onTouchStart) {
         this.props.onTouchStart({});
       }
     },
-    canvas_TouchMove: function canvas_TouchMove() {
+    canvas_touchmove: function canvas_touchmove() {
       if (this.props.onTouchMove) {
         this.props.onTouchMove({});
       }
     },
-    canvas_TouchEnd: function canvas_TouchEnd() {
+    canvas_touchend: function canvas_touchend() {
       if (this.props.onTouchEnd) {
         this.props.onTouchEnd({});
       }
     },
-    canvas_TouchCancel: function canvas_TouchCancel() {
+    canvas_touchcancel: function canvas_touchcancel() {
       if (this.props.onTouchCancel) {
         this.props.onTouchCancel({});
       }
     },
-    canvas_LongTap: function canvas_LongTap() {
+    canvas_longtap: function canvas_longtap() {
       if (this.props.onLongTap) {
         this.props.onLongTap({});
       }
+    },
+
+    //
+    _trigger_error: function _trigger_error() {
+      console.warn('暂不支持onError');
+      // if (this.props.onError) {
+      //   this.props.onError({})
+      // }
     }
   }
-}); /* eslint-disable camelcase */
+}); /* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 /***/ })
 

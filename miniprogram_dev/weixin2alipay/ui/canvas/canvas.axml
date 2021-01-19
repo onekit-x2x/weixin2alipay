@@ -1,15 +1,15 @@
 <canvas
 class="onekit-canvas {{onekitClass}}"
 style="{{onekitStyle}}"
-type="{{type}}"
 id="{{onekitId}}"
+
+type="{{type}}"
 disable-scroll="{{disableScroll}}"
 
-onTouchStart="canvas_TouchStart"
-onTouchMove="canvas_TouchMove"
-onTouchEnd="canvas_TouchEnd"
-onTouchCancel="canvas_TouchCancel"
-onLongTap="canvas_LongTap"
+onTouchStart="canvas_touchstart"
+onTouchMove="canvas_touchmove"
+onTouchEnd="canvas_touchend"
+onTouchCancel="canvas_touchcancel"
+onLongTap="canvas_longtap"
 >
-
 </canvas>

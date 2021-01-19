@@ -15,30 +15,43 @@ Component({
   props: {
     scrollX: false,
     scrollY: false,
-    UpperThreshold: 50,
-    LowerThreshold: 50,
-    ScrollTop: 0,
-    ScrollLeft: 0,
-    ScrollIntoView: '',
-    ScrollWithAnimation: false,
-    EnableBackToTop: false,
-
-    EnableFlex: false,
-    ScrollAnchoring: false,
-
+    upperThreshold: 50,
+    lowerThreshold: 50,
+    scrollTop: null,
+    scrollLeft: null,
+    scrollIntoView: '',
+    scrollWithAnimation: false,
+    enableBackToTop: false,
+    //
+    enableFlex: false,
+    scrollAnchoring: false,
+    //
     refresherEnabled: false,
     refresherThreshold: 45,
     refresherDefaultStyle: 'black',
     refresherBackground: '#fff',
     refresherTriggered: false,
-
-    Enhanced: false,
-    Bounces: true,
-    ShowScrollbar: true,
-    PagingEnabled: false,
-    FastDeceleration: false,
+    //
+    enhanced: false,
+    bounces: true,
+    showScrollbar: true,
+    pagingEnabled: false,
+    fastDeceleration: false,
   },
-  didMount() {},
+  didMount() {
+    if (this.props.enableFlex) {
+      this.data.enableFlex = 'flex'
+    }
+    if (!this.props.scrollAnchoring) {
+      this.data.scrollAnchoring = 'auto'
+    } else {
+      this.data.scrollAnchoring = 'none'
+    }
+    this.setData({
+      enableFlex: this.data.enableFlex,
+      scrollAnchoring: this.data.scrollAnchoring
+    })
+  },
   didUpdate() {},
   didUnmount() {},
   onupper() {
@@ -177,20 +190,57 @@ Component({
       this.props.onRefresherabort({})
     },
     // //////////////////////////
-    on_toupper() {
+    scrollView_scrolltoupper() {
       if (this.props.onScrolltoupper) {
         this.props.onScrolltoupper()
       }
     },
-    on_tolower() {
+    scrollView_scrolltolower() {
       if (this.props.onScrollToLower) {
         this.props.onScrollToLower()
       }
     },
-    catch_scroll() {
+    scrollView_scroll() {
       if (this.props.onScroll) {
         this.props.onScroll()
       }
-    }
+    },
+    //
+    _trigger_dragstart() {
+      if (this.props.onDragstart) {
+        this.props.onDragstart()
+      }
+    },
+    _trigger_dragging() {
+      if (this.props.onDragging) {
+        this.props.onDragging()
+      }
+    },
+    _trigger_dragend() {
+      if (this.props.onDragend) {
+        this.props.onDragend()
+      }
+    },
+    //
+    _trigger_refresherpulling() {
+      if (this.props.onRefresherpulling) {
+        this.props.onRefresherpulling()
+      }
+    },
+    _trigger_refresherrefresh() {
+      if (this.props.onRefresherrefresh) {
+        this.props.onRefresherrefresh()
+      }
+    },
+    _trigger_refresherrestore() {
+      if (this.props.onRefresherrestore) {
+        this.props.onRefresherrestore()
+      }
+    },
+    _trigger_refresherabort() {
+      if (this.props.onRefresherabort) {
+        this.props.onRefresherabort()
+      }
+    },
   },
 })

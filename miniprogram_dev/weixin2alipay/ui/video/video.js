@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -267,7 +267,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 51:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -335,8 +335,23 @@ Component({
     showScreenLockButton: false,
     showSnapshotButton: false
   },
-  deriveDataFromProps: function deriveDataFromProps(data_props) {
-    this._trigger_controlstoggle(data_props.controls);
+  deriveDataFromProps: function deriveDataFromProps(props) {
+    this._trigger_controlstoggle(props.controls);
+    //
+    if (props.playBtnPosition === 'center') {
+      this.data.showPlayBtn = false;
+      this.data.showCenterPlayBtn = true;
+    } else if (props.playBtnPosition === 'bottom') {
+      this.data.showPlayBtn = true;
+      this.data.showCenterPlayBtn = false;
+    }
+    //
+    if (!props.pictureInPictureMode || props.pictureInPictureMode.length <= 0) {
+      this.data.pictureinpicture = 'none';
+    } else {
+      this.data.pictureinpicture = 'miniprogram';
+    }
+    this.setData(this.data);
   },
   didMount: function didMount() {
     var that = this;
@@ -348,20 +363,20 @@ Component({
     this._trigger_seekcomplete();
     this._trigger_controlstoggle(this.props.controls);
     //
-    if (this.props.playBtnPosition === 'center') {
-      this.data.showPlayBtn = false;
-      this.data.showCenterPlayBtn = true;
-    } else if (this.props.playBtnPosition === 'bottom') {
-      this.data.showPlayBtn = true;
-      this.data.showCenterPlayBtn = false;
-    }
-    //
-    if (!this.props.pictureInPictureMode || this.props.pictureInPictureMode.length <= 0) {
-      this.data.pictureinpicture = 'none';
-    } else {
-      this.data.pictureinpicture = 'miniprogram';
-    }
-    this.setData(this.data);
+    // if (this.props.playBtnPosition === 'center') {
+    //   this.data.showPlayBtn = false
+    //   this.data.showCenterPlayBtn = true
+    // } else if (this.props.playBtnPosition === 'bottom') {
+    //   this.data.showPlayBtn = true
+    //   this.data.showCenterPlayBtn = false
+    // }
+    // //
+    // if ((!this.props.pictureInPictureMode) || (this.props.pictureInPictureMode.length <= 0)) {
+    //   this.data.pictureinpicture = 'none'
+    // } else {
+    //   this.data.pictureinpicture = 'miniprogram'
+    // }
+    // this.setData(this.data)
   },
 
   methods: {

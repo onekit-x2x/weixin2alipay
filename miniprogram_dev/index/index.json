@@ -7,7 +7,6 @@
     "onekit-slider":"../weixin2alipay/ui/slider/slider",
     "onekit-switch":"../weixin2alipay/ui/switch/switch",
     "onekit-picker":"../weixin2alipay/ui/picker/picker",
-    "onekit-cover-view":"../weixin2alipay/ui/cover-view/cover-view",
     "onekit-map":"../weixin2alipay/ui/map/map",
     "onekit-canvas":"../weixin2alipay/ui/canvas/canvas",
     "onekit-input":"../weixin2alipay/ui/input/input",

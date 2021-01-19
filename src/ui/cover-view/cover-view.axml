@@ -1,8 +1,0 @@
-<cover-view
-  class="onekit-cover-view {{onekitClass}}"
-  style="{{onekitStyle}}"
-  id="{{onekitId}}"
->
-<slot>
-</slot>
-</cover-view>

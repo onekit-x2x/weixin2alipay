@@ -22,6 +22,16 @@ Component({
     scaleValue: 1,
     animation: true
   },
+  // deriveDataFromProps(props) {
+  //   this.setData({
+  //     x: 0,
+  //     y: 0
+  //   })
+  //   // setTimeout(() => {
+  //   //   this.setData(props)
+  //   // }, 1000)
+  //   this.setData(props)
+  // },
   methods: {
     movable_change(e) {
       if (this.props.onChange) {

@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -267,7 +267,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 34:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -305,6 +305,18 @@ Component({
     scaleValue: 1,
     animation: true
   },
+  deriveDataFromProps: function deriveDataFromProps(props) {
+    var _this = this;
+
+    this.setData({
+      x: 0,
+      y: 0
+    });
+    setTimeout(function () {
+      _this.setData(props);
+    }, 1000);
+  },
+
   methods: {
     movable_change: function movable_change(e) {
       if (this.props.onChange) {

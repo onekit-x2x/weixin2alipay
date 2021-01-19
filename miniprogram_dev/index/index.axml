@@ -202,7 +202,7 @@
   </onekit-view>
 </onekit-scroll-view> -->
 <!-- <cover-view> -->
-<onekit-view onekit-class="container">
+<!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section page-section-gap">
       <onekit-map onekit-style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}">
@@ -218,7 +218,7 @@
       </onekit-map>
     </onekit-view>
   </onekit-view>
-</onekit-view>
+</onekit-view> -->
 
 <!-- <video> -->
 <!-- <onekit-view onekit-class="container">
@@ -258,13 +258,13 @@
 
 <!-- <canvas> 2D -->
 <!-- <onekit-canvas type="2d" onekit-id="canvas" width="500" height="500" onekit-style="width:500px;height:500px;background:red"></onekit-canvas> -->
-<!-- <onekit-movable-view> -->
-<!-- <onekit-view onekit-class="container">
+<!-- <movable-view> -->
+<onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title first">onekit-movable-view区域小于movable-area</onekit-view>
       <movable-area>
-        <onekit-onekit-movable-view x="{{x}}" y="{{y}}" direction="all">text</onekit-onekit-movable-view>
+        <onekit-movable-view x="{{x}}" y="{{y}}" direction="all">text</onekit-movable-view>
       </movable-area>
     </onekit-view>
     <onekit-view onekit-class="btn-area">
@@ -274,49 +274,49 @@
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title">onekit-movable-view区域大于movable-area</onekit-view>
       <movable-area>
-        <onekit-onekit-movable-view onekit-class="max" direction="all">text</onekit-onekit-movable-view>
+        <onekit-movable-view onekit-class="max" direction="all">text</onekit-movable-view>
       </movable-area>
     </onekit-view>
 
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title">只可以横向移动</onekit-view>
       <movable-area>
-        <onekit-onekit-movable-view direction="horizontal">text</onekit-onekit-movable-view>
+        <onekit-movable-view direction="horizontal">text</onekit-movable-view>
       </movable-area>
     </onekit-view>
 
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title">只可以纵向移动</onekit-view>
       <movable-area>
-        <onekit-onekit-movable-view direction="vertical">text</onekit-onekit-movable-view>
+        <onekit-movable-view direction="vertical">text</onekit-movable-view>
       </movable-area>
     </onekit-view>
 
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title">可超出边界</onekit-view>
       <movable-area>
-        <onekit-onekit-movable-view direction="all" out-of-bounds>text</onekit-onekit-movable-view>
+        <onekit-movable-view direction="all" out-of-bounds>text</onekit-movable-view>
       </movable-area>
     </onekit-view>
 
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title">带有惯性</onekit-view>
       <movable-area>
-        <onekit-onekit-movable-view direction="all" inertia>text</onekit-onekit-movable-view>
+        <onekit-movable-view direction="all" inertia>text</onekit-movable-view>
       </movable-area>
     </onekit-view>
 
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title">可放缩</onekit-view>
       <movable-area scale-area>
-        <onekit-onekit-movable-view direction="all" onChange="onChange" onScale="onScale" scale scale-min="0.5" scale-max="4" scale-value="{{scale}}">text</onekit-onekit-movable-view>
+        <onekit-movable-view direction="all" onChange="onChange" onScale="onScale" scale scale-min="0.5" scale-max="4" scale-value="{{scale}}">text</onekit-movable-view>
       </movable-area>
     </onekit-view>
 
     <onekit-view onekit-class="btn-area">
       <onekit-button onTap="tap2" onekit-class="page-body-button" type="primary">点击放大3倍</onekit-button>
     </onekit-view>
-  </onekit-view> -->
+  </onekit-view>
 <!-- <movable-area>
     <onekit-movable-view direction="all" onhtouchmove="movable_htouchmove" ontouchmove="movable_touchmove"></onekit-movable-view>
  <onekit-movable-view direction="all" catchhtouchmove="movable_htouchmove" catchtouchmove="movable_touchmove"></onekit-movable-view> 

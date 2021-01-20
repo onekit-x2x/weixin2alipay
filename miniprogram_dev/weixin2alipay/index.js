@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 50);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2823,7 +2823,7 @@ module.exports = require("oneutil");
 
 /***/ }),
 
-/***/ 51:
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2831,22 +2831,22 @@ module.exports = require("oneutil");
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLOBAL = exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(52);
+var OnekitApp_1 = __webpack_require__(51);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(53);
+var OnekitBehavior_1 = __webpack_require__(52);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(54);
+var OnekitComponent_1 = __webpack_require__(53);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(55);
+var OnekitPage_1 = __webpack_require__(54);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(4);
 exports.wx = wx_1.default;
-var global_1 = __webpack_require__(56);
+var global_1 = __webpack_require__(55);
 exports.GLOBAL = global_1.default;
 
 /***/ }),
 
-/***/ 52:
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2944,7 +2944,7 @@ function OnekitApp(wx_object) {
 
 /***/ }),
 
-/***/ 53:
+/***/ 52:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3071,7 +3071,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 54:
+/***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3272,7 +3272,7 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 55:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3453,7 +3453,7 @@ function OnekitPage(wx_object) {
 
 /***/ }),
 
-/***/ 56:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

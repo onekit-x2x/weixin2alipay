@@ -336,14 +336,43 @@ Component({
   },
 
   methods: {
-    slider_Change: function slider_Change(e) {
+    swiper_change: function swiper_change(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    slider_Changing: function slider_Changing(e) {
+    slider_Change: function slider_Change(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onChange) {
+        this.props.onChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
+      }
+    },
+    slider_Changing: function slider_Changing(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onChanging) {
-        this.props.onChanging(e);
+        this.props.onChanging({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

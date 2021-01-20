@@ -512,7 +512,7 @@ OnekitPage({
       },
     changeProperty:function(e){
       var propertyName = e.currentTarget.dataset.propertyName
-      console.log(propertyName,e.detail.value)
+       console.log(propertyName,e.detail.value)
       var newData = {}
       newData[propertyName] = e.detail.value
       this.setData(newData)

@@ -43,14 +43,26 @@ Component({
     })
   },
   methods: {
-    slider_Change(e) {
+    slider_Change({detail}) {
+      const dataset = this._dataset()
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    slider_Changing(e) {
+    slider_Changing({detail}) {
+      const dataset = this._dataset()
       if (this.props.onChanging) {
-        this.props.onChanging(e)
+        this.props.onChanging({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     }
   },

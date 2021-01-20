@@ -21,7 +21,6 @@
     "onekit-navigator":"../weixin2alipay/ui/navigator/navigator",
     "onekit-button":"../weixin2alipay/ui/button/button",
     "onekit-swiper":"../weixin2alipay/ui/swiper/swiper",
-    "onekit-swiper-item":"../weixin2alipay/ui/swiper-item/swiper-item",
     "onekit-image":"../weixin2alipay/ui/image/image",
     "onekit-picker-view":"../weixin2alipay/ui/picker-view/picker-view",
     "onekit-editor":"../weixin2alipay/ui/editor/editor"

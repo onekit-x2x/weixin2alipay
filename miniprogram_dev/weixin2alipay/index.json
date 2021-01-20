@@ -31,7 +31,6 @@
     "scroll-view":"./ui/scroll-view/scroll-view",
     "slider":"./ui/slider/slider",
     "swiper":"./ui/swiper/swiper",
-    "swiper-item":"./ui/swiper-item/swiper-item",
     "switch":"./ui/switch/switch",
     "text":"./ui/text/text",
     "textarea":"./ui/textarea/textarea",

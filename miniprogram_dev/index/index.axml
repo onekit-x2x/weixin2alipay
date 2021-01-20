@@ -549,27 +549,25 @@
       </onekit-view>
     </onekit-view>
 
-    <onekit-view onekit-class="page-section page-section-spacing">
+     <onekit-view onekit-class="page-section page-section-spacing">
       <onekit-view onekit-class="page-section-title">
         <onekit-text>幻灯片切换时长(ms)</onekit-text>
         <onekit-text onekit-class="info">{{duration}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{duration}}" min="500" max="2000" onChange="changeProperty" data-property-name="duration"></onekit-slider>
+      <onekit-slider value="{{duration}}" min="500" max="2000" onChange="changeProperty" onekit-dataset='"propertyName":{{_("duration")}}'></onekit-slider>
       <onekit-view onekit-class="page-section-title">
         <onekit-text>自动播放间隔时长(ms)</onekit-text>
         <onekit-text onekit-class="info">{{interval}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{interval}}" min="2000" max="10000" onChange="changeProperty" data-property-name="interval"></onekit-slider>
+      <onekit-slider value="{{interval}}" min="2000" max="10000" onChange="changeProperty" onekit-dataset='"propertyName":{{_("interval")}}'></onekit-slider>
       <onekit-view onekit-class="page-section-title">
         <onekit-text>前边距(px)</onekit-text>
         <onekit-text onekit-class="info">{{previousMargin}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{previousMargin}}" min="0" max="50" onChange="changeProperty" data-property-name="previousMargin"></onekit-slider>
+      <onekit-slider value="{{previousMargin}}" min="0" max="50" onChange="changeProperty" onekit-dataset='"propertyName":{{_("previousMargin")}}'></onekit-slider>
       <onekit-view onekit-class="page-section-title">
         <onekit-text>后边距(px)</onekit-text>
         <onekit-text onekit-class="info">{{nextMargin}}</onekit-text>
       </onekit-view>
-      <onekit-slider value="{{nextMargin}}" min="0" max="50" onChange="changeProperty" data-property-name="nextMargin"></onekit-slider>
+      <onekit-slider value="{{nextMargin}}" min="0" max="50" onChange="changeProperty" onekit-dataset='"propertyName":{{_("nextMargin")}}'></onekit-slider>
     </onekit-view>
-  </onekit-view>
-</onekit-view>

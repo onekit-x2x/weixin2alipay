@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 44);
+/******/ 	return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -273,7 +275,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 44:
+/***/ 43:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -340,19 +342,43 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    swiper_change: function swiper_change() {
+    swiper_change: function swiper_change(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onChange) {
-        this.props.onChange();
+        this.props.onChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    swiper_transition: function swiper_transition() {
+    swiper_transition: function swiper_transition(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onTransition) {
-        this.props.onTransition();
+        this.props.onTransition({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    swiper_animationfinish: function swiper_animationfinish() {
+    swiper_animationfinish: function swiper_animationfinish(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onAnimationEnd) {
-        this.props.onAnimationfinish();
+        this.props.onAnimationEnd({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

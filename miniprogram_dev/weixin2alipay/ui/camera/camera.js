@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -319,14 +321,30 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    camera_stop: function camera_stop() {
+    camera_stop: function camera_stop(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onStop) {
-        this.props.onStop({});
+        this.props.onStop({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    camera_error: function camera_error() {
+    camera_error: function camera_error(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onError) {
-        this.props.onError({});
+        this.props.onError({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

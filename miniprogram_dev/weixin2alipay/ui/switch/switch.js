@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 46);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -273,7 +275,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 46:
+/***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -318,9 +320,17 @@ Component({
         });
       }
     },
-    checkbox_Change: function checkbox_Change(e) {
+    checkbox_Change: function checkbox_Change(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

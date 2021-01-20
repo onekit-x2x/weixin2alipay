@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -321,22 +323,43 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    live_player_statechange: function live_player_statechange(e) {
-      console.log('live_player_statechange', e);
-      if (this.props.onstatechange) {
-        this.props.onstatechange(e.details);
+    live_player_statechange: function live_player_statechange(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onStateChange) {
+        this.props.onStateChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    live_player_netstatus: function live_player_netstatus(e) {
-      console.log('live_player_netstatus', e);
-      if (this.props.onnetstatus) {
-        this.props.onnetstatus(e.details);
+    live_player_netstatus: function live_player_netstatus(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onNetStatus) {
+        this.props.onNetStatus({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    live_player_fullscreenchange: function live_player_fullscreenchange(e) {
-      console.log('live_player_fullscreenchange', e);
-      if (this.props.onfullscreenchange) {
-        this.props.onfullscreenchange();
+    live_player_fullscreenchange: function live_player_fullscreenchange(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onFullScreenChange) {
+        this.props.onFullScreenChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

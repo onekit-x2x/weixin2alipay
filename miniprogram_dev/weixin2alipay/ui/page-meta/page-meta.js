@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -314,19 +316,43 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    _trigger_resize: function _trigger_resize(e) {
+    _trigger_resize: function _trigger_resize(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onResize) {
-        this.props.onResize(e);
+        this.props.onResize({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_scroll: function _trigger_scroll(e) {
+    _trigger_scroll: function _trigger_scroll(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onScroll) {
-        this.props.onScroll(e);
+        this.props.onScroll({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_scrolldone: function _trigger_scrolldone(e) {
+    _trigger_scrolldone: function _trigger_scrolldone(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onScrolldone) {
-        this.props.onScrolldone(e);
+        this.props.onScrolldone({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

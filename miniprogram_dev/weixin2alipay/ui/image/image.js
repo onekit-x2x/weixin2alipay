@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -320,14 +322,30 @@ Component({
   },
 
   methods: {
-    image_error: function image_error(e) {
+    image_error: function image_error(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onError) {
-        this.props.onError(e);
+        this.props.onError({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    image_load: function image_load(e) {
+    image_load: function image_load(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onLoad) {
-        this.props.onLoad(e);
+        this.props.onLoad({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
     onShareAppMessage: function onShareAppMessage() {
@@ -344,8 +362,8 @@ Component({
         my.showActionSheet({
           items: ['转发', '保存图片', '收藏'],
           cancelButtonText: '取消',
-          success: function success(_ref) {
-            var index = _ref.index;
+          success: function success(_ref3) {
+            var index = _ref3.index;
 
             if (index === -1) {
               return;

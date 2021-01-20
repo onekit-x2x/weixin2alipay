@@ -160,8 +160,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -3495,34 +3497,82 @@ Component({
     },
 
     //
-    _trigger_Getuserinfo: function _trigger_Getuserinfo(e) {
+    _trigger_Getuserinfo: function _trigger_Getuserinfo(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onGetuserinfo) {
-        this.props.onGetuserinfo(e);
+        this.props.onGetuserinfo({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_Contact: function _trigger_Contact(e) {
+    _trigger_Contact: function _trigger_Contact(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onContact) {
-        this.props.onContact(e);
+        this.props.onContact({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_Getphonenumber: function _trigger_Getphonenumber(e) {
+    _trigger_Getphonenumber: function _trigger_Getphonenumber(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onGetphonenumber) {
-        this.props.onGetphonenumber(e);
+        this.props.onGetphonenumber({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_Error: function _trigger_Error(e) {
+    _trigger_Error: function _trigger_Error(_ref4) {
+      var detail = _ref4.detail;
+
+      var dataset = this._dataset();
       if (this.props.onError) {
-        this.props.onError(e);
+        this.props.onError({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_Opensetting: function _trigger_Opensetting(e) {
+    _trigger_Opensetting: function _trigger_Opensetting(_ref5) {
+      var detail = _ref5.detail;
+
+      var dataset = this._dataset();
       if (this.props.onOpensetting) {
-        this.props.onOpensetting(e);
+        this.props.onOpensetting({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_Launchapp: function _trigger_Launchapp(e) {
+    _trigger_Launchapp: function _trigger_Launchapp(_ref6) {
+      var detail = _ref6.detail;
+
+      var dataset = this._dataset();
       if (this.props.onLaunchapp) {
-        this.props.onLaunchapp(e);
+        this.props.onLaunchapp({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

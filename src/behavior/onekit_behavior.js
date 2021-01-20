@@ -19,6 +19,9 @@ export default {
   },
   methods: {
     _dataset() {
+      if (!this.props.onekitDataset) {
+        return {}
+      }
       const json = `{${this.props.onekitDataset}}`
       return JSON.parse(json)
     },

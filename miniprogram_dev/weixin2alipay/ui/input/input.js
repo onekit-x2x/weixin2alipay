@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -358,26 +360,58 @@ Component({
         }
       }
     },
-    input_Focus: function input_Focus(e) {
+    input_Focus: function input_Focus(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onFocus) {
-        this.props.onFocus(e);
+        this.props.onFocus({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    input_Blur: function input_Blur(e) {
+    input_Blur: function input_Blur(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onBlur) {
-        this.props.onBlur(e);
+        this.props.onBlur({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    input_Confirm: function input_Confirm(e) {
+    input_Confirm: function input_Confirm(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onConfirm) {
-        this.props.onConfirm(e);
+        this.props.onConfirm({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
     // 做不了
-    _trigger_Keyboardheightchange: function _trigger_Keyboardheightchange(e) {
+    _trigger_Keyboardheightchange: function _trigger_Keyboardheightchange(_ref4) {
+      var detail = _ref4.detail;
+
+      var dataset = this._dataset();
       if (this.props.onKeyboardheightchange) {
-        this.props.onKeyboardheightchange(e);
+        this.props.onKeyboardheightchange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

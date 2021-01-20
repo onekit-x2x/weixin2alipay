@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -307,21 +309,45 @@ Component({
   didMount: function didMount() {},
 
   methods: {
-    pickerView_Change: function pickerView_Change(e) {
+    pickerView_Change: function pickerView_Change(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
     // 做不了
-    _trigger_Pickstart: function _trigger_Pickstart(e) {
+    _trigger_Pickstart: function _trigger_Pickstart(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onPickstart) {
-        this.props.onPickstart(e);
+        this.props.onPickstart({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_Pickend: function _trigger_Pickend(e) {
+    _trigger_Pickend: function _trigger_Pickend(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onPickend) {
-        this.props.onPickend(e);
+        this.props.onPickend({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

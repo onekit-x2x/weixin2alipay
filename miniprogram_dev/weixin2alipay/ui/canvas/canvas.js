@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -310,37 +312,83 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    canvas_touchstart: function canvas_touchstart() {
-      if (this.props.onTouchStart) {
-        this.props.onTouchStart({});
+    canvas_touchstart: function canvas_touchstart(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onTouchstart) {
+        this.props.onTouchstart({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    canvas_touchmove: function canvas_touchmove() {
-      if (this.props.onTouchMove) {
-        this.props.onTouchMove({});
+    canvas_touchmove: function canvas_touchmove(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    canvas_touchend: function canvas_touchend() {
-      if (this.props.onTouchEnd) {
-        this.props.onTouchEnd({});
+    canvas_touchend: function canvas_touchend(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onTouchend) {
+        this.props.onTouchend({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    canvas_touchcancel: function canvas_touchcancel() {
-      if (this.props.onTouchCancel) {
-        this.props.onTouchCancel({});
+    canvas_touchcancel: function canvas_touchcancel(_ref4) {
+      var detail = _ref4.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onTouchcancel) {
+        this.props.onTouchcancel({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    canvas_longtap: function canvas_longtap() {
-      if (this.props.onLongTap) {
-        this.props.onLongTap({});
+    canvas_longtap: function canvas_longtap(_ref5) {
+      var detail = _ref5.detail;
+
+      var dataset = this._dataset();
+      if (this.props.onLongtap) {
+        this.props.onLongtap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
     //
     _trigger_error: function _trigger_error() {
       console.warn('暂不支持onError');
+      // const dataset = this._dataset()
       // if (this.props.onError) {
-      //   this.props.onError({})
+      //   this.props.onError({
+      //     detail,
+      //     currentTarget: {
+      //       dataset
+      //     }
+      //   })
       // }
     }
   }

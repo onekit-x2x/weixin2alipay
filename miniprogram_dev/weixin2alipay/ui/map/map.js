@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -506,35 +508,75 @@ Component({
     addGroundOverlay: function addGroundOverlay(object) {
       console.log('addGroundOverlay', object);
     },
-    map_tap: function map_tap(e) {
+    map_tap: function map_tap(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onTap) {
-        this.props.onTap(e);
+        this.props.onTap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
 
     // 做不了
-    _trigger_labeltap: function _trigger_labeltap(e) {
+    _trigger_labeltap: function _trigger_labeltap(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onLabelTap) {
-        this.props.onLabelTap(e);
+        this.props.onLabelTap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
     //
 
-    map_MarkerTap: function map_MarkerTap(e) {
+    map_MarkerTap: function map_MarkerTap(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onMarkerTap) {
-        this.props.onMarkerTap(e);
+        this.props.onMarkerTap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    map_ControlTap: function map_ControlTap(e) {
+    map_ControlTap: function map_ControlTap(_ref4) {
+      var detail = _ref4.detail;
+
+      var dataset = this._dataset();
       if (this.props.onControltap) {
-        this.props.onControltap(e);
+        this.props.onControltap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    map_CalloutTap: function map_CalloutTap(e) {
+    map_CalloutTap: function map_CalloutTap(_ref5) {
+      var detail = _ref5.detail;
+
+      var dataset = this._dataset();
       if (this.props.onCalloutTap) {
-        this.props.onCalloutTap(e);
+        this.props.onCalloutTap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
     _trigger_updated: function _trigger_updated(e) {
@@ -545,9 +587,17 @@ Component({
         }
       }
     },
-    map_RegionChange: function map_RegionChange(e) {
+    map_RegionChange: function map_RegionChange(_ref6) {
+      var detail = _ref6.detail;
+
+      var dataset = this._dataset();
       if (this.props.onRegionChange) {
-        this.props.onRegionChange(e);
+        this.props.onRegionChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
@@ -559,9 +609,17 @@ Component({
         this.props.onPoiTap(e);
       }
     },
-    _trigger_anchorpointtap: function _trigger_anchorpointtap(e) {
+    _trigger_anchorpointtap: function _trigger_anchorpointtap(_ref7) {
+      var detail = _ref7.detail;
+
+      var dataset = this._dataset();
       if (this.props.onAnchorPointTap) {
-        this.props.onAnchorPointTap(e);
+        this.props.onAnchorPointTap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

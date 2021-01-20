@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 42);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -162,8 +162,10 @@ exports.default = {
 
   methods: {
     _dataset: function _dataset() {
+      if (!this.props.onekitDataset) {
+        return {};
+      }
       var json = '{' + this.props.onekitDataset + '}';
-      console.log('xxxxxxxxxxx', json);
       return JSON.parse(json);
     },
     _e: function _e(detail, dataset) {
@@ -273,7 +275,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 42:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -494,58 +496,138 @@ Component({
     },
 
     // //////////////////////////
-    scrollView_scrolltoupper: function scrollView_scrolltoupper(e) {
+    scrollView_scrolltoupper: function scrollView_scrolltoupper(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onScrolltoupper) {
-        this.props.onScrolltoupper(e);
+        this.props.onScrolltoupper({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    scrollView_scrolltolower: function scrollView_scrolltolower(e) {
+    scrollView_scrolltolower: function scrollView_scrolltolower(_ref2) {
+      var detail = _ref2.detail;
+
+      var dataset = this._dataset();
       if (this.props.onScrollToLower) {
-        this.props.onScrollToLower(e);
+        this.props.onScrollToLower({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    scrollView_scroll: function scrollView_scroll(e) {
+    scrollView_scroll: function scrollView_scroll(_ref3) {
+      var detail = _ref3.detail;
+
+      var dataset = this._dataset();
       if (this.props.onScroll) {
-        this.props.onScroll(e);
+        this.props.onScroll({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
     //
-    _trigger_dragstart: function _trigger_dragstart() {
+    _trigger_dragstart: function _trigger_dragstart(_ref4) {
+      var detail = _ref4.detail;
+
+      var dataset = this._dataset();
       if (this.props.onDragstart) {
-        this.props.onDragstart();
+        this.props.onDragstart({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_dragging: function _trigger_dragging() {
+    _trigger_dragging: function _trigger_dragging(_ref5) {
+      var detail = _ref5.detail;
+
+      var dataset = this._dataset();
       if (this.props.onDragging) {
-        this.props.onDragging();
+        this.props.onDragging({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_dragend: function _trigger_dragend() {
+    _trigger_dragend: function _trigger_dragend(_ref6) {
+      var detail = _ref6.detail;
+
+      var dataset = this._dataset();
       if (this.props.onDragend) {
-        this.props.onDragend();
+        this.props.onDragend({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
 
     //
-    _trigger_refresherpulling: function _trigger_refresherpulling() {
+    _trigger_refresherpulling: function _trigger_refresherpulling(_ref7) {
+      var detail = _ref7.detail;
+
+      var dataset = this._dataset();
       if (this.props.onRefresherpulling) {
-        this.props.onRefresherpulling();
+        this.props.onRefresherpulling({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_refresherrefresh: function _trigger_refresherrefresh() {
+    _trigger_refresherrefresh: function _trigger_refresherrefresh(_ref8) {
+      var detail = _ref8.detail;
+
+      var dataset = this._dataset();
       if (this.props.onRefresherrefresh) {
-        this.props.onRefresherrefresh();
+        this.props.onRefresherrefresh({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_refresherrestore: function _trigger_refresherrestore() {
+    _trigger_refresherrestore: function _trigger_refresherrestore(_ref9) {
+      var detail = _ref9.detail;
+
+      var dataset = this._dataset();
       if (this.props.onRefresherrestore) {
-        this.props.onRefresherrestore();
+        this.props.onRefresherrestore({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_refresherabort: function _trigger_refresherabort() {
+    _trigger_refresherabort: function _trigger_refresherabort(_ref10) {
+      var detail = _ref10.detail;
+
+      var dataset = this._dataset();
       if (this.props.onRefresherabort) {
-        this.props.onRefresherabort();
+        this.props.onRefresherabort({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     }
   }

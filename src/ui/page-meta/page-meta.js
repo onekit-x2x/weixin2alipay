@@ -23,19 +23,37 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    _trigger_resize(e) {
+    _trigger_resize({detail}) {
+      const dataset = this._dataset()
       if (this.props.onResize) {
-        this.props.onResize(e)
+        this.props.onResize({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_scroll(e) {
+    _trigger_scroll({detail}) {
+      const dataset = this._dataset()
       if (this.props.onScroll) {
-        this.props.onScroll(e)
+        this.props.onScroll({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_scrolldone(e) {
+    _trigger_scrolldone({detail}) {
+      const dataset = this._dataset()
       if (this.props.onScrolldone) {
-        this.props.onScrolldone(e)
+        this.props.onScrolldone({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     }
   },

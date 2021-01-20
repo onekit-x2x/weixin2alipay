@@ -194,13 +194,25 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-<!-- <onekit-scroll-view refresher-enabled refresher-triggered="{{triggered}}" refresher-threshold onRefresherrefresh="refresherrefresh" onRefresherpulling="refresherpulling" onRefresherrestore="refresherrestore" onRefresherabort="refresherabort">
-  <onekit-view>
-    <onekit-text>{{counter}}</onekit-text>
-    <onekit-button onTap="add">+</onekit-button>
-    <onekit-button onTap="div">-</onekit-button>
-  </onekit-view>
-</onekit-scroll-view> -->
+<!-- <onekit-view>
+  <onekit-scroll-view onekit-style="height: 300rpx;" scroll-y refresher-enabled>
+    <onekit-view>1</onekit-view>
+    <onekit-view>2</onekit-view>
+    <onekit-view>3</onekit-view>
+    <onekit-view>4</onekit-view>
+    <onekit-view>5</onekit-view>
+    <onekit-view>1</onekit-view>
+    <onekit-view>2</onekit-view>
+    <onekit-view>3</onekit-view>
+    <onekit-view>4</onekit-view>
+    <onekit-view>5</onekit-view>
+    <onekit-view>1</onekit-view>
+    <onekit-view>2</onekit-view>
+    <onekit-view>3</onekit-view>
+    <onekit-view>4</onekit-view>
+    <onekit-view>5</onekit-view>
+  </onekit-scroll-view>
+</onekit-view> -->
 <!-- <cover-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
@@ -219,7 +231,6 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
-
 <!-- <video> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
@@ -255,11 +266,10 @@
 </onekit-view> -->
 <!-- <onekit-video controls="{{controls}}" onControlstoggle="video_controlstoggle" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 <!-- <onekit-video onSeekcomplete="video_seekcomplete" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
-
 <!-- <canvas> 2D -->
 <!-- <onekit-canvas type="2d" onekit-id="canvas" width="500" height="500" onekit-style="width:500px;height:500px;background:red"></onekit-canvas> -->
 <!-- <movable-view> -->
-<onekit-view onekit-class="container">
+<!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section">
       <onekit-view onekit-class="page-section-title first">onekit-movable-view区域小于movable-area</onekit-view>
@@ -316,7 +326,7 @@
     <onekit-view onekit-class="btn-area">
       <onekit-button onTap="tap2" onekit-class="page-body-button" type="primary">点击放大3倍</onekit-button>
     </onekit-view>
-  </onekit-view>
+  </onekit-view> -->
 <!-- <movable-area>
     <onekit-movable-view direction="all" onhtouchmove="movable_htouchmove" ontouchmove="movable_touchmove"></onekit-movable-view>
  <onekit-movable-view direction="all" catchhtouchmove="movable_htouchmove" catchtouchmove="movable_touchmove"></onekit-movable-view> 
@@ -496,3 +506,70 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
+
+<!-- <swiper> -->
+<import-sjs name="_" from="../weixin2alipay/_.sjs"/>
+<onekit-view onekit-class="container">
+  <onekit-view onekit-class="page-body">
+    <onekit-view onekit-class="page-section page-section-spacing swiper">
+      <onekit-swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block a:for="{{background}}">
+          <swiper-item>
+            <onekit-view onekit-class="swiper-item {{item}}"></onekit-view>
+          </swiper-item>
+        </block>
+      </onekit-swiper>
+    </onekit-view>
+    <onekit-view onekit-class="page-section" onekit-style="margin-top: 40rpx;margin-bottom: 0;">
+      <onekit-view onekit-class="weui-cells weui-cells_after-title">
+        <onekit-view onekit-class="weui-cell weui-cell_switch">
+          <onekit-view onekit-class="weui-cell__bd">指示点</onekit-view>
+          <onekit-view onekit-class="weui-cell__ft">
+            <onekit-switch checked="{{indicatorDots}}" onChange="changeProperty" onekit-dataset='"propertyName":{{_("indicatorDots")}}'></onekit-switch>
+          </onekit-view>
+        </onekit-view>
+        <onekit-view onekit-class="weui-cell weui-cell_switch">
+          <onekit-view onekit-class="weui-cell__bd">自动播放</onekit-view>
+          <onekit-view onekit-class="weui-cell__ft">
+            <onekit-switch checked="{{autoplay}}" onChange="changeProperty" onekit-dataset='"propertyName":{{_("autoplay")}}'></onekit-switch>
+          </onekit-view>
+        </onekit-view>
+        <onekit-view onekit-class="weui-cell weui-cell_switch">
+          <onekit-view onekit-class="weui-cell__bd">衔接滑动</onekit-view>
+          <onekit-view onekit-class="weui-cell__ft">
+            <onekit-switch checked="{{circular}}" onChange="changeProperty" onekit-dataset='"propertyName":{{_("circular")}}'></onekit-switch>
+          </onekit-view>
+        </onekit-view>
+        <onekit-view onekit-class="weui-cell weui-cell_switch">
+          <onekit-view onekit-class="weui-cell__bd">竖向</onekit-view>
+          <onekit-view onekit-class="weui-cell__ft">
+            <onekit-switch checked="{{vertical}}" onChange="changeProperty" onekit-dataset='"propertyName":{{_("vertical")}}'></onekit-switch>
+          </onekit-view>
+        </onekit-view>
+      </onekit-view>
+    </onekit-view>
+
+    <onekit-view onekit-class="page-section page-section-spacing">
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>幻灯片切换时长(ms)</onekit-text>
+        <onekit-text onekit-class="info">{{duration}}</onekit-text>
+      </onekit-view>
+      <onekit-slider value="{{duration}}" min="500" max="2000" onChange="changeProperty" data-property-name="duration"></onekit-slider>
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>自动播放间隔时长(ms)</onekit-text>
+        <onekit-text onekit-class="info">{{interval}}</onekit-text>
+      </onekit-view>
+      <onekit-slider value="{{interval}}" min="2000" max="10000" onChange="changeProperty" data-property-name="interval"></onekit-slider>
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>前边距(px)</onekit-text>
+        <onekit-text onekit-class="info">{{previousMargin}}</onekit-text>
+      </onekit-view>
+      <onekit-slider value="{{previousMargin}}" min="0" max="50" onChange="changeProperty" data-property-name="previousMargin"></onekit-slider>
+      <onekit-view onekit-class="page-section-title">
+        <onekit-text>后边距(px)</onekit-text>
+        <onekit-text onekit-class="info">{{nextMargin}}</onekit-text>
+      </onekit-view>
+      <onekit-slider value="{{nextMargin}}" min="0" max="50" onChange="changeProperty" data-property-name="nextMargin"></onekit-slider>
+    </onekit-view>
+  </onekit-view>
+</onekit-view>

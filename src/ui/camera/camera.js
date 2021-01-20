@@ -26,14 +26,26 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    camera_stop() {
+    camera_stop({detail}) {
+      const dataset = this._dataset()
       if (this.props.onStop) {
-        this.props.onStop({})
+        this.props.onStop({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    camera_error() {
+    camera_error({detail}) {
+      const dataset = this._dataset()
       if (this.props.onError) {
-        this.props.onError({})
+        this.props.onError({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     }
   },

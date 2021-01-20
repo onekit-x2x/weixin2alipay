@@ -27,14 +27,26 @@ Component({
     }
   },
   methods: {
-    image_error(e) {
+    image_error({detail}) {
+      const dataset = this._dataset()
       if (this.props.onError) {
-        this.props.onError(e)
+        this.props.onError({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    image_load(e) {
+    image_load({detail}) {
+      const dataset = this._dataset()
       if (this.props.onLoad) {
-        this.props.onLoad(e)
+        this.props.onLoad({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
     onShareAppMessage() {

@@ -13,11 +13,11 @@
     "onekit-page-meta":"../weixin2alipay/ui/page-meta/page-meta",
     "onekit-navigation-bar":"../weixin2alipay/ui/navigation-bar/navigation-bar",
     "onekit-textarea":"../weixin2alipay/ui/textarea/textarea",
+    "onekit-scroll-view":"../weixin2alipay/ui/scroll-view/scroll-view",
     
     "onekit-camera":"../weixin2alipay/ui/camera/camera",
     "onekit-movable-view":"../weixin2alipay/ui/movable-view/movable-view",
     "onekit-video":"../weixin2alipay/ui/video/video",
-    "onekit-scroll-view":"../weixin2alipay/ui/scroll-view/scroll-view",
     "onekit-navigator":"../weixin2alipay/ui/navigator/navigator",
     "onekit-button":"../weixin2alipay/ui/button/button",
     "onekit-swiper":"../weixin2alipay/ui/swiper/swiper",

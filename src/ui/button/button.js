@@ -143,34 +143,70 @@ Component({
       }
     },
     //
-    _trigger_Getuserinfo(e) {
+    _trigger_Getuserinfo({detail}) {
+      const dataset = this._dataset()
       if (this.props.onGetuserinfo) {
-        this.props.onGetuserinfo(e)
+        this.props.onGetuserinfo({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_Contact(e) {
+    _trigger_Contact({detail}) {
+      const dataset = this._dataset()
       if (this.props.onContact) {
-        this.props.onContact(e)
+        this.props.onContact({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_Getphonenumber(e) {
+    _trigger_Getphonenumber({detail}) {
+      const dataset = this._dataset()
       if (this.props.onGetphonenumber) {
-        this.props.onGetphonenumber(e)
+        this.props.onGetphonenumber({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_Error(e) {
+    _trigger_Error({detail}) {
+      const dataset = this._dataset()
       if (this.props.onError) {
-        this.props.onError(e)
+        this.props.onError({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_Opensetting(e) {
+    _trigger_Opensetting({detail}) {
+      const dataset = this._dataset()
       if (this.props.onOpensetting) {
-        this.props.onOpensetting(e)
+        this.props.onOpensetting({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_Launchapp(e) {
+    _trigger_Launchapp({detail}) {
+      const dataset = this._dataset()
       if (this.props.onLaunchapp) {
-        this.props.onLaunchapp(e)
+        this.props.onLaunchapp({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
   },

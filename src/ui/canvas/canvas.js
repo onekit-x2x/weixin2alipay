@@ -20,36 +20,72 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    canvas_touchstart() {
-      if (this.props.onTouchStart) {
-        this.props.onTouchStart({})
+    canvas_touchstart({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onTouchstart) {
+        this.props.onTouchstart({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    canvas_touchmove() {
-      if (this.props.onTouchMove) {
-        this.props.onTouchMove({})
+    canvas_touchmove({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onTouchmove) {
+        this.props.onTouchmove({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    canvas_touchend() {
-      if (this.props.onTouchEnd) {
-        this.props.onTouchEnd({})
+    canvas_touchend({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onTouchend) {
+        this.props.onTouchend({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    canvas_touchcancel() {
-      if (this.props.onTouchCancel) {
-        this.props.onTouchCancel({})
+    canvas_touchcancel({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onTouchcancel) {
+        this.props.onTouchcancel({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    canvas_longtap() {
-      if (this.props.onLongTap) {
-        this.props.onLongTap({})
+    canvas_longtap({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onLongtap) {
+        this.props.onLongtap({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
     //
     _trigger_error() {
       console.warn('暂不支持onError')
+      // const dataset = this._dataset()
       // if (this.props.onError) {
-      //   this.props.onError({})
+      //   this.props.onError({
+      //     detail,
+      //     currentTarget: {
+      //       dataset
+      //     }
+      //   })
       // }
     }
   },

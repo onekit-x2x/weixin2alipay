@@ -66,25 +66,49 @@ Component({
         }
       }
     },
-    input_Focus(e) {
+    input_Focus({detail}) {
+      const dataset = this._dataset()
       if (this.props.onFocus) {
-        this.props.onFocus(e)
+        this.props.onFocus({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    input_Blur(e) {
+    input_Blur({detail}) {
+      const dataset = this._dataset()
       if (this.props.onBlur) {
-        this.props.onBlur(e)
+        this.props.onBlur({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    input_Confirm(e) {
+    input_Confirm({detail}) {
+      const dataset = this._dataset()
       if (this.props.onConfirm) {
-        this.props.onConfirm(e)
+        this.props.onConfirm({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
     // 做不了
-    _trigger_Keyboardheightchange(e) {
+    _trigger_Keyboardheightchange({detail}) {
+      const dataset = this._dataset()
       if (this.props.onKeyboardheightchange) {
-        this.props.onKeyboardheightchange(e)
+        this.props.onKeyboardheightchange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     }
   },

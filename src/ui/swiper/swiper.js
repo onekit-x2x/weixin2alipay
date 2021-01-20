@@ -49,19 +49,37 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    swiper_change() {
+    swiper_change({detail}) {
+      const dataset = this._dataset()
       if (this.props.onChange) {
-        this.props.onChange()
+        this.props.onChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    swiper_transition() {
+    swiper_transition({detail}) {
+      const dataset = this._dataset()
       if (this.props.onTransition) {
-        this.props.onTransition()
+        this.props.onTransition({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    swiper_animationfinish() {
+    swiper_animationfinish({detail}) {
+      const dataset = this._dataset()
       if (this.props.onAnimationEnd) {
-        this.props.onAnimationfinish()
+        this.props.onAnimationEnd({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     }
   },

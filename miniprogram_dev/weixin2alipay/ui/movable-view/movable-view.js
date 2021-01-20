@@ -146,7 +146,8 @@ exports.default = {
     onekitId: '',
     onekitClass: '',
     onekitStyle: '',
-    onekitVersion: ''
+    onekitVersion: '',
+    onekitDataset: null
   },
   data: {},
   onInit: function onInit() {
@@ -160,6 +161,11 @@ exports.default = {
   },
 
   methods: {
+    _dataset: function _dataset() {
+      var json = '{' + this.props.onekitDataset + '}';
+      console.log('xxxxxxxxxxx', json);
+      return JSON.parse(json);
+    },
     _e: function _e(detail, dataset) {
       // currentTarget: {
       //   dataset: {},
@@ -305,18 +311,16 @@ Component({
     scaleValue: 1,
     animation: true
   },
-  deriveDataFromProps: function deriveDataFromProps(props) {
-    var _this = this;
-
-    this.setData({
-      x: 0,
-      y: 0
-    });
-    setTimeout(function () {
-      _this.setData(props);
-    }, 1000);
-  },
-
+  // deriveDataFromProps(props) {
+  //   this.setData({
+  //     x: 0,
+  //     y: 0
+  //   })
+  //   // setTimeout(() => {
+  //   //   this.setData(props)
+  //   // }, 1000)
+  //   this.setData(props)
+  // },
   methods: {
     movable_change: function movable_change(e) {
       if (this.props.onChange) {

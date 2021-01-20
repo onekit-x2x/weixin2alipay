@@ -16,22 +16,8 @@
   scroll-with-animation="{{scrollWithAnimation}}"
   enable-back-to-top ="{{enableBackToTop}}"
 
-  refresher-enabled="{{refresherEnabled}}"
-  refresher-threshold="{{refresherThreshold}}"
-  refresher-default-style="{{refresherDefaultStyle}}"
-  refresher-background="{{refresherBackground}}"
-
-
-  refresher-triggered="RefresherTriggered"
-  enhanced="Enhanced"
-  bounces="Bounces"
-  show-scrollbar="ShowScrollbar"
-  paging-enabled="PagingEnabled"
-  fast-deceleration="FastDeceleration"
-
   onScrollToUpper="scrollView_scrolltoupper" 
   onScrollToLower="scrollView_scrolltolower"
   onScroll="scrollView_scroll">
-  <slot>
-  </slot>
+  <slot></slot>
 </scroll-view>

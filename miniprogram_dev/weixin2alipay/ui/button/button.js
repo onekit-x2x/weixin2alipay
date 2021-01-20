@@ -144,7 +144,8 @@ exports.default = {
     onekitId: '',
     onekitClass: '',
     onekitStyle: '',
-    onekitVersion: ''
+    onekitVersion: '',
+    onekitDataset: null
   },
   data: {},
   onInit: function onInit() {
@@ -158,6 +159,11 @@ exports.default = {
   },
 
   methods: {
+    _dataset: function _dataset() {
+      var json = '{' + this.props.onekitDataset + '}';
+      console.log('xxxxxxxxxxx', json);
+      return JSON.parse(json);
+    },
     _e: function _e(detail, dataset) {
       // currentTarget: {
       //   dataset: {},

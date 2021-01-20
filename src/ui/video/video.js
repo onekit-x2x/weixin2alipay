@@ -85,17 +85,17 @@ Component({
   methods: {
     video_play() {
       if (this.props.onPlay) {
-        this.props.onPlay({})
+        this.props.onPlay()
       }
     },
     video_pause() {
       if (this.props.onPause) {
-        this.props.onPause({})
+        this.props.onPause()
       }
     },
     video_end() {
       if (this.props.onEnded) {
-        this.props.onEnded({})
+        this.props.onEnded()
       }
     },
     video_timeupdate(e) {

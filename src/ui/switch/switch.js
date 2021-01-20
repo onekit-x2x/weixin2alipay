@@ -16,14 +16,26 @@ Component({
     value: ''
   },
   methods: {
-    switch_Change(e) {
+    switch_Change({detail}) {
+      const dataset = this._dataset()
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    checkbox_Change(e) {
+    checkbox_Change({detail}) {
+      const dataset = this._dataset()
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     }
   },

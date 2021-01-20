@@ -1,44 +1,23 @@
 <view style="height:{{refresher_height}}px;">
   <slot name="refresher"></slot>
 </view>
-<scroll-view 
-  id="{{onekitId}}" 
+<scroll-view
   class="onekit-scroll-view {{onekitClass}}" 
-  style="{{onekitStyle}}" 
-  scroll-y="{{scrollY}}" 
+  style="display:{{enableFlex}};overflow-anchor:{{scrollAnchoring}};{{onekitStyle}}"
+  id="{{onekitId}}" 
+  
   scroll-x="{{scrollX}}"
-  upper-threshold="{{UpperThreshold}}" 
-  lower-threshold="{{LowerThreshold}}" 
-  scroll-top="{{ScrollTop}}" 
-  scroll-left="{{ScrollLeft}}" 
-  scroll-into-view="{{ScrollIntoView}}" 
-  scroll-with-animation="{{ScrollWithAnimation}}"
-  enable-back-to-top ="{{EnableBackToTop}}"
+  scroll-y="{{scrollY}}" 
+  upper-threshold="{{upperThreshold}}" 
+  lower-threshold="{{lowerThreshold}}" 
+  scroll-top="{{scrollTop}}" 
+  scroll-left="{{scrollLeft}}" 
+  scroll-into-view="{{scrollIntoView}}" 
+  scroll-with-animation="{{scrollWithAnimation}}"
+  enable-back-to-top ="{{enableBackToTop}}"
 
-
-  enable-flex="EnableFlex"
-  scroll-anchoring="ScrollAnchoring"
-
-  refresher-enabled="refresherEnabled"
-  refresher-threshold="refresherThreshold"
-  refresher-default-style="refresherDefaultStyle"
-  refresher-background="refresherBackground"
-
-
-  refresher-triggered="RefresherTriggered"
-  enhanced="Enhanced"
-  bounces="Bounces"
-  show-scrollbar="ShowScrollbar"
-  paging-enabled="PagingEnabled"
-  fast-deceleration="FastDeceleration"
-
-  onScrollToUpper="on_toupper" 
-  onScrollToLower="on_tolower"
-  catchScroll="catch_scroll"
-  catchTouchEnd="catch_Touchend" 
-  catchTouchMove="catch_Touchmove" 
-  catchTouchStart="catch_Touchstart" 
-  catchTouchCancel="catch_Touchcancel">
-  <slot>
-  </slot>
+  onScrollToUpper="scrollView_scrolltoupper" 
+  onScrollToLower="scrollView_scrolltolower"
+  onScroll="scrollView_scroll">
+  <slot></slot>
 </scroll-view>

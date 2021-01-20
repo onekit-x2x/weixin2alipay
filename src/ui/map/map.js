@@ -212,33 +212,63 @@ Component({
       console.log('addGroundOverlay', object)
     },
 
-    map_tap(e) {
+    map_tap({detail}) {
+      const dataset = this._dataset()
       if (this.props.onTap) {
-        this.props.onTap(e)
+        this.props.onTap({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
 
     // 做不了
-    _trigger_labeltap(e) {
+    _trigger_labeltap({detail}) {
+      const dataset = this._dataset()
       if (this.props.onLabelTap) {
-        this.props.onLabelTap(e)
+        this.props.onLabelTap({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
     //
 
-    map_MarkerTap(e) {
+    map_MarkerTap({detail}) {
+      const dataset = this._dataset()
       if (this.props.onMarkerTap) {
-        this.props.onMarkerTap(e)
+        this.props.onMarkerTap({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    map_ControlTap(e) {
+    map_ControlTap({detail}) {
+      const dataset = this._dataset()
       if (this.props.onControltap) {
-        this.props.onControltap(e)
+        this.props.onControltap({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    map_CalloutTap(e) {
+    map_CalloutTap({detail}) {
+      const dataset = this._dataset()
       if (this.props.onCalloutTap) {
-        this.props.onCalloutTap(e)
+        this.props.onCalloutTap({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
 
@@ -251,9 +281,15 @@ Component({
       }
     },
 
-    map_RegionChange(e) {
+    map_RegionChange({detail}) {
+      const dataset = this._dataset()
       if (this.props.onRegionChange) {
-        this.props.onRegionChange(e)
+        this.props.onRegionChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
 
@@ -264,9 +300,15 @@ Component({
         this.props.onPoiTap(e)
       }
     },
-    _trigger_anchorpointtap(e) {
+    _trigger_anchorpointtap({detail}) {
+      const dataset = this._dataset()
       if (this.props.onAnchorPointTap) {
-        this.props.onAnchorPointTap(e)
+        this.props.onAnchorPointTap({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     }
   },

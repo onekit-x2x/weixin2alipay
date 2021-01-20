@@ -31,22 +31,37 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    live_player_statechange(e) {
-      console.log('live_player_statechange', e)
-      if (this.props.onstatechange) {
-        this.props.onstatechange(e.details)
+    live_player_statechange({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onStateChange) {
+        this.props.onStateChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    live_player_netstatus(e) {
-      console.log('live_player_netstatus', e)
-      if (this.props.onnetstatus) {
-        this.props.onnetstatus(e.details)
+    live_player_netstatus({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onNetStatus) {
+        this.props.onNetStatus({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    live_player_fullscreenchange(e) {
-      console.log('live_player_fullscreenchange', e)
-      if (this.props.onfullscreenchange) {
-        this.props.onfullscreenchange()
+    live_player_fullscreenchange({detail}) {
+      const dataset = this._dataset()
+      if (this.props.onFullScreenChange) {
+        this.props.onFullScreenChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
   },

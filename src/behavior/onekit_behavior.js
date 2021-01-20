@@ -5,6 +5,7 @@ export default {
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: '',
+    onekitDataset: null
   },
   data: {},
   onInit() {
@@ -17,6 +18,10 @@ export default {
     }
   },
   methods: {
+    _dataset() {
+      const json = `{${this.props.onekitDataset}}`
+      return JSON.parse(json)
+    },
     _e(detail, dataset) {
       // currentTarget: {
       //   dataset: {},

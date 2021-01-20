@@ -146,7 +146,8 @@ exports.default = {
     onekitId: '',
     onekitClass: '',
     onekitStyle: '',
-    onekitVersion: ''
+    onekitVersion: '',
+    onekitDataset: null
   },
   data: {},
   onInit: function onInit() {
@@ -160,6 +161,11 @@ exports.default = {
   },
 
   methods: {
+    _dataset: function _dataset() {
+      var json = '{' + this.props.onekitDataset + '}';
+      console.log('xxxxxxxxxxx', json);
+      return JSON.parse(json);
+    },
     _e: function _e(detail, dataset) {
       // currentTarget: {
       //   dataset: {},
@@ -299,9 +305,17 @@ Component({
     value: ''
   },
   methods: {
-    switch_Change: function switch_Change(e) {
+    switch_Change: function switch_Change(_ref) {
+      var detail = _ref.detail;
+
+      var dataset = this._dataset();
       if (this.props.onChange) {
-        this.props.onChange(e);
+        this.props.onChange({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
     checkbox_Change: function checkbox_Change(e) {

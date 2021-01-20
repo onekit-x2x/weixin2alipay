@@ -27,7 +27,6 @@
     "page-meta":"./ui/page-meta/page-meta",
     "picker":"./ui/picker/picker",
     "picker-view":"./ui/picker-view/picker-view",
-    "picker-view-column":"./ui/picker-view-column/picker-view-column",
     "progress":"./ui/progress/progress",
     "scroll-view":"./ui/scroll-view/scroll-view",
     "slider":"./ui/slider/slider",

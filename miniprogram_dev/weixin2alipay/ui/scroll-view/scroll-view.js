@@ -146,7 +146,8 @@ exports.default = {
     onekitId: '',
     onekitClass: '',
     onekitStyle: '',
-    onekitVersion: ''
+    onekitVersion: '',
+    onekitDataset: null
   },
   data: {},
   onInit: function onInit() {
@@ -160,6 +161,11 @@ exports.default = {
   },
 
   methods: {
+    _dataset: function _dataset() {
+      var json = '{' + this.props.onekitDataset + '}';
+      console.log('xxxxxxxxxxx', json);
+      return JSON.parse(json);
+    },
     _e: function _e(detail, dataset) {
       // currentTarget: {
       //   dataset: {},
@@ -300,35 +306,59 @@ Component({
   props: {
     scrollX: false,
     scrollY: false,
-    UpperThreshold: 50,
-    LowerThreshold: 50,
-    ScrollTop: 0,
-    ScrollLeft: 0,
-    ScrollIntoView: '',
-    ScrollWithAnimation: false,
-    EnableBackToTop: false,
-
-    EnableFlex: false,
-    ScrollAnchoring: false,
-
+    upperThreshold: 50,
+    lowerThreshold: 50,
+    scrollTop: null,
+    scrollLeft: null,
+    scrollIntoView: '',
+    scrollWithAnimation: false,
+    enableBackToTop: false,
+    enableFlex: false,
+    scrollAnchoring: false,
+    // 做不了
     refresherEnabled: false,
     refresherThreshold: 45,
     refresherDefaultStyle: 'black',
     refresherBackground: '#fff',
     refresherTriggered: false,
-
-    Enhanced: false,
-    Bounces: true,
-    ShowScrollbar: true,
-    PagingEnabled: false,
-    FastDeceleration: false
+    //
+    enhanced: false,
+    bounces: true,
+    showScrollbar: true,
+    pagingEnabled: false,
+    fastDeceleration: false
   },
-  didMount: function didMount() {},
+  didMount: function didMount() {
+    if (this.props.enableFlex) {
+      this.data.enableFlex = 'flex';
+    }
+    if (!this.props.scrollAnchoring) {
+      this.data.scrollAnchoring = 'auto';
+    } else {
+      this.data.scrollAnchoring = 'none';
+    }
+    if (this.props.refresherDefaultStyle) {
+      var textStyle = void 0;
+      if (this.props.refresherDefaultStyle === 'black') {
+        textStyle = 'dark';
+      } else {
+        textStyle = 'light';
+      }
+      my.setBackgroundTextStyle({
+        textStyle: textStyle
+      });
+    }
+    this.setData({
+      enableFlex: this.data.enableFlex,
+      scrollAnchoring: this.data.scrollAnchoring,
+      refresherDefaultStyle: this.props.refresherDefaultStyle
+    });
+  },
   didUpdate: function didUpdate() {},
   didUnmount: function didUnmount() {},
   onupper: function onupper() {},
-  deriveDataFromProps: function deriveDataFromProps(nextProps) {
-    console.log(1, nextProps);
+  deriveDataFromProps: function deriveDataFromProps() {
+    // console.log(1, nextProps)
     // if (nextProps.refresherTriggered) {
     //   if (!this.data.pagePulling) {
     //     console.log('xxxxxxxxxxxxx')
@@ -464,19 +494,58 @@ Component({
     },
 
     // //////////////////////////
-    on_toupper: function on_toupper() {
+    scrollView_scrolltoupper: function scrollView_scrolltoupper(e) {
       if (this.props.onScrolltoupper) {
-        this.props.onScrolltoupper();
+        this.props.onScrolltoupper(e);
       }
     },
-    on_tolower: function on_tolower() {
+    scrollView_scrolltolower: function scrollView_scrolltolower(e) {
       if (this.props.onScrollToLower) {
-        this.props.onScrollToLower();
+        this.props.onScrollToLower(e);
       }
     },
-    catch_scroll: function catch_scroll() {
+    scrollView_scroll: function scrollView_scroll(e) {
       if (this.props.onScroll) {
-        this.props.onScroll();
+        this.props.onScroll(e);
+      }
+    },
+
+    //
+    _trigger_dragstart: function _trigger_dragstart() {
+      if (this.props.onDragstart) {
+        this.props.onDragstart();
+      }
+    },
+    _trigger_dragging: function _trigger_dragging() {
+      if (this.props.onDragging) {
+        this.props.onDragging();
+      }
+    },
+    _trigger_dragend: function _trigger_dragend() {
+      if (this.props.onDragend) {
+        this.props.onDragend();
+      }
+    },
+
+    //
+    _trigger_refresherpulling: function _trigger_refresherpulling() {
+      if (this.props.onRefresherpulling) {
+        this.props.onRefresherpulling();
+      }
+    },
+    _trigger_refresherrefresh: function _trigger_refresherrefresh() {
+      if (this.props.onRefresherrefresh) {
+        this.props.onRefresherrefresh();
+      }
+    },
+    _trigger_refresherrestore: function _trigger_refresherrestore() {
+      if (this.props.onRefresherrestore) {
+        this.props.onRefresherrestore();
+      }
+    },
+    _trigger_refresherabort: function _trigger_refresherabort() {
+      if (this.props.onRefresherabort) {
+        this.props.onRefresherabort();
       }
     }
   }

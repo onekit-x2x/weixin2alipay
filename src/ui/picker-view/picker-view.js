@@ -16,20 +16,38 @@ Component({
   },
   didMount() {},
   methods: {
-    pickerView_Change(e) {
+    pickerView_Change({detail}) {
+      const dataset = this._dataset()
       if (this.props.onChange) {
-        this.props.onChange(e)
+        this.props.onChange({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
     // 做不了
-    _trigger_Pickstart(e) {
+    _trigger_Pickstart({detail}) {
+      const dataset = this._dataset()
       if (this.props.onPickstart) {
-        this.props.onPickstart(e)
+        this.props.onPickstart({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_Pickend(e) {
+    _trigger_Pickend({detail}) {
+      const dataset = this._dataset()
       if (this.props.onPickend) {
-        this.props.onPickend(e)
+        this.props.onPickend({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
   },

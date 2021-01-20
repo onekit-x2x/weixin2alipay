@@ -22,10 +22,9 @@ Component({
     scrollIntoView: '',
     scrollWithAnimation: false,
     enableBackToTop: false,
-    //
     enableFlex: false,
     scrollAnchoring: false,
-    //
+    // 做不了
     refresherEnabled: false,
     refresherThreshold: 45,
     refresherDefaultStyle: 'black',
@@ -47,9 +46,21 @@ Component({
     } else {
       this.data.scrollAnchoring = 'none'
     }
+    if (this.props.refresherDefaultStyle) {
+      let textStyle
+      if (this.props.refresherDefaultStyle === 'black') {
+        textStyle = 'dark'
+      } else {
+        textStyle = 'light'
+      }
+      my.setBackgroundTextStyle({
+        textStyle
+      })
+    }
     this.setData({
       enableFlex: this.data.enableFlex,
-      scrollAnchoring: this.data.scrollAnchoring
+      scrollAnchoring: this.data.scrollAnchoring,
+      refresherDefaultStyle: this.props.refresherDefaultStyle
     })
   },
   didUpdate() {},
@@ -57,8 +68,8 @@ Component({
   onupper() {
 
   },
-  deriveDataFromProps(nextProps) {
-    console.log(1, nextProps)
+  deriveDataFromProps() {
+    // console.log(1, nextProps)
     // if (nextProps.refresherTriggered) {
     //   if (!this.data.pagePulling) {
     //     console.log('xxxxxxxxxxxxx')
@@ -190,56 +201,116 @@ Component({
       this.props.onRefresherabort({})
     },
     // //////////////////////////
-    scrollView_scrolltoupper() {
+    scrollView_scrolltoupper({detail}) {
+      const dataset = this._dataset()
       if (this.props.onScrolltoupper) {
-        this.props.onScrolltoupper()
+        this.props.onScrolltoupper({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    scrollView_scrolltolower() {
+    scrollView_scrolltolower({detail}) {
+      const dataset = this._dataset()
       if (this.props.onScrollToLower) {
-        this.props.onScrollToLower()
+        this.props.onScrollToLower({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    scrollView_scroll() {
+    scrollView_scroll({detail}) {
+      const dataset = this._dataset()
       if (this.props.onScroll) {
-        this.props.onScroll()
+        this.props.onScroll({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
     //
-    _trigger_dragstart() {
+    _trigger_dragstart({detail}) {
+      const dataset = this._dataset()
       if (this.props.onDragstart) {
-        this.props.onDragstart()
+        this.props.onDragstart({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_dragging() {
+    _trigger_dragging({detail}) {
+      const dataset = this._dataset()
       if (this.props.onDragging) {
-        this.props.onDragging()
+        this.props.onDragging({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_dragend() {
+    _trigger_dragend({detail}) {
+      const dataset = this._dataset()
       if (this.props.onDragend) {
-        this.props.onDragend()
+        this.props.onDragend({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
     //
-    _trigger_refresherpulling() {
+    _trigger_refresherpulling({detail}) {
+      const dataset = this._dataset()
       if (this.props.onRefresherpulling) {
-        this.props.onRefresherpulling()
+        this.props.onRefresherpulling({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_refresherrefresh() {
+    _trigger_refresherrefresh({detail}) {
+      const dataset = this._dataset()
       if (this.props.onRefresherrefresh) {
-        this.props.onRefresherrefresh()
+        this.props.onRefresherrefresh({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_refresherrestore() {
+    _trigger_refresherrestore({detail}) {
+      const dataset = this._dataset()
       if (this.props.onRefresherrestore) {
-        this.props.onRefresherrestore()
+        this.props.onRefresherrestore({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
-    _trigger_refresherabort() {
+    _trigger_refresherabort({detail}) {
+      const dataset = this._dataset()
       if (this.props.onRefresherabort) {
-        this.props.onRefresherabort()
+        this.props.onRefresherabort({
+          detail,
+          currentTarget: {
+            dataset
+          }
+        })
       }
     },
   },

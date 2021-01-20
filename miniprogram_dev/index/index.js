@@ -414,33 +414,127 @@ global = {};
 //   })
 
 //movable-view
+// OnekitPage({
+//     onShareAppMessage:function(){
+//       return {
+//         title:'movable-view',
+//         path:'page/component/pages/movable-view/movable-view'
+//       }
+//     },
+//     data:{
+//         x:0,
+//         y:0,
+//         scale:2
+//       },
+//     tap:function(){
+//       this.setData({
+//         x:30,
+//         y:30
+//       })
+//     },
+//     tap2:function(){
+//       this.setData({
+//         scale:3
+//       })
+//     },
+//     onChange:function(e){
+//       console.log(e.detail)
+//     },
+//     onScale:function(e){
+//       console.log(e.detail)
+//     }
+//   })
+
+//scoll-view
+// const order = [
+//   'demo1',
+//   'demo2',
+//   'demo3'
+// ]
+// OnekitPage({
+//     onShareAppMessage:function(){
+//       return {
+//         title:'scroll-view',
+//         path:'page/component/pages/scroll-view/scroll-view'
+//       }
+//     },
+//     data:{
+//         toView:'green'
+//       },
+//     upper:function(e){
+//       console.log(e)
+//     },
+//     lower:function(e){
+//       console.log(e)
+//     },
+//     scroll:function(e){
+//       console.log(e)
+//     },
+//     scrollToTop:function(){
+//       this.setAction({
+//         scrollTop:0
+//       })
+//     },
+//     tap:function(){
+//       for(var i = 0;i < order.length;++i){
+//       if(order[i] == this.data.toView){
+//         this.setData({
+//             toView:order[i + 1],
+//             scrollTop:((i + 1)) * 200
+//           });
+//         break;
+//       }
+//     }
+//     },
+//     tapMove:function(){
+//       this.setData({
+//         scrollTop:this.data.scrollTop + 10
+//       })
+//     }
+//   })
+
+//swiper
 OnekitPage({
-    onShareAppMessage:function(){
-      return {
-        title:'movable-view',
-        path:'page/component/pages/movable-view/movable-view'
-      }
-    },
     data:{
-        x:0,
-        y:0,
-        scale:2
+        background:[
+          'demo-text-1',
+          'demo-text-2',
+          'demo-text-3'
+        ],
+        indicatorDots:true,
+        vertical:false,
+        autoplay:false,
+        circular:false,
+        interval:2000,
+        duration:500,
+        previousMargin:0,
+        nextMargin:0
       },
-    tap:function(){
+    changeProperty:function(e){
+      var propertyName = e.currentTarget.dataset.propertyName
+      console.log(e.currentTarget.dataset)
+      var newData = {}
+      newData[propertyName] = e.detail.value
+      this.setData(newData)
+    },
+    changeIndicatorDots:function(e){
       this.setData({
-        x:30,
-        y:30
+        indicatorDots:!this.data.indicatorDots
       })
     },
-    tap2:function(){
+    changeAutoplay:function(e){
       this.setData({
-        scale:3
+        autoplay:!this.data.autoplay
       })
     },
-    onChange:function(e){
-      console.log(e.detail)
+    intervalChange:function(e){
+      this.setData({
+        interval:e.detail.value
+      })
     },
-    onScale:function(e){
-      console.log(e.detail)
+    durationChange:function(e){
+      this.setData({
+        duration:e.detail.value
+      })
     }
   })

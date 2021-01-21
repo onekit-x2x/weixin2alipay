@@ -72,11 +72,6 @@ Component({
                 this.onShareAppMessage()
                 break
               case 1:
-                my.alert({
-                  title: "请点击右上角的'☆'收藏按钮"
-                })
-                break
-              case 2:
                 my.saveImage({
                   url: this.props.src,
                   showActionSheet: true,
@@ -85,6 +80,11 @@ Component({
                       title: '保存成功',
                     })
                   },
+                })
+                break
+              case 2:
+                my.alert({
+                  title: "请点击右上角的'☆'收藏按钮"
                 })
                 break
               default:

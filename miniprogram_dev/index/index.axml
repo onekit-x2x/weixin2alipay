@@ -433,7 +433,7 @@
     onKeyboardheightchange="input_onKeyboardheightchange"></onekit-input>
 </onekit-view> -->
 <!-- <camera> -->
-<!-- <onekit-view onekit-class="page-body">
+<onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-body-wrapper">
     <onekit-camera device-position="back" flash="off" onError="error" onekit-style="width: 100%; height: 300px;"></onekit-camera>
     <onekit-view onekit-class="btn-area">
@@ -449,7 +449,7 @@
     <onekit-image a:if="{{src}}" mode="widthFix" src="{{src}}"></onekit-image>
     <onekit-video a:if="{{videoSrc}}" onekit-class="video" src="{{videoSrc}}"></onekit-video>
   </onekit-view>
-</onekit-view> -->
+</onekit-view>
 <!-- <onekit-camera device-position="back" flash="off" onError="error" onekit-style="width: 100%; height: 300px;"></onekit-camera>
 <onekit-button type="primary" onTap="takePhoto">拍照</onekit-button>
 <onekit-view>预览</onekit-view>

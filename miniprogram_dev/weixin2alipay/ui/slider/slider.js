@@ -336,7 +336,7 @@ Component({
   },
 
   methods: {
-    swiper_change: function swiper_change(_ref) {
+    slider_Change: function slider_Change(_ref) {
       var detail = _ref.detail;
 
       var dataset = this._dataset();
@@ -349,21 +349,8 @@ Component({
         });
       }
     },
-    slider_Change: function slider_Change(_ref2) {
+    slider_Changing: function slider_Changing(_ref2) {
       var detail = _ref2.detail;
-
-      var dataset = this._dataset();
-      if (this.props.onChange) {
-        this.props.onChange({
-          detail: detail,
-          currentTarget: {
-            dataset: dataset
-          }
-        });
-      }
-    },
-    slider_Changing: function slider_Changing(_ref3) {
-      var detail = _ref3.detail;
 
       var dataset = this._dataset();
       if (this.props.onChanging) {

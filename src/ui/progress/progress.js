@@ -50,7 +50,9 @@ Component({
     this.setData({
       activeColor,
       activeMode,
-      duration
+      duration,
+      borderRadius: this.data.borderRadius,
+      fontSize: this.data.fontSize,
     })
     //
     my.createSelectorQuery().selectAll('.onekit-progress').boundingClientRect().exec(res => {

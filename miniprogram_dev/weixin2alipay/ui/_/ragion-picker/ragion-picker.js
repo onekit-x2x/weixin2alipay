@@ -290,7 +290,8 @@ Component({
       this.townChange(this.props.customItem && index === 0 ? -1 : this.props.customItem ? index - 1 : index);
     }
   }
-}); /* eslint-disable max-len */
+}); /* eslint-disable no-console */
+/* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
 
 /***/ }),

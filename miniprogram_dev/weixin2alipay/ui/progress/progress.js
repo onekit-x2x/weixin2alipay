@@ -343,7 +343,9 @@ Component({
     this.setData({
       activeColor: activeColor,
       activeMode: activeMode,
-      duration: duration
+      duration: duration,
+      borderRadius: this.data.borderRadius,
+      fontSize: this.data.fontSize
     });
     //
     my.createSelectorQuery().selectAll('.onekit-progress').boundingClientRect().exec(function (res) {

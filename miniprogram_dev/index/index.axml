@@ -114,7 +114,7 @@
   </onekit-view>
 </onekit-view> -->
 <!-- <picker> -->
-<!-- <onekit-view onekit-class="section">
+<onekit-view onekit-class="section">
   <onekit-view onekit-class="section__title">普通选择器</onekit-view>
   <onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
     <onekit-view onekit-class="picker">当前选择：{{array[index]}}</onekit-view>
@@ -143,7 +143,7 @@
   <onekit-picker mode="region" onChange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
     <onekit-view onekit-class="picker">当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}</onekit-view>
   </onekit-picker>
-</onekit-view> -->
+</onekit-view>
 <!-- <switch> -->
 <!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
@@ -508,7 +508,7 @@
 </onekit-view> -->
 
 <!-- <swiper> -->
-<import-sjs name="_" from="../weixin2alipay/_.sjs"/>
+<!-- <import-sjs name="_" from="../weixin2alipay/_.sjs"/>
 <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section page-section-spacing swiper">
@@ -570,4 +570,4 @@
         <onekit-text onekit-class="info">{{nextMargin}}</onekit-text>
       </onekit-view>
       <onekit-slider value="{{nextMargin}}" min="0" max="50" onChange="changeProperty" onekit-dataset='"propertyName":{{_("nextMargin")}}'></onekit-slider>
-    </onekit-view>
+    </onekit-view> -->

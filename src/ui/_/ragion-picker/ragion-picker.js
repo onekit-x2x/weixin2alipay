@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
 import provinces from './data/provices.json'

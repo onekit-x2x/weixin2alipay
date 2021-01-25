@@ -92,7 +92,7 @@ movable-area {
 } */
 
 /* swiper */
-page {
+/* page {
     background-color: #F8F8F8 ;
     height: 100% ;
     font-size: 32rpx ;
@@ -202,4 +202,10 @@ button:last-child {
 }
 .page-foot {
     margin-top: 50rpx ;
+} */
+
+/* picker */
+.picker{
+    padding: 13px;
+    background-color: #FFFFFF;
 }

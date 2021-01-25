@@ -186,7 +186,7 @@ export default class wx {
   }
 
   static createCameraContext() {
-    return new CameraContext(my.createCameraContext())
+    return new CameraContext(getApp().onekit_camera)
   }
 
   // //////////// WXML ///////////////

@@ -57,7 +57,7 @@ Component({
       }
     },
     image_longTap() {
-      if (this.props.showMenuByLongpress) {
+      if (!this.props.showMenuByLongpress) {
         my.showActionSheet({
           items: ['转发', '保存图片', '收藏'],
           cancelButtonText: '取消',

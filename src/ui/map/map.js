@@ -28,177 +28,63 @@ Component({
     }]
   },
   props: {
-    longitude(longitude) {
-      this.setData({
-        longitude
-      })
-    },
-    latitude(latitude) {
-      this.setData({
-        latitude
-      })
-    },
+    longitude: 0,
+    latitude: 0,
     scale: 16,
     minScale: 3,
     maxScale: 20,
-    markers(markers) {
-      this.setData({
-        markers
-      })
-    },
-    covers(covers) {
-      this.setData({
-        markers: covers
-      })
-    },
-    polyline(polyline) {
-      this.setData({
-        polyline
-      })
-    },
-    circles(circles) {
-      this.setData({
-        circles
-      })
-    },
-    controls(controls) {
-      this.setData({
-        controls
-      })
-    },
-    'include-points': function (includePoints) {
-      this.setData({
-        'include-points': includePoints
-      })
-    },
-    'show-location': function (showLocation) {
-      this.setData({
-        'show-location': showLocation
-      })
-    },
-    polygons(polygon) {
-      this.setData({
-        polygon
-      })
-    },
-
+    markers: [],
+    covers: [],
+    polyline: [],
+    circles: [],
+    controls: [],
+    includePoints: [],
+    showLocation: [],
+    polygons: [],
     //
-    subkey(subkey) {
-      this.setData({
-        subkey
-      })
-    },
-    layerStyle(layerStyle) {
-      this.setData({
-        layerStyle
-      })
-    },
+    subkey: '',
+    layerStyle: 1,
     //
-
-    rotate(rotate) {
-      this.setData({
-        rotate
-      })
-    },
-    skew(skew) {
-      this.setData({
-        skew
-      })
-    },
-
+    rotate: 0,
+    skew: 0,
     // 支付宝暂时不支持3D'
-    'enable-3D': function () {
-      console.log('[onekit]enable-3D')
-      my.showToast({
-        content: '支付宝暂时不支持3D',
-      })
-    },
-    'show-compass': function (showCompass) {
-      this.mapCtx.showsCompass({
-        isShowCompass: showCompass
-      })
-    },
-    'show-scale': function (showsScale) {
-      this.mapCtx.showsScale({
-        isShowsScale: showsScale
-      })
-    },
-    'enable-overlooking': function (enableOverlooking) {
-      this.mapCtx.gestureEnable({
-        isGestureEnable: enableOverlooking
-      })
-    },
-    'enable-zoom': function (enableZoom) {
-      this.mapCtx.showsScale({
-        isShowsScale: enableZoom
-      })
-    },
-    'enable-scroll': function (enableScroll) {
-      this.mapCtx.gestureEnable({
-        isGestureEnable: enableScroll
-      })
-    },
-    'enable-rotate': function (enableRotate) {
-      this.mapCtx.gestureEnable({
-        isGestureEnable: enableRotate
-      })
-    },
-    'enable-satellite': function (trafficEnabled) {
-      this.mapCtx.updateComponents({
-        setting: {
-          trafficEnabled
-        }
-      })
-    },
-    'enable-traffic': function (trafficEnabled) {
-      this.mapCtx.updateComponents({
-        setting: {
-          trafficEnabled
-        }
-      })
-    },
-    'enableP-poi': function (enablePPoi) {
-      this.mapCtx.updateComponents({
-        setting: {
-          showMapText: enablePPoi
-        }
-      })
-    },
-    'enable-building': function () {
-      console.log('[onekit]enable-building')
-      my.showToast({
-        content: '支付宝暂时不支持展示建筑物',
-      })
-    },
-    setting() {
-      const set = this.mapCtx.updateComponents.setting
-      set.skew = 0
-      set.rotate = 0
-      set.showLocation = false
-      set.subKey = ''
-      set.layerStyle = 1
-      set.enable3D = true
-      set.replase(/tiltGesturesEnabled/g, 'enableOverlooking')
-      set.replase(/showMapText/g, 'enableSatellite')
-      this.mapCtx.updateComponents({
-        set
-      })
-    }
+    enable3D: false,
+    showCompass: false,
+    showsScale: false,
+    enableOverlooking: false,
+    enableZoom: true,
+    enableScroll: true,
+    enableRotate: false,
+    enableSatellite: false,
+    enableTraffic: false,
+    enablePoi: true,
+    // 支付宝暂时不支持
+    enableBuilding: true,
+    setting: {}
+  },
+  deriveDataFromProps(props) {
+    const mapCtx = my.createMapContext(props.onekitId)
+    this.showCompass_(mapCtx, props.showCompass)
+    this.showsScale_(mapCtx, props.showsScale)
+    this.enableZoom_(mapCtx, props.enableZoom)
+    this.enableScroll_(mapCtx, props.enableScroll)
+    this.enableRotate_(mapCtx, props.enableRotate)
+    this.enableSatellite_(mapCtx, props.enableSatellite)
+    this.enableTraffic_(mapCtx, props.enableTraffic)
+    this.enablePoi_(mapCtx, props.enablePoi)
+    this.setting_(mapCtx, props.latitude, props.longitude)
   },
   onInit() {
     console.log('onInit', this)
   },
   didMount() {
-    const that = this
-    const scale = Math.max(that.props.scale, that.props.minScale)
-    that.setData({
+    const scale = Math.max(this.props.scale, this.props.minScale)
+    this.setData({
       scale
     })
 
-    this.mapCtx = my.createMapContext(this.props.onekitId)
-
     my.createSelectorQuery().select('.onekit-map').boundingClientRect().exec((rect) => {
-      that.setData({
+      this.setData({
         rect: rect[0]
       })
     })
@@ -208,11 +94,78 @@ Component({
   },
   didUnmount() {},
   methods: {
+    showCompass_(mapCtx, showCompass) {
+      mapCtx.showsCompass({
+        isShowCompass: showCompass ? 1 : 0
+      })
+    },
+    showsScale_(mapCtx, showsScale) {
+      mapCtx.showsScale({
+        isShowsScale: showsScale ? 1 : 0
+      })
+    },
+    enableZoom_(mapCtx, enableZoom) {
+      mapCtx.gestureEnable({
+        isGestureEnable: enableZoom ? 1 : 0
+      })
+      console.warn('支付宝小程序地图组件会禁用全部手势')
+    },
+    enableScroll_(mapCtx, enableScroll) {
+      mapCtx.gestureEnable({
+        isGestureEnable: enableScroll ? 1 : 0
+      })
+      console.warn('支付宝小程序地图组件会禁用全部手势')
+    },
+    enableRotate_(mapCtx, enableRotate) {
+      mapCtx.gestureEnable({
+        isGestureEnable: enableRotate ? 1 : 0
+      })
+      console.warn('支付宝小程序地图组件会禁用全部手势')
+    },
+    enableSatellite_(mapCtx, enableSatellite) {
+      mapCtx.updateComponents({
+        setting: {
+          trafficEnabled: enableSatellite ? 1 : 0
+        }
+      })
+    },
+    enableTraffic_(mapCtx, enableTraffic) {
+      mapCtx.updateComponents({
+        setting: {
+          trafficEnabled: enableTraffic ? 1 : 0
+        }
+      })
+    },
+    enablePoi_(mapCtx, enablePoi) {
+      mapCtx.updateComponents({
+        setting: {
+          showMapText: enablePoi ? 1 : 0
+        }
+      })
+    },
+    setting_(mapCtx, latitude, longitude) {
+      const set = mapCtx.updateComponents.setting
+      set.skew = 0
+      set.rotate = 0
+      set.showLocation = false
+      set.subKey = ''
+      set.layerStyle = 1
+      set.enable3D = true
+      set.replase(/tiltGesturesEnabled/g, 'enableOverlooking')
+      set.replase(/showMapText/g, 'enableSatellite')
+      mapCtx.updateComponents({
+        latitude,
+        longitude,
+        set
+      })
+    },
+
     addGroundOverlay(object) {
       console.log('addGroundOverlay', object)
     },
-
-    map_tap({detail}) {
+    map_tap({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onTap) {
         this.props.onTap({
@@ -225,7 +178,9 @@ Component({
     },
 
     // 做不了
-    _trigger_labeltap({detail}) {
+    _trigger_labeltap({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onLabelTap) {
         this.props.onLabelTap({
@@ -238,7 +193,9 @@ Component({
     },
     //
 
-    map_MarkerTap({detail}) {
+    map_MarkerTap({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onMarkerTap) {
         this.props.onMarkerTap({
@@ -249,7 +206,9 @@ Component({
         })
       }
     },
-    map_ControlTap({detail}) {
+    map_ControlTap({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onControltap) {
         this.props.onControltap({
@@ -260,7 +219,9 @@ Component({
         })
       }
     },
-    map_CalloutTap({detail}) {
+    map_CalloutTap({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onCalloutTap) {
         this.props.onCalloutTap({
@@ -272,7 +233,9 @@ Component({
       }
     },
 
-    _trigger_updated({detail}) {
+    _trigger_updated({
+      detail
+    }) {
       this.mapCtx = my.createMapContext(this.props.onekitId)
       if (this.mapCtx.updateComponents) {
         const dataset = this._dataset()
@@ -287,7 +250,9 @@ Component({
       }
     },
 
-    map_RegionChange({detail}) {
+    map_RegionChange({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onRegionChange) {
         this.props.onRegionChange({
@@ -300,7 +265,9 @@ Component({
     },
 
     //
-    _trigger_poitap({detail}) {
+    _trigger_poitap({
+      detail
+    }) {
       this.mapCtx = my.createMapContext(this.props.onekitId)
       const dataset = this._dataset()
       if (this.props.onPoiTap) {
@@ -312,7 +279,9 @@ Component({
         })
       }
     },
-    _trigger_anchorpointtap({detail}) {
+    _trigger_anchorpointtap({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onAnchorPointTap) {
         this.props.onAnchorPointTap({

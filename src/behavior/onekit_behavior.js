@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 export default {
   props: {
-    onekitId: '',
+    onekitId: `id${new Date().getTime()}`,
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: '',

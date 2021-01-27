@@ -52,7 +52,6 @@ Component({
           }
         }
       }
-      console.log(value[1], this.props.customItem)
       if (this.props.customItem && value[1] === this.props.customItem) {
         this.setData({
           cityIndexes: 0

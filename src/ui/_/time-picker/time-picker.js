@@ -14,9 +14,6 @@ Component({
     end: '',
   },
   didMount() {
-    console.log(this._compareTime('1:01', '22:59'))
-    console.log(this._compareTime('23:01', '22:59'))
-
     const hours = []
     for (let h = 0; h < 24; h++) {
       const hour = h >= 10 ? h : ('0' + h)

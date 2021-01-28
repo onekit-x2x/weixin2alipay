@@ -1,3 +1,4 @@
+/* eslint-disable prefer-rest-params */
 export default class CanvasContext {
   constructor(alipayCanvasContext) {
     this.alipayCanvasContext = alipayCanvasContext
@@ -35,8 +36,8 @@ export default class CanvasContext {
     return this.alipayCanvasContext.createPattern.apply(this, params)
   }
 
-  draw(...params) {
-    return this.alipayCanvasContext.draw.apply(this, params)
+  draw() {
+    return this.alipayCanvasContext.draw()
   }
 
   drawImage(...params) {
@@ -47,8 +48,8 @@ export default class CanvasContext {
     return this.alipayCanvasContext.fill.apply(this, params)
   }
 
-  fillRect(...params) {
-    return this.alipayCanvasContext.fillRect.apply(this, params)
+  fillRect() {
+    this.alipayCanvasContext.fillRect.apply(this, arguments)
   }
 
   fillText(...params) {
@@ -105,88 +106,115 @@ export default class CanvasContext {
   }
 
   //
-  font(...params) {
-    return this.alipayCanvasContext.beginPath.font(this, params)
+  set font(font) {
+    return this.alipayCanvasContext.setFontSize(font)
   }
 
-  setFontSize(...params) {
-    return this.alipayCanvasContext.bezierCurveTo.setFontSize(this, params)
+  get font() {
+    return this.alipayCanvasContext.getFontSize()
   }
 
-  //
-  globalAlpha(...params) {
-    return this.alipayCanvasContext.globalAlpha.apply(this, params)
-  }
-
-  setGlobalAlpha(...params) {
-    return this.alipayCanvasContext.setGlobalAlpha.apply(this, params)
+  setFontSize(font) {
+    this.font = font
   }
 
   //
-  lineCap(...params) {
-    return this.alipayCanvasContext.lineCap.apply(this, params)
+  set globalAlpha(globalAlpha) {
+    return this.alipayCanvasContext.setGlobalAlpha(globalAlpha)
   }
 
-  setLineCap(...params) {
-    return this.alipayCanvasContext.setLineCap.apply(this, params)
+  get globalAlpha() {
+    return this.alipayCanvasContext.getGlobalAlpha()
   }
 
-  //
-  lineDashOffset(...params) {
-    return this.alipayCanvasContext.lineDashOffset.apply(this, params)
-  }
-
-  setLineDash(...params) {
-    return this.alipayCanvasContext.setLineDash.apply(this, params)
+  setGlobalAlpha(globalAlpha) {
+    this.globalAlpha = globalAlpha
   }
 
   //
-  lineJoin(...params) {
-    return this.alipayCanvasContext.fill.apply(this, params)
+  set lineCap(lineCap) {
+    return this.alipayCanvasContext.setLineCap(lineCap)
   }
 
-  setLineJoin(...params) {
-    return this.alipayCanvasContext.setLineJoin.apply(this, params)
+  get lineCap() {
+    return this.alipayCanvasContext.getLineCap()
   }
 
-  //
-  lineWidth(...params) {
-    return this.alipayCanvasContext.lineWidth.apply(this, params)
-  }
-
-  setLineWidth(...params) {
-    return this.alipayCanvasContext.setLineWidth.apply(this, params)
+  setLineCap(lineCap) {
+    this.lineCap = lineCap
   }
 
   //
-  miterLimit(...params) {
-    return this.alipayCanvasContext.miterLimit.apply(this, params)
+  set lineDashOffset(lineDashOffset) {
+    return this.alipayCanvasContext.setLineDash(lineDashOffset)
   }
 
-  setMiterLimit(...params) {
-    return this.alipayCanvasContext.setMiterLimit.apply(this, params)
+  get lineDashOffset() {
+    return this.alipayCanvasContext.getLineDash()
+  }
+
+  setLineDash(lineDashOffset) {
+    this.lineDashOffset = lineDashOffset
   }
 
   //
-  shadowOffsetX(...params) {
-    return this.alipayCanvasContext.shadowOffsetX.apply(this, params)
+  set lineJoin(lineJoin) {
+    return this.alipayCanvasContext.setLineJoin(lineJoin)
   }
 
-  shadowOffsetY(...params) {
-    return this.alipayCanvasContext.shadowOffsetY.apply(this, params)
+  get lineJoin() {
+    return this.alipayCanvasContext.getLineJoin()
   }
 
-  shadowColor(...params) {
-    return this.alipayCanvasContext.shadowColor.apply(this, params)
+  setLineJoin(lineJoin) {
+    this.lineJoin = lineJoin
   }
 
-  shadowBlur(...params) {
-    return this.alipayCanvasContext.shadowBlur.apply(this, params)
+  //
+  set lineWidth(lineWidth) {
+    return this.alipayCanvasContext.setLineWidth(lineWidth)
   }
 
-  setShadow(...params) {
-    return this.alipayCanvasContext.setShadow.apply(this, params)
+  get lineWidth() {
+    return this.alipayCanvasContext.getLineWidth()
   }
+
+  setLineWidth(lineWidth) {
+    this.lineWidth = lineWidth
+  }
+
+  //
+  set miterLimit(miterLimit) {
+    return this.alipayCanvasContext.setMiterLimit(miterLimit)
+  }
+
+  get miterLimit() {
+    return this.alipayCanvasContext.getMiterLimit()
+  }
+
+  setMiterLimit(miterLimit) {
+    this.miterLimit = miterLimit
+  }
+
+  //
+  set shadowOffsetX(shadowOffsetX) {
+    return this.alipayCanvasContext.setShadow(shadowOffsetX, 0, 0, 'black')
+  }
+
+  set shadowOffsetY(shadowOffsetY) {
+    return this.alipayCanvasContext.setShadow(0, shadowOffsetY, 0, 'black')
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  set shadowColor(shadowColor) {
+    // return this.alipayCanvasContext.shadowColor.apply(this, params)
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  set shadowBlur(shadowBlur) {
+    // return this.alipayCanvasContext.shadowBlur.apply(this, params)
+  }
+
 
   //
   strokeStyle(...params) {

@@ -57,10 +57,9 @@ Component({
     this._trigger_controlstoggle(data_props.controls)
   },
   didMount() {
-    const that = this
     my.createSelectorQuery()
       .select('.onekit-video').boundingClientRect().exec((rect) => {
-        that.setData({
+        this.setData({
           rect: rect[0]
         })
       })

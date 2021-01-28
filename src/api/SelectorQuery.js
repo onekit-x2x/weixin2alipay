@@ -1,7 +1,17 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import NodesRef from './NodesRef'
-import VideoContext from './VideoContext'
+// import VideoContext from './VideoContext'
 
+function _fix(selector) {
+  if (selector.startsWith('#')) {
+    return `_${selector.substring(1)}`
+  } else if (selector.startsWith('.')) {
+    return `__${selector.substring(1)}`
+  } else {
+    throw new Error(selector)
+  }
+}
 export default class SelectorQuery {
   constructor() {
     this.tasks = []
@@ -27,8 +37,11 @@ export default class SelectorQuery {
     const that = this
     const results = []
     let i = 0
+
     function done(nodeRef, res) {
-      nodeRef.callback(res)
+      if (nodeRef.callback) {
+        nodeRef.callback(res)
+      }
       results.push(res)
       if (results.length < that.tasks.length) {
         i++
@@ -38,6 +51,7 @@ export default class SelectorQuery {
       }
       callback(results)
     }
+
     function next() {
       const task = that.tasks[i]
       const aliapySelectQuery = my.createSelectorQuery()
@@ -61,9 +75,9 @@ export default class SelectorQuery {
           alipayNodeRef.boundingClientRect().exec((my_reses) => done(nodeRef, my_reses[0]))
           break
         case 'context': {
-          const node = getApp().onekit_nodes[nodeRef.selector]
-          const id = node.props.onekitId
-          let context
+          const node = getApp().onekit_nodes[_fix(nodeRef.selector)]
+          // const id = node.props.onekitId
+          /* let context
           switch (node.is) {
             case '/weixin2alipay/ui/canvas/canvas':
               context = my.createCanvasContext(id)
@@ -73,7 +87,8 @@ export default class SelectorQuery {
               break
             default:
               throw new Error(node.is)
-          }
+          } */
+          const context = node.getContext()
           done(nodeRef, context)
         }
           break
@@ -86,13 +101,14 @@ export default class SelectorQuery {
               wx_res.height = my_res.height
             }
             if (nodeRef.fields.node && nodeRef.selector) {
-              wx_res.node = getApp().onekit_nodes[nodeRef.selector]
+            // console.log('node', nodeRef.selector, getApp().onekit_nodes)
+              wx_res.node = getApp().onekit_nodes[_fix(nodeRef.selector)]
             }
             done(nodeRef, wx_res)
           })
           break
         case 'node':
-          done(nodeRef, getApp().onekit_nodes[nodeRef.selector])
+          done(nodeRef, getApp().onekit_nodes[_fix(nodeRef.selector)])
           break
         case 'scrollOffset':
           alipayNodeRef.scrollOffset().exec((my_reses) => {

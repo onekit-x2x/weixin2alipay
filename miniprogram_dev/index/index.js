@@ -257,88 +257,88 @@ global = {};
 //   })
 
 //canvas
-// const app = getApp()
-// OnekitPage({
-//     data:{},
-//     onLoad:function(){
-//       this.position = {
-//         x:150,
-//         y:150,
-//         vx:2,
-//         vy:2
-//       }
-//       this.x = -100
-//       wx.createSelectorQuery().select('#canvas').fields({
-//     node:true,
-//     size:true
-//   }).exec(this.init.bind(this))
-//     },
-//     init:function(res){
-//       console.log(res)
-//       const width = res[0].width
-//       const height = res[0].height
-//       const canvas = res[0].node
-//       const ctx = canvas.getContext('2d')
-//       const dpr = wx.getSystemInfoSync().pixelRatio
-//       canvas.width = width * dpr
-//       canvas.height = height * dpr
-//       ctx.scale(dpr,dpr)
-//       const renderLoop = ()=>{
-//       this.render(canvas,ctx)
-//       canvas.requestAnimationFrame(renderLoop)
-//     }
-//       canvas.requestAnimationFrame(renderLoop)
-//       const img = canvas.createImage()
-//       img.onload = ()=>{this._img = img}
-//       img.src = './car.png'
-//     },
-//     render:function(canvas,ctx){
-//       ctx.clearRect(0,0,300,300)
-//       this.drawBall(ctx)
-//       this.drawCar(ctx)
-//     },
-//     drawBall:function(ctx){
-//       const p = this.position
-//       p.x += p.vx
-//       p.y += p.vy
-//       if(p.x >= 300){
-//       p.vx = -2;
-//     }
-//       if(p.x <= 7){
-//       p.vx = 2;
-//     }
-//       if(p.y >= 300){
-//       p.vy = -2;
-//     }
-//       if(p.y <= 7){
-//       p.vy = 2;
-//     }
-//       function ball(x,y){
-//       ctx.beginPath()
-//       ctx.arc(x,y,5,0,Math.PI * 2)
-//       ctx.fillStyle = '#1aad19'
-//       ctx.strokeStyle = 'rgba(1,1,1,0)'
-//       ctx.fill()
-//       ctx.stroke()
-//     }
-//       ball(p.x,150)
-//       ball(150,p.y)
-//       ball(300 - p.x,150)
-//       ball(150,300 - p.y)
-//       ball(p.x,p.y)
-//       ball(300 - p.x,300 - p.y)
-//       ball(p.x,300 - p.y)
-//       ball(300 - p.x,p.y)
-//     },
-//     drawCar:function(ctx){
-//       if(!this._img)return
-//       if(this.x > 350){
-//       this.x = -100;
-//     }
-//       ctx.drawImage(this._img,this.x++,150 - 25,100,50)
-//       ctx.restore()
-//     }
-//   })
+const app = getApp()
+OnekitPage({
+    data:{},
+    onLoad:function(){
+      this.position = {
+        x:150,
+        y:150,
+        vx:2,
+        vy:2
+      }
+      this.x = -100
+      wx.createSelectorQuery().select('#canvas').fields({
+    node:true,
+    size:true
+  }).exec(this.init.bind(this))
+    },
+    init:function(res){
+      console.log(res)
+      const width = res[0].width
+      const height = res[0].height
+      const canvas = res[0].node
+      const ctx = canvas.getContext('2d')
+      const dpr = wx.getSystemInfoSync().pixelRatio
+      canvas.width = width * dpr
+      canvas.height = height * dpr
+      ctx.scale(dpr,dpr)
+      const renderLoop = ()=>{
+      this.render(canvas,ctx)
+      canvas.requestAnimationFrame(renderLoop)
+    }
+      canvas.requestAnimationFrame(renderLoop)
+      const img = canvas.createImage()
+      img.onload = ()=>{this._img = img}
+      img.src = './car.png'
+    },
+    render:function(canvas,ctx){
+      ctx.clearRect(0,0,300,300)
+      this.drawBall(ctx)
+      this.drawCar(ctx)
+    },
+    drawBall:function(ctx){
+      const p = this.position
+      p.x += p.vx
+      p.y += p.vy
+      if(p.x >= 300){
+      p.vx = -2;
+    }
+      if(p.x <= 7){
+      p.vx = 2;
+    }
+      if(p.y >= 300){
+      p.vy = -2;
+    }
+      if(p.y <= 7){
+      p.vy = 2;
+    }
+      function ball(x,y){
+      ctx.beginPath()
+      ctx.arc(x,y,5,0,Math.PI * 2)
+      ctx.fillStyle = '#1aad19'
+      ctx.strokeStyle = 'rgba(1,1,1,0)'
+      ctx.fill()
+      ctx.stroke()
+    }
+      ball(p.x,150)
+      ball(150,p.y)
+      ball(300 - p.x,150)
+      ball(150,300 - p.y)
+      ball(p.x,p.y)
+      ball(300 - p.x,300 - p.y)
+      ball(p.x,300 - p.y)
+      ball(300 - p.x,p.y)
+    },
+    drawCar:function(ctx){
+      if(!this._img)return
+      if(this.x > 350){
+      this.x = -100;
+    }
+      ctx.drawImage(this._img,this.x++,150 - 25,100,50)
+      ctx.restore()
+    }
+  })
 
 //map
 // OnekitPage({
@@ -540,242 +540,242 @@ global = {};
 //   })
 
 //picker
-OnekitPage({
-    data:{
-        array:[
-          '美国',
-          '中国',
-          '巴西',
-          '日本'
-        ],
-        objectArray:[
-          {
-              id:0,
-              name:'美国'
-            },
-          {
-              id:1,
-              name:'中国'
-            },
-          {
-              id:2,
-              name:'巴西'
-            },
-          {
-              id:3,
-              name:'日本'
-            }
-        ],
-        index:0,
-        multiArray:[
-          [
-            '无脊柱动物',
-            '脊柱动物'
-          ],
-          [
-            '扁性动物',
-            '线形动物',
-            '环节动物',
-            '软体动物',
-            '节肢动物'
-          ],
-          [
-            '猪肉绦虫',
-            '吸血虫'
-          ]
-        ],
-        objectMultiArray:[
-          [
-            {
-                id:0,
-                name:'无脊柱动物'
-              },
-            {
-                id:1,
-                name:'脊柱动物'
-              }
-          ],
-          [
-            {
-                id:0,
-                name:'扁性动物'
-              },
-            {
-                id:1,
-                name:'线形动物'
-              },
-            {
-                id:2,
-                name:'环节动物'
-              },
-            {
-                id:3,
-                name:'软体动物'
-              },
-            {
-                id:3,
-                name:'节肢动物'
-              }
-          ],
-          [
-            {
-                id:0,
-                name:'猪肉绦虫'
-              },
-            {
-                id:1,
-                name:'吸血虫'
-              }
-          ]
-        ],
-        multiIndex:[
-          0,
-          0,
-          0
-        ],
-        date:'2016-09-01',
-        time:'12:01',
-        region:[
-          '广东省',
-          '广州市',
-          '海珠区'
-        ],
-        customItem:'全部'
-      },
-    bindPickerChange:function(e){
-      console.log('picker发送选择改变，携带值为',e.detail.value)
-      this.setData({
-        index:e.detail.value
-      })
-    },
-    bindMultiPickerChange:function(e){
-      console.log('picker发送选择改变，携带值为',e.detail.value)
-      this.setData({
-        multiIndex:e.detail.value
-      })
-    },
-    bindMultiPickerColumnChange:function(e){
-      console.log('修改的列为',e.detail.column,'，值为',e.detail.value)
-      var data = {
-        multiArray:this.data.multiArray,
-        multiIndex:this.data.multiIndex
-      }
-      data.multiIndex[e.detail.column] = e.detail.value
-          switch(e.detail.column){
-      case 0:
-        switch(data.multiIndex[0]){
-  case 0:
-    data.multiArray[1] = [
-  '扁性动物',
-  '线形动物',
-  '环节动物',
-  '软体动物',
-  '节肢动物'
-];
-    data.multiArray[2] = [
-  '猪肉绦虫',
-  '吸血虫'
-];
-    break;
-  case 1:
-    data.multiArray[1] = [
-  '鱼',
-  '两栖动物',
-  '爬行动物'
-];
-    data.multiArray[2] = [
-  '鲫鱼',
-  '带鱼'
-];
-    break;
-};
-        data.multiIndex[1] = 0;
-        data.multiIndex[2] = 0;
-        break;
-      case 1:
-        switch(data.multiIndex[0]){
-  case 0:
-    switch(data.multiIndex[1]){
-  case 0:
-    data.multiArray[2] = [
-  '猪肉绦虫',
-  '吸血虫'
-];
-    break;
-  case 1:
-    data.multiArray[2] = [
-  '蛔虫'
-];
-    break;
-  case 2:
-    data.multiArray[2] = [
-  '蚂蚁',
-  '蚂蟥'
-];
-    break;
-  case 3:
-    data.multiArray[2] = [
-  '河蚌',
-  '蜗牛',
-  '蛞蝓'
-];
-    break;
-  case 4:
-    data.multiArray[2] = [
-  '昆虫',
-  '甲壳动物',
-  '蛛形动物',
-  '多足动物'
-];
-    break;
-};
-    break;
-  case 1:
-    switch(data.multiIndex[1]){
-  case 0:
-    data.multiArray[2] = [
-  '鲫鱼',
-  '带鱼'
-];
-    break;
-  case 1:
-    data.multiArray[2] = [
-  '青蛙',
-  '娃娃鱼'
-];
-    break;
-  case 2:
-    data.multiArray[2] = [
-  '蜥蜴',
-  '龟',
-  '壁虎'
-];
-    break;
-};
-    break;
-};
-        data.multiIndex[2] = 0;
-        console.log(data.multiIndex);
-        break;
-    }
-      this.setData(data)
-    },
-    bindDateChange:function(e){
-      console.log('picker发送选择改变，携带值为',e.detail.value)
-      this.setData({
-        date:e.detail.value
-      })
-    },
-    bindTimeChange:function(e){
-      console.log('picker发送选择改变，携带值为',e.detail.value)
-      this.setData({
-        time:e.detail.value
-      })
-    },
-    bindRegionChange:function(e){
-      console.log('picker发送选择改变，携带值为',e.detail.value)
-      this.setData({
-        region:e.detail.value
-      })
-    }
-  })
+// OnekitPage({
+//     data:{
+//         array:[
+//           '美国',
+//           '中国',
+//           '巴西',
+//           '日本'
+//         ],
+//         objectArray:[
+//           {
+//               id:0,
+//               name:'美国'
+//             },
+//           {
+//               id:1,
+//               name:'中国'
+//             },
+//           {
+//               id:2,
+//               name:'巴西'
+//             },
+//           {
+//               id:3,
+//               name:'日本'
+//             }
+//         ],
+//         index:0,
+//         multiArray:[
+//           [
+//             '无脊柱动物',
+//             '脊柱动物'
+//           ],
+//           [
+//             '扁性动物',
+//             '线形动物',
+//             '环节动物',
+//             '软体动物',
+//             '节肢动物'
+//           ],
+//           [
+//             '猪肉绦虫',
+//             '吸血虫'
+//           ]
+//         ],
+//         objectMultiArray:[
+//           [
+//             {
+//                 id:0,
+//                 name:'无脊柱动物'
+//               },
+//             {
+//                 id:1,
+//                 name:'脊柱动物'
+//               }
+//           ],
+//           [
+//             {
+//                 id:0,
+//                 name:'扁性动物'
+//               },
+//             {
+//                 id:1,
+//                 name:'线形动物'
+//               },
+//             {
+//                 id:2,
+//                 name:'环节动物'
+//               },
+//             {
+//                 id:3,
+//                 name:'软体动物'
+//               },
+//             {
+//                 id:3,
+//                 name:'节肢动物'
+//               }
+//           ],
+//           [
+//             {
+//                 id:0,
+//                 name:'猪肉绦虫'
+//               },
+//             {
+//                 id:1,
+//                 name:'吸血虫'
+//               }
+//           ]
+//         ],
+//         multiIndex:[
+//           0,
+//           0,
+//           0
+//         ],
+//         date:'2016-09-01',
+//         time:'12:01',
+//         region:[
+//           '广东省',
+//           '广州市',
+//           '海珠区'
+//         ],
+//         customItem:'全部'
+//       },
+//     bindPickerChange:function(e){
+//       console.log('picker发送选择改变，携带值为',e.detail.value)
+//       this.setData({
+//         index:e.detail.value
+//       })
+//     },
+//     bindMultiPickerChange:function(e){
+//       console.log('picker发送选择改变，携带值为',e.detail.value)
+//       this.setData({
+//         multiIndex:e.detail.value
+//       })
+//     },
+//     bindMultiPickerColumnChange:function(e){
+//       console.log('修改的列为',e.detail.column,'，值为',e.detail.value)
+//       var data = {
+//         multiArray:this.data.multiArray,
+//         multiIndex:this.data.multiIndex
+//       }
+//       data.multiIndex[e.detail.column] = e.detail.value
+//           switch(e.detail.column){
+//       case 0:
+//         switch(data.multiIndex[0]){
+//   case 0:
+//     data.multiArray[1] = [
+//   '扁性动物',
+//   '线形动物',
+//   '环节动物',
+//   '软体动物',
+//   '节肢动物'
+// ];
+//     data.multiArray[2] = [
+//   '猪肉绦虫',
+//   '吸血虫'
+// ];
+//     break;
+//   case 1:
+//     data.multiArray[1] = [
+//   '鱼',
+//   '两栖动物',
+//   '爬行动物'
+// ];
+//     data.multiArray[2] = [
+//   '鲫鱼',
+//   '带鱼'
+// ];
+//     break;
+// };
+//         data.multiIndex[1] = 0;
+//         data.multiIndex[2] = 0;
+//         break;
+//       case 1:
+//         switch(data.multiIndex[0]){
+//   case 0:
+//     switch(data.multiIndex[1]){
+//   case 0:
+//     data.multiArray[2] = [
+//   '猪肉绦虫',
+//   '吸血虫'
+// ];
+//     break;
+//   case 1:
+//     data.multiArray[2] = [
+//   '蛔虫'
+// ];
+//     break;
+//   case 2:
+//     data.multiArray[2] = [
+//   '蚂蚁',
+//   '蚂蟥'
+// ];
+//     break;
+//   case 3:
+//     data.multiArray[2] = [
+//   '河蚌',
+//   '蜗牛',
+//   '蛞蝓'
+// ];
+//     break;
+//   case 4:
+//     data.multiArray[2] = [
+//   '昆虫',
+//   '甲壳动物',
+//   '蛛形动物',
+//   '多足动物'
+// ];
+//     break;
+// };
+//     break;
+//   case 1:
+//     switch(data.multiIndex[1]){
+//   case 0:
+//     data.multiArray[2] = [
+//   '鲫鱼',
+//   '带鱼'
+// ];
+//     break;
+//   case 1:
+//     data.multiArray[2] = [
+//   '青蛙',
+//   '娃娃鱼'
+// ];
+//     break;
+//   case 2:
+//     data.multiArray[2] = [
+//   '蜥蜴',
+//   '龟',
+//   '壁虎'
+// ];
+//     break;
+// };
+//     break;
+// };
+//         data.multiIndex[2] = 0;
+//         console.log(data.multiIndex);
+//         break;
+//     }
+//       this.setData(data)
+//     },
+//     bindDateChange:function(e){
+//       console.log('picker发送选择改变，携带值为',e.detail.value)
+//       this.setData({
+//         date:e.detail.value
+//       })
+//     },
+//     bindTimeChange:function(e){
+//       console.log('picker发送选择改变，携带值为',e.detail.value)
+//       this.setData({
+//         time:e.detail.value
+//       })
+//     },
+//     bindRegionChange:function(e){
+//       console.log('picker发送选择改变，携带值为',e.detail.value)
+//       this.setData({
+//         region:e.detail.value
+//       })
+//     }
+//   })

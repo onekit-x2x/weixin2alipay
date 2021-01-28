@@ -6,6 +6,7 @@ import VideoContext from './api/VideoContext'
 import CameraContext from './api/CameraContext'
 import SelectorQuery from './api/SelectorQuery'
 import MapContext from './api/MapContext'
+import CanvasContext from './api/CanvasContext'
 
 export default class wx {
   // ///////////////// animation //////////////////////////
@@ -178,7 +179,7 @@ export default class wx {
   // ///////////////// Canvas ///////////////////
 
   static createCanvasContext(canvasId) {
-    return my.createCanvasContext(canvasId)
+    return new CanvasContext(my.createCanvasContext(canvasId))
   }
 
   static createVideoContext(videoId) {

@@ -114,7 +114,7 @@
   </onekit-view>
 </onekit-view> -->
 <!-- <picker> -->
-<onekit-view onekit-class="section">
+<!-- <onekit-view onekit-class="section">
   <onekit-view onekit-class="section__title">普通选择器</onekit-view>
   <onekit-picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
     <onekit-view onekit-class="picker">当前选择：{{array[index]}}</onekit-view>
@@ -143,7 +143,7 @@
   <onekit-picker mode="region" onChange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
     <onekit-view onekit-class="picker">当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}</onekit-view>
   </onekit-picker>
-</onekit-view>
+</onekit-view> -->
 <!-- <switch> -->
 <!-- <onekit-view onekit-class="page">
   <onekit-view onekit-class="page__hd">
@@ -267,7 +267,7 @@
 <!-- <onekit-video controls="{{controls}}" onControlstoggle="video_controlstoggle" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 <!-- <onekit-video onSeekcomplete="video_seekcomplete" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 <!-- <canvas> 2D -->
-<!-- <onekit-canvas type="2d" onekit-id="canvas" width="500" height="500" onekit-style="width:500px;height:500px;background:red"></onekit-canvas> -->
+<onekit-canvas type="2d" onekit-id="canvas" width="500" height="500" onekit-style="width:500px;height:500px;background:red"></onekit-canvas>
 <!-- <movable-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">

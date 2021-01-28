@@ -141,81 +141,11 @@ exports.default = {
 
 exports.__esModule = true;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/* eslint-disable class-methods-use-this */
-
-var VideoContext = function () {
-  function VideoContext(alipayVideoContext, id) {
-    _classCallCheck(this, VideoContext);
-
-    this.alipayVideoContext = alipayVideoContext;
-    this.id = id;
-  }
-
-  VideoContext.prototype.play = function play() {
-    return this.alipayVideoContext.play();
-  };
-
-  VideoContext.prototype.pause = function pause() {
-    return this.alipayVideoContext.pause();
-  };
-
-  VideoContext.prototype.stop = function stop() {
-    return this.alipayVideoContext.stop();
-  };
-
-  VideoContext.prototype.seek = function seek(position) {
-    return this.alipayConvasContext.seek(position);
-  };
-
-  //
-
-
-  VideoContext.prototype.sendDanmu = function sendDanmu(data) {
-    var video = getApp().onekit_nodes[this.id];
-    video.sendDanmu(data);
-  };
-
-  VideoContext.prototype.playbackRate = function playbackRate() {};
-
-  VideoContext.prototype.requestFullScreen = function requestFullScreen(direction) {
-    return this.alipayConvasContext.requestFullScreen(direction);
-  };
-
-  VideoContext.prototype.exitFullScreen = function exitFullScreen() {
-    return this.alipayConvasContext.exitFullScreen();
-  };
-
-  //
-
-
-  VideoContext.prototype.showStatusBar = function showStatusBar() {};
-
-  VideoContext.prototype.hideStatusBar = function hideStatusBar() {};
-
-  VideoContext.prototype.exitPictureInPicture = function exitPictureInPicture() {};
-
-  return VideoContext;
-}();
-
-exports.default = VideoContext;
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 
-var _VideoContext = __webpack_require__(3);
+var _VideoContext = __webpack_require__(5);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
@@ -2816,10 +2746,80 @@ exports.default = wx;
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /***/ (function(module, exports) {
 
 module.exports = require("oneutil");
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/* eslint-disable class-methods-use-this */
+
+var VideoContext = function () {
+  function VideoContext(alipayVideoContext, id) {
+    _classCallCheck(this, VideoContext);
+
+    this.alipayVideoContext = alipayVideoContext;
+    this.id = id;
+  }
+
+  VideoContext.prototype.play = function play() {
+    return this.alipayVideoContext.play();
+  };
+
+  VideoContext.prototype.pause = function pause() {
+    return this.alipayVideoContext.pause();
+  };
+
+  VideoContext.prototype.stop = function stop() {
+    return this.alipayVideoContext.stop();
+  };
+
+  VideoContext.prototype.seek = function seek(position) {
+    return this.alipayConvasContext.seek(position);
+  };
+
+  //
+
+
+  VideoContext.prototype.sendDanmu = function sendDanmu(data) {
+    var video = getApp().onekit_nodes[this.id];
+    video.sendDanmu(data);
+  };
+
+  VideoContext.prototype.playbackRate = function playbackRate() {};
+
+  VideoContext.prototype.requestFullScreen = function requestFullScreen(direction) {
+    return this.alipayConvasContext.requestFullScreen(direction);
+  };
+
+  VideoContext.prototype.exitFullScreen = function exitFullScreen() {
+    return this.alipayConvasContext.exitFullScreen();
+  };
+
+  //
+
+
+  VideoContext.prototype.showStatusBar = function showStatusBar() {};
+
+  VideoContext.prototype.hideStatusBar = function hideStatusBar() {};
+
+  VideoContext.prototype.exitPictureInPicture = function exitPictureInPicture() {};
+
+  return VideoContext;
+}();
+
+exports.default = VideoContext;
 
 /***/ }),
 
@@ -2839,7 +2839,7 @@ var OnekitComponent_1 = __webpack_require__(53);
 exports.OnekitComponent = OnekitComponent_1.default;
 var OnekitPage_1 = __webpack_require__(54);
 exports.OnekitPage = OnekitPage_1.default;
-var wx_1 = __webpack_require__(4);
+var wx_1 = __webpack_require__(3);
 exports.wx = wx_1.default;
 var global_1 = __webpack_require__(55);
 exports.GLOBAL = global_1.default;
@@ -2953,11 +2953,11 @@ function OnekitApp(wx_object) {
 exports.__esModule = true;
 exports.default = OnekitBehavior;
 
-var _oneutil = __webpack_require__(5);
+var _oneutil = __webpack_require__(4);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _wx = __webpack_require__(4);
+var _wx = __webpack_require__(3);
 
 var _wx2 = _interopRequireDefault(_wx);
 
@@ -3080,7 +3080,7 @@ function OnekitBehavior(object) {
 exports.__esModule = true;
 exports.default = OnekitComponent;
 
-var _oneutil = __webpack_require__(5);
+var _oneutil = __webpack_require__(4);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
@@ -3088,7 +3088,7 @@ var _wxs_behavior = __webpack_require__(0);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
-var _wx = __webpack_require__(4);
+var _wx = __webpack_require__(3);
 
 var _wx2 = _interopRequireDefault(_wx);
 
@@ -3551,14 +3551,23 @@ var _NodesRef = __webpack_require__(8);
 
 var _NodesRef2 = _interopRequireDefault(_NodesRef);
 
-var _VideoContext = __webpack_require__(3);
-
-var _VideoContext2 = _interopRequireDefault(_VideoContext);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /* eslint-disable camelcase */
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /* eslint-disable no-console */
+/* eslint-disable camelcase */
 
+
+// import VideoContext from './VideoContext'
+
+function _fix(selector) {
+  if (selector.startsWith('#')) {
+    return '_' + selector.substring(1);
+  } else if (selector.startsWith('.')) {
+    return '__' + selector.substring(1);
+  } else {
+    throw new Error(selector);
+  }
+}
 
 var SelectorQuery = function () {
   function SelectorQuery() {
@@ -3587,8 +3596,11 @@ var SelectorQuery = function () {
     var that = this;
     var results = [];
     var i = 0;
+
     function done(nodeRef, res) {
-      nodeRef.callback(res);
+      if (nodeRef.callback) {
+        nodeRef.callback(res);
+      }
       results.push(res);
       if (results.length < that.tasks.length) {
         i++;
@@ -3598,6 +3610,7 @@ var SelectorQuery = function () {
       }
       callback(results);
     }
+
     function next() {
       var task = that.tasks[i];
       var aliapySelectQuery = my.createSelectorQuery();
@@ -3624,19 +3637,20 @@ var SelectorQuery = function () {
           break;
         case 'context':
           {
-            var node = getApp().onekit_nodes[nodeRef.selector];
-            var id = node.props.onekitId;
-            var context = void 0;
+            var node = getApp().onekit_nodes[_fix(nodeRef.selector)];
+            // const id = node.props.onekitId
+            /* let context
             switch (node.is) {
               case '/weixin2alipay/ui/canvas/canvas':
-                context = my.createCanvasContext(id);
-                break;
+                context = my.createCanvasContext(id)
+                break
               case '/weixin2alipay/ui/video/video':
-                context = new _VideoContext2.default(my.createVideoContext(id), id);
-                break;
+                context = new VideoContext(my.createVideoContext(id), id)
+                break
               default:
-                throw new Error(node.is);
-            }
+                throw new Error(node.is)
+            } */
+            var context = node.getContext();
             done(nodeRef, context);
           }
           break;
@@ -3649,13 +3663,14 @@ var SelectorQuery = function () {
               wx_res.height = my_res.height;
             }
             if (nodeRef.fields.node && nodeRef.selector) {
-              wx_res.node = getApp().onekit_nodes[nodeRef.selector];
+              // console.log('node', nodeRef.selector, getApp().onekit_nodes)
+              wx_res.node = getApp().onekit_nodes[_fix(nodeRef.selector)];
             }
             done(nodeRef, wx_res);
           });
           break;
         case 'node':
-          done(nodeRef, getApp().onekit_nodes[nodeRef.selector]);
+          done(nodeRef, getApp().onekit_nodes[_fix(nodeRef.selector)]);
           break;
         case 'scrollOffset':
           alipayNodeRef.scrollOffset().exec(function (my_reses) {

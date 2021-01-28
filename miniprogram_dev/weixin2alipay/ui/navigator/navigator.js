@@ -312,10 +312,6 @@ Component({
     hoverStartTime: 50,
     hoverStayTime: 600
   },
-  didMount: function didMount() {},
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
-
   methods: {
     navigator_tap: function navigator_tap(e) {
       var _this = this;

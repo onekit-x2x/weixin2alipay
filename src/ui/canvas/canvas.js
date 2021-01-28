@@ -3,6 +3,7 @@
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 import weixin_behavior from '../../behavior/weixin_behavior'
+// import CanvasContext from '../../api/CanvasContext'
 
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
@@ -15,12 +16,20 @@ Component({
 
   didMount() {
     const onekitId = this.props.canvasId || this.props.onekitId
-    this.setData({onekitId})
+    this.setData({
+      onekitId
+    })
   },
   didUpdate() {},
   didUnmount() {},
   methods: {
-    canvas_touchstart({detail}) {
+    getContext() {
+      const alipayContext = my.createCanvasContext(this.props.onekitId)
+      return alipayContext // new CanvasContext(alipayContext)
+    },
+    canvas_touchstart({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onTouchstart) {
         this.props.onTouchstart({
@@ -31,7 +40,9 @@ Component({
         })
       }
     },
-    canvas_touchmove({detail}) {
+    canvas_touchmove({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onTouchmove) {
         this.props.onTouchmove({
@@ -42,7 +53,9 @@ Component({
         })
       }
     },
-    canvas_touchend({detail}) {
+    canvas_touchend({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onTouchend) {
         this.props.onTouchend({
@@ -53,7 +66,9 @@ Component({
         })
       }
     },
-    canvas_touchcancel({detail}) {
+    canvas_touchcancel({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onTouchcancel) {
         this.props.onTouchcancel({
@@ -64,7 +79,9 @@ Component({
         })
       }
     },
-    canvas_longtap({detail}) {
+    canvas_longtap({
+      detail
+    }) {
       const dataset = this._dataset()
       if (this.props.onLongtap) {
         this.props.onLongtap({

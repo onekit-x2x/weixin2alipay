@@ -605,11 +605,11 @@ module.exports = {
       let allMarkers
       const markerId = getApp().onekit_nodes[`_${this.id}`]
       const lng,
-        const lat,
-          const path = [{
-            lng,
-            lat
-          }]
+      const lat,
+      const path = [{
+        lng,
+        lat
+      }]
       allMarkers.map((r, theta) => {
         for (const i in path) {
           if (markerId) {

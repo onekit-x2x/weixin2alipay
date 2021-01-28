@@ -295,6 +295,8 @@ var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import CanvasContext from '../../api/CanvasContext'
+
 Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   data: {},
@@ -306,12 +308,18 @@ Component({
 
   didMount: function didMount() {
     var onekitId = this.props.canvasId || this.props.onekitId;
-    this.setData({ onekitId: onekitId });
+    this.setData({
+      onekitId: onekitId
+    });
   },
   didUpdate: function didUpdate() {},
   didUnmount: function didUnmount() {},
 
   methods: {
+    getContext: function getContext() {
+      var alipayContext = my.createCanvasContext(this.props.onekitId);
+      return alipayContext; // new CanvasContext(alipayContext)
+    },
     canvas_touchstart: function canvas_touchstart(_ref) {
       var detail = _ref.detail;
 

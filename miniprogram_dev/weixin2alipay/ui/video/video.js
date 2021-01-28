@@ -347,9 +347,10 @@ Component({
     this._trigger_controlstoggle(data_props.controls);
   },
   didMount: function didMount() {
-    var that = this;
+    var _this = this;
+
     my.createSelectorQuery().select('.onekit-video').boundingClientRect().exec(function (rect) {
-      that.setData({
+      _this.setData({
         rect: rect[0]
       });
     });

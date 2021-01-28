@@ -21,9 +21,6 @@ Component({
     hoverStartTime: 50,
     hoverStayTime: 600
   },
-  didMount() {},
-  didUpdate() {},
-  didUnmount() {},
   methods: {
     navigator_tap(e) {
       const target = this.props.target

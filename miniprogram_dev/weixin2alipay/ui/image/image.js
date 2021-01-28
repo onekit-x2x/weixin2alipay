@@ -143,7 +143,7 @@ exports.__esModule = true;
 /* eslint-disable no-console */
 exports.default = {
   props: {
-    onekitId: '',
+    onekitId: 'id' + new Date().getTime(),
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: '',
@@ -358,7 +358,7 @@ Component({
     image_longTap: function image_longTap() {
       var _this = this;
 
-      if (this.props.showMenuByLongpress) {
+      if (!this.props.showMenuByLongpress) {
         my.showActionSheet({
           items: ['转发', '保存图片', '收藏'],
           cancelButtonText: '取消',

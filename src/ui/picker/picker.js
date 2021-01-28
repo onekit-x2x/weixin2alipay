@@ -14,6 +14,7 @@ Component({
     value: null,
     start: '',
     end: '',
+    customItem: ''
   },
   didMount() {},
   didUpdate() {},

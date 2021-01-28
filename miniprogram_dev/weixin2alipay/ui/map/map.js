@@ -143,7 +143,7 @@ exports.__esModule = true;
 /* eslint-disable no-console */
 exports.default = {
   props: {
-    onekitId: '',
+    onekitId: 'id' + new Date().getTime(),
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: '',
@@ -319,182 +319,65 @@ Component({
     }]
   },
   props: {
-    longitude: function longitude(_longitude) {
-      this.setData({
-        longitude: _longitude
-      });
-    },
-    latitude: function latitude(_latitude) {
-      this.setData({
-        latitude: _latitude
-      });
-    },
-
+    longitude: 0,
+    latitude: 0,
     scale: 16,
     minScale: 3,
     maxScale: 20,
-    markers: function markers(_markers) {
-      this.setData({
-        markers: _markers
-      });
-    },
-    covers: function covers(_covers) {
-      this.setData({
-        markers: _covers
-      });
-    },
-    polyline: function polyline(_polyline) {
-      this.setData({
-        polyline: _polyline
-      });
-    },
-    circles: function circles(_circles) {
-      this.setData({
-        circles: _circles
-      });
-    },
-    controls: function controls(_controls) {
-      this.setData({
-        controls: _controls
-      });
-    },
-
-    'include-points': function includePoints(_includePoints) {
-      this.setData({
-        'include-points': _includePoints
-      });
-    },
-    'show-location': function showLocation(_showLocation) {
-      this.setData({
-        'show-location': _showLocation
-      });
-    },
-    polygons: function polygons(polygon) {
-      this.setData({
-        polygon: polygon
-      });
-    },
-
-
+    markers: [],
+    covers: [],
+    polyline: [],
+    circles: [],
+    controls: [],
+    includePoints: [],
+    showLocation: [],
+    polygons: [],
     //
-    subkey: function subkey(_subkey) {
-      this.setData({
-        subkey: _subkey
-      });
-    },
-    layerStyle: function layerStyle(_layerStyle) {
-      this.setData({
-        layerStyle: _layerStyle
-      });
-    },
-
+    subkey: '',
+    layerStyle: 1,
     //
-
-    rotate: function rotate(_rotate) {
-      this.setData({
-        rotate: _rotate
-      });
-    },
-    skew: function skew(_skew) {
-      this.setData({
-        skew: _skew
-      });
-    },
-
-
+    rotate: 0,
+    skew: 0,
     // 支付宝暂时不支持3D'
-    'enable-3D': function enable3D() {
-      console.log('[onekit]enable-3D');
-      my.showToast({
-        content: '支付宝暂时不支持3D'
-      });
-    },
-    'show-compass': function showCompass(_showCompass) {
-      this.mapCtx.showsCompass({
-        isShowCompass: _showCompass
-      });
-    },
-    'show-scale': function showScale(showsScale) {
-      this.mapCtx.showsScale({
-        isShowsScale: showsScale
-      });
-    },
-    'enable-overlooking': function enableOverlooking(_enableOverlooking) {
-      this.mapCtx.gestureEnable({
-        isGestureEnable: _enableOverlooking
-      });
-    },
-    'enable-zoom': function enableZoom(_enableZoom) {
-      this.mapCtx.showsScale({
-        isShowsScale: _enableZoom
-      });
-    },
-    'enable-scroll': function enableScroll(_enableScroll) {
-      this.mapCtx.gestureEnable({
-        isGestureEnable: _enableScroll
-      });
-    },
-    'enable-rotate': function enableRotate(_enableRotate) {
-      this.mapCtx.gestureEnable({
-        isGestureEnable: _enableRotate
-      });
-    },
-    'enable-satellite': function enableSatellite(trafficEnabled) {
-      this.mapCtx.updateComponents({
-        setting: {
-          trafficEnabled: trafficEnabled
-        }
-      });
-    },
-    'enable-traffic': function enableTraffic(trafficEnabled) {
-      this.mapCtx.updateComponents({
-        setting: {
-          trafficEnabled: trafficEnabled
-        }
-      });
-    },
-    'enableP-poi': function enablePPoi(_enablePPoi) {
-      this.mapCtx.updateComponents({
-        setting: {
-          showMapText: _enablePPoi
-        }
-      });
-    },
-    'enable-building': function enableBuilding() {
-      console.log('[onekit]enable-building');
-      my.showToast({
-        content: '支付宝暂时不支持展示建筑物'
-      });
-    },
-    setting: function setting() {
-      var set = this.mapCtx.updateComponents.setting;
-      set.skew = 0;
-      set.rotate = 0;
-      set.showLocation = false;
-      set.subKey = '';
-      set.layerStyle = 1;
-      set.enable3D = true;
-      set.replase(/tiltGesturesEnabled/g, 'enableOverlooking');
-      set.replase(/showMapText/g, 'enableSatellite');
-      this.mapCtx.updateComponents({
-        set: set
-      });
-    }
+    enable3D: false,
+    showCompass: false,
+    showsScale: false,
+    enableOverlooking: false,
+    enableZoom: true,
+    enableScroll: true,
+    enableRotate: false,
+    enableSatellite: false,
+    enableTraffic: false,
+    enablePoi: true,
+    // 支付宝暂时不支持
+    enableBuilding: true,
+    setting: {}
+  },
+  deriveDataFromProps: function deriveDataFromProps(props) {
+    var mapCtx = my.createMapContext(props.onekitId);
+    this.showCompass_(mapCtx, props.showCompass);
+    this.showsScale_(mapCtx, props.showsScale);
+    this.enableZoom_(mapCtx, props.enableZoom);
+    this.enableScroll_(mapCtx, props.enableScroll);
+    this.enableRotate_(mapCtx, props.enableRotate);
+    this.enableSatellite_(mapCtx, props.enableSatellite);
+    this.enableTraffic_(mapCtx, props.enableTraffic);
+    this.enablePoi_(mapCtx, props.enablePoi);
+    this.setting_(mapCtx, props.latitude, props.longitude);
   },
   onInit: function onInit() {
     console.log('onInit', this);
   },
   didMount: function didMount() {
-    var that = this;
-    var scale = Math.max(that.props.scale, that.props.minScale);
-    that.setData({
+    var _this = this;
+
+    var scale = Math.max(this.props.scale, this.props.minScale);
+    this.setData({
       scale: scale
     });
 
-    this.mapCtx = my.createMapContext(this.props.onekitId);
-
     my.createSelectorQuery().select('.onekit-map').boundingClientRect().exec(function (rect) {
-      that.setData({
+      _this.setData({
         rect: rect[0]
       });
     });
@@ -505,6 +388,71 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
+    showCompass_: function showCompass_(mapCtx, showCompass) {
+      mapCtx.showsCompass({
+        isShowCompass: showCompass ? 1 : 0
+      });
+    },
+    showsScale_: function showsScale_(mapCtx, showsScale) {
+      mapCtx.showsScale({
+        isShowsScale: showsScale ? 1 : 0
+      });
+    },
+    enableZoom_: function enableZoom_(mapCtx, enableZoom) {
+      mapCtx.gestureEnable({
+        isGestureEnable: enableZoom ? 1 : 0
+      });
+      console.warn('支付宝小程序地图组件会禁用全部手势');
+    },
+    enableScroll_: function enableScroll_(mapCtx, enableScroll) {
+      mapCtx.gestureEnable({
+        isGestureEnable: enableScroll ? 1 : 0
+      });
+      console.warn('支付宝小程序地图组件会禁用全部手势');
+    },
+    enableRotate_: function enableRotate_(mapCtx, enableRotate) {
+      mapCtx.gestureEnable({
+        isGestureEnable: enableRotate ? 1 : 0
+      });
+      console.warn('支付宝小程序地图组件会禁用全部手势');
+    },
+    enableSatellite_: function enableSatellite_(mapCtx, enableSatellite) {
+      mapCtx.updateComponents({
+        setting: {
+          trafficEnabled: enableSatellite ? 1 : 0
+        }
+      });
+    },
+    enableTraffic_: function enableTraffic_(mapCtx, enableTraffic) {
+      mapCtx.updateComponents({
+        setting: {
+          trafficEnabled: enableTraffic ? 1 : 0
+        }
+      });
+    },
+    enablePoi_: function enablePoi_(mapCtx, enablePoi) {
+      mapCtx.updateComponents({
+        setting: {
+          showMapText: enablePoi ? 1 : 0
+        }
+      });
+    },
+    setting_: function setting_(mapCtx, latitude, longitude) {
+      var set = mapCtx.updateComponents.setting;
+      set.skew = 0;
+      set.rotate = 0;
+      set.showLocation = false;
+      set.subKey = '';
+      set.layerStyle = 1;
+      set.enable3D = true;
+      set.replase(/tiltGesturesEnabled/g, 'enableOverlooking');
+      set.replase(/showMapText/g, 'enableSatellite');
+      mapCtx.updateComponents({
+        latitude: latitude,
+        longitude: longitude,
+        set: set
+      });
+    },
     addGroundOverlay: function addGroundOverlay(object) {
       console.log('addGroundOverlay', object);
     },
@@ -579,16 +527,24 @@ Component({
         });
       }
     },
-    _trigger_updated: function _trigger_updated(e) {
+    _trigger_updated: function _trigger_updated(_ref6) {
+      var detail = _ref6.detail;
+
       this.mapCtx = my.createMapContext(this.props.onekitId);
       if (this.mapCtx.updateComponents) {
+        var dataset = this._dataset();
         if (this.props.onUpdated) {
-          this.props.onUpdated(e);
+          this.props.onUpdated({
+            detail: detail,
+            currentTarget: {
+              dataset: dataset
+            }
+          });
         }
       }
     },
-    map_RegionChange: function map_RegionChange(_ref6) {
-      var detail = _ref6.detail;
+    map_RegionChange: function map_RegionChange(_ref7) {
+      var detail = _ref7.detail;
 
       var dataset = this._dataset();
       if (this.props.onRegionChange) {
@@ -603,14 +559,22 @@ Component({
 
 
     //
-    _trigger_poitap: function _trigger_poitap(e) {
+    _trigger_poitap: function _trigger_poitap(_ref8) {
+      var detail = _ref8.detail;
+
       this.mapCtx = my.createMapContext(this.props.onekitId);
+      var dataset = this._dataset();
       if (this.props.onPoiTap) {
-        this.props.onPoiTap(e);
+        this.props.onPoiTap({
+          detail: detail,
+          currentTarget: {
+            dataset: dataset
+          }
+        });
       }
     },
-    _trigger_anchorpointtap: function _trigger_anchorpointtap(_ref7) {
-      var detail = _ref7.detail;
+    _trigger_anchorpointtap: function _trigger_anchorpointtap(_ref9) {
+      var detail = _ref9.detail;
 
       var dataset = this._dataset();
       if (this.props.onAnchorPointTap) {

@@ -143,7 +143,7 @@ exports.__esModule = true;
 /* eslint-disable no-console */
 exports.default = {
   props: {
-    onekitId: '',
+    onekitId: 'id' + new Date().getTime(),
     onekitClass: '',
     onekitStyle: '',
     onekitVersion: '',

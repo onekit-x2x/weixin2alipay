@@ -3,7 +3,6 @@
   class="onekit-switch {{onekitClass}}"
   style="{{onekitStyle}}"
   checked="{{checked}}"
-  type="{{type}}"
   disabled="{{disabled}}"
   color="{{color}}"
   onChange="switch_Change">

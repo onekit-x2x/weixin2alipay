@@ -93,6 +93,7 @@ module.exports =
 "use strict";
 
 
+/* eslint-disable no-console */
 Component({
   props: {
     headerText: '',

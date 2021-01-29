@@ -303,9 +303,12 @@ var CanvasContext = function () {
     return this.alipayCanvasContext.fill.apply(this, params);
   };
 
-  CanvasContext.prototype.fillRect = function fillRect(x, y, w, h) {
-    return this.alipayCanvasContext.fillRect(x, y, w, h);
+  CanvasContext.prototype.fillRect = function fillRect(params) {
+    this.alipayCanvasContext.fillRect.apply(this, [params]);
   };
+  // fillRect(x,y,width,height) {
+  //   this.alipayCanvasContext.fillRect.apply(this, arguments)
+  // }
 
   CanvasContext.prototype.fillText = function fillText() {
     for (var _len11 = arguments.length, params = Array(_len11), _key11 = 0; _key11 < _len11; _key11++) {

@@ -590,9 +590,23 @@
 
 <!-- MapContext -->
 <onekit-map 
-  id="myMap"  
-  latitude="39.91667" 
+  onekit-id="myMap"
   scale="15" 
-  longitude="116.41667" 
-  onekit-style="width: 750rpx;height: 500rpx;" 
+  latitude="23.099994" 
+  longitude="113.324520"
+  markers="{{markers}}"
+  covers="{{covers}}"
+  onekit-style="width: 750rpx;height: 800rpx;"/>
   />
+
+<!-- <onekit-view onekit-class="page-body">
+  <onekit-view onekit-class="page-section page-section-gap">
+    <onekit-map onekit-id="myMap" onekit-style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" show-location></onekit-map>
+  </onekit-view>
+  <onekit-view onekit-class="btn-area">
+    <onekit-button onTap="getCenterLocation" onekit-class="page-body-button" type="primary">获取位置</onekit-button>
+    <onekit-button onTap="moveToLocation" onekit-class="page-body-button" type="primary">移动位置</onekit-button>
+    <onekit-button onTap="translateMarker" onekit-class="page-body-button" type="primary">移动标注</onekit-button>
+    <onekit-button onTap="includePoints" onekit-class="page-body-button" type="primary">缩放视野展示所有经纬度</onekit-button>
+  </onekit-view>
+</onekit-view> -->

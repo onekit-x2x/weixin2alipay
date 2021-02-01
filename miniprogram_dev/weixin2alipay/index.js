@@ -4166,7 +4166,7 @@ var MapContext = function () {
   MapContext.prototype.fromScreenLocation = function fromScreenLocation(wx_object) {
     // const map = getApp().onekit_nodes[`_${this.id}`]
     // map.fromScreenLocation(wx_object)
-    console.log(this.alipayMapContext);
+    console.log(this.alipayMapContext, wx_object);
     return this.alipayMapContext.screenToMap(wx_object);
   };
 

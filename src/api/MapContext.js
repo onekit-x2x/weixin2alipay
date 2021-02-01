@@ -28,9 +28,7 @@ export default class MapContext {
   }
 
   fromScreenLocation(wx_object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.fromScreenLocation(wx_object)
-    console.log(this.alipayMapContext)
+    console.log(this.alipayMapContext, wx_object)
     return this.alipayMapContext.screenToMap(wx_object)
   }
 
@@ -43,26 +41,18 @@ export default class MapContext {
   }
 
   getRotate(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.getRotate(wx_object)
     return this.alipayMapContext.getRegion(object)
   }
 
   getScale(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.getScale(wx_object)
     return this.alipayMapContext.getScale(object)
   }
 
   getSkew(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.getSkew(wx_object)
     return this.alipayMapContext.getSkew(object)
   }
 
   includePoints(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.includePoints(wx_object)
     return this.alipayMapContext.includePoints(object)
   }
 
@@ -101,15 +91,11 @@ export default class MapContext {
   }
 
   setCenterOffset(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.setCenterOffset(wx_object)
     return this.alipayMapContext.moveToLocation(object)
   }
 
-  toScreenLocation(wx_object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.toScreenLocation(wx_object)
-    return this.alipayMapContext.moveToLocation(wx_object)
+  toScreenLocation(object) {
+    return this.alipayMapContext.moveToLocation(object)
   }
 
   translateMarker(object) {

@@ -8,8 +8,12 @@
 export default class MapContext {
   constructor(alipayMapContext, id) {
     this.alipayMapContext = alipayMapContext
-    console.log(alipayMapContext)
     this.id = id
+  }
+
+  addCustomLayer(wx_object) {
+    const map = getApp().onekit_nodes[`_${this.id}`]
+    map.addCustomLayer(wx_object)
   }
 
   addGroundOverlay(wx_object) {
@@ -36,9 +40,10 @@ export default class MapContext {
     return this.alipayMapContext.getRegion(object)
   }
 
-  getRotate(wx_object) {
-    const map = getApp().onekit_nodes[`_${this.id}`]
-    map.getRotate(wx_object)
+  getRotate(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.getRotate(wx_object)
+    return this.alipayMapContext.getRegion(object)
   }
 
   getScale(wx_object) {

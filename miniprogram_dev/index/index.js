@@ -797,7 +797,6 @@ ctx.setStrokeStyle('#AAAAAA')
 ctx.stroke()
 
 ctx.setFontSize(12)
-ctx.setFillStyle('black')
 ctx.fillText('0', 165, 78)
 ctx.fillText('0.5*PI', 83, 145)
 ctx.fillText('1*PI', 15, 78)

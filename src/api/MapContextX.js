@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-import {
-  PROMISE
-} from 'oneutil'
+import {PROMISE} from 'oneutil/PROMISE'
 import LngLat2px from '../js/LngLat2px'
 // import PX2LNTLAT from '../ui/map/PX2LNTLAT'
 

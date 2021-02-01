@@ -67,6 +67,7 @@ export default class CanvasContext {
   }
 
   fillText(text, x, y) {
+    this.alipayCanvasContext.setFillStyle('#000')
     return this.alipayCanvasContext.fillText(text, x, y)
   }
 

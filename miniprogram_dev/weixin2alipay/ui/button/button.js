@@ -3236,9 +3236,13 @@ var MapContext = function () {
     _classCallCheck(this, MapContext);
 
     this.alipayMapContext = alipayMapContext;
-    console.log(alipayMapContext);
     this.id = id;
   }
+
+  MapContext.prototype.addCustomLayer = function addCustomLayer(wx_object) {
+    var map = getApp().onekit_nodes["_" + this.id];
+    map.addCustomLayer(wx_object);
+  };
 
   MapContext.prototype.addGroundOverlay = function addGroundOverlay(wx_object) {
     // 支付宝组件ground-overlays
@@ -3264,9 +3268,10 @@ var MapContext = function () {
     return this.alipayMapContext.getRegion(object);
   };
 
-  MapContext.prototype.getRotate = function getRotate(wx_object) {
-    var map = getApp().onekit_nodes["_" + this.id];
-    map.getRotate(wx_object);
+  MapContext.prototype.getRotate = function getRotate(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.getRotate(wx_object)
+    return this.alipayMapContext.getRegion(object);
   };
 
   MapContext.prototype.getScale = function getScale(wx_object) {
@@ -3426,9 +3431,8 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.fillText = function fillText(text, x, y) {
-    var maxWidth = 0;
-    return this.alipayCanvasContext.fillText(text, x, y, maxWidth);
-    // return this.alipayCanvasContext.fillText(text, x, y)
+    this.alipayCanvasContext.setFillStyle('#000');
+    return this.alipayCanvasContext.fillText(text, x, y);
   };
 
   CanvasContext.prototype.lineTo = function lineTo(x, y) {

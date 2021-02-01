@@ -48,7 +48,13 @@ export default class CanvasContext {
     return this.alipayCanvasContext.draw(reserve, callback)
   }
 
-  drawImage(imageResource, sx, sy, sWidth = 0, sHeight = 0, dx = 0, dy = 0, dWidth = 0, dHeight = 0) {
+  drawImage(imageResource, sx, sy) {
+    const sWidth = 0
+    const sHeight = 0
+    const dx = 0
+    const dy = 0
+    const dWidth = 0
+    const dHeight = 0
     return this.alipayCanvasContext.drawImage(imageResource, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
   }
 
@@ -60,8 +66,8 @@ export default class CanvasContext {
     return this.alipayCanvasContext.fillRect(x, y, width, height)
   }
 
-  fillText(text, x, y, maxWidth = 0) {
-    return this.alipayCanvasContext.fillText(text, x, y, maxWidth)
+  fillText(text, x, y) {
+    return this.alipayCanvasContext.fillText(text, x, y)
   }
 
   lineTo(x, y) {
@@ -153,29 +159,29 @@ export default class CanvasContext {
   }
 
   //
-  set lineDashOffset(pattern, offset) {
-    return this.alipayCanvasContext.setLineDash(pattern, offset)
+  set lineDashOffset(offset) {
+    return this.alipayCanvasContext.setLineDash([5, 5], offset)
   }
 
   get lineDashOffset() {
     return this.alipayCanvasContext.getLineDash()
   }
 
-  setLineDash(lineDashOffset) {
-    this.lineDashOffset = lineDashOffset
+  setLineDash(pattern, offset) {
+    this.lineDashOffset = (pattern, offset)
   }
 
   //
-  set lineJoin(pattern, offset) {
-    return this.alipayCanvasContext.setLineJoin(pattern, offset)
+  set lineJoin(lineJoin) {
+    return this.alipayCanvasContext.setLineJoin(lineJoin)
   }
 
   get lineJoin() {
     return this.alipayCanvasContext.getLineJoin()
   }
 
-  setLineJoin(pattern, offset) {
-    this.lineJoin = (pattern, offset)
+  setLineJoin(lineJoin) {
+    this.lineJoin = lineJoin
   }
 
   //
@@ -205,63 +211,104 @@ export default class CanvasContext {
   }
 
   //
-  set shadowOffsetX(shadowOffsetX) {
-    return this.alipayCanvasContext.setShadow(shadowOffsetX, 0, 0, 'black')
+  set shadowOffsetX(offsetX) {
+    const offsetY = this._shadowOffsetY || 0
+    const blur = this._shadowBlur || 0
+    const color = this._shadowColor || 'black'
+    this._shadowOffsetX = offsetX
+    return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color)
   }
 
-  set shadowOffsetY(shadowOffsetY) {
-    return this.alipayCanvasContext.setShadow(0, shadowOffsetY, 0, 'black')
+  get shadowOffsetX() {
+    return this._shadowOffsetX || 0
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  set shadowColor(shadowColor) {
-    // return this.alipayCanvasContext.shadowColor(this, params)
+  set shadowOffsetY(offsetY) {
+    const offsetX = this._shadowOffsetX || 0
+    const blur = this._shadowBlur || 0
+    const color = this._shadowColor || 'black'
+    this._shadowOffsetY = offsetY
+    return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color)
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  set shadowBlur(shadowBlur) {
-    // return this.alipayCanvasContext.shadowBlur(this, params)
+  get shadowOffsetY() {
+    return this._shadowOffsetY || 0
+  }
+
+  set shadowBlur(blur) {
+    const offsetX = this._shadowOffsetX || 0
+    const offsetY = this._shadowOffsetY || 0
+    const color = this._shadowColor || 'black'
+    this._shadowBlur = blur
+    return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color)
+  }
+
+  get shadowBlur() {
+    return this._shadowBlur || 0
+  }
+
+  set shadowColor(color) {
+    const offsetX = this._shadowOffsetX || 0
+    const offsetY = this._shadowOffsetY || 0
+    const blur = this._shadowBlur || 0
+    this._shadowColor = color
+    return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color)
+  }
+
+  get shadowColor() {
+    return this._shadowColor || 'black'
+  }
+
+  setShadowBlur(offsetX, offsetY, blur, color) {
+    this.shadowOffsetX = offsetX
+    this.shadowOffsetY = offsetY
+    this.shadowBlur = blur
+    this.shadowColor = color
   }
 
 
   //
-  strokeStyle(...params) {
-    return this.alipayCanvasContext.strokeStyle(this, params)
+  set strokeStyle(color) {
+    return this.alipayCanvasContext.setStrokeStyle(color)
   }
 
-  setStrokeStyle(...params) {
-    return this.alipayCanvasContext.setStrokeStyle(this, params)
+  get strokeStyle() {
+    return this.alipayCanvasContext.getStrokeStyle()
   }
 
-  setTextAlign(...params) {
-    return this.alipayCanvasContext.setTextAlign(this, params)
+  setStrokeStyle(color) {
+    this.strokeStyle = color
   }
 
-  setTextBaseline(...params) {
-    return this.alipayCanvasContext.setTextBaseline(this, params)
+  setTextAlign(align) {
+    return this.alipayCanvasContext.setTextAlign(align)
   }
 
-  setTransform(...params) {
-    return this.alipayCanvasContext.setTransform(this, params)
+  setTextBaseline(textBaseline) {
+    return this.alipayCanvasContext.setTextBaseline(textBaseline)
   }
 
-  stroke(...params) {
-    return this.alipayCanvasContext.stroke(this, params)
+  setTransform(scaleX, skewX, skewY, scaleY, translateX, translateY) {
+    return this.alipayCanvasContext.setTransform(scaleX, skewX, skewY, scaleY, translateX, translateY)
   }
 
-  strokeRect(...params) {
-    return this.alipayCanvasContext.strokeRect(this, params)
+  stroke() {
+    return this.alipayCanvasContext.stroke()
   }
 
-  strokeText(...params) {
-    return this.alipayCanvasContext.strokeText(this, params)
+  strokeRect(x, y, width, height) {
+    return this.alipayCanvasContext.strokeRect(x, y, width, height)
   }
 
-  transform(...params) {
-    return this.alipayCanvasContext.transform(this, params)
+  strokeText(text, x, y, maxWidth = 0) {
+    return this.alipayCanvasContext.strokeText(text, x, y, maxWidth)
   }
 
-  translate(...params) {
-    return this.alipayCanvasContext.translate(this, params)
+  transform(scaleX, skewX, skewY, scaleY, translateX, translateY) {
+    return this.alipayCanvasContext.transform(scaleX, skewX, skewY, scaleY, translateX, translateY)
+  }
+
+  translate(x, y) {
+    return this.alipayCanvasContext.translate(x, y)
   }
 }

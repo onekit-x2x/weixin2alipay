@@ -30,7 +30,7 @@ export default class MapContext {
   fromScreenLocation(wx_object) {
     // const map = getApp().onekit_nodes[`_${this.id}`]
     // map.fromScreenLocation(wx_object)
-    console.log(wx_object, this.alipayMapContext.screenToMap(wx_object))
+    console.log(this.alipayMapContext)
     return this.alipayMapContext.screenToMap(wx_object)
   }
 

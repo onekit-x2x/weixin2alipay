@@ -834,8 +834,8 @@ OnekitPage({
   onLoad(){
     const ctx = wx.createMapContext('myMap');
     ctx.fromScreenLocation({
-      latitude:0,
-      longitude:0,
+      x:0,
+      y:0,
       success: res => {
         console.log(res);
       }

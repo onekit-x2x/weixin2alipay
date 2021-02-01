@@ -112,94 +112,94 @@ module.exports = {
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
     },
-    getRotate(wx_object) {
-      console.log(wx_object)
-      if (!wx_object) {
-        return
-      }
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
-      // //////////
-      PROMISE((SUCCESS) => {
-        const wx_res = {
-          rotate: this.data.route,
-          errMsg: 'getRotate:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
-    },
-    getScale(wx_object) {
-      console.log(wx_object)
-      if (!wx_object) {
-        return
-      }
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
-      // //////////
-      PROMISE((SUCCESS) => {
-        const wx_res = {
-          scale: this.data.scale,
-          errMsg: 'getScale:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
-    },
-    getSkew(wx_object) {
-      console.log(wx_object)
-      if (!wx_object) {
-        return
-      }
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
-      // //////////
-      PROMISE((SUCCESS) => {
-        const wx_res = {
-          skew: this.data.skew,
-          errMsg: 'getSkew:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
-    },
-    includePoints(wx_object) {
-      console.log(wx_object)
-      if (!wx_object) {
-        return
-      }
-      const wx_points = wx_object.points
-      const wx_padding = wx_object.padding
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
-      // //////////
-      PROMISE((SUCCESS, FAIL) => {
-        if (!wx_points) {
-          FAIL({
-            errMsg: 'includePoints:error'
-          })
-          return
-        }
-        this.setData({
-          includePoints: wx_points,
-          'include-padding': {
-            left: wx_padding[3],
-            right: wx_padding[1],
-            top: wx_padding[0],
-            bottom: wx_padding[2]
-          }
-        })
-        const wx_res = {
-          errMsg: 'includePoints:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
-    },
+    // getRotate(wx_object) {
+    //   console.log(wx_object)
+    //   if (!wx_object) {
+    //     return
+    //   }
+    //   const wx_success = wx_object.success
+    //   const wx_fail = wx_object.fail
+    //   const wx_complete = wx_object.complete
+    //   wx_object = null
+    //   // //////////
+    //   PROMISE((SUCCESS) => {
+    //     const wx_res = {
+    //       rotate: this.data.route,
+    //       errMsg: 'getRotate:ok'
+    //     }
+    //     SUCCESS(wx_res)
+    //   }, wx_success, wx_fail, wx_complete)
+    // },
+    // getScale(wx_object) {
+    //   console.log(wx_object)
+    //   if (!wx_object) {
+    //     return
+    //   }
+    //   const wx_success = wx_object.success
+    //   const wx_fail = wx_object.fail
+    //   const wx_complete = wx_object.complete
+    //   wx_object = null
+    //   // //////////
+    //   PROMISE((SUCCESS) => {
+    //     const wx_res = {
+    //       scale: this.data.scale,
+    //       errMsg: 'getScale:ok'
+    //     }
+    //     SUCCESS(wx_res)
+    //   }, wx_success, wx_fail, wx_complete)
+    // },
+    // getSkew(wx_object) {
+    //   console.log(wx_object)
+    //   if (!wx_object) {
+    //     return
+    //   }
+    //   const wx_success = wx_object.success
+    //   const wx_fail = wx_object.fail
+    //   const wx_complete = wx_object.complete
+    //   wx_object = null
+    //   // //////////
+    //   PROMISE((SUCCESS) => {
+    //     const wx_res = {
+    //       skew: this.data.skew,
+    //       errMsg: 'getSkew:ok'
+    //     }
+    //     SUCCESS(wx_res)
+    //   }, wx_success, wx_fail, wx_complete)
+    // },
+    // includePoints(wx_object) {
+    //   console.log(wx_object)
+    //   if (!wx_object) {
+    //     return
+    //   }
+    //   const wx_points = wx_object.points
+    //   const wx_padding = wx_object.padding
+    //   const wx_success = wx_object.success
+    //   const wx_fail = wx_object.fail
+    //   const wx_complete = wx_object.complete
+    //   wx_object = null
+    //   // //////////
+    //   PROMISE((SUCCESS, FAIL) => {
+    //     if (!wx_points) {
+    //       FAIL({
+    //         errMsg: 'includePoints:error'
+    //       })
+    //       return
+    //     }
+    //     this.setData({
+    //       includePoints: wx_points,
+    //       'include-padding': {
+    //         left: wx_padding[3],
+    //         right: wx_padding[1],
+    //         top: wx_padding[0],
+    //         bottom: wx_padding[2]
+    //       }
+    //     })
+    //     const wx_res = {
+    //       errMsg: 'includePoints:ok'
+    //     }
+    //     SUCCESS(wx_res)
+    //   }, wx_success, wx_fail, wx_complete)
+    // },
     initMarkerCluster(wx_object) {
       console.log(wx_object)
       if (!wx_object) {
@@ -374,30 +374,30 @@ module.exports = {
         my.changeMarkers(my_object)
       }, wx_success, wx_fail, wx_complete)
     },
-    setCenterOffset(wx_object) {
-      // 未完成
-      if (!wx_object) {
-        return
-      }
-      const wx_offset = wx_object.offset || [0.5, 0.5]
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
+    // setCenterOffset(wx_object) {
+    //   // 未完成
+    //   if (!wx_object) {
+    //     return
+    //   }
+    //   const wx_offset = wx_object.offset || [0.5, 0.5]
+    //   const wx_success = wx_object.success
+    //   const wx_fail = wx_object.fail
+    //   const wx_complete = wx_object.complete
+    //   wx_object = null
 
-      PROMISE((SUCCESS, FAIL) => {
-        if (!wx_offset) {
-          FAIL({
-            errMsg: 'setCenterOffset:error'
-          })
-          return
-        }
-        const wx_res = {
-          errMsg: 'setCenterOffset:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
-    },
+    //   PROMISE((SUCCESS, FAIL) => {
+    //     if (!wx_offset) {
+    //       FAIL({
+    //         errMsg: 'setCenterOffset:error'
+    //       })
+    //       return
+    //     }
+    //     const wx_res = {
+    //       errMsg: 'setCenterOffset:ok'
+    //     }
+    //     SUCCESS(wx_res)
+    //   }, wx_success, wx_fail, wx_complete)
+    // },
     toScreenLocation(wx_object) {
       if (!wx_object) {
         return

@@ -330,7 +330,7 @@ Component({
     circles: [],
     controls: [],
     includePoints: [],
-    showLocation: [],
+    showLocation: false,
     polygons: [],
     //
     subkey: '',
@@ -366,7 +366,7 @@ Component({
     this.setting_(mapCtx, props.latitude, props.longitude);
   },
   onInit: function onInit() {
-    console.log('onInit', this);
+    // console.log('onInit', this)
   },
   didMount: function didMount() {
     var _this = this;
@@ -438,19 +438,38 @@ Component({
       });
     },
     setting_: function setting_(mapCtx, latitude, longitude) {
-      var set = mapCtx.updateComponents.setting;
-      set.skew = 0;
-      set.rotate = 0;
-      set.showLocation = false;
-      set.subKey = '';
-      set.layerStyle = 1;
-      set.enable3D = true;
-      set.replase(/tiltGesturesEnabled/g, 'enableOverlooking');
-      set.replase(/showMapText/g, 'enableSatellite');
+      // const set = mapCtx.updateComponents.setting
+      // console.log(mapCtx.updateComponents, set)
+      // set.skew = 0
+      // set.rotate = 0
+      // set.showLocation = false
+      // set.subKey = ''
+      // set.layerStyle = 1
+      // set.enable3D = true
+      // set.replase(/tiltGesturesEnabled/g, 'enableOverlooking')
+      // set.replase(/showMapText/g, 'enableSatellite')
       mapCtx.updateComponents({
         latitude: latitude,
         longitude: longitude,
-        set: set
+        set: {
+          skew: this.props.skew,
+          rotate: this.props.rotate,
+          showLocation: this.props.showLocation,
+          showScale: this.props.showScale,
+          // 做不了
+          subKey: '',
+          // 做不了 支付宝有问题
+          layerStyle: 1,
+          enableZoom: this.props.enableZoom,
+          enableScroll: this.props.enableScroll,
+          enableRotate: this.props.enableRotate,
+          showCompass: this.props.showCompass,
+          enable3D: this.props.enable3D,
+          enableOverlooking: this.props.enableOverlooking,
+          // 做不了
+          enableSatellite: this.props.enableSatellite,
+          enableTraffic: this.props.enableTraffic
+        }
       });
     },
     addGroundOverlay: function addGroundOverlay(object) {
@@ -527,24 +546,16 @@ Component({
         });
       }
     },
-    _trigger_updated: function _trigger_updated(_ref6) {
-      var detail = _ref6.detail;
-
+    _trigger_updated: function _trigger_updated() {
       this.mapCtx = my.createMapContext(this.props.onekitId);
       if (this.mapCtx.updateComponents) {
-        var dataset = this._dataset();
         if (this.props.onUpdated) {
-          this.props.onUpdated({
-            detail: detail,
-            currentTarget: {
-              dataset: dataset
-            }
-          });
+          this.props.onUpdated();
         }
       }
     },
-    map_RegionChange: function map_RegionChange(_ref7) {
-      var detail = _ref7.detail;
+    map_RegionChange: function map_RegionChange(_ref6) {
+      var detail = _ref6.detail;
 
       var dataset = this._dataset();
       if (this.props.onRegionChange) {
@@ -559,8 +570,8 @@ Component({
 
 
     //
-    _trigger_poitap: function _trigger_poitap(_ref8) {
-      var detail = _ref8.detail;
+    _trigger_poitap: function _trigger_poitap(_ref7) {
+      var detail = _ref7.detail;
 
       this.mapCtx = my.createMapContext(this.props.onekitId);
       var dataset = this._dataset();
@@ -573,8 +584,8 @@ Component({
         });
       }
     },
-    _trigger_anchorpointtap: function _trigger_anchorpointtap(_ref9) {
-      var detail = _ref9.detail;
+    _trigger_anchorpointtap: function _trigger_anchorpointtap(_ref8) {
+      var detail = _ref8.detail;
 
       var dataset = this._dataset();
       if (this.props.onAnchorPointTap) {

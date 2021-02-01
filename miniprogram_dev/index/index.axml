@@ -268,7 +268,6 @@
 <!-- <onekit-video onSeekcomplete="video_seekcomplete" autoplay src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></onekit-video> -->
 <!-- <canvas> 2D -->
 <!-- <onekit-canvas type="2d" onekit-id="canvas" width="500" height="500" onekit-style="width:500px;height:500px;background:red"></onekit-canvas> -->
-<onekit-canvas canvas-id="myCanvas" type="2d" onekit-style="width: 400px;height: 800px;"></onekit-canvas>
 <!-- <movable-view> -->
 <!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
@@ -574,3 +573,26 @@
     </onekit-view> -->
 
 <!-- <onekit-image src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"></onekit-image> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- mapContext -->
+<!-- <onekit-canvas canvas-id="myCanvas" type="2d" onekit-style="width: 400px;height: 800px;"></onekit-canvas> -->
+
+<!-- MapContext -->
+<onekit-map 
+  id="myMap"  
+  latitude="39.91667" 
+  scale="15" 
+  longitude="116.41667" 
+  onekit-style="width: 750rpx;height: 500rpx;" 
+  />

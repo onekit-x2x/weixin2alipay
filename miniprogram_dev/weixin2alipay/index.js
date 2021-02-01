@@ -4164,8 +4164,10 @@ var MapContext = function () {
   };
 
   MapContext.prototype.fromScreenLocation = function fromScreenLocation(wx_object) {
-    var map = getApp().onekit_nodes["_" + this.id];
-    map.fromScreenLocation(wx_object);
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.fromScreenLocation(wx_object)
+    console.log(wx_object, this.alipayMapContext.screenToMap(wx_object));
+    return this.alipayMapContext.screenToMap(wx_object);
   };
 
   MapContext.prototype.getCenterLocation = function getCenterLocation(object) {
@@ -4182,19 +4184,22 @@ var MapContext = function () {
     return this.alipayMapContext.getRegion(object);
   };
 
-  MapContext.prototype.getScale = function getScale(wx_object) {
-    var map = getApp().onekit_nodes["_" + this.id];
-    map.getScale(wx_object);
+  MapContext.prototype.getScale = function getScale(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.getScale(wx_object)
+    return this.alipayMapContext.getScale(object);
   };
 
-  MapContext.prototype.getSkew = function getSkew(wx_object) {
-    var map = getApp().onekit_nodes["_" + this.id];
-    map.getSkew(wx_object);
+  MapContext.prototype.getSkew = function getSkew(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.getSkew(wx_object)
+    return this.alipayMapContext.getSkew(object);
   };
 
-  MapContext.prototype.includePoints = function includePoints(wx_object) {
-    var map = getApp().onekit_nodes["_" + this.id];
-    map.includePoints(wx_object);
+  MapContext.prototype.includePoints = function includePoints(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.includePoints(wx_object)
+    return this.alipayMapContext.includePoints(object);
   };
 
   MapContext.prototype.initMarkerCluster = function initMarkerCluster(wx_object) {
@@ -4231,14 +4236,16 @@ var MapContext = function () {
     map.removeMarkers(wx_object);
   };
 
-  MapContext.prototype.setCenterOffset = function setCenterOffset(wx_object) {
-    var map = getApp().onekit_nodes["_" + this.id];
-    map.setCenterOffset(wx_object);
+  MapContext.prototype.setCenterOffset = function setCenterOffset(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.setCenterOffset(wx_object)
+    return this.alipayMapContext.moveToLocation(object);
   };
 
   MapContext.prototype.toScreenLocation = function toScreenLocation(wx_object) {
-    var map = getApp().onekit_nodes["_" + this.id];
-    map.toScreenLocation(wx_object);
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.toScreenLocation(wx_object)
+    return this.alipayMapContext.moveToLocation(wx_object);
   };
 
   MapContext.prototype.translateMarker = function translateMarker(object) {

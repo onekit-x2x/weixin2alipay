@@ -28,8 +28,10 @@ export default class MapContext {
   }
 
   fromScreenLocation(wx_object) {
-    const map = getApp().onekit_nodes[`_${this.id}`]
-    map.fromScreenLocation(wx_object)
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.fromScreenLocation(wx_object)
+    console.log(wx_object, this.alipayMapContext.screenToMap(wx_object))
+    return this.alipayMapContext.screenToMap(wx_object)
   }
 
   getCenterLocation(object) {
@@ -46,19 +48,22 @@ export default class MapContext {
     return this.alipayMapContext.getRegion(object)
   }
 
-  getScale(wx_object) {
-    const map = getApp().onekit_nodes[`_${this.id}`]
-    map.getScale(wx_object)
+  getScale(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.getScale(wx_object)
+    return this.alipayMapContext.getScale(object)
   }
 
-  getSkew(wx_object) {
-    const map = getApp().onekit_nodes[`_${this.id}`]
-    map.getSkew(wx_object)
+  getSkew(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.getSkew(wx_object)
+    return this.alipayMapContext.getSkew(object)
   }
 
-  includePoints(wx_object) {
-    const map = getApp().onekit_nodes[`_${this.id}`]
-    map.includePoints(wx_object)
+  includePoints(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.includePoints(wx_object)
+    return this.alipayMapContext.includePoints(object)
   }
 
   initMarkerCluster(wx_object) {
@@ -95,14 +100,16 @@ export default class MapContext {
     map.removeMarkers(wx_object)
   }
 
-  setCenterOffset(wx_object) {
-    const map = getApp().onekit_nodes[`_${this.id}`]
-    map.setCenterOffset(wx_object)
+  setCenterOffset(object) {
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.setCenterOffset(wx_object)
+    return this.alipayMapContext.moveToLocation(object)
   }
 
   toScreenLocation(wx_object) {
-    const map = getApp().onekit_nodes[`_${this.id}`]
-    map.toScreenLocation(wx_object)
+    // const map = getApp().onekit_nodes[`_${this.id}`]
+    // map.toScreenLocation(wx_object)
+    return this.alipayMapContext.moveToLocation(wx_object)
   }
 
   translateMarker(object) {

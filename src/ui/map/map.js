@@ -39,7 +39,7 @@ Component({
     circles: [],
     controls: [],
     includePoints: [],
-    showLocation: [],
+    showLocation: false,
     polygons: [],
     //
     subkey: '',
@@ -75,7 +75,7 @@ Component({
     this.setting_(mapCtx, props.latitude, props.longitude)
   },
   onInit() {
-    console.log('onInit', this)
+    // console.log('onInit', this)
   },
   didMount() {
     const scale = Math.max(this.props.scale, this.props.minScale)
@@ -144,19 +144,38 @@ Component({
       })
     },
     setting_(mapCtx, latitude, longitude) {
-      const set = mapCtx.updateComponents.setting
-      set.skew = 0
-      set.rotate = 0
-      set.showLocation = false
-      set.subKey = ''
-      set.layerStyle = 1
-      set.enable3D = true
-      set.replase(/tiltGesturesEnabled/g, 'enableOverlooking')
-      set.replase(/showMapText/g, 'enableSatellite')
+      // const set = mapCtx.updateComponents.setting
+      // console.log(mapCtx.updateComponents, set)
+      // set.skew = 0
+      // set.rotate = 0
+      // set.showLocation = false
+      // set.subKey = ''
+      // set.layerStyle = 1
+      // set.enable3D = true
+      // set.replase(/tiltGesturesEnabled/g, 'enableOverlooking')
+      // set.replase(/showMapText/g, 'enableSatellite')
       mapCtx.updateComponents({
         latitude,
         longitude,
-        set
+        set: {
+          skew: this.props.skew,
+          rotate: this.props.rotate,
+          showLocation: this.props.showLocation,
+          showScale: this.props.showScale,
+          // 做不了
+          subKey: '',
+          // 做不了 支付宝有问题
+          layerStyle: 1,
+          enableZoom: this.props.enableZoom,
+          enableScroll: this.props.enableScroll,
+          enableRotate: this.props.enableRotate,
+          showCompass: this.props.showCompass,
+          enable3D: this.props.enable3D,
+          enableOverlooking: this.props.enableOverlooking,
+          // 做不了
+          enableSatellite: this.props.enableSatellite,
+          enableTraffic: this.props.enableTraffic,
+        }
       })
     },
 
@@ -233,19 +252,11 @@ Component({
       }
     },
 
-    _trigger_updated({
-      detail
-    }) {
+    _trigger_updated() {
       this.mapCtx = my.createMapContext(this.props.onekitId)
       if (this.mapCtx.updateComponents) {
-        const dataset = this._dataset()
         if (this.props.onUpdated) {
-          this.props.onUpdated({
-            detail,
-            currentTarget: {
-              dataset
-            }
-          })
+          this.props.onUpdated()
         }
       }
     },

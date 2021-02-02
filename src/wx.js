@@ -7,6 +7,7 @@ import CameraContext from './api/CameraContext'
 import SelectorQuery from './api/SelectorQuery'
 import MapContext from './api/MapContext'
 import CanvasContext from './api/CanvasContext'
+import InnerAudioContext from './api/InnerAudioContext'
 
 export default class wx {
   // ///////////////// animation //////////////////////////
@@ -1127,8 +1128,8 @@ export default class wx {
     return my.getAvailableAudioSources(wx_object)
   }
 
-  static createInnerAudioContext(wx_object) {
-    return my.createInnerAudioContext(wx_object)
+  static createInnerAudioContext() {
+    return new InnerAudioContext(my.createInnerAudioContext(getApp().onekit_audio))
   }
 
   static createAudioContext(wx_object) {

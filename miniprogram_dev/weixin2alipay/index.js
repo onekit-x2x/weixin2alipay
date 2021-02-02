@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 54);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -492,6 +492,130 @@ exports.default = CanvasContext;
 
 /***/ }),
 
+/***/ 11:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var InnerAudioContext = function () {
+  function InnerAudioContext(alipayInnerAudioContext) {
+    _classCallCheck(this, InnerAudioContext);
+
+    this.alipayInnerAudioContext = alipayInnerAudioContext;
+  }
+
+  InnerAudioContext.prototype.destroy = function destroy() {
+    return this.alipayInnerAudioContext.destroy();
+  };
+
+  InnerAudioContext.prototype.offEnded = function offEnded(callback) {
+    return this.alipayInnerAudioContext.offEnded(callback);
+  };
+
+  InnerAudioContext.prototype.callback = function callback(_callback) {
+    return this.alipayInnerAudioContext.callback(_callback);
+  };
+
+  InnerAudioContext.prototype.offError = function offError(callback) {
+    return this.alipayCameraContext.offError(callback);
+  };
+
+  InnerAudioContext.prototype.offPause = function offPause(callback) {
+    return this.alipayInnerAudioContext.offPause(callback);
+  };
+
+  InnerAudioContext.prototype.offPlay = function offPlay(callback) {
+    return this.alipayInnerAudioContext.offPlay(callback);
+  };
+
+  InnerAudioContext.prototype.offSeeked = function offSeeked(callback) {
+    return this.alipayCameraContext.offSeeked(callback);
+  };
+
+  InnerAudioContext.prototype.offSeeking = function offSeeking(callback) {
+    return this.alipayInnerAudioContext.offSeeking(callback);
+  };
+
+  InnerAudioContext.prototype.offStop = function offStop(callback) {
+    return this.alipayInnerAudioContext.offStop(callback);
+  };
+
+  InnerAudioContext.prototype.offTimeUpdate = function offTimeUpdate(callback) {
+    return this.alipayCameraContext.offTimeUpdate(callback);
+  };
+
+  InnerAudioContext.prototype.offWaiting = function offWaiting(callback) {
+    return this.alipayInnerAudioContext.offWaiting(callback);
+  };
+
+  InnerAudioContext.prototype.onCanplay = function onCanplay(callback) {
+    return this.alipayInnerAudioContext.onCanplay(callback);
+  };
+
+  InnerAudioContext.prototype.onEnded = function onEnded(callback) {
+    return this.alipayCameraContext.onEnded(callback);
+  };
+
+  InnerAudioContext.prototype.onError = function onError(callback) {
+    return this.alipayInnerAudioContext.onError(callback);
+  };
+
+  InnerAudioContext.prototype.onPause = function onPause(callback) {
+    return this.alipayInnerAudioContext.onPause(callback);
+  };
+
+  InnerAudioContext.prototype.onPlay = function onPlay(callback) {
+    return this.alipayCameraContext.onPlay(callback);
+  };
+
+  InnerAudioContext.prototype.onSeeked = function onSeeked(callback) {
+    return this.alipayInnerAudioContext.onSeeked(callback);
+  };
+
+  InnerAudioContext.prototype.onSeeking = function onSeeking(callback) {
+    return this.alipayInnerAudioContext.onSeeking(callback);
+  };
+
+  InnerAudioContext.prototype.onStop = function onStop(callback) {
+    return this.alipayCameraContext.onStop(callback);
+  };
+
+  InnerAudioContext.prototype.onTimeUpdate = function onTimeUpdate(callback) {
+    return this.alipayInnerAudioContext.onTimeUpdate(callback);
+  };
+
+  InnerAudioContext.prototype.onWaiting = function onWaiting(callback) {
+    return this.alipayInnerAudioContext.onWaiting(callback);
+  };
+
+  InnerAudioContext.prototype.pause = function pause() {
+    return this.alipayCameraContext.pause();
+  };
+
+  InnerAudioContext.prototype.play = function play() {
+    return this.alipayInnerAudioContext.play();
+  };
+
+  InnerAudioContext.prototype.seek = function seek() {
+    return this.alipayInnerAudioContext.seek();
+  };
+
+  InnerAudioContext.prototype.stop = function stop() {
+    return this.alipayCameraContext.offError();
+  };
+
+  return InnerAudioContext;
+}();
+
+exports.default = InnerAudioContext;
+
+/***/ }),
+
 /***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -523,6 +647,10 @@ var _MapContext2 = _interopRequireDefault(_MapContext);
 var _CanvasContext = __webpack_require__(10);
 
 var _CanvasContext2 = _interopRequireDefault(_CanvasContext);
+
+var _InnerAudioContext = __webpack_require__(11);
+
+var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1790,8 +1918,8 @@ var wx = function () {
     return my.getAvailableAudioSources(wx_object);
   };
 
-  wx.createInnerAudioContext = function createInnerAudioContext(wx_object) {
-    return my.createInnerAudioContext(wx_object);
+  wx.createInnerAudioContext = function createInnerAudioContext() {
+    return new _InnerAudioContext2.default(my.createInnerAudioContext(getApp().onekit_audio));
   };
 
   wx.createAudioContext = function createAudioContext(wx_object) {
@@ -3186,7 +3314,7 @@ exports.default = VideoContext;
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3194,22 +3322,22 @@ exports.default = VideoContext;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLOBAL = exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(55);
+var OnekitApp_1 = __webpack_require__(56);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(56);
+var OnekitBehavior_1 = __webpack_require__(57);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(57);
+var OnekitComponent_1 = __webpack_require__(58);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(58);
+var OnekitPage_1 = __webpack_require__(59);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(3);
 exports.wx = wx_1.default;
-var global_1 = __webpack_require__(59);
+var global_1 = __webpack_require__(60);
 exports.GLOBAL = global_1.default;
 
 /***/ }),
 
-/***/ 55:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3307,7 +3435,7 @@ function OnekitApp(wx_object) {
 
 /***/ }),
 
-/***/ 56:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3434,7 +3562,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 57:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3635,7 +3763,7 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3816,7 +3944,47 @@ function OnekitPage(wx_object) {
 
 /***/ }),
 
-/***/ 59:
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CameraContext = function () {
+  function CameraContext(alipayCameraContext) {
+    _classCallCheck(this, CameraContext);
+
+    this.alipayCameraContext = alipayCameraContext;
+  }
+
+  CameraContext.prototype.takePhoto = function takePhoto(object) {
+    return this.alipayCameraContext.takePhoto(object);
+  };
+
+  CameraContext.prototype.startRecord = function startRecord(object) {
+    return this.alipayCameraContext.startRecord(object);
+  };
+
+  CameraContext.prototype.stopRecord = function stopRecord(object) {
+    return this.alipayCameraContext.stopRecord(object);
+  };
+
+  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
+    return this.alipayCameraContext.onCameraFrame(callback);
+  };
+
+  return CameraContext;
+}();
+
+exports.default = CameraContext;
+
+/***/ }),
+
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3859,46 +4027,6 @@ var global = function () {
 }();
 
 exports.default = global;
-
-/***/ }),
-
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var CameraContext = function () {
-  function CameraContext(myCameraContext) {
-    _classCallCheck(this, CameraContext);
-
-    this.myCameraContext = myCameraContext;
-  }
-
-  CameraContext.prototype.takePhoto = function takePhoto(object) {
-    return this.myCameraContext.takePhoto(object);
-  };
-
-  CameraContext.prototype.startRecord = function startRecord(object) {
-    return this.myCameraContext.startRecord(object);
-  };
-
-  CameraContext.prototype.stopRecord = function stopRecord(object) {
-    return this.myCameraContext.stopRecord(object);
-  };
-
-  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
-    return this.myCameraContext.onCameraFrame(callback);
-  };
-
-  return CameraContext;
-}();
-
-exports.default = CameraContext;
 
 /***/ }),
 

@@ -11,7 +11,6 @@ module.exports = {
   },
   methods: {
     addGroundOverlay(wx_object) {
-      console.log(wx_object)
       if (!wx_object) {
         return
       }

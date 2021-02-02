@@ -13,7 +13,6 @@ export default class MapContext {
 
   addCustomLayer(wx_object) {
     const map = getApp().onekit_nodes[`_${this.id}`]
-    console.log(map)
     map.addCustomLayer(wx_object)
   }
 

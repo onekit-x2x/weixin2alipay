@@ -3241,7 +3241,6 @@ var MapContext = function () {
 
   MapContext.prototype.addCustomLayer = function addCustomLayer(wx_object) {
     var map = getApp().onekit_nodes["_" + this.id];
-    console.log(map);
     map.addCustomLayer(wx_object);
   };
 
@@ -3574,7 +3573,7 @@ var CanvasContext = function () {
   _createClass(CanvasContext, [{
     key: 'fillStyle',
     set: function set(color) {
-      return this.alipayCanvasContext.setFillStyle(color);
+      this.alipayCanvasContext.setFillStyle(color);
     },
     get: function get() {
       return this.alipayCanvasContext.getFillStyle();
@@ -3582,7 +3581,7 @@ var CanvasContext = function () {
   }, {
     key: 'font',
     set: function set(fontSize) {
-      return this.alipayCanvasContext.setFontSize(fontSize);
+      this.alipayCanvasContext.setFontSize(fontSize);
     },
     get: function get() {
       return this.alipayCanvasContext.getFontSize();
@@ -3590,7 +3589,7 @@ var CanvasContext = function () {
   }, {
     key: 'globalAlpha',
     set: function set(alpha) {
-      return this.alipayCanvasContext.setGlobalAlpha(alpha);
+      this.alipayCanvasContext.setGlobalAlpha(alpha);
     },
     get: function get() {
       return this.alipayCanvasContext.getGlobalAlpha();
@@ -3598,7 +3597,7 @@ var CanvasContext = function () {
   }, {
     key: 'lineCap',
     set: function set(lineCap) {
-      return this.alipayCanvasContext.setLineCap(lineCap);
+      this.alipayCanvasContext.setLineCap(lineCap);
     },
     get: function get() {
       return this.alipayCanvasContext.getLineCap();
@@ -3606,7 +3605,7 @@ var CanvasContext = function () {
   }, {
     key: 'lineDashOffset',
     set: function set(offset) {
-      return this.alipayCanvasContext.setLineDash([5, 5], offset);
+      this.alipayCanvasContext.setLineDash([5, 5], offset);
     },
     get: function get() {
       return this.alipayCanvasContext.getLineDash();
@@ -3614,7 +3613,7 @@ var CanvasContext = function () {
   }, {
     key: 'lineJoin',
     set: function set(lineJoin) {
-      return this.alipayCanvasContext.setLineJoin(lineJoin);
+      this.alipayCanvasContext.setLineJoin(lineJoin);
     },
     get: function get() {
       return this.alipayCanvasContext.getLineJoin();
@@ -3622,7 +3621,7 @@ var CanvasContext = function () {
   }, {
     key: 'lineWidth',
     set: function set(lineWidth) {
-      return this.alipayCanvasContext.setLineWidth(lineWidth);
+      this.alipayCanvasContext.setLineWidth(lineWidth);
     },
     get: function get() {
       return this.alipayCanvasContext.getLineWidth();
@@ -3630,7 +3629,7 @@ var CanvasContext = function () {
   }, {
     key: 'miterLimit',
     set: function set(miterLimit) {
-      return this.alipayCanvasContext.setMiterLimit(miterLimit);
+      this.alipayCanvasContext.setMiterLimit(miterLimit);
     },
     get: function get() {
       return this.alipayCanvasContext.getMiterLimit();
@@ -3642,7 +3641,7 @@ var CanvasContext = function () {
       var blur = this._shadowBlur || 0;
       var color = this._shadowColor || 'black';
       this._shadowOffsetX = offsetX;
-      return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
+      this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
     },
     get: function get() {
       return this._shadowOffsetX || 0;
@@ -3654,7 +3653,7 @@ var CanvasContext = function () {
       var blur = this._shadowBlur || 0;
       var color = this._shadowColor || 'black';
       this._shadowOffsetY = offsetY;
-      return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
+      this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
     },
     get: function get() {
       return this._shadowOffsetY || 0;
@@ -3666,7 +3665,7 @@ var CanvasContext = function () {
       var offsetY = this._shadowOffsetY || 0;
       var color = this._shadowColor || 'black';
       this._shadowBlur = blur;
-      return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
+      this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
     },
     get: function get() {
       return this._shadowBlur || 0;
@@ -3678,7 +3677,7 @@ var CanvasContext = function () {
       var offsetY = this._shadowOffsetY || 0;
       var blur = this._shadowBlur || 0;
       this._shadowColor = color;
-      return this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
+      this.alipayCanvasContext.setShadow(offsetX, offsetY, blur, color);
     },
     get: function get() {
       return this._shadowColor || 'black';
@@ -3686,7 +3685,7 @@ var CanvasContext = function () {
   }, {
     key: 'strokeStyle',
     set: function set(color) {
-      return this.alipayCanvasContext.setStrokeStyle(color);
+      this.alipayCanvasContext.setStrokeStyle(color);
     },
     get: function get() {
       return this.alipayCanvasContext.getStrokeStyle();

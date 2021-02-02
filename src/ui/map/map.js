@@ -83,9 +83,8 @@ Component({
     let markers = this.props.markers
     if (covers.length !== 0) {
       markers = markers.concat(covers)
-      covers = []
+      covers = null
     }
-    console.log(markers)
     this.setData({
       scale,
       covers,
@@ -104,65 +103,71 @@ Component({
   didUnmount() {},
   methods: {
     showCompass_(mapCtx, showCompass) {
-      mapCtx.showsCompass({
-        isShowCompass: showCompass ? 1 : 0
-      })
+      if (showCompass) {
+        mapCtx.showsCompass({
+          isShowCompass: showCompass ? 1 : 0
+        })
+      }
     },
     showsScale_(mapCtx, showsScale) {
-      mapCtx.showsScale({
-        isShowsScale: showsScale ? 1 : 0
-      })
+      if (showsScale) {
+        mapCtx.showsScale({
+          isShowsScale: showsScale ? 1 : 0
+        })
+      }
     },
     enableZoom_(mapCtx, enableZoom) {
-      mapCtx.gestureEnable({
-        isGestureEnable: enableZoom ? 1 : 0
-      })
-      console.warn('支付宝小程序地图组件会禁用全部手势')
+      if (!enableZoom) {
+        mapCtx.gestureEnable({
+          isGestureEnable: enableZoom ? 1 : 0
+        })
+        console.warn('支付宝小程序地图组件会禁用全部手势')
+      }
     },
     enableScroll_(mapCtx, enableScroll) {
-      mapCtx.gestureEnable({
-        isGestureEnable: enableScroll ? 1 : 0
-      })
-      console.warn('支付宝小程序地图组件会禁用全部手势')
+      if (!enableScroll) {
+        mapCtx.gestureEnable({
+          isGestureEnable: enableScroll ? 1 : 0
+        })
+        console.warn('支付宝小程序地图组件会禁用全部手势')
+      }
     },
     enableRotate_(mapCtx, enableRotate) {
-      mapCtx.gestureEnable({
-        isGestureEnable: enableRotate ? 1 : 0
-      })
-      console.warn('支付宝小程序地图组件会禁用全部手势')
+      if (enableRotate) {
+        mapCtx.gestureEnable({
+          isGestureEnable: enableRotate ? 1 : 0
+        })
+        console.warn('支付宝小程序地图组件会禁用全部手势')
+      }
     },
     enableSatellite_(mapCtx, enableSatellite) {
-      mapCtx.updateComponents({
-        setting: {
-          trafficEnabled: enableSatellite ? 1 : 0
-        }
-      })
+      if (enableSatellite) {
+        mapCtx.updateComponents({
+          setting: {
+            trafficEnabled: enableSatellite ? 1 : 0
+          }
+        })
+      }
     },
     enableTraffic_(mapCtx, enableTraffic) {
-      mapCtx.updateComponents({
-        setting: {
-          trafficEnabled: enableTraffic ? 1 : 0
-        }
-      })
+      if (enableTraffic) {
+        mapCtx.updateComponents({
+          setting: {
+            trafficEnabled: enableTraffic ? 1 : 0
+          }
+        })
+      }
     },
     enablePoi_(mapCtx, enablePoi) {
-      mapCtx.updateComponents({
-        setting: {
-          showMapText: enablePoi ? 1 : 0
-        }
-      })
+      if (enablePoi) {
+        mapCtx.updateComponents({
+          setting: {
+            showMapText: enablePoi ? 1 : 0
+          }
+        })
+      }
     },
     setting_(mapCtx, latitude, longitude) {
-      // const set = mapCtx.updateComponents.setting
-      // console.log(mapCtx.updateComponents, set)
-      // set.skew = 0
-      // set.rotate = 0
-      // set.showLocation = false
-      // set.subKey = ''
-      // set.layerStyle = 1
-      // set.enable3D = true
-      // set.replase(/tiltGesturesEnabled/g, 'enableOverlooking')
-      // set.replase(/showMapText/g, 'enableSatellite')
       mapCtx.updateComponents({
         latitude,
         longitude,
@@ -311,6 +316,6 @@ Component({
           }
         })
       }
-    }
+    },
   },
 })

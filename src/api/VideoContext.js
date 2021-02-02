@@ -7,16 +7,26 @@ export default class VideoContext {
     this.id = id
   }
 
-  play() {
-    return this.alipayVideoContext.play()
+  exitFullScreen() {
+    return this.alipayConvasContext.exitFullScreen()
   }
+
+  exitPictureInPicture() {}
+
+  hideStatusBar() {}
 
   pause() {
     return this.alipayVideoContext.pause()
   }
 
-  stop() {
-    return this.alipayVideoContext.stop()
+  play() {
+    return this.alipayVideoContext.play()
+  }
+
+  playbackRate() {}
+
+  requestFullScreen(direction) {
+    return this.alipayConvasContext.requestFullScreen(direction)
   }
 
   seek(position) {
@@ -29,21 +39,9 @@ export default class VideoContext {
     video.sendDanmu(data)
   }
 
-  playbackRate() {}
-
-
-  requestFullScreen(direction) {
-    return this.alipayConvasContext.requestFullScreen(direction)
-  }
-
-  exitFullScreen() {
-    return this.alipayConvasContext.exitFullScreen()
-  }
-
-  //
   showStatusBar() {}
 
-  hideStatusBar() {}
-
-  exitPictureInPicture() {}
+  stop() {
+    return this.alipayVideoContext.stop()
+  }
 }

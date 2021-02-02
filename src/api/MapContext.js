@@ -2,9 +2,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 
-// import wx from '../wx'
-// import MapContextX from './MapContextX'
-
 export default class MapContext {
   constructor(alipayMapContext, id) {
     this.alipayMapContext = alipayMapContext

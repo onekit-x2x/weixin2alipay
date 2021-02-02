@@ -293,10 +293,16 @@ var _wxs_behavior = __webpack_require__(0);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
+var _MapContext_behavior = __webpack_require__(32);
+
+var _MapContext_behavior2 = _interopRequireDefault(_MapContext_behavior);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 Component({
-  mixins: [_weixin_behavior2.default, _onekit_behavior2.default, _wxs_behavior2.default],
+  mixins: [_weixin_behavior2.default, _onekit_behavior2.default, _wxs_behavior2.default, _MapContext_behavior2.default],
   data: {
     groundOverlays: [],
     'include-padding': {
@@ -454,7 +460,7 @@ Component({
           showScale: this.props.showScale,
           // 做不了
           subKey: '',
-          // 做不了 支付宝有问题
+          // 做不了
           layerStyle: 1,
           enableZoom: this.props.enableZoom,
           enableScroll: this.props.enableScroll,
@@ -467,9 +473,6 @@ Component({
           enableTraffic: this.props.enableTraffic
         }
       });
-    },
-    addGroundOverlay: function addGroundOverlay(object) {
-      console.log('addGroundOverlay', object);
     },
     map_tap: function map_tap(_ref) {
       var detail = _ref.detail;
@@ -594,8 +597,510 @@ Component({
       }
     }
   }
-}); /* eslint-disable no-console */
+});
+
+/***/ }),
+
+/***/ 32:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _PROMISE = __webpack_require__(33);
+
+var _LngLat2px = __webpack_require__(34);
+
+var _LngLat2px2 = _interopRequireDefault(_LngLat2px);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import PX2LNTLAT from '../ui/map/PX2LNTLAT'
+
+/* eslint-disable no-console */
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
+module.exports = {
+  data: {
+    on: {}
+  },
+  methods: {
+    addGroundOverlay: function addGroundOverlay(wx_object) {
+      var _this = this;
+
+      if (!wx_object) {
+        return;
+      }
+      var wx_id = wx_object.id;
+      var wx_src = wx_object.src;
+      var wx_bounds = wx_object.bounds;
+      var wx_visible = wx_object.visible;
+      var wx_zIndex = wx_object.zIndex;
+      // 未完成
+      // const wx_opacity = wx_object.opacity
+      //
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (!wx_id || !wx_src || !wx_bounds) {
+          FAIL({
+            errMsg: 'addGroundOverlay:err'
+          });
+          return;
+        }
+        var markerLevel = _this.data.markers.markerLevel;
+        wx_id = markerLevel;
+        var alpha = _this.data.groundOverlays.alpha;
+        if (wx_visible) {
+          alpha = 1;
+        } else {
+          alpha = 0;
+        }
+        wx_visible = alpha;
+        // if (wx_opacity) {
+        //   filter:alpha(opacity:30)
+        // }
+        _this.setData({
+          markerLevel: wx_id,
+          'ground-overlays': [{
+            'include-points': wx_bounds,
+            image: wx_src,
+            zIndex: wx_zIndex
+          }]
+        });
+        var wx_res = {
+          errMsg: 'addGroundOverlay:ok'
+        };
+        SUCCESS(wx_res);
+      }, wx_success, wx_fail, wx_complete);
+    },
+    addMarkers: function addMarkers(wx_object) {
+      console.log(wx_object);
+      if (!wx_object) {
+        return;
+      }
+      var wx_markers = wx_object.markers;
+      var wx_clear = wx_object.clear || false;
+      wx_object = null;
+
+      var markers = wx_clear ? [] : this.data.markers;
+      markers.push.apply(markers, wx_markers);
+      this.setData({
+        markers: markers
+      });
+      var clusters = this._getClusters();
+      this._trigger_markerClusterCreate(clusters);
+    },
+    fromScreenLocation: function fromScreenLocation(wx_object) {
+      var _this2 = this;
+
+      console.log(wx_object);
+      if (!wx_object) {
+        return;
+      }
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+      // //////////
+      (0, _PROMISE.PROMISE)(function (SUCCESS) {
+        var wx_res = {
+          latitude: _this2.data.latitude,
+          longitude: _this2.data.longitude,
+          errMsg: 'fromScreenLocation:ok'
+        };
+        SUCCESS(wx_res);
+      }, wx_success, wx_fail, wx_complete);
+    },
+    initMarkerCluster: function initMarkerCluster(wx_object) {
+      if (!wx_object) {
+        return;
+      }
+      var wx_enableDefaultStyle = wx_object.enableDefaultStyle;
+      var wx_zoomOnClick = wx_object.zoomOnClick;
+      var wx_gridSize = wx_object.gridSize;
+      wx_object = null;
+      // //////////
+      this._trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize);
+    },
+    moveAlong: function moveAlong(wx_object) {
+      var _this3 = this;
+
+      console.log(wx_object);
+      if (!wx_object) {
+        return;
+      }
+      var wx_markerId = wx_object.markerId;
+      var wx_path = wx_object.path;
+      var wx_autoRotate = wx_object.autoRotate;
+      var wx_duration = wx_object.duration;
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+      // //////////
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (!wx_markerId || !wx_path || !wx_duration) {
+          FAIL({
+            errMsg: 'moveAlong:error'
+          });
+          return;
+        }
+        var my_object = {
+          polylineId: wx_markerId,
+          points: wx_path,
+          duration: wx_duration,
+          success: function success() {
+            var wx_res = {
+              errMsg: 'moveAlong:ok'
+            };
+            SUCCESS(wx_res);
+          },
+          fail: function fail() {
+            var wx_res = {
+              errMsg: 'moveToLocation:ok'
+            };
+            FAIL(wx_res);
+          }
+        };
+        my.smoothMovePolyline(my_object);
+        _this3._trigger_markerClusterCreate(wx_autoRotate);
+      }, wx_success, wx_fail, wx_complete);
+    },
+    on: function on(wx_object) {
+      if (!wx_object) {
+        return;
+      }
+      var wx_markerClusterCreate = wx_object.clusters;
+      var wx_markerClusterClick = wx_object.latitude;
+      wx_object = null;
+
+      this._trigger_markerClusterCreate(wx_markerClusterCreate, wx_markerClusterClick);
+    },
+    openMapApp: function openMapApp(wx_object) {
+      if (!wx_object) {
+        return;
+      }
+      var wx_longitude = wx_object.longitude;
+      var wx_latitude = wx_object.latitude;
+      var wx_destination = wx_object.destination;
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (!wx_longitude || !wx_latitude || !wx_destination) {
+          FAIL({
+            errMsg: 'openMapApp:error'
+          });
+          return;
+        }
+        my.openLocation({
+          latitude: wx_longitude,
+          longitude: wx_latitude,
+          name: wx_destination
+        });
+        var wx_res = {
+          errMsg: 'openMapApp:ok'
+        };
+        SUCCESS(wx_res);
+      }, wx_success, wx_fail, wx_complete);
+    },
+    removeGroundOverlay: function removeGroundOverlay(wx_object) {
+      var _this4 = this;
+
+      if (!wx_object) {
+        return;
+      }
+      var wx_id = wx_object.id;
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (!wx_id) {
+          FAIL({
+            errMsg: 'removeGroundOverlay:error'
+          });
+          return;
+        }
+        _this4._trigger_removeGroundOverlay(wx_id);
+        var wx_res = {
+          errMsg: 'removeGroundOverlay:ok'
+        };
+        SUCCESS(wx_res);
+      }, wx_success, wx_fail, wx_complete);
+    },
+    removeMarkers: function removeMarkers(wx_object) {
+      if (!wx_object) {
+        return;
+      }
+      var wx_markerIds = wx_object.markerIds;
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (!wx_markerIds) {
+          FAIL({
+            errMsg: 'removeMarkers:error'
+          });
+          return;
+        }
+        var my_object = {
+          remove: {
+            longitude: wx_markerIds.longitude,
+            latitude: wx_markerIds.latitude
+          },
+          success: function success() {
+            var wx_res = {
+              errMsg: 'removeMarkers:ok'
+            };
+            SUCCESS(wx_res);
+          },
+          fail: function fail() {
+            var wx_res = {
+              errMsg: 'removeMarkers:error'
+            };
+            FAIL(wx_res);
+          }
+        };
+        my.changeMarkers(my_object);
+      }, wx_success, wx_fail, wx_complete);
+    },
+    updateGroundOverlay: function updateGroundOverlay(wx_object) {
+      var _this5 = this;
+
+      console.log(wx_object);
+      if (!wx_object) {
+        return;
+      }
+      var wx_id = wx_object.id;
+      var wx_src = wx_object.src;
+      var wx_bounds = wx_object.bounds;
+      var wx_visible = wx_object.visible;
+      var wx_zIndex = wx_object.zIndex;
+      // 未完成
+      // const wx_opacity = wx_object.opacity
+      //
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (!wx_id || !wx_src || !wx_bounds) {
+          FAIL({
+            errMsg: 'updateGroundOverlay:err'
+          });
+          return;
+        }
+        var markerLevel = _this5.data.markers.markerLevel;
+        wx_id = markerLevel;
+        var alpha = _this5.data.groundOverlays.alpha;
+        if (wx_visible) {
+          alpha = 1;
+        } else {
+          alpha = 0;
+        }
+        wx_visible = alpha;
+        // if (wx_opacity) {
+        //   filter:alpha(opacity:30)
+        // }
+        _this5.setData({
+          markerLevel: wx_id,
+          'ground-overlays': [{
+            'include-points': wx_bounds,
+            image: wx_src,
+            zIndex: wx_zIndex
+          }]
+        });
+        var wx_res = {
+          errMsg: 'updateGroundOverlay:ok'
+        };
+        SUCCESS(wx_res);
+      }, wx_success, wx_fail, wx_complete);
+    },
+
+
+    //
+    _trigger_markerClusterCreate: function _trigger_markerClusterCreate(clusters) {
+      if (this.on.markerClusterCreate) {
+        this.on.markerClusterCreate({
+          clusters: clusters
+        });
+      }
+    },
+    _trigger_moveAlong: function _trigger_moveAlong(markerId, path, autoRotate, duration) {
+      if (this.on.moveAlong) {
+        this.on.moveAlong({
+          markerId: markerId,
+          path: path,
+          autoRotate: autoRotate,
+          duration: duration
+        });
+      }
+    },
+    _trigger_removeGroundOverlay: function _trigger_removeGroundOverlay(id) {
+      if (this.on.removeGroundOverlay) {
+        this.on.removeGroundOverlay({
+          id: id
+        });
+      }
+    },
+    _getClusters: function _getClusters() {
+      var mapWidth = void 0;
+      var mapHeight = void 0;
+      var lngNE = void 0;
+      var latNE = void 0;
+      var lngSW = void 0;
+      var latSW = void 0;
+      var allMarkers = [];
+      var gridSize = void 0;
+
+      function Area(p0, p1, p2) {
+        var area = 0.0;
+        area = p0.longitude * p1.latitude + p1.longitude * p2.latitude + p2.longitude * p0.latitude - p1.longitude * p0.latitude - p2.longitude * p1.latitude - p0.longitude * p2.latitude;
+        return area / 2;
+      }
+
+      // line 249 计算polygon的质心
+      function getPolygonAreaCenter(points) {
+        var sum_x = 0;
+        var sum_y = 0;
+        var sum_area = 0;
+        var p1 = points[1];
+
+        for (var i = 2; i < points.length; i++) {
+          var p2 = points[i];
+          var area = Area(points[0], p1, p2);
+          sum_area += area;
+          sum_x += (points[0].longitude + p1.longitude + p2.longitude) * area;
+          sum_y += (points[0].latitude + p1.latitude + p2.latitude) * area;
+          p1 = p2;
+        }
+        var longitude = sum_x / sum_area / 3;
+        var latitude = sum_y / sum_area / 3;
+        return {
+          longitude: longitude,
+          latitude: latitude
+        };
+      }
+      var ragionMarkers = allMarkers.filter(function (marker) {
+        return lngSW < marker.lng < lngNE && latSW < marker.lat < latNE;
+      });
+
+      // 3
+      var lngLat2px = new _LngLat2px2.default(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW);
+      var ragionMarkersWithXY = ragionMarkers.map(function (marker) {
+        marker.xy = lngLat2px.run(marker.lng, marker.lat);
+        return marker;
+      });
+      // 4
+      var sortedRagionMarkersWithXY = ragionMarkersWithXY.sort(function (marker1, marker2) {
+        return marker2.lng > marker1.lng;
+      });
+      var clusters = [];
+      for (var i = 0; i < sortedRagionMarkersWithXY.length; i++) {
+        for (var j = i + 1; j < sortedRagionMarkersWithXY.length; j++) {
+          if (i === j) {
+            continue;
+          }
+          var marker1 = sortedRagionMarkersWithXY[i];
+          var marker2 = sortedRagionMarkersWithXY[j];
+          var dx = marker1.x - marker2.x;
+          var dy = marker1.y - marker2.yj;
+          var gridSizeMarkers = dx * dx + dy * dy;
+          // let enableDefaultStyle
+          // if (enableDefaultStyle) {
+
+          // }
+          if (gridSizeMarkers <= gridSize * gridSize) {
+            var id1 = marker1.id;
+            var id2 = marker2.id;
+            var isFind = false;
+            for (var c = 0; c < clusters.length; c++) {
+              var cluster = clusters[c];
+              if (cluster.markerIds.indexOf(id1) >= 0) {
+                cluster.markerIds.push(id2);
+                isFind = true;
+                break;
+              } else if (cluster.markerIds.indexOf(id2) >= 0) {
+                cluster.markerIds.push(id1);
+                isFind = true;
+                break;
+              }
+            }
+            // let zoomOnClick
+            // if (zoomOnClick) {
+
+            // }
+            if (!isFind) {
+              var clusterId = clusters.length + 1;
+              clusters.push({
+                clusterId: clusterId,
+                markerIds: [id1, id2]
+              });
+            }
+          }
+        }
+      }
+      return clusters.map(function (cluster) {
+        var marksers = sortedRagionMarkersWithXY.filter(function (marker) {
+          return cluster.markerIds.indexOf(marker.id);
+        });
+        cluster.center = getPolygonAreaCenter(marksers);
+        return cluster;
+      });
+    }
+  }
+};
+
+/***/ }),
+
+/***/ 33:
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil/PROMISE");
+
+/***/ }),
+
+/***/ 34:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LngLat2px = function () {
+  function LngLat2px(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW) {
+    _classCallCheck(this, LngLat2px);
+
+    this.lngNW = lngSW;
+    this.latNW = latNE;
+    this.kw = (lngNE - lngSW) * 3600 / mapWidth;
+    this.kh = (latNE - latSW) * 3600 / mapHeight;
+  }
+
+  LngLat2px.prototype.run = function run(lng, lat) {
+    var x = (lng - this.latNW) * 3600 / this.kw;
+    var y = (this.lngNW - lat) * 3600 / this.kh;
+    return { x: x, y: y };
+  };
+
+  return LngLat2px;
+}();
+
+exports.default = LngLat2px;
 
 /***/ })
 

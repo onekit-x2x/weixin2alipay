@@ -14,7 +14,7 @@ module.exports = {
       if (!wx_object) {
         return
       }
-      const wx_id = wx_object.id
+      let wx_id = wx_object.id
       const wx_src = wx_object.src
       const wx_bounds = wx_object.bounds
       let wx_visible = wx_object.visible
@@ -35,6 +35,7 @@ module.exports = {
           return
         }
         const markerLevel = this.data.markers.markerLevel
+        wx_id = markerLevel
         let alpha = this.data.groundOverlays.alpha
         if (wx_visible) {
           alpha = 1
@@ -46,7 +47,7 @@ module.exports = {
         //   filter:alpha(opacity:30)
         // }
         this.setData({
-          markerLevel = wx_id,
+          markerLevel: wx_id,
           'ground-overlays': [{
             'include-points': wx_bounds,
             image: wx_src,
@@ -66,31 +67,16 @@ module.exports = {
       }
       const wx_markers = wx_object.markers
       const wx_clear = wx_object.clear || false
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
       wx_object = null
-      // //////////
-      PROMISE((SUCCESS, FAIL) => {
-        if (!wx_markers) {
-          FAIL({
-            errMsg: 'addMarkers:error'
-          })
-          return
-        }
-        const markers = wx_clear ? [] : this.data.markers
-        markers.push(...wx_markers)
-        this.setData({
-          markers
-        })
-        const clusters = this._getClusters()
 
-        const wx_res = {
-          errMsg: 'addMarkers:ok'
-        }
-        SUCCESS(wx_res)
-        this._trigger_markerClusterCreate(clusters)
-      }, wx_success, wx_fail, wx_complete)
+
+      const markers = wx_clear ? [] : this.data.markers
+      markers.push(...wx_markers)
+      this.setData({
+        markers
+      })
+      const clusters = this._getClusters()
+      this._trigger_markerClusterCreate(clusters)
     },
     fromScreenLocation(wx_object) {
       console.log(wx_object)
@@ -111,114 +97,16 @@ module.exports = {
         SUCCESS(wx_res)
       }, wx_success, wx_fail, wx_complete)
     },
-    // getRotate(wx_object) {
-    //   console.log(wx_object)
-    //   if (!wx_object) {
-    //     return
-    //   }
-    //   const wx_success = wx_object.success
-    //   const wx_fail = wx_object.fail
-    //   const wx_complete = wx_object.complete
-    //   wx_object = null
-    //   // //////////
-    //   PROMISE((SUCCESS) => {
-    //     const wx_res = {
-    //       rotate: this.data.route,
-    //       errMsg: 'getRotate:ok'
-    //     }
-    //     SUCCESS(wx_res)
-    //   }, wx_success, wx_fail, wx_complete)
-    // },
-    // getScale(wx_object) {
-    //   console.log(wx_object)
-    //   if (!wx_object) {
-    //     return
-    //   }
-    //   const wx_success = wx_object.success
-    //   const wx_fail = wx_object.fail
-    //   const wx_complete = wx_object.complete
-    //   wx_object = null
-    //   // //////////
-    //   PROMISE((SUCCESS) => {
-    //     const wx_res = {
-    //       scale: this.data.scale,
-    //       errMsg: 'getScale:ok'
-    //     }
-    //     SUCCESS(wx_res)
-    //   }, wx_success, wx_fail, wx_complete)
-    // },
-    // getSkew(wx_object) {
-    //   console.log(wx_object)
-    //   if (!wx_object) {
-    //     return
-    //   }
-    //   const wx_success = wx_object.success
-    //   const wx_fail = wx_object.fail
-    //   const wx_complete = wx_object.complete
-    //   wx_object = null
-    //   // //////////
-    //   PROMISE((SUCCESS) => {
-    //     const wx_res = {
-    //       skew: this.data.skew,
-    //       errMsg: 'getSkew:ok'
-    //     }
-    //     SUCCESS(wx_res)
-    //   }, wx_success, wx_fail, wx_complete)
-    // },
-    // includePoints(wx_object) {
-    //   console.log(wx_object)
-    //   if (!wx_object) {
-    //     return
-    //   }
-    //   const wx_points = wx_object.points
-    //   const wx_padding = wx_object.padding
-    //   const wx_success = wx_object.success
-    //   const wx_fail = wx_object.fail
-    //   const wx_complete = wx_object.complete
-    //   wx_object = null
-    //   // //////////
-    //   PROMISE((SUCCESS, FAIL) => {
-    //     if (!wx_points) {
-    //       FAIL({
-    //         errMsg: 'includePoints:error'
-    //       })
-    //       return
-    //     }
-    //     this.setData({
-    //       includePoints: wx_points,
-    //       'include-padding': {
-    //         left: wx_padding[3],
-    //         right: wx_padding[1],
-    //         top: wx_padding[0],
-    //         bottom: wx_padding[2]
-    //       }
-    //     })
-    //     const wx_res = {
-    //       errMsg: 'includePoints:ok'
-    //     }
-    //     SUCCESS(wx_res)
-    //   }, wx_success, wx_fail, wx_complete)
-    // },
     initMarkerCluster(wx_object) {
-      console.log(wx_object)
       if (!wx_object) {
         return
       }
       const wx_enableDefaultStyle = wx_object.enableDefaultStyle
       const wx_zoomOnClick = wx_object.zoomOnClick
       const wx_gridSize = wx_object.gridSize
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
       wx_object = null
       // //////////
-      PROMISE((SUCCESS) => {
-        this._trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize)
-        const wx_res = {
-          errMsg: 'initMarkerCluster:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
+      this._trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize)
     },
     moveAlong(wx_object) {
       console.log(wx_object)
@@ -268,18 +156,9 @@ module.exports = {
       }
       const wx_markerClusterCreate = wx_object.clusters
       const wx_markerClusterClick = wx_object.latitude
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
       wx_object = null
 
-      PROMISE((SUCCESS) => {
-        this._trigger_markerClusterCreate(wx_markerClusterCreate, wx_markerClusterClick)
-        const wx_res = {
-          errMsg: 'on:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
+      this._trigger_markerClusterCreate(wx_markerClusterCreate, wx_markerClusterClick)
     },
     openMapApp(wx_object) {
       if (!wx_object) {
@@ -373,61 +252,12 @@ module.exports = {
         my.changeMarkers(my_object)
       }, wx_success, wx_fail, wx_complete)
     },
-    // setCenterOffset(wx_object) {
-    //   // 未完成
-    //   if (!wx_object) {
-    //     return
-    //   }
-    //   const wx_offset = wx_object.offset || [0.5, 0.5]
-    //   const wx_success = wx_object.success
-    //   const wx_fail = wx_object.fail
-    //   const wx_complete = wx_object.complete
-    //   wx_object = null
-
-    //   PROMISE((SUCCESS, FAIL) => {
-    //     if (!wx_offset) {
-    //       FAIL({
-    //         errMsg: 'setCenterOffset:error'
-    //       })
-    //       return
-    //     }
-    //     const wx_res = {
-    //       errMsg: 'setCenterOffset:ok'
-    //     }
-    //     SUCCESS(wx_res)
-    //   }, wx_success, wx_fail, wx_complete)
-    // },
-    // toScreenLocation(wx_object) {
-    //   if (!wx_object) {
-    //     return
-    //   }
-    //   const wx_success = wx_object.success
-    //   const wx_fail = wx_object.fail
-    //   const wx_complete = wx_object.complete
-    //   wx_object = null
-
-    //   PROMISE((SUCCESS) => {
-    //     let mapWidth
-    //     let mapHeight
-    //     let lngNE
-    //     let latNE
-    //     let lngSW
-    //     let latSW
-    //     const lngLat2px = new LngLat2px(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW)
-    //     const wx_res = {
-    //       errMsg: 'toScreenLocation:ok',
-    //       x: lngLat2px.lngSW,
-    //       y: lngLat2px.latNE
-    //     }
-    //     SUCCESS(wx_res)
-    //   }, wx_success, wx_fail, wx_complete)
-    // },
     updateGroundOverlay(wx_object) {
       console.log(wx_object)
       if (!wx_object) {
         return
       }
-      const wx_id = wx_object.id
+      let wx_id = wx_object.id
       const wx_src = wx_object.src
       const wx_bounds = wx_object.bounds
       let wx_visible = wx_object.visible
@@ -448,6 +278,7 @@ module.exports = {
           return
         }
         const markerLevel = this.data.markers.markerLevel
+        wx_id = markerLevel
         let alpha = this.data.groundOverlays.alpha
         if (wx_visible) {
           alpha = 1
@@ -459,7 +290,7 @@ module.exports = {
         //   filter:alpha(opacity:30)
         // }
         this.setData({
-          markerLevel = wx_id,
+          markerLevel: wx_id,
           'ground-overlays': [{
             'include-points': wx_bounds,
             image: wx_src,
@@ -505,7 +336,7 @@ module.exports = {
       let latNE
       let lngSW
       let latSW
-      let allMarkers
+      const allMarkers = []
       let gridSize
 
       function Area(p0, p1, p2) {
@@ -537,6 +368,7 @@ module.exports = {
         }
       }
       const ragionMarkers = allMarkers.filter(marker => ((lngSW < marker.lng < lngNE) && (latSW < marker.lat < latNE)))
+
       // 3
       const lngLat2px = new LngLat2px(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW)
       const ragionMarkersWithXY = ragionMarkers.map(marker => {
@@ -595,84 +427,6 @@ module.exports = {
         cluster.center = getPolygonAreaCenter(marksers)
         return cluster
       })
-    },
-    _getMapMove() {
-      let autoRotate
-      // let duration
-      let allMarkers
-      const markerId = getApp().onekit_nodes[`_${this.id}`]
-      const lng,
-      const lat,
-      const path = [{
-        lng,
-        lat
-      }]
-      allMarkers.map((r, theta) => {
-        for (const i in path) {
-          if (markerId) {
-            r = Math.floor(Math.sqrt((path[i].lng - path[i - 1].lng) * (path[i].lng - path[i - 1].lng) + (path[i].lat - path[i - 1].lng) * (path[i].lat - path[i - 1].lng)))
-            theta = Math.atan((path[i].lng - path[i - 1].lng) / (path[i].lat - path[i - 1].lng))
-            if ((theta >= 0 && theta < Math.PI) && (((path[i].lat - path[i - 1].lng) < 0 && (path[i].lng - path[i - 1].lng) > 0) || ((path[i].lat - path[i - 1].lng) < 0 && (path[i].lng - path[i - 1].lng) < 0))) {
-              theta = Math.PI + theta
-            }
-
-            //
-            if (autoRotate) {
-              theta = 0
-            }
-            // if (duration) {
-            //   const setDuration = duration
-            // }
-          }
-        }
-        return true
-      })
-    },
-    _getremoveGroundOverlay() {
-      const id
-
-      function removeClass(ele, cName) {
-        const arr = ele.className.split(' ')
-        const arr1 = cName.split(' ')
-        for (let i = 0; i < arr1.length; i++) {
-          for (let j = 0; j < arr.length; j++) {
-            if (arr1[i] === arr[j]) {
-              arr.splice(j, 1)
-            }
-          }
-        }
-        ele.className = arr.join(' ')
-      }
-      return removeClass(id)
-    },
-    /* _getsetCenterOffset() {
-      let mapWidth
-      let mapHeight
-      const offset = new Array(2)
-
-      function CenterArea(x, y) {
-        let circleCentrerX
-        let circleCentrerY
-        const r
-        let paddingLeft
-        let paddingRight
-        x = offset[0]
-        y = offset[1]
-        if ((x > 0.25 * mapWidth && x < 0.75 * mapWidth) && (y > 0.25 * mapHeight && y < 0.75 * mapHeight) && (r > 0 && r < 0.5 * mapHeight)) {
-          if ((x === 0.5) && (y === 0.5)) {
-            circleCentrerX = x
-            circleCentrerY = y
-
-            // const circle = document.createElement('div')
-            // 记得remove
-
-            // circle.setAttrbute('style', `width:${r * 2};height:${r * 2};borderRadius: 50%;paddingLeft:${paddingLeft};paddingRight:${paddingRight};opacity:0`)
-
-            paddingLeft = circleCentrerX - r
-            paddingRight = circleCentrerY - r
-          }
-        }
-      }
-    } */
+    }
   }
 }

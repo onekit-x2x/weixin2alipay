@@ -3,9 +3,11 @@
 import weixin_behavior from '../../behavior/weixin_behavior'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
+import MapContext_behavior from '../../api/MapContext_behavior'
+
 
 Component({
-  mixins: [weixin_behavior, onekit_behavior, wxs_behavior],
+  mixins: [weixin_behavior, onekit_behavior, wxs_behavior, MapContext_behavior],
   data: {
     groundOverlays: [],
     'include-padding': {
@@ -173,10 +175,6 @@ Component({
           enableTraffic: this.props.enableTraffic,
         }
       })
-    },
-
-    addGroundOverlay(object) {
-      console.log('addGroundOverlay', object)
     },
     map_tap({
       detail

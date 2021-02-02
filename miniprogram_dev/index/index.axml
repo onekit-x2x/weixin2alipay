@@ -609,7 +609,7 @@
     <onekit-button onTap="includePoints" onekit-class="page-body-button" type="primary">缩放视野展示所有经纬度</onekit-button>
   </onekit-view>
 </onekit-view> -->
-<onekit-view onekit-class="container">
+<!-- <onekit-view onekit-class="container">
   <onekit-view onekit-class="page-body">
     <onekit-view onekit-class="page-section-title">当前组件使用了墨渊底图样式，查看<onekit-navigator onekit-class="navigator" url="/page/component/pages/map-styles/map-styles">查看更多</onekit-navigator>。</onekit-view>
     <onekit-view onekit-class="page-section page-section-gap">
@@ -649,4 +649,20 @@
       </onekit-button>
     </onekit-view>
   </onekit-view>
+</onekit-view> -->
+<onekit-map 
+  onekit-id="mapId" 
+  onekit-class="map" 
+  latitude="{{latitude}}" 
+  longitude="{{longitude}}" 
+  onMarkertap="onMarkerTap" 
+  onCallouttap="onCalloutTap" 
+  onLabeltap="onLabelTap"/>
+<onekit-view onekit-class="btn-area service">
+  <onekit-button onTap="removeMarkers">
+    移除参与聚合点的marker
+  </onekit-button>
+  <onekit-button onTap="addMarkers">
+    添加聚合点marker
+  </onekit-button>
 </onekit-view>

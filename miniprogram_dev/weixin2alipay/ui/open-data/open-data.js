@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3251,7 +3251,7 @@ exports.default = wx;
 
 /***/ }),
 
-/***/ 37:
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3666,9 +3666,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
-
-// import wx from '../wx'
-// import MapContextX from './MapContextX'
 
 var MapContext = function () {
   function MapContext(alipayMapContext, id) {

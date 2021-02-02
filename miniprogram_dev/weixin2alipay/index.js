@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 54);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3186,7 +3186,7 @@ exports.default = VideoContext;
 
 /***/ }),
 
-/***/ 51:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3194,22 +3194,22 @@ exports.default = VideoContext;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLOBAL = exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(52);
+var OnekitApp_1 = __webpack_require__(55);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(53);
+var OnekitBehavior_1 = __webpack_require__(56);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(54);
+var OnekitComponent_1 = __webpack_require__(57);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(55);
+var OnekitPage_1 = __webpack_require__(58);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(3);
 exports.wx = wx_1.default;
-var global_1 = __webpack_require__(56);
+var global_1 = __webpack_require__(59);
 exports.GLOBAL = global_1.default;
 
 /***/ }),
 
-/***/ 52:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3307,7 +3307,7 @@ function OnekitApp(wx_object) {
 
 /***/ }),
 
-/***/ 53:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3434,7 +3434,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 54:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3635,7 +3635,7 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 55:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3816,7 +3816,7 @@ function OnekitPage(wx_object) {
 
 /***/ }),
 
-/***/ 56:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4135,9 +4135,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
-
-// import wx from '../wx'
-// import MapContextX from './MapContextX'
 
 var MapContext = function () {
   function MapContext(alipayMapContext, id) {

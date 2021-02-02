@@ -3228,9 +3228,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 
-// import wx from '../wx'
-// import MapContextX from './MapContextX'
-
 var MapContext = function () {
   function MapContext(alipayMapContext, id) {
     _classCallCheck(this, MapContext);

@@ -830,40 +830,40 @@ global = {};
 //   })
 
 //MapContext
-OnekitPage({
-  data: {
-    markers: [{
-      id: 1,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      name: 'T.I.T 创意园',
-    }],
-    covers: [{
-      latitude: 23.099994,
-      longitude: 113.344520,
-      iconPath: '/image/location.png'
-    }, {
-      latitude: 23.099994,
-      longitude: 113.304520,
-      iconPath: '/image/location.png'
-    }]
-  },
-  onLoad(){
-    const ctx = wx.createMapContext('myMap');
-    ctx.translateMarker({
-      markerId: 1,
-      autoRotate: true,
-      duration: 1000,
-      destination: {
-        latitude:23.10229,
-        longitude:113.3345211,
-      },
-      animationEnd() {
-        console.log('animation end')
-      }
-    })
-  }
-})
+// OnekitPage({
+//   data: {
+//     markers: [{
+//       id: 1,
+//       latitude: 23.099994,
+//       longitude: 113.324520,
+//       name: 'T.I.T 创意园',
+//     }],
+//     covers: [{
+//       latitude: 23.099994,
+//       longitude: 113.344520,
+//       iconPath: '/image/location.png'
+//     }, {
+//       latitude: 23.099994,
+//       longitude: 113.304520,
+//       iconPath: '/image/location.png'
+//     }]
+//   },
+//   onLoad(){
+//     const ctx = wx.createMapContext('myMap');
+//     ctx.translateMarker({
+//       markerId: 1,
+//       autoRotate: true,
+//       duration: 1000,
+//       destination: {
+//         latitude:23.10229,
+//         longitude:113.3345211,
+//       },
+//       animationEnd() {
+//         console.log('animation end')
+//       }
+//     })
+//   }
+// })
 
 // OnekitPage({
 //     data:{
@@ -939,3 +939,148 @@ OnekitPage({
 //       })
 //     }
 //   })
+
+OnekitPage({
+    onShareAppMessage:function(){
+      return {
+        title:'map',
+        path:'page/component/pages/map/map'
+      }
+    },
+    data:{
+        latitude:23.099994,
+        longitude:113.32452,
+        controls:[
+          {
+              id:0,
+              position:{
+                  left:10,
+                  top:70,
+                  width:40,
+                  height:40
+                },
+              iconPath:'../image/location.png',
+              clickable:false
+            },
+          {
+              id:5,
+              position:{
+                  left:10,
+                  top:120,
+                  width:40,
+                  height:40
+                },
+              iconPath:'../image/arrows-down.png',
+              clickable:true
+            },
+          {
+              id:3,
+              position:{
+                  left:50,
+                  top:120,
+                  width:40,
+                  height:40
+                },
+              iconPath:'../image/location.png',
+              clickable:true
+            }
+        ],
+        markers:[
+          {
+              latitude:23.099994,
+              longitude:113.32452,
+              name:'T.I.T 创意园'
+            }
+        ],
+        covers:[
+          {
+              latitude:23.099994,
+              longitude:113.34452,
+              iconPath:'/image/location.png'
+            },
+          {
+              latitude:23.099994,
+              longitude:113.30452,
+              iconPath:'/image/location.png'
+            }
+        ],
+        polygons:[
+          {
+              points:[
+                {
+                    latitude:23.099994,
+                    longitude:113.32452
+                  },
+                {
+                    latitude:23.098994,
+                    longitude:113.32352
+                  },
+                {
+                    latitude:23.098994,
+                    longitude:113.32552
+                  }
+              ],
+              strokeWidth:3,
+              strokeColor:'#FFFFFFAA'
+            }
+        ],
+        subKey:'B5QBZ-7JTLU-DSSVA-2BRJ3-TNXLF-2TBR7',
+        enable3d:false,
+        showCompass:false,
+        enableOverlooking:false,
+        enableZoom:true,
+        enableScroll:true,
+        enableRotate:false,
+        drawPolygon:false,
+        enableSatellite:false,
+        enableTraffic:false
+      },
+    toggle3d:function(){
+      this.setData({
+        enable3d:!this.data.enable3d
+      })
+    },
+    toggleShowCompass:function(){
+      this.setData({
+        showCompass:!this.data.showCompass
+      })
+    },
+    toggleOverlooking:function(){
+      this.setData({
+        enableOverlooking:!this.data.enableOverlooking
+      })
+    },
+    toggleZoom:function(){
+      this.setData({
+        enableZoom:!this.data.enableZoom
+      })
+    },
+    toggleScroll:function(){
+      this.setData({
+        enableScroll:!this.data.enableScroll
+      })
+    },
+    toggleRotate:function(){
+      this.setData({
+        enableRotate:!this.data.enableRotate
+      })
+    },
+    togglePolygon:function(){
+      this.setData({
+        drawPolygon:!this.data.drawPolygon
+      })
+    },
+    toggleSatellite:function(){
+      this.setData({
+        enableSatellite:!this.data.enableSatellite
+      })
+    },
+    toggleTraffic:function(){
+      this.setData({
+        enableTraffic:!this.data.enableTraffic
+      })
+    },
+    map_controltap:function(e){
+      console.log(e.detail)
+    }
+  })

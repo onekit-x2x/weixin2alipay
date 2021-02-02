@@ -103,69 +103,51 @@ Component({
   didUnmount() {},
   methods: {
     showCompass_(mapCtx, showCompass) {
-      if (showCompass) {
-        mapCtx.showsCompass({
-          isShowCompass: showCompass ? 1 : 0
-        })
-      }
+      mapCtx.showsCompass({
+        isShowCompass: showCompass ? 1 : 0
+      })
     },
     showsScale_(mapCtx, showsScale) {
-      if (showsScale) {
-        mapCtx.showsScale({
-          isShowsScale: showsScale ? 1 : 0
-        })
-      }
+      mapCtx.showsScale({
+        isShowsScale: showsScale ? 1 : 0
+      })
     },
     enableZoom_(mapCtx, enableZoom) {
-      if (!enableZoom) {
-        mapCtx.gestureEnable({
-          isGestureEnable: enableZoom ? 1 : 0
-        })
-        console.warn('支付宝小程序地图组件会禁用全部手势')
-      }
+      mapCtx.gestureEnable({
+        isGestureEnable: enableZoom ? 1 : 0
+      })
+      console.warn('支付宝小程序地图组件会禁用全部手势')
     },
     enableScroll_(mapCtx, enableScroll) {
-      if (!enableScroll) {
-        mapCtx.gestureEnable({
-          isGestureEnable: enableScroll ? 1 : 0
-        })
-        console.warn('支付宝小程序地图组件会禁用全部手势')
-      }
+      mapCtx.gestureEnable({
+        isGestureEnable: enableScroll ? 1 : 0
+      })
+      console.warn('支付宝小程序地图组件会禁用全部手势')
     },
     enableRotate_(mapCtx, enableRotate) {
-      if (enableRotate) {
-        mapCtx.gestureEnable({
-          isGestureEnable: enableRotate ? 1 : 0
-        })
-        console.warn('支付宝小程序地图组件会禁用全部手势')
-      }
+      mapCtx.gestureEnable({
+        isGestureEnable: enableRotate ? 1 : 0
+      })
+      console.warn('支付宝小程序地图组件会禁用全部手势')
     },
     enableSatellite_(mapCtx, enableSatellite) {
-      if (enableSatellite) {
-        mapCtx.updateComponents({
-          setting: {
-            trafficEnabled: enableSatellite ? 1 : 0
-          }
-        })
-      }
+      mapCtx.setMapType({
+        mapType: enableSatellite ? 1 : 0
+      })
     },
     enableTraffic_(mapCtx, enableTraffic) {
-      if (enableTraffic) {
-        mapCtx.updateComponents({
-          setting: {
-            trafficEnabled: enableTraffic ? 1 : 0
-          }
-        })
-      }
+      mapCtx.updateComponents({
+        setting: {
+          trafficEnabled: enableTraffic ? 1 : 0
+        }
+      })
     },
     enablePoi_(mapCtx, enablePoi) {
-      if (enablePoi) {
-        mapCtx.updateComponents({
-          setting: {
-            showMapText: enablePoi ? 1 : 0
-          }
-        })
-      }
+      mapCtx.updateComponents({
+        setting: {
+          showMapText: enablePoi ? 1 : 0
+        }
+      })
     },
     setting_(mapCtx, latitude, longitude) {
       mapCtx.updateComponents({
@@ -178,7 +160,7 @@ Component({
           showScale: this.props.showScale,
           // 做不了
           subKey: '',
-          // 做不了 支付宝有问题
+          // 做不了
           layerStyle: 1,
           enableZoom: this.props.enableZoom,
           enableScroll: this.props.enableScroll,

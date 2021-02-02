@@ -397,69 +397,51 @@ Component({
 
   methods: {
     showCompass_: function showCompass_(mapCtx, showCompass) {
-      if (showCompass) {
-        mapCtx.showsCompass({
-          isShowCompass: showCompass ? 1 : 0
-        });
-      }
+      mapCtx.showsCompass({
+        isShowCompass: showCompass ? 1 : 0
+      });
     },
     showsScale_: function showsScale_(mapCtx, showsScale) {
-      if (showsScale) {
-        mapCtx.showsScale({
-          isShowsScale: showsScale ? 1 : 0
-        });
-      }
+      mapCtx.showsScale({
+        isShowsScale: showsScale ? 1 : 0
+      });
     },
     enableZoom_: function enableZoom_(mapCtx, enableZoom) {
-      if (!enableZoom) {
-        mapCtx.gestureEnable({
-          isGestureEnable: enableZoom ? 1 : 0
-        });
-        console.warn('支付宝小程序地图组件会禁用全部手势');
-      }
+      mapCtx.gestureEnable({
+        isGestureEnable: enableZoom ? 1 : 0
+      });
+      console.warn('支付宝小程序地图组件会禁用全部手势');
     },
     enableScroll_: function enableScroll_(mapCtx, enableScroll) {
-      if (!enableScroll) {
-        mapCtx.gestureEnable({
-          isGestureEnable: enableScroll ? 1 : 0
-        });
-        console.warn('支付宝小程序地图组件会禁用全部手势');
-      }
+      mapCtx.gestureEnable({
+        isGestureEnable: enableScroll ? 1 : 0
+      });
+      console.warn('支付宝小程序地图组件会禁用全部手势');
     },
     enableRotate_: function enableRotate_(mapCtx, enableRotate) {
-      if (enableRotate) {
-        mapCtx.gestureEnable({
-          isGestureEnable: enableRotate ? 1 : 0
-        });
-        console.warn('支付宝小程序地图组件会禁用全部手势');
-      }
+      mapCtx.gestureEnable({
+        isGestureEnable: enableRotate ? 1 : 0
+      });
+      console.warn('支付宝小程序地图组件会禁用全部手势');
     },
     enableSatellite_: function enableSatellite_(mapCtx, enableSatellite) {
-      if (enableSatellite) {
-        mapCtx.updateComponents({
-          setting: {
-            trafficEnabled: enableSatellite ? 1 : 0
-          }
-        });
-      }
+      mapCtx.setMapType({
+        mapType: enableSatellite ? 1 : 0
+      });
     },
     enableTraffic_: function enableTraffic_(mapCtx, enableTraffic) {
-      if (enableTraffic) {
-        mapCtx.updateComponents({
-          setting: {
-            trafficEnabled: enableTraffic ? 1 : 0
-          }
-        });
-      }
+      mapCtx.updateComponents({
+        setting: {
+          trafficEnabled: enableTraffic ? 1 : 0
+        }
+      });
     },
     enablePoi_: function enablePoi_(mapCtx, enablePoi) {
-      if (enablePoi) {
-        mapCtx.updateComponents({
-          setting: {
-            showMapText: enablePoi ? 1 : 0
-          }
-        });
-      }
+      mapCtx.updateComponents({
+        setting: {
+          showMapText: enablePoi ? 1 : 0
+        }
+      });
     },
     setting_: function setting_(mapCtx, latitude, longitude) {
       mapCtx.updateComponents({

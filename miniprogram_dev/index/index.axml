@@ -597,7 +597,6 @@
   markers="{{markers}}"
   covers="{{covers}}"
   onekit-style="width: 750rpx;height: 800rpx;"/>
-  />
 
 <!-- <onekit-view onekit-class="page-body">
   <onekit-view onekit-class="page-section page-section-gap">

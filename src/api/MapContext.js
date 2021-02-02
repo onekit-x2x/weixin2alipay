@@ -13,6 +13,7 @@ export default class MapContext {
 
   addCustomLayer(wx_object) {
     const map = getApp().onekit_nodes[`_${this.id}`]
+    console.log(map)
     map.addCustomLayer(wx_object)
   }
 
@@ -28,7 +29,6 @@ export default class MapContext {
   }
 
   fromScreenLocation(wx_object) {
-    console.log(this.alipayMapContext, wx_object)
     return this.alipayMapContext.screenToMap(wx_object)
   }
 

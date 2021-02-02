@@ -79,8 +79,17 @@ Component({
   },
   didMount() {
     const scale = Math.max(this.props.scale, this.props.minScale)
+    let covers = this.props.covers
+    let markers = this.props.markers
+    if (covers.length !== 0) {
+      markers = markers.concat(covers)
+      covers = []
+    }
+    console.log(markers)
     this.setData({
-      scale
+      scale,
+      covers,
+      markers,
     })
 
     my.createSelectorQuery().select('.onekit-map').boundingClientRect().exec((rect) => {

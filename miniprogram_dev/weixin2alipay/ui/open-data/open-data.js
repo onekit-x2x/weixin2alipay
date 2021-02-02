@@ -3680,6 +3680,7 @@ var MapContext = function () {
 
   MapContext.prototype.addCustomLayer = function addCustomLayer(wx_object) {
     var map = getApp().onekit_nodes["_" + this.id];
+    console.log(map);
     map.addCustomLayer(wx_object);
   };
 
@@ -3695,9 +3696,6 @@ var MapContext = function () {
   };
 
   MapContext.prototype.fromScreenLocation = function fromScreenLocation(wx_object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.fromScreenLocation(wx_object)
-    console.log(this.alipayMapContext, wx_object);
     return this.alipayMapContext.screenToMap(wx_object);
   };
 
@@ -3710,26 +3708,18 @@ var MapContext = function () {
   };
 
   MapContext.prototype.getRotate = function getRotate(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.getRotate(wx_object)
     return this.alipayMapContext.getRegion(object);
   };
 
   MapContext.prototype.getScale = function getScale(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.getScale(wx_object)
     return this.alipayMapContext.getScale(object);
   };
 
   MapContext.prototype.getSkew = function getSkew(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.getSkew(wx_object)
     return this.alipayMapContext.getSkew(object);
   };
 
   MapContext.prototype.includePoints = function includePoints(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.includePoints(wx_object)
     return this.alipayMapContext.includePoints(object);
   };
 
@@ -3768,15 +3758,11 @@ var MapContext = function () {
   };
 
   MapContext.prototype.setCenterOffset = function setCenterOffset(object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.setCenterOffset(wx_object)
     return this.alipayMapContext.moveToLocation(object);
   };
 
-  MapContext.prototype.toScreenLocation = function toScreenLocation(wx_object) {
-    // const map = getApp().onekit_nodes[`_${this.id}`]
-    // map.toScreenLocation(wx_object)
-    return this.alipayMapContext.moveToLocation(wx_object);
+  MapContext.prototype.toScreenLocation = function toScreenLocation(object) {
+    return this.alipayMapContext.moveToLocation(object);
   };
 
   MapContext.prototype.translateMarker = function translateMarker(object) {

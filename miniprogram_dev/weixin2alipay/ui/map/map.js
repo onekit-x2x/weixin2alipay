@@ -372,8 +372,17 @@ Component({
     var _this = this;
 
     var scale = Math.max(this.props.scale, this.props.minScale);
+    var covers = this.props.covers;
+    var markers = this.props.markers;
+    if (covers.length !== 0) {
+      markers = markers.concat(covers);
+      covers = [];
+    }
+    console.log(markers);
     this.setData({
-      scale: scale
+      scale: scale,
+      covers: covers,
+      markers: markers
     });
 
     my.createSelectorQuery().select('.onekit-map').boundingClientRect().exec(function (rect) {

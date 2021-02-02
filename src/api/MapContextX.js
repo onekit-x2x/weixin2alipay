@@ -398,31 +398,31 @@ module.exports = {
     //     SUCCESS(wx_res)
     //   }, wx_success, wx_fail, wx_complete)
     // },
-    toScreenLocation(wx_object) {
-      if (!wx_object) {
-        return
-      }
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
+    // toScreenLocation(wx_object) {
+    //   if (!wx_object) {
+    //     return
+    //   }
+    //   const wx_success = wx_object.success
+    //   const wx_fail = wx_object.fail
+    //   const wx_complete = wx_object.complete
+    //   wx_object = null
 
-      PROMISE((SUCCESS) => {
-        let mapWidth
-        let mapHeight
-        let lngNE
-        let latNE
-        let lngSW
-        let latSW
-        const lngLat2px = new LngLat2px(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW)
-        const wx_res = {
-          errMsg: 'toScreenLocation:ok',
-          x: lngLat2px.lngSW,
-          y: lngLat2px.latNE
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
-    },
+    //   PROMISE((SUCCESS) => {
+    //     let mapWidth
+    //     let mapHeight
+    //     let lngNE
+    //     let latNE
+    //     let lngSW
+    //     let latSW
+    //     const lngLat2px = new LngLat2px(mapWidth, mapHeight, lngNE, latNE, lngSW, latSW)
+    //     const wx_res = {
+    //       errMsg: 'toScreenLocation:ok',
+    //       x: lngLat2px.lngSW,
+    //       y: lngLat2px.latNE
+    //     }
+    //     SUCCESS(wx_res)
+    //   }, wx_success, wx_fail, wx_complete)
+    // },
     updateGroundOverlay(wx_object) {
       console.log(wx_object)
       if (!wx_object) {

@@ -6,7 +6,7 @@
   longitude="{{longitude}}"
   latitude="{{latitude}}"
   scale="{{scale}}"
-  markers="{{markers || covers}}"
+  markers="{{covers || markers}}"
   polyline="{{polyline}}"
   circles="{{circles}}"
   controls="{{controls}}"

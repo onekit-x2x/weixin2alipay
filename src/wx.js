@@ -7,7 +7,6 @@ import CameraContext from './api/CameraContext'
 import SelectorQuery from './api/SelectorQuery'
 import MapContext from './api/MapContext'
 import CanvasContext from './api/CanvasContext'
-// import AudioContext from './api/AudioContext'
 
 export default class wx {
   // ///////////////// animation //////////////////////////

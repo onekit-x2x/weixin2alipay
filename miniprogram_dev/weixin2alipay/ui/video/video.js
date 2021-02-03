@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 52);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -199,6 +199,13 @@ exports.default = {
 
 /***/ }),
 
+/***/ 11:
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil/PROMISE");
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -275,7 +282,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 52:
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -293,10 +300,17 @@ var _weixin_behavior = __webpack_require__(2);
 
 var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
+var _VideoContext_behavior = __webpack_require__(52);
+
+var _VideoContext_behavior2 = _interopRequireDefault(_VideoContext_behavior);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable max-len */
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 Component({
-  mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
+  mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default, _VideoContext_behavior2.default],
   data: {
     pictureinpicture: 'none'
   },
@@ -467,9 +481,75 @@ Component({
       }
     }
   }
-}); /* eslint-disable max-len */
+});
+
+/***/ }),
+
+/***/ 52:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _PROMISE = __webpack_require__(11);
+
+module.exports = {
+  methods: {
+    // 做不了
+    exitPictureInPicture: function exitPictureInPicture(wx_object) {
+      if (!wx_object) {
+        return;
+      }
+      var wx_exitPictureInPicture = wx_object.onLeavepictureinpicture;
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (wx_exitPictureInPicture) {
+          var _wx_res = {
+            errMsg: 'exitPictureInPicture:ok'
+          };
+          SUCCESS(_wx_res);
+        }
+        var wx_res = {
+          errMsg: 'exitPictureInPicture:error'
+        };
+        FAIL(wx_res);
+      }, wx_success, wx_fail, wx_complete);
+    },
+    sendDanmu: function sendDanmu(wx_object) {
+      console.log(wx_object);
+      if (!wx_object) {
+        return;
+      }
+      var wx_text = void 0;
+      var wx_color = void 0;
+      var danmuList = wx_object.danmuList;
+      danmuList.map(function (item) {
+        wx_text = item.wx_text;
+        wx_color = item.wx_color;
+        return wx_text, wx_color;
+      });
+      var wx_success = wx_object.success;
+      var wx_fail = wx_object.fail;
+      var wx_complete = wx_object.complete;
+      wx_object = null;
+      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+        if (!wx_text) {
+          FAIL({
+            errMsg: 'sendDanmu:error'
+          });
+        }
+        var wx_res = {
+          errMsg: 'sendDanmu:ok'
+        };
+        SUCCESS(wx_res);
+      }, wx_success, wx_fail, wx_complete);
+    }
+  }
+}; /* eslint-disable camelcase */
 /* eslint-disable no-console */
-/* eslint-disable camelcase */
 
 /***/ })
 

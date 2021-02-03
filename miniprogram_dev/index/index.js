@@ -1085,122 +1085,194 @@ global = {};
 //   })
 
 
-const app = getApp()
-const img = '../image/location.png'
+// const app = getApp()
+// const img = '../image/location.png'
+// OnekitPage({
+//     data:{
+//         latitude:23.099994,
+//         longitude:113.32452
+//       },
+//     onLoad:function(){
+//       this.mapCtx = wx.createMapContext('mapId')
+//       this.mapCtx.on('markerClusterClick',(res)=>{console.log('markerClusterClick',res)})
+//       this.bindEvent()
+//     },
+//     bindEvent:function(){
+//       this.mapCtx.initMarkerCluster({
+//         enableDefaultStyle:false,
+//         zoomOnClick:true,
+//         gridSize:60,
+//         complete:function(res){
+//           console.log('initMarkerCluster',res)
+//         }
+//       })
+//       this.mapCtx.on('markerClusterCreate',(res)=>{
+//       console.log('clusterCreate',res)
+//       const clusters = res.clusters
+//       const markers = clusters.map((cluster)=>{
+//         const {center,clusterId,markerIds} = cluster
+//         return {
+//             ...center,
+//             width:0,
+//             height:0,
+//             clusterId,
+//             label:{
+//                 content:markerIds.length + '',
+//                 fontSize:20,
+//                 width:60,
+//                 height:60,
+//                 bgColor:'#00ff00',
+//                 borderRadius:30,
+//                 textAlign:'center',
+//                 anchorX:0,
+//                 anchorY:-30
+//               }
+//           }
+//       })
+//       this.mapCtx.addMarkers({
+//           markers,
+//           clear:false,
+//           complete:function(res){
+//             console.log('clusterCreate addMarkers',res)
+//           }
+//         })
+//     })
+//     },
+//     addMarkers:function(){
+//       const marker = {
+//         id:1,
+//         iconPath:img,
+//         width:50,
+//         height:50,
+//         joinCluster:true,
+//         label:{
+//             width:50,
+//             height:30,
+//             borderWidth:1,
+//             borderRadius:10,
+//             bgColor:'#ffffff'
+//           }
+//       }
+//       const positions = [
+//       {
+//           latitude:23.099994,
+//           longitude:113.32452
+//         },
+//       {
+//           latitude:23.099994,
+//           longitude:113.32252
+//         },
+//       {
+//           latitude:23.099994,
+//           longitude:113.32652
+//         },
+//       {
+//           latitude:23.096994,
+//           longitude:113.32952
+//         }
+//     ]
+//       const markers = [
+//     ]
+//       positions.forEach((p,i)=>{
+//       const newMarker = Object.assign(marker,p)
+//       newMarker.id = i + 1
+//       newMarker.label.content = `label ${i + 1}`
+//       markers.push(newMarker)
+//       this.mapCtx.addMarkers({
+//           markers,
+//           clear:false,
+//           complete:function(res){
+//             console.log('addMarkers',res)
+//           }
+//         })
+//     })
+//     },
+//     removeMarkers:function(){
+//       this.mapCtx.addMarkers({
+//         clear:true,
+//         markers:[
+//         ]
+//       })
+//     },
+//     onMarkerTap:function(e){
+//       console.log('@@ markertap',e)
+//     },
+//     onCalloutTap:function(e){
+//       console.log('@@ onCalloutTap',e)
+//     },
+//     onLabelTap:function(e){
+//       console.log('@@ labletap',e)
+//     }
+//   })
+
+// OnekitPage({
+//     onLoad:function(){
+//       this.videoContext = wx.createVideoContext('myVideo')
+//     },
+//     bindVideoEnterPictureInPicture:function(){
+//       console.log('进入小窗模式')
+//     },
+//     bindVideoLeavePictureInPicture:function(){
+//       console.log('退出小窗模式')
+//     },
+//     bindPlayVideo:function(){
+//       console.log('1')
+//       this.videoContext.play()
+//       this.videoContext.exitPictureInPicture({
+//         success:(res)=>{console.log('success',res)},
+//         fail:(res)=>{console.log('false',res)},
+//         complete:(res)=>{console.log('complete',res)}
+//       })
+//     }
+//   })
+
+function getRandomColor(){
+  const rgb = [
+  ]
+  for(var i = 0;i < 3;++i){
+    var color = Math.floor(Math.random() * 256).toString(16);
+    color = color.length == 1?'0' + color:color;
+    rgb.push(color);
+  }
+  return '#' + rgb.join('')
+}
 OnekitPage({
+    onReady:function(res){
+      this.videoContext = wx.createVideoContext('myVideo')
+    },
+    inputValue:'',
     data:{
-        latitude:23.099994,
-        longitude:113.32452
-      },
-    onLoad:function(){
-      this.mapCtx = wx.createMapContext('mapId')
-      this.mapCtx.on('markerClusterClick',(res)=>{console.log('markerClusterClick',res)})
-      this.bindEvent()
-    },
-    bindEvent:function(){
-      this.mapCtx.initMarkerCluster({
-        enableDefaultStyle:false,
-        zoomOnClick:true,
-        gridSize:60,
-        complete:function(res){
-          console.log('initMarkerCluster',res)
-        }
-      })
-      this.mapCtx.on('markerClusterCreate',(res)=>{
-      console.log('clusterCreate',res)
-      const clusters = res.clusters
-      const markers = clusters.map((cluster)=>{
-        const {center,clusterId,markerIds} = cluster
-        return {
-            ...center,
-            width:0,
-            height:0,
-            clusterId,
-            label:{
-                content:markerIds.length + '',
-                fontSize:20,
-                width:60,
-                height:60,
-                bgColor:'#00ff00',
-                borderRadius:30,
-                textAlign:'center',
-                anchorX:0,
-                anchorY:-30
-              }
-          }
-      })
-      this.mapCtx.addMarkers({
-          markers,
-          clear:false,
-          complete:function(res){
-            console.log('clusterCreate addMarkers',res)
-          }
-        })
-    })
-    },
-    addMarkers:function(){
-      const marker = {
-        id:1,
-        iconPath:img,
-        width:50,
-        height:50,
-        joinCluster:true,
-        label:{
-            width:50,
-            height:30,
-            borderWidth:1,
-            borderRadius:10,
-            bgColor:'#ffffff'
-          }
-      }
-      const positions = [
-      {
-          latitude:23.099994,
-          longitude:113.32452
-        },
-      {
-          latitude:23.099994,
-          longitude:113.32252
-        },
-      {
-          latitude:23.099994,
-          longitude:113.32652
-        },
-      {
-          latitude:23.096994,
-          longitude:113.32952
-        }
-    ]
-      const markers = [
-    ]
-      positions.forEach((p,i)=>{
-      const newMarker = Object.assign(marker,p)
-      newMarker.id = i + 1
-      newMarker.label.content = `label ${i + 1}`
-      markers.push(newMarker)
-      this.mapCtx.addMarkers({
-          markers,
-          clear:false,
-          complete:function(res){
-            console.log('addMarkers',res)
-          }
-        })
-    })
-    },
-    removeMarkers:function(){
-      this.mapCtx.addMarkers({
-        clear:true,
-        markers:[
+        src:'',
+        danmuList:[
+          {
+              text:'第 1s 出现的弹幕',
+              color:'#ff0000',
+              time:1
+            },
+          {
+              text:'第 3s 出现的弹幕',
+              color:'#ff00ff',
+              time:3
+            }
         ]
+      },
+    bindInputBlur:function(e){
+      this.inputValue = e.detail.value
+    },
+    bindSendDanmu:function(){
+      this.videoContext.sendDanmu({
+        text:this.inputValue,
+        color:getRandomColor()
       })
     },
-    onMarkerTap:function(e){
-      console.log('@@ markertap',e)
+    bindPlay:function(){
+      this.videoContext.play()
     },
-    onCalloutTap:function(e){
-      console.log('@@ onCalloutTap',e)
+    bindPause:function(){
+      this.videoContext.pause()
     },
-    onLabelTap:function(e){
-      console.log('@@ labletap',e)
+    videoErrorCallback:function(e){
+      console.log('视频错误信息:')
+      console.log(e.detail.errMsg)
     }
   })

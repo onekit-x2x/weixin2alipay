@@ -1,5 +1,5 @@
-/* eslint-disable class-methods-use-this */
-
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 export default class VideoContext {
   constructor(alipayVideoContext, id) {
@@ -11,9 +11,14 @@ export default class VideoContext {
     return this.alipayConvasContext.exitFullScreen()
   }
 
-  exitPictureInPicture() {}
+  exitPictureInPicture(wx_object) {
+    const video = getApp().onekit_nodes[`_${this.id}`]
+    video.exitPictureInPicture(wx_object)
+  }
 
-  hideStatusBar() {}
+  hideStatusBar() {
+    return this.alipayConvasContext.hideStatusBar()
+  }
 
   pause() {
     return this.alipayVideoContext.pause()
@@ -23,23 +28,27 @@ export default class VideoContext {
     return this.alipayVideoContext.play()
   }
 
-  playbackRate() {}
+  playbackRate() {
+    return this.alipayVideoContext.playbackRate()
+  }
 
-  requestFullScreen(direction) {
-    return this.alipayConvasContext.requestFullScreen(direction)
+  requestFullScreen(object) {
+    return this.alipayConvasContext.requestFullScreen(object)
   }
 
   seek(position) {
     return this.alipayConvasContext.seek(position)
   }
 
-  //
   sendDanmu(data) {
     const video = getApp().onekit_nodes[this.id]
+    console.log(video)
     video.sendDanmu(data)
   }
 
-  showStatusBar() {}
+  showStatusBar() {
+    return this.alipayVideoContext.showStatusBar()
+  }
 
   stop() {
     return this.alipayVideoContext.stop()

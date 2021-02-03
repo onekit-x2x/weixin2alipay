@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 41);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -558,130 +558,6 @@ exports.default = CanvasContext;
 
 /***/ }),
 
-/***/ 11:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var InnerAudioContext = function () {
-  function InnerAudioContext(alipayInnerAudioContext) {
-    _classCallCheck(this, InnerAudioContext);
-
-    this.alipayInnerAudioContext = alipayInnerAudioContext;
-  }
-
-  InnerAudioContext.prototype.destroy = function destroy() {
-    return this.alipayInnerAudioContext.destroy();
-  };
-
-  InnerAudioContext.prototype.offEnded = function offEnded(callback) {
-    return this.alipayInnerAudioContext.offEnded(callback);
-  };
-
-  InnerAudioContext.prototype.callback = function callback(_callback) {
-    return this.alipayInnerAudioContext.callback(_callback);
-  };
-
-  InnerAudioContext.prototype.offError = function offError(callback) {
-    return this.alipayCameraContext.offError(callback);
-  };
-
-  InnerAudioContext.prototype.offPause = function offPause(callback) {
-    return this.alipayInnerAudioContext.offPause(callback);
-  };
-
-  InnerAudioContext.prototype.offPlay = function offPlay(callback) {
-    return this.alipayInnerAudioContext.offPlay(callback);
-  };
-
-  InnerAudioContext.prototype.offSeeked = function offSeeked(callback) {
-    return this.alipayCameraContext.offSeeked(callback);
-  };
-
-  InnerAudioContext.prototype.offSeeking = function offSeeking(callback) {
-    return this.alipayInnerAudioContext.offSeeking(callback);
-  };
-
-  InnerAudioContext.prototype.offStop = function offStop(callback) {
-    return this.alipayInnerAudioContext.offStop(callback);
-  };
-
-  InnerAudioContext.prototype.offTimeUpdate = function offTimeUpdate(callback) {
-    return this.alipayCameraContext.offTimeUpdate(callback);
-  };
-
-  InnerAudioContext.prototype.offWaiting = function offWaiting(callback) {
-    return this.alipayInnerAudioContext.offWaiting(callback);
-  };
-
-  InnerAudioContext.prototype.onCanplay = function onCanplay(callback) {
-    return this.alipayInnerAudioContext.onCanplay(callback);
-  };
-
-  InnerAudioContext.prototype.onEnded = function onEnded(callback) {
-    return this.alipayCameraContext.onEnded(callback);
-  };
-
-  InnerAudioContext.prototype.onError = function onError(callback) {
-    return this.alipayInnerAudioContext.onError(callback);
-  };
-
-  InnerAudioContext.prototype.onPause = function onPause(callback) {
-    return this.alipayInnerAudioContext.onPause(callback);
-  };
-
-  InnerAudioContext.prototype.onPlay = function onPlay(callback) {
-    return this.alipayCameraContext.onPlay(callback);
-  };
-
-  InnerAudioContext.prototype.onSeeked = function onSeeked(callback) {
-    return this.alipayInnerAudioContext.onSeeked(callback);
-  };
-
-  InnerAudioContext.prototype.onSeeking = function onSeeking(callback) {
-    return this.alipayInnerAudioContext.onSeeking(callback);
-  };
-
-  InnerAudioContext.prototype.onStop = function onStop(callback) {
-    return this.alipayCameraContext.onStop(callback);
-  };
-
-  InnerAudioContext.prototype.onTimeUpdate = function onTimeUpdate(callback) {
-    return this.alipayInnerAudioContext.onTimeUpdate(callback);
-  };
-
-  InnerAudioContext.prototype.onWaiting = function onWaiting(callback) {
-    return this.alipayInnerAudioContext.onWaiting(callback);
-  };
-
-  InnerAudioContext.prototype.pause = function pause() {
-    return this.alipayCameraContext.pause();
-  };
-
-  InnerAudioContext.prototype.play = function play() {
-    return this.alipayInnerAudioContext.play();
-  };
-
-  InnerAudioContext.prototype.seek = function seek() {
-    return this.alipayInnerAudioContext.seek();
-  };
-
-  InnerAudioContext.prototype.stop = function stop() {
-    return this.alipayCameraContext.offError();
-  };
-
-  return InnerAudioContext;
-}();
-
-exports.default = InnerAudioContext;
-
-/***/ }),
-
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -789,10 +665,6 @@ var _MapContext2 = _interopRequireDefault(_MapContext);
 var _CanvasContext = __webpack_require__(10);
 
 var _CanvasContext2 = _interopRequireDefault(_CanvasContext);
-
-var _InnerAudioContext = __webpack_require__(11);
-
-var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2061,11 +1933,11 @@ var wx = function () {
   };
 
   wx.createInnerAudioContext = function createInnerAudioContext() {
-    return new _InnerAudioContext2.default(my.createInnerAudioContext(getApp().onekit_audio));
+    return my.createInnerAudioContext();
   };
 
-  wx.createAudioContext = function createAudioContext(wx_object) {
-    return my.createAudioContext(wx_object);
+  wx.createAudioContext = function createAudioContext(id) {
+    return my.createAudioContext(id);
   };
 
   wx.onBackgroundAudioStop = function onBackgroundAudioStop(wx_object) {
@@ -3379,7 +3251,7 @@ exports.default = wx;
 
 /***/ }),
 
-/***/ 41:
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3461,7 +3333,8 @@ exports.__esModule = true;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/* eslint-disable class-methods-use-this */
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 var VideoContext = function () {
   function VideoContext(alipayVideoContext, id) {
@@ -3471,48 +3344,52 @@ var VideoContext = function () {
     this.id = id;
   }
 
-  VideoContext.prototype.play = function play() {
-    return this.alipayVideoContext.play();
+  VideoContext.prototype.exitFullScreen = function exitFullScreen() {
+    return this.alipayConvasContext.exitFullScreen();
+  };
+
+  VideoContext.prototype.exitPictureInPicture = function exitPictureInPicture(wx_object) {
+    var video = getApp().onekit_nodes["_" + this.id];
+    video.exitPictureInPicture(wx_object);
+  };
+
+  VideoContext.prototype.hideStatusBar = function hideStatusBar() {
+    return this.alipayConvasContext.hideStatusBar();
   };
 
   VideoContext.prototype.pause = function pause() {
     return this.alipayVideoContext.pause();
   };
 
-  VideoContext.prototype.stop = function stop() {
-    return this.alipayVideoContext.stop();
+  VideoContext.prototype.play = function play() {
+    return this.alipayVideoContext.play();
+  };
+
+  VideoContext.prototype.playbackRate = function playbackRate() {
+    return this.alipayVideoContext.playbackRate();
+  };
+
+  VideoContext.prototype.requestFullScreen = function requestFullScreen(object) {
+    return this.alipayConvasContext.requestFullScreen(object);
   };
 
   VideoContext.prototype.seek = function seek(position) {
     return this.alipayConvasContext.seek(position);
   };
 
-  //
-
-
   VideoContext.prototype.sendDanmu = function sendDanmu(data) {
     var video = getApp().onekit_nodes[this.id];
+    console.log(video);
     video.sendDanmu(data);
   };
 
-  VideoContext.prototype.playbackRate = function playbackRate() {};
-
-  VideoContext.prototype.requestFullScreen = function requestFullScreen(direction) {
-    return this.alipayConvasContext.requestFullScreen(direction);
+  VideoContext.prototype.showStatusBar = function showStatusBar() {
+    return this.alipayVideoContext.showStatusBar();
   };
 
-  VideoContext.prototype.exitFullScreen = function exitFullScreen() {
-    return this.alipayConvasContext.exitFullScreen();
+  VideoContext.prototype.stop = function stop() {
+    return this.alipayVideoContext.stop();
   };
-
-  //
-
-
-  VideoContext.prototype.showStatusBar = function showStatusBar() {};
-
-  VideoContext.prototype.hideStatusBar = function hideStatusBar() {};
-
-  VideoContext.prototype.exitPictureInPicture = function exitPictureInPicture() {};
 
   return VideoContext;
 }();

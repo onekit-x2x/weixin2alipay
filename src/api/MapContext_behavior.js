@@ -78,25 +78,6 @@ module.exports = {
       const clusters = this._getClusters()
       this._trigger_markerClusterCreate(clusters)
     },
-    fromScreenLocation(wx_object) {
-      console.log(wx_object)
-      if (!wx_object) {
-        return
-      }
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
-      wx_object = null
-      // //////////
-      PROMISE((SUCCESS) => {
-        const wx_res = {
-          latitude: this.data.latitude,
-          longitude: this.data.longitude,
-          errMsg: 'fromScreenLocation:ok'
-        }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
-    },
     initMarkerCluster(wx_object) {
       if (!wx_object) {
         return

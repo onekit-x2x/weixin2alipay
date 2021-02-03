@@ -199,6 +199,13 @@ exports.default = {
 
 /***/ }),
 
+/***/ 11:
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil/PROMISE");
+
+/***/ }),
+
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -607,9 +614,9 @@ Component({
 "use strict";
 
 
-var _PROMISE = __webpack_require__(34);
+var _PROMISE = __webpack_require__(11);
 
-var _LngLat2px = __webpack_require__(35);
+var _LngLat2px = __webpack_require__(34);
 
 var _LngLat2px2 = _interopRequireDefault(_LngLat2px);
 
@@ -694,27 +701,6 @@ module.exports = {
       var clusters = this._getClusters();
       this._trigger_markerClusterCreate(clusters);
     },
-    fromScreenLocation: function fromScreenLocation(wx_object) {
-      var _this2 = this;
-
-      console.log(wx_object);
-      if (!wx_object) {
-        return;
-      }
-      var wx_success = wx_object.success;
-      var wx_fail = wx_object.fail;
-      var wx_complete = wx_object.complete;
-      wx_object = null;
-      // //////////
-      (0, _PROMISE.PROMISE)(function (SUCCESS) {
-        var wx_res = {
-          latitude: _this2.data.latitude,
-          longitude: _this2.data.longitude,
-          errMsg: 'fromScreenLocation:ok'
-        };
-        SUCCESS(wx_res);
-      }, wx_success, wx_fail, wx_complete);
-    },
     initMarkerCluster: function initMarkerCluster(wx_object) {
       if (!wx_object) {
         return;
@@ -727,7 +713,7 @@ module.exports = {
       this._trigger_markerClusterCreate(wx_enableDefaultStyle, wx_zoomOnClick, wx_gridSize);
     },
     moveAlong: function moveAlong(wx_object) {
-      var _this3 = this;
+      var _this2 = this;
 
       console.log(wx_object);
       if (!wx_object) {
@@ -767,7 +753,7 @@ module.exports = {
           }
         };
         my.smoothMovePolyline(my_object);
-        _this3._trigger_markerClusterCreate(wx_autoRotate);
+        _this2._trigger_markerClusterCreate(wx_autoRotate);
       }, wx_success, wx_fail, wx_complete);
     },
     on: function on(wx_object) {
@@ -811,7 +797,7 @@ module.exports = {
       }, wx_success, wx_fail, wx_complete);
     },
     removeGroundOverlay: function removeGroundOverlay(wx_object) {
-      var _this4 = this;
+      var _this3 = this;
 
       if (!wx_object) {
         return;
@@ -829,7 +815,7 @@ module.exports = {
           });
           return;
         }
-        _this4._trigger_removeGroundOverlay(wx_id);
+        _this3._trigger_removeGroundOverlay(wx_id);
         var wx_res = {
           errMsg: 'removeGroundOverlay:ok'
         };
@@ -875,7 +861,7 @@ module.exports = {
       }, wx_success, wx_fail, wx_complete);
     },
     updateGroundOverlay: function updateGroundOverlay(wx_object) {
-      var _this5 = this;
+      var _this4 = this;
 
       console.log(wx_object);
       if (!wx_object) {
@@ -901,9 +887,9 @@ module.exports = {
           });
           return;
         }
-        var markerLevel = _this5.data.markers.markerLevel;
+        var markerLevel = _this4.data.markers.markerLevel;
         wx_id = markerLevel;
-        var alpha = _this5.data.groundOverlays.alpha;
+        var alpha = _this4.data.groundOverlays.alpha;
         if (wx_visible) {
           alpha = 1;
         } else {
@@ -913,7 +899,7 @@ module.exports = {
         // if (wx_opacity) {
         //   filter:alpha(opacity:30)
         // }
-        _this5.setData({
+        _this4.setData({
           markerLevel: wx_id,
           'ground-overlays': [{
             'include-points': wx_bounds,
@@ -1065,13 +1051,6 @@ module.exports = {
 /***/ }),
 
 /***/ 34:
-/***/ (function(module, exports) {
-
-module.exports = require("oneutil/PROMISE");
-
-/***/ }),
-
-/***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

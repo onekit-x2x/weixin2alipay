@@ -10,12 +10,16 @@ import VideoContext_behavior from '../../api/VideoContext_behavior'
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior, VideoContext_behavior],
   data: {
-    pictureinpicture: 'none'
+    pictureinpicture: 'none',
+    isPlay: false,
+    time0: 0,
+    percent: 0
   },
   props: {
     src: '',
     duration: null,
     controls: true,
+    //
     danmuList: [],
     danmuBtn: false,
     enableDanmu: false,
@@ -68,6 +72,17 @@ Component({
     this._trigger_seekcomplete()
     this._trigger_controlstoggle(this.props.controls)
     //
+    let wx_text
+    let wx_color
+    let wx_time
+    const danmuList = this.props.danmuList
+    danmuList.map(item => {
+      wx_text = item.text
+      wx_color = item.color
+      wx_time = item.time
+      return (wx_text, wx_color, wx_time)
+    })
+    //
     if (this.props.playBtnPosition === 'center') {
       this.data.showPlayBtn = false
       this.data.showCenterPlayBtn = true
@@ -85,11 +100,16 @@ Component({
   },
   methods: {
     video_play() {
+      if (this.props.danmuList.length !== 0) {
+        this.data.isPlay = true
+      }
       if (this.props.onPlay) {
         this.props.onPlay()
       }
     },
     video_pause() {
+      this.data.time0 = (new Date()).valueOf()
+      console.log(this.data.time0)
       if (this.props.onPause) {
         this.props.onPause()
       }

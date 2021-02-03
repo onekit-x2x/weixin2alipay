@@ -30,33 +30,33 @@ module.exports = {
       }, wx_success, wx_fail, wx_complete)
     },
     sendDanmu(wx_object) {
-      console.log(wx_object)
       if (!wx_object) {
         return
       }
       let wx_text
       let wx_color
-      const danmuList = wx_object.danmuList
+      const danmuList = this.props.danmuList
       danmuList.map(item => {
-        wx_text = item.wx_text
-        wx_color = item.wx_color
+        wx_text = item.text
+        wx_color = item.color
         return (wx_text, wx_color)
       })
-      const wx_success = wx_object.success
-      const wx_fail = wx_object.fail
-      const wx_complete = wx_object.complete
       wx_object = null
-      PROMISE((SUCCESS, FAIL) => {
-        if (!wx_text) {
-          FAIL({
-            errMsg: 'sendDanmu:error'
-          })
+      if (!wx_text) {
+        wx_object.fail = {
+          errMsg: 'sendDanmu:error'
         }
-        const wx_res = {
-          errMsg: 'sendDanmu:ok'
+        wx_object.complete = {
+          errMsg: 'sendDanmu:error'
         }
-        SUCCESS(wx_res)
-      }, wx_success, wx_fail, wx_complete)
+        return
+      }
+      wx_object.success = {
+        errMsg: 'sendDanmu:ok'
+      }
+      wx_object.complete = {
+        errMsg: 'sendDanmu:ok'
+      }
     }
   }
 }

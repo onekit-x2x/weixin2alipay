@@ -312,12 +312,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default, _VideoContext_behavior2.default],
   data: {
-    pictureinpicture: 'none'
+    pictureinpicture: 'none',
+    isPlay: false
   },
   props: {
     src: '',
     duration: null,
     controls: true,
+    //
     danmuList: [],
     danmuBtn: false,
     enableDanmu: false,
@@ -389,11 +391,16 @@ Component({
 
   methods: {
     video_play: function video_play() {
+      if (this.props.danmuList.length !== 0) {
+        this.data.isPlay = true;
+      }
       if (this.props.onPlay) {
         this.props.onPlay();
       }
     },
     video_pause: function video_pause() {
+      this.data.time0 = (new Date()).valueOf()
+        console.log(this.data.time0)
       if (this.props.onPause) {
         this.props.onPause();
       }
@@ -519,34 +526,49 @@ module.exports = {
       }, wx_success, wx_fail, wx_complete);
     },
     sendDanmu: function sendDanmu(wx_object) {
-      console.log(wx_object);
       if (!wx_object) {
         return;
       }
       var wx_text = void 0;
       var wx_color = void 0;
-      var danmuList = wx_object.danmuList;
+      var danmuList = this.props.danmuList;
       danmuList.map(function (item) {
-        wx_text = item.wx_text;
-        wx_color = item.wx_color;
+        wx_text = item.text;
+        wx_color = item.color;
         return wx_text, wx_color;
       });
       var wx_success = wx_object.success;
       var wx_fail = wx_object.fail;
       var wx_complete = wx_object.complete;
       wx_object = null;
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
-        if (!wx_text) {
-          FAIL({
-            errMsg: 'sendDanmu:error'
-          });
-        }
-        var wx_res = {
-          errMsg: 'sendDanmu:ok'
-        };
-        SUCCESS(wx_res);
-      }, wx_success, wx_fail, wx_complete);
+      if (!wx_text) {
+        wx_fail({
+          errMsg: 'sendDanmu:error'
+        });
+        wx_complete({
+          errMsg: 'sendDanmu:error'
+        });
+        return;
+      }
+      wx_success({
+        errMsg: 'sendDanmu:ok'
+      });
+      wx_complete({
+        errMsg: 'sendDanmu:ok'
+      });
     }
+    // PROMISE((SUCCESS, FAIL) => {
+    //   if (!wx_text) {
+    //     FAIL({
+    //       errMsg: 'sendDanmu:error'
+    //     })
+    //   } else {
+    //     SUCCESS({
+    //       errMsg: 'sendDanmu:ok'
+    //     })
+    //   }
+    // }, wx_success, wx_fail, wx_complete)
+
   }
 }; /* eslint-disable camelcase */
 /* eslint-disable no-console */

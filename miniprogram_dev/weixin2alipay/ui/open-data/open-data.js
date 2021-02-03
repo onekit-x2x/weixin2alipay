@@ -3378,8 +3378,7 @@ var VideoContext = function () {
   };
 
   VideoContext.prototype.sendDanmu = function sendDanmu(data) {
-    var video = getApp().onekit_nodes[this.id];
-    console.log(video);
+    var video = getApp().onekit_nodes["_" + this.id];
     video.sendDanmu(data);
   };
 

@@ -28,27 +28,39 @@
   onError="video_error"
   onFullscreenchange="video_fullscreenchange"
   onRenderStart="video_renderstart"
-></video>
-<!-- <cover-view 
-style="pointer-events: none;
-  top:{{rect.top}}px;
+/>
+<!-- <cover-view a:if="{{isPlay}}"
+  style="pointer-events: none;
+  top:{{rect.top + 31}}px;
   left:{{rect.left}}px;
   width:{{rect.width}}px;
   height:{{rect.height}}px;
-  background:#f001;
   position:absolute;"
-> -->
-<!--
-  <cover-view a:for="{{danmuList}}" a:key="item" 
+  >  -->
+<cover-view
+  style="pointer-events: none;
+  top:{{rect.top + 31}}px;
+  left:{{rect.left}}px;
+  width:{{rect.width}}px;
+  height:{{rect.height}}px;
+  position:absolute;"
+  > 
+  
+  <progress 
+    percent="{{percent}}" 
+    active 
+    activeColor="#fff"
+    backgroundColor="#808080" 
+    style="bottom:120rpx;
+          position:absolute;
+          width:625rpx;
+          height:10rpx;
+          left:40rpx"/>
+  <!-- <cover-view a:for="{{danmuList}}" a:key="item" 
   style="position:absolute;
     left:750rpx;
     top:{{item.index*20}}px;
     background:transparent;
     animation: danmu 3s linear forwards {{item.time}}s;
-    color:{{item.color}};">{{item.text}}</cover-view>
-    -->
-      <!-- <cover-view a:for="{{Object.keys(danmuList)}}" a:for-item="t_time" 
-    style="
-        color:black;
- background:transparent;">{{danmuList[t_time].text}}xx</cover-view>
-</cover-view> -->
+    color:{{item.color}};">{{item.text}}</cover-view> -->
+</cover-view>

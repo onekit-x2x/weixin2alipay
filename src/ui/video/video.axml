@@ -29,14 +29,6 @@
   onFullscreenchange="video_fullscreenchange"
   onRenderStart="video_renderstart"
 />
-<!-- <cover-view a:if="{{isPlay}}"
-  style="pointer-events: none;
-  top:{{rect.top + 31}}px;
-  left:{{rect.left}}px;
-  width:{{rect.width}}px;
-  height:{{rect.height}}px;
-  position:absolute;"
-  >  -->
 <cover-view
   style="pointer-events: none;
   top:{{rect.top + 31}}px;
@@ -45,11 +37,11 @@
   height:{{rect.height}}px;
   position:absolute;"
   > 
-  <cover-view a:for="{{danmuList}}" a:key="item" 
+  <cover-view a-if="{{isPlay}}" a:for="{{danmuList}}" a:key="item" 
   style="position:absolute;
     left:750rpx;
     top:{{item.index*20}}px;
     background:transparent;
-    animation: danmu 3s linear forwards {{item.time}}s;
+    animation: danmu 3s linear forwards {{item.time-currentTime}}s;
     color:{{item.color}};">{{item.text}}</cover-view>
 </cover-view>

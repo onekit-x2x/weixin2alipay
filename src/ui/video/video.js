@@ -12,8 +12,7 @@ Component({
   data: {
     pictureinpicture: 'none',
     isPlay: false,
-    time0: 0,
-    percent: 0
+    currentTime: 0,
   },
   props: {
     src: '',
@@ -72,16 +71,13 @@ Component({
     this._trigger_seekcomplete()
     this._trigger_controlstoggle(this.props.controls)
     //
-    let wx_text
-    let wx_color
-    let wx_time
-    const danmuList = this.props.danmuList
-    danmuList.map(item => {
-      wx_text = item.text
-      wx_color = item.color
-      wx_time = item.time
-      return (wx_text, wx_color, wx_time)
-    })
+    // const danmuList = this.props.danmuList
+    // danmuList.map(item => {
+    //   item.text
+    //   item.color
+    //   item.time
+    //   return (wx_text, wx_color, wx_time)
+    // })
     //
     if (this.props.playBtnPosition === 'center') {
       this.data.showPlayBtn = false
@@ -100,27 +96,31 @@ Component({
   },
   methods: {
     video_play() {
-      if (this.props.danmuList.length !== 0) {
-        this.data.isPlay = true
-      }
+      this.setData({
+        isPlay: true
+      })
       if (this.props.onPlay) {
         this.props.onPlay()
       }
     },
     video_pause() {
-      this.data.time0 = (new Date()).valueOf()
-      console.log(this.data.time0)
+      this.setData({
+        isPlay: false
+      })
       if (this.props.onPause) {
         this.props.onPause()
       }
     },
     video_end() {
+      this.setData({
+        isPlay: false
+      })
       if (this.props.onEnded) {
         this.props.onEnded()
       }
     },
     video_timeupdate(e) {
-      this.currentTime = e.detail.currentTime
+      this.data.currentTime = e.detail.currentTime
       if (this.props.onTimeUpdate) {
         this.props.onTimeUpdate(e.detail)
       }
@@ -137,6 +137,9 @@ Component({
       }
     },
     video_error() {
+      this.setData({
+        isPlay: false
+      })
       if (this.props.onError) {
         this.props.onError({})
       }

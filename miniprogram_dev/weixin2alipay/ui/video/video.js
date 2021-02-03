@@ -199,13 +199,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ 11:
-/***/ (function(module, exports) {
-
-module.exports = require("oneutil/PROMISE");
-
-/***/ }),
-
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -282,6 +275,13 @@ module.exports = {
 
 /***/ }),
 
+/***/ 3:
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil");
+
+/***/ }),
+
 /***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -313,7 +313,8 @@ Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default, _VideoContext_behavior2.default],
   data: {
     pictureinpicture: 'none',
-    isPlay: false
+    isPlay: false,
+    currentTime: 0
   },
   props: {
     src: '',
@@ -373,6 +374,14 @@ Component({
     this._trigger_seekcomplete();
     this._trigger_controlstoggle(this.props.controls);
     //
+    // const danmuList = this.props.danmuList
+    // danmuList.map(item => {
+    //   item.text
+    //   item.color
+    //   item.time
+    //   return (wx_text, wx_color, wx_time)
+    // })
+    //
     if (this.props.playBtnPosition === 'center') {
       this.data.showPlayBtn = false;
       this.data.showCenterPlayBtn = true;
@@ -391,27 +400,31 @@ Component({
 
   methods: {
     video_play: function video_play() {
-      if (this.props.danmuList.length !== 0) {
-        this.data.isPlay = true;
-      }
+      this.setData({
+        isPlay: true
+      });
       if (this.props.onPlay) {
         this.props.onPlay();
       }
     },
     video_pause: function video_pause() {
-      this.data.time0 = (new Date()).valueOf()
-        console.log(this.data.time0)
+      this.setData({
+        isPlay: false
+      });
       if (this.props.onPause) {
         this.props.onPause();
       }
     },
     video_end: function video_end() {
+      this.setData({
+        isPlay: false
+      });
       if (this.props.onEnded) {
         this.props.onEnded();
       }
     },
     video_timeupdate: function video_timeupdate(e) {
-      this.currentTime = e.detail.currentTime;
+      this.data.currentTime = e.detail.currentTime;
       if (this.props.onTimeUpdate) {
         this.props.onTimeUpdate(e.detail);
       }
@@ -428,6 +441,9 @@ Component({
       }
     },
     video_error: function video_error() {
+      this.setData({
+        isPlay: false
+      });
       if (this.props.onError) {
         this.props.onError({});
       }
@@ -498,7 +514,7 @@ Component({
 "use strict";
 
 
-var _PROMISE = __webpack_require__(11);
+var _oneutil = __webpack_require__(3);
 
 module.exports = {
   methods: {
@@ -512,7 +528,7 @@ module.exports = {
       var wx_fail = wx_object.fail;
       var wx_complete = wx_object.complete;
       wx_object = null;
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         if (wx_exitPictureInPicture) {
           var _wx_res = {
             errMsg: 'exitPictureInPicture:ok'
@@ -526,49 +542,39 @@ module.exports = {
       }, wx_success, wx_fail, wx_complete);
     },
     sendDanmu: function sendDanmu(wx_object) {
+      var _this = this;
+
       if (!wx_object) {
         return;
       }
-      var wx_text = void 0;
-      var wx_color = void 0;
-      var danmuList = this.props.danmuList;
-      danmuList.map(function (item) {
-        wx_text = item.text;
-        wx_color = item.color;
-        return wx_text, wx_color;
-      });
+      var wx_text = wx_object.text;
+      var wx_color = wx_object.color;
       var wx_success = wx_object.success;
       var wx_fail = wx_object.fail;
       var wx_complete = wx_object.complete;
       wx_object = null;
-      if (!wx_text) {
-        wx_fail({
-          errMsg: 'sendDanmu:error'
-        });
-        wx_complete({
-          errMsg: 'sendDanmu:error'
-        });
-        return;
-      }
-      wx_success({
-        errMsg: 'sendDanmu:ok'
-      });
-      wx_complete({
-        errMsg: 'sendDanmu:ok'
-      });
-    }
-    // PROMISE((SUCCESS, FAIL) => {
-    //   if (!wx_text) {
-    //     FAIL({
-    //       errMsg: 'sendDanmu:error'
-    //     })
-    //   } else {
-    //     SUCCESS({
-    //       errMsg: 'sendDanmu:ok'
-    //     })
-    //   }
-    // }, wx_success, wx_fail, wx_complete)
+      //
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
+        var _this$setData;
 
+        if (!wx_text) {
+          FAIL({
+            errMsg: 'sendDanmu:error'
+          });
+          return;
+        }
+        var danmu = {
+          text: wx_text,
+          color: wx_color,
+          time: _this.data.currentTime
+        };
+        var key = 'danmuList[' + _this.props.danmuList.length + ']';
+        _this.setData((_this$setData = {}, _this$setData[key] = danmu, _this$setData));
+        SUCCESS({
+          errMsg: 'sendDanmu:ok'
+        });
+      }, wx_success, wx_fail, wx_complete);
+    }
   }
 }; /* eslint-disable camelcase */
 /* eslint-disable no-console */

@@ -634,7 +634,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3257,7 +3257,7 @@ exports.default = wx;
 "use strict";
 
 
-var _wx = __webpack_require__(3);
+var _wx = __webpack_require__(4);
 
 var _wx2 = _interopRequireDefault(_wx);
 

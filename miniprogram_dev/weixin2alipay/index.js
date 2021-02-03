@@ -493,6 +493,13 @@ exports.default = CanvasContext;
 /***/ }),
 
 /***/ 3:
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil");
+
+/***/ }),
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3109,13 +3116,6 @@ exports.default = wx;
 
 /***/ }),
 
-/***/ 4:
-/***/ (function(module, exports) {
-
-module.exports = require("oneutil");
-
-/***/ }),
-
 /***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3206,7 +3206,7 @@ var OnekitComponent_1 = __webpack_require__(58);
 exports.OnekitComponent = OnekitComponent_1.default;
 var OnekitPage_1 = __webpack_require__(59);
 exports.OnekitPage = OnekitPage_1.default;
-var wx_1 = __webpack_require__(3);
+var wx_1 = __webpack_require__(4);
 exports.wx = wx_1.default;
 var global_1 = __webpack_require__(60);
 exports.GLOBAL = global_1.default;
@@ -3320,11 +3320,11 @@ function OnekitApp(wx_object) {
 exports.__esModule = true;
 exports.default = OnekitBehavior;
 
-var _oneutil = __webpack_require__(4);
+var _oneutil = __webpack_require__(3);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
-var _wx = __webpack_require__(3);
+var _wx = __webpack_require__(4);
 
 var _wx2 = _interopRequireDefault(_wx);
 
@@ -3447,7 +3447,7 @@ function OnekitBehavior(object) {
 exports.__esModule = true;
 exports.default = OnekitComponent;
 
-var _oneutil = __webpack_require__(4);
+var _oneutil = __webpack_require__(3);
 
 var _oneutil2 = _interopRequireDefault(_oneutil);
 
@@ -3455,7 +3455,7 @@ var _wxs_behavior = __webpack_require__(0);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
-var _wx = __webpack_require__(3);
+var _wx = __webpack_require__(4);
 
 var _wx2 = _interopRequireDefault(_wx);
 

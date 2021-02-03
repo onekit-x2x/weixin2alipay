@@ -1,8 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
-import {
-  PROMISE
-} from 'oneutil/PROMISE'
+import {PROMISE} from 'oneutil'
 
 module.exports = {
   methods: {
@@ -33,30 +31,33 @@ module.exports = {
       if (!wx_object) {
         return
       }
-      let wx_text
-      let wx_color
-      const danmuList = this.props.danmuList
-      danmuList.map(item => {
-        wx_text = item.text
-        wx_color = item.color
-        return (wx_text, wx_color)
-      })
+      const wx_text = wx_object.text
+      const wx_color = wx_object.color
+      const wx_success = wx_object.success
+      const wx_fail = wx_object.fail
+      const wx_complete = wx_object.complete
       wx_object = null
-      if (!wx_text) {
-        wx_object.fail = {
-          errMsg: 'sendDanmu:error'
+      //
+      PROMISE((SUCCESS, FAIL) => {
+        if (!wx_text) {
+          FAIL({
+            errMsg: 'sendDanmu:error'
+          })
+          return
         }
-        wx_object.complete = {
-          errMsg: 'sendDanmu:error'
+        const danmu = {
+          text: wx_text,
+          color: wx_color,
+          time: this.data.currentTime
         }
-        return
-      }
-      wx_object.success = {
-        errMsg: 'sendDanmu:ok'
-      }
-      wx_object.complete = {
-        errMsg: 'sendDanmu:ok'
-      }
+        const key = `danmuList[${this.props.danmuList.length}]`
+        this.setData({
+          [key]: danmu
+        })
+        SUCCESS({
+          errMsg: 'sendDanmu:ok'
+        })
+      }, wx_success, wx_fail, wx_complete)
     }
   }
 }

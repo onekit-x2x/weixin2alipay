@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 31);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -199,13 +199,6 @@ exports.default = {
 
 /***/ }),
 
-/***/ 11:
-/***/ (function(module, exports) {
-
-module.exports = require("oneutil/PROMISE");
-
-/***/ }),
-
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -282,7 +275,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 32:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -300,7 +293,7 @@ var _wxs_behavior = __webpack_require__(0);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
-var _MapContext_behavior = __webpack_require__(33);
+var _MapContext_behavior = __webpack_require__(32);
 
 var _MapContext_behavior2 = _interopRequireDefault(_MapContext_behavior);
 
@@ -608,13 +601,13 @@ Component({
 
 /***/ }),
 
-/***/ 33:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _PROMISE = __webpack_require__(11);
+var _PROMISE = __webpack_require__(33);
 
 var _LngLat2px = __webpack_require__(34);
 
@@ -1047,6 +1040,13 @@ module.exports = {
     }
   }
 };
+
+/***/ }),
+
+/***/ 33:
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil/PROMISE");
 
 /***/ }),
 

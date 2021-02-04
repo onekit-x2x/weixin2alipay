@@ -8,7 +8,7 @@ export default class VideoContext {
   }
 
   exitFullScreen() {
-    return this.alipayConvasContext.exitFullScreen()
+    return this.alipayVideoContext.exitFullScreen()
   }
 
   exitPictureInPicture(wx_object) {
@@ -17,7 +17,7 @@ export default class VideoContext {
   }
 
   hideStatusBar() {
-    return this.alipayConvasContext.hideStatusBar()
+    return this.alipayVideoContext.hideStatusBar()
   }
 
   pause() {
@@ -33,11 +33,11 @@ export default class VideoContext {
   }
 
   requestFullScreen(object) {
-    return this.alipayConvasContext.requestFullScreen(object)
+    return this.alipayVideoContext.requestFullScreen(object)
   }
 
   seek(position) {
-    return this.alipayConvasContext.seek(position)
+    return this.alipayVideoContext.seek(position)
   }
 
   sendDanmu(data) {

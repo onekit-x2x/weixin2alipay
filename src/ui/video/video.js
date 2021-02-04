@@ -11,7 +11,6 @@ Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior, VideoContext_behavior],
   data: {
     pictureinpicture: 'none',
-    isPlay: false,
     currentTime: 0,
     danmus: [
       [],
@@ -101,25 +100,16 @@ Component({
   },
   methods: {
     video_play() {
-      this.setData({
-        isPlay: true
-      })
       if (this.props.onPlay) {
         this.props.onPlay()
       }
     },
     video_pause() {
-      this.setData({
-        isPlay: false
-      })
       if (this.props.onPause) {
         this.props.onPause()
       }
     },
     video_end() {
-      this.setData({
-        isPlay: false
-      })
       if (this.props.onEnded) {
         this.props.onEnded()
       }
@@ -152,9 +142,6 @@ Component({
       }
     },
     video_error() {
-      this.setData({
-        isPlay: false
-      })
       if (this.props.onError) {
         this.props.onError({})
       }

@@ -1262,7 +1262,8 @@ OnekitPage({
     bindSendDanmu:function(){
       this.videoContext.sendDanmu({
         text:this.inputValue,
-        color:getRandomColor()
+        color:getRandomColor(),
+        fail:console.log
       })
     },
     bindPlay:function(){

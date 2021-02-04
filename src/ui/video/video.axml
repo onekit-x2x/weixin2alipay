@@ -37,11 +37,17 @@
   height:{{rect.height}}px;
   position:absolute;"
   > 
-  <cover-view a-if="{{isPlay}}" a:for="{{danmuList}}" a:key="item" 
+  <!-- <cover-view a:for="{{danmus}}"
   style="position:absolute;
     left:750rpx;
-    top:{{item.index*20}}px;
     background:transparent;
-    animation: danmu 3s linear forwards {{item.time-currentTime}}s;
+    animation: danmu 3s linear forwards {{index*0.1}}s;
+    color:{{item.color}};">{{item.text}}</cover-view> -->
+    <block a:for="{{danmus}}" a:key="item">
+  <cover-view 
+  style="position:absolute;
+    top:{{index*20}}px;
+    background:transparent;
     color:{{item.color}};">{{item.text}}</cover-view>
+</block>
 </cover-view>

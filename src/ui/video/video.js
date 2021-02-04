@@ -13,6 +13,7 @@ Component({
     pictureinpicture: 'none',
     isPlay: false,
     currentTime: 0,
+    danmus: []
   },
   props: {
     src: '',
@@ -71,13 +72,14 @@ Component({
     this._trigger_seekcomplete()
     this._trigger_controlstoggle(this.props.controls)
     //
-    // const danmuList = this.props.danmuList
-    // danmuList.map(item => {
-    //   item.text
-    //   item.color
-    //   item.time
-    //   return (wx_text, wx_color, wx_time)
-    // })
+    const danmuDict = {}
+    this.props.danmuList.forEach((danmu) => {
+      if (!danmuDict[danmu.time]) {
+        danmuDict[danmu.time] = []
+      }
+      danmuDict[danmu.time].push(danmu)
+    })
+    this.data.danmuDict = danmuDict
     //
     if (this.props.playBtnPosition === 'center') {
       this.data.showPlayBtn = false
@@ -120,7 +122,15 @@ Component({
       }
     },
     video_timeupdate(e) {
-      this.data.currentTime = e.detail.currentTime
+      const currentTime = Math.ceil(e.detail.currentTime)
+      if (currentTime !== this.data.currentTime) {
+        this.data.currentTime = currentTime
+        const danmus = this.data.danmuDict[currentTime]
+        this.setData({
+          currentTime,
+          danmus: danmus || []
+        })
+      }
       if (this.props.onTimeUpdate) {
         this.props.onTimeUpdate(e.detail)
       }
@@ -195,5 +205,5 @@ Component({
         }
       }
     }
-  },
+  }
 })

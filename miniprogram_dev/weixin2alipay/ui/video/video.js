@@ -314,7 +314,8 @@ Component({
   data: {
     pictureinpicture: 'none',
     isPlay: false,
-    currentTime: 0
+    currentTime: 0,
+    danmus: []
   },
   props: {
     src: '',
@@ -374,13 +375,14 @@ Component({
     this._trigger_seekcomplete();
     this._trigger_controlstoggle(this.props.controls);
     //
-    // const danmuList = this.props.danmuList
-    // danmuList.map(item => {
-    //   item.text
-    //   item.color
-    //   item.time
-    //   return (wx_text, wx_color, wx_time)
-    // })
+    var danmuDict = {};
+    this.props.danmuList.forEach(function (danmu) {
+      if (!danmuDict[danmu.time]) {
+        danmuDict[danmu.time] = [];
+      }
+      danmuDict[danmu.time].push(danmu);
+    });
+    this.data.danmuDict = danmuDict;
     //
     if (this.props.playBtnPosition === 'center') {
       this.data.showPlayBtn = false;
@@ -424,7 +426,16 @@ Component({
       }
     },
     video_timeupdate: function video_timeupdate(e) {
-      this.data.currentTime = e.detail.currentTime;
+      var currentTime = Math.ceil(e.detail.currentTime);
+      if (currentTime !== this.data.currentTime) {
+        this.data.currentTime = currentTime;
+        var danmus = this.data.danmuDict[currentTime];
+        console.log(currentTime, danmus);
+        this.setData({
+          currentTime: currentTime,
+          danmus: danmus || []
+        });
+      }
       if (this.props.onTimeUpdate) {
         this.props.onTimeUpdate(e.detail);
       }
@@ -557,19 +568,24 @@ module.exports = {
       (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         var _this$setData;
 
+        if (_this.data.currentTime <= 0) {
+          return;
+        }
         if (!wx_text) {
           FAIL({
             errMsg: 'sendDanmu:error'
           });
           return;
         }
+        var time = _this.data.currentTime + 1;
         var danmu = {
           text: wx_text,
-          color: wx_color,
-          time: _this.data.currentTime
+          color: wx_color
         };
-        var key = 'danmuList[' + _this.props.danmuList.length + ']';
-        _this.setData((_this$setData = {}, _this$setData[key] = danmu, _this$setData));
+        var danmus = _this.data.danmuDict[time] || [];
+        danmus.push(danmu);
+        var key = 'danmuDict[\'' + time + '\']';
+        _this.setData((_this$setData = {}, _this$setData[key] = danmus, _this$setData));
         SUCCESS({
           errMsg: 'sendDanmu:ok'
         });

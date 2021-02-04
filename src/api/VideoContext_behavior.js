@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
-import {PROMISE} from 'oneutil'
+import {
+  PROMISE
+} from 'oneutil'
 
 module.exports = {
   methods: {
@@ -39,20 +41,25 @@ module.exports = {
       wx_object = null
       //
       PROMISE((SUCCESS, FAIL) => {
+        if (this.data.currentTime <= 0) {
+          return
+        }
         if (!wx_text) {
           FAIL({
             errMsg: 'sendDanmu:error'
           })
           return
         }
+        const time = this.data.currentTime + 1
         const danmu = {
           text: wx_text,
-          color: wx_color,
-          time: this.data.currentTime
+          color: wx_color
         }
-        const key = `danmuList[${this.props.danmuList.length}]`
+        const danmus = this.data.danmuDict[time] || []
+        danmus.push(danmu)
+        const key = `danmuDict['${time}']`
         this.setData({
-          [key]: danmu
+          [key]: danmus
         })
         SUCCESS({
           errMsg: 'sendDanmu:ok'

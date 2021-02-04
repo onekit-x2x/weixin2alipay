@@ -315,7 +315,7 @@ Component({
     pictureinpicture: 'none',
     isPlay: false,
     currentTime: 0,
-    danmus: []
+    danmus: [[], []]
   },
   props: {
     src: '',
@@ -427,14 +427,15 @@ Component({
     },
     video_timeupdate: function video_timeupdate(e) {
       var currentTime = Math.ceil(e.detail.currentTime);
+      //
       if (currentTime !== this.data.currentTime) {
+        var _setData;
+
         this.data.currentTime = currentTime;
+        var AorB = currentTime % 2;
         var danmus = this.data.danmuDict[currentTime];
-        console.log(currentTime, danmus);
-        this.setData({
-          currentTime: currentTime,
-          danmus: danmus || []
-        });
+        var key = 'danmus[' + AorB + ']';
+        this.setData((_setData = {}, _setData[key] = danmus || [], _setData));
       }
       if (this.props.onTimeUpdate) {
         this.props.onTimeUpdate(e.detail);

@@ -1249,10 +1249,120 @@ OnekitPage({
               color:'#ff0000',
               time:1
             },
+                    {
+              text:'第 1s 出现的弹幕',
+              color:'#ff0000',
+              time:1
+            },
+                    {
+              text:'第 1s 出现的弹幕',
+              color:'#ff0000',
+              time:1
+            },
+                    {
+              text:'第 1s 出现的弹幕',
+              color:'#ff0000',
+              time:1
+            },
+                    {
+              text:'第 1s 出现的弹幕',
+              color:'#ff0000',
+              time:1
+            },
+                    {
+              text:'第 1s 出现的弹幕',
+              color:'#ff0000',
+              time:1
+            },
+                    {
+              text:'第 2s 出现的弹幕',
+              color:'#ff0000',
+              time:2
+            },
+                    {
+              text:'第 2s 出现的弹幕',
+              color:'#ff0000',
+              time:2
+            },
+                    {
+              text:'第 3s 出现的弹幕',
+              color:'#ff0000',
+              time:3
+            },
+          {
+              text:'第 2s 出现的弹幕',
+              color:'#ff00ff',
+              time:2
+            },
+                    {
+              text:'第 3s 出现的弹幕',
+              color:'#ff0000',
+              time:3
+            },
           {
               text:'第 3s 出现的弹幕',
               color:'#ff00ff',
               time:3
+            },
+                    {
+              text:'第 3s 出现的弹幕',
+              color:'#ff0000',
+              time:3
+            },
+          {
+              text:'第 3s 出现的弹幕',
+              color:'#ff00ff',
+              time:3
+            },
+                    {
+              text:'第 3s 出现的弹幕',
+              color:'#ff0000',
+              time:3
+            },
+          {
+              text:'第 4s 出现的弹幕',
+              color:'#ff00ff',
+              time:4
+            },
+          {
+              text:'第 4s 出现的弹幕',
+              color:'#ff00ff',
+              time:4
+            },
+          {
+              text:'第 4s 出现的弹幕',
+              color:'#ff00ff',
+              time:4
+            },
+          {
+              text:'第 5s 出现的弹幕',
+              color:'#ff00ff',
+              time:5
+            },
+          {
+              text:'第 5s 出现的弹幕',
+              color:'#ff00ff',
+              time:5
+            },
+          {
+              text:'第 5s 出现的弹幕',
+              color:'#ff00ff',
+              time:5
+            },
+          {
+              text:'第 6s 出现的弹幕',
+              color:'#ff00ff',
+              time:6
+            },
+          {
+              text:'第 6s 出现的弹幕',
+              color:'#ff00ff',
+              time:6
+            },
+          {
+              text:'第 6s 出现的弹幕',
+              color:'#ff00ff',
+              time:6
             }
         ]
       },

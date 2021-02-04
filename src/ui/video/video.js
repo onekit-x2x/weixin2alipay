@@ -13,7 +13,10 @@ Component({
     pictureinpicture: 'none',
     isPlay: false,
     currentTime: 0,
-    danmus: []
+    danmus: [
+      [],
+      []
+    ]
   },
   props: {
     src: '',
@@ -123,12 +126,14 @@ Component({
     },
     video_timeupdate(e) {
       const currentTime = Math.ceil(e.detail.currentTime)
+      //
       if (currentTime !== this.data.currentTime) {
         this.data.currentTime = currentTime
+        const AorB = currentTime % 2
         const danmus = this.data.danmuDict[currentTime]
+        const key = `danmus[${AorB}]`
         this.setData({
-          currentTime,
-          danmus: danmus || []
+          [key]: danmus || []
         })
       }
       if (this.props.onTimeUpdate) {

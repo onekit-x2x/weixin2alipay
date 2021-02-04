@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 55);
+/******/ 	return __webpack_require__(__webpack_require__.s = 54);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -153,7 +153,8 @@ var CanvasContext = function () {
     this.alipayCanvasContext = alipayCanvasContext;
   }
 
-  CanvasContext.prototype.arc = function arc(x, y, r, sAngle, eAngle, counterclockwise) {
+  CanvasContext.prototype.arc = function arc(x, y, r, sAngle, eAngle) {
+    var counterclockwise = 0;
     return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise);
   };
 
@@ -166,6 +167,7 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.bezierCurveTo = function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
+    this._reset();
     return this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
   };
 
@@ -174,11 +176,12 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.clip = function clip() {
-    return this.alipayCanvasContext.createCircularGradient();
+    this.alipayCanvasContext.setFillStyle('#000');
+    return this.alipayCanvasContext.clip();
   };
 
   CanvasContext.prototype.closePath = function closePath() {
-    return this.alipayCanvasContext.createLinearGradient();
+    return this.alipayCanvasContext.closePath();
   };
 
   CanvasContext.prototype.createCircularGradient = function createCircularGradient(x, y, r) {
@@ -216,7 +219,8 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.fillText = function fillText(text, x, y) {
-    this.alipayCanvasContext.setFillStyle('#000');
+    this._reset();
+    // this.alipayCanvasContext.setFillStyle('#000')
     return this.alipayCanvasContext.fillText(text, x, y);
   };
 
@@ -224,8 +228,8 @@ var CanvasContext = function () {
     return this.alipayCanvasContext.lineTo(x, y);
   };
 
-  CanvasContext.prototype.measureText = function measureText(text) {
-    return this.alipayCanvasContext.measureText(text);
+  CanvasContext.prototype.measureText = function measureText(width) {
+    return this.alipayCanvasContext.measureText(width);
   };
 
   CanvasContext.prototype.moveTo = function moveTo(x, y) {
@@ -315,7 +319,7 @@ var CanvasContext = function () {
   //
 
 
-  CanvasContext.prototype.setShadowBlur = function setShadowBlur(offsetX, offsetY, blur, color) {
+  CanvasContext.prototype.setShadow = function setShadow(offsetX, offsetY, blur, color) {
     this.shadowOffsetX = offsetX;
     this.shadowOffsetY = offsetY;
     this.shadowBlur = blur;
@@ -350,8 +354,7 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.strokeText = function strokeText(text, x, y) {
-    var maxWidth = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-
+    var maxWidth = 0;
     return this.alipayCanvasContext.strokeText(text, x, y, maxWidth);
   };
 
@@ -361,6 +364,17 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.translate = function translate(x, y) {
     return this.alipayCanvasContext.translate(x, y);
+  };
+
+  CanvasContext.prototype._reset = function _reset() {
+    this.alipayCanvasContext.setFillStyle('#000000');
+    this.alipayCanvasContext.setStrokeStyle('#000000');
+    this.alipayCanvasContext.setFontSize(10);
+    this.alipayCanvasContext.setShadow(0, 0, 0, 'rgba(0, 0, 0, 0)');
+    this.alipayCanvasContext.setLineJoin('miter');
+    this.alipayCanvasContext.setLineWidth(1);
+    this.alipayCanvasContext.setMiterLimit(10);
+    this.alipayCanvasContext.clearRect(0, 0, 1000, 1000);
   };
 
   _createClass(CanvasContext, [{
@@ -3190,7 +3204,7 @@ exports.default = VideoContext;
 
 /***/ }),
 
-/***/ 55:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3198,22 +3212,22 @@ exports.default = VideoContext;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLOBAL = exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(56);
+var OnekitApp_1 = __webpack_require__(55);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(57);
+var OnekitBehavior_1 = __webpack_require__(56);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(58);
+var OnekitComponent_1 = __webpack_require__(57);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(59);
+var OnekitPage_1 = __webpack_require__(58);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(4);
 exports.wx = wx_1.default;
-var global_1 = __webpack_require__(60);
+var global_1 = __webpack_require__(59);
 exports.GLOBAL = global_1.default;
 
 /***/ }),
 
-/***/ 56:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3311,7 +3325,7 @@ function OnekitApp(wx_object) {
 
 /***/ }),
 
-/***/ 57:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3438,7 +3452,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3639,7 +3653,7 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 59:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3820,47 +3834,7 @@ function OnekitPage(wx_object) {
 
 /***/ }),
 
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var CameraContext = function () {
-  function CameraContext(alipayCameraContext) {
-    _classCallCheck(this, CameraContext);
-
-    this.alipayCameraContext = alipayCameraContext;
-  }
-
-  CameraContext.prototype.takePhoto = function takePhoto(object) {
-    return this.alipayCameraContext.takePhoto(object);
-  };
-
-  CameraContext.prototype.startRecord = function startRecord(object) {
-    return this.alipayCameraContext.startRecord(object);
-  };
-
-  CameraContext.prototype.stopRecord = function stopRecord(object) {
-    return this.alipayCameraContext.stopRecord(object);
-  };
-
-  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
-    return this.alipayCameraContext.onCameraFrame(callback);
-  };
-
-  return CameraContext;
-}();
-
-exports.default = CameraContext;
-
-/***/ }),
-
-/***/ 60:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3903,6 +3877,46 @@ var global = function () {
 }();
 
 exports.default = global;
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CameraContext = function () {
+  function CameraContext(alipayCameraContext) {
+    _classCallCheck(this, CameraContext);
+
+    this.alipayCameraContext = alipayCameraContext;
+  }
+
+  CameraContext.prototype.takePhoto = function takePhoto(object) {
+    return this.alipayCameraContext.takePhoto(object);
+  };
+
+  CameraContext.prototype.startRecord = function startRecord(object) {
+    return this.alipayCameraContext.startRecord(object);
+  };
+
+  CameraContext.prototype.stopRecord = function stopRecord(object) {
+    return this.alipayCameraContext.stopRecord(object);
+  };
+
+  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
+    return this.alipayCameraContext.onCameraFrame(callback);
+  };
+
+  return CameraContext;
+}();
+
+exports.default = CameraContext;
 
 /***/ }),
 

@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 51);
+/******/ 	return __webpack_require__(__webpack_require__.s = 50);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -282,7 +282,7 @@ module.exports = require("oneutil");
 
 /***/ }),
 
-/***/ 51:
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -300,7 +300,7 @@ var _weixin_behavior = __webpack_require__(2);
 
 var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
-var _VideoContext_behavior = __webpack_require__(52);
+var _VideoContext_behavior = __webpack_require__(51);
 
 var _VideoContext_behavior2 = _interopRequireDefault(_VideoContext_behavior);
 
@@ -520,7 +520,7 @@ Component({
 
 /***/ }),
 
-/***/ 52:
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

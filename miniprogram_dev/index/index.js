@@ -781,53 +781,53 @@ global = {};
 //   })
 
 //mapContext
-// OnekitPage({
-//     onLoad:function(){
-//       const ctx = wx.createCanvasContext('myCanvas')
-//       // Draw coordinates
-// ctx.arc(100, 75, 50, 0, 2 * Math.PI)
-// ctx.setFillStyle('#EEEEEE')
-// ctx.fill()
+OnekitPage({
+    onLoad:function(){
+      const ctx = wx.createCanvasContext('myCanvas')
+      // Draw coordinates
+ctx.arc(100, 75, 50, 0, 2 * Math.PI)
+ctx.setFillStyle('#EEEEEE')
+ctx.fill()
 
-// ctx.beginPath()
-// ctx.moveTo(40, 75)
-// ctx.lineTo(160, 75)
-// ctx.moveTo(100, 15)
-// ctx.lineTo(100, 135)
-// ctx.setStrokeStyle('#AAAAAA')
-// ctx.stroke()
+ctx.beginPath()
+ctx.moveTo(40, 75)
+ctx.lineTo(160, 75)
+ctx.moveTo(100, 15)
+ctx.lineTo(100, 135)
+ctx.setStrokeStyle('#AAAAAA')
+ctx.stroke()
 
-// ctx.setFontSize(12)
-// ctx.fillText('0', 165, 78)
-// ctx.fillText('0.5*PI', 83, 145)
-// ctx.fillText('1*PI', 15, 78)
-// ctx.fillText('1.5*PI', 83, 10)
+ctx.setFontSize(12)
+ctx.fillText('0', 165, 78)
+ctx.fillText('0.5*PI', 83, 145)
+ctx.fillText('1*PI', 15, 78)
+ctx.fillText('1.5*PI', 83, 10)
 
-// // Draw points
-// ctx.beginPath()
-// ctx.arc(100, 75, 2, 0, 2 * Math.PI)
-// ctx.setFillStyle('lightgreen')
-// ctx.fill()
+// Draw points
+ctx.beginPath()
+ctx.arc(100, 75, 2, 0, 2 * Math.PI)
+ctx.setFillStyle('lightgreen')
+ctx.fill()
 
-// ctx.beginPath()
-// ctx.arc(100, 25, 2, 0, 2 * Math.PI)
-// ctx.setFillStyle('blue')
-// ctx.fill()
+ctx.beginPath()
+ctx.arc(100, 25, 2, 0, 2 * Math.PI)
+ctx.setFillStyle('blue')
+ctx.fill()
 
-// ctx.beginPath()
-// ctx.arc(150, 75, 2, 0, 2 * Math.PI)
-// ctx.setFillStyle('red')
-// ctx.fill()
+ctx.beginPath()
+ctx.arc(150, 75, 2, 0, 2 * Math.PI)
+ctx.setFillStyle('red')
+ctx.fill()
 
-// // Draw arc
-// ctx.beginPath()
-// ctx.arc(100, 75, 50, 0, 1.5 * Math.PI)
-// ctx.setStrokeStyle('#333333')
-// ctx.stroke()
+// Draw arc
+ctx.beginPath()
+ctx.arc(100, 75, 50, 0, 1.5 * Math.PI)
+ctx.setStrokeStyle('#333333')
+ctx.stroke()
 
-// ctx.draw()
-//     }
-//   })
+ctx.draw()
+    }
+  })
 
 //MapContext
 // OnekitPage({
@@ -1226,164 +1226,164 @@ global = {};
 //     }
 //   })
 
-function getRandomColor(){
-  const rgb = [
-  ]
-  for(var i = 0;i < 3;++i){
-    var color = Math.floor(Math.random() * 256).toString(16);
-    color = color.length == 1?'0' + color:color;
-    rgb.push(color);
-  }
-  return '#' + rgb.join('')
-}
-OnekitPage({
-    onReady:function(res){
-      this.videoContext = wx.createVideoContext('myVideo')
-    },
-    inputValue:'',
-    data:{
-        src:'',
-        danmuList:[
-          {
-              text:'第 1s 出现的弹幕',
-              color:'#ff0000',
-              time:1
-            },
-                    {
-              text:'第 1s 出现的弹幕',
-              color:'#ff0000',
-              time:1
-            },
-                    {
-              text:'第 1s 出现的弹幕',
-              color:'#ff0000',
-              time:1
-            },
-                    {
-              text:'第 1s 出现的弹幕',
-              color:'#ff0000',
-              time:1
-            },
-                    {
-              text:'第 1s 出现的弹幕',
-              color:'#ff0000',
-              time:1
-            },
-                    {
-              text:'第 1s 出现的弹幕',
-              color:'#ff0000',
-              time:1
-            },
-                    {
-              text:'第 2s 出现的弹幕',
-              color:'#ff0000',
-              time:2
-            },
-                    {
-              text:'第 2s 出现的弹幕',
-              color:'#ff0000',
-              time:2
-            },
-                    {
-              text:'第 3s 出现的弹幕',
-              color:'#ff0000',
-              time:3
-            },
-          {
-              text:'第 2s 出现的弹幕',
-              color:'#ff00ff',
-              time:2
-            },
-                    {
-              text:'第 3s 出现的弹幕',
-              color:'#ff0000',
-              time:3
-            },
-          {
-              text:'第 3s 出现的弹幕',
-              color:'#ff00ff',
-              time:3
-            },
-                    {
-              text:'第 3s 出现的弹幕',
-              color:'#ff0000',
-              time:3
-            },
-          {
-              text:'第 3s 出现的弹幕',
-              color:'#ff00ff',
-              time:3
-            },
-                    {
-              text:'第 3s 出现的弹幕',
-              color:'#ff0000',
-              time:3
-            },
-          {
-              text:'第 4s 出现的弹幕',
-              color:'#ff00ff',
-              time:4
-            },
-          {
-              text:'第 4s 出现的弹幕',
-              color:'#ff00ff',
-              time:4
-            },
-          {
-              text:'第 4s 出现的弹幕',
-              color:'#ff00ff',
-              time:4
-            },
-          {
-              text:'第 5s 出现的弹幕',
-              color:'#ff00ff',
-              time:5
-            },
-          {
-              text:'第 5s 出现的弹幕',
-              color:'#ff00ff',
-              time:5
-            },
-          {
-              text:'第 5s 出现的弹幕',
-              color:'#ff00ff',
-              time:5
-            },
-          {
-              text:'第 6s 出现的弹幕',
-              color:'#ff00ff',
-              time:6
-            },
-          {
-              text:'第 6s 出现的弹幕',
-              color:'#ff00ff',
-              time:6
-            },
-          {
-              text:'第 6s 出现的弹幕',
-              color:'#ff00ff',
-              time:6
-            }
-        ]
-      },
-    bindInputBlur:function(e){
-      this.inputValue = e.detail.value
-    },
-    bindSendDanmu:function(){
-      this.videoContext.sendDanmu({
-        text:this.inputValue,
-        color:getRandomColor(),
-        fail:console.log
-      })
-    },
-    bindPlay:function(){
-      this.videoContext.play()
-    },
-    bindPause:function(){
-      this.videoContext.pause()
-    },
-    videoErrorCallback:function(e){
-      console.log('视频错误信息:')
-      console.log(e.detail.errMsg)
-    }
-  })
+// function getRandomColor(){
+//   const rgb = [
+//   ]
+//   for(var i = 0;i < 3;++i){
+//     var color = Math.floor(Math.random() * 256).toString(16);
+//     color = color.length == 1?'0' + color:color;
+//     rgb.push(color);
+//   }
+//   return '#' + rgb.join('')
+// }
+// OnekitPage({
+//     onReady:function(res){
+//       this.videoContext = wx.createVideoContext('myVideo')
+//     },
+//     inputValue:'',
+//     data:{
+//         src:'',
+//         danmuList:[
+//           {
+//               text:'第 1s 出现的弹幕',
+//               color:'#ff0000',
+//               time:1
+//             },
+//                     {
+//               text:'第 1s 出现的弹幕',
+//               color:'#ff0000',
+//               time:1
+//             },
+//                     {
+//               text:'第 1s 出现的弹幕',
+//               color:'#ff0000',
+//               time:1
+//             },
+//                     {
+//               text:'第 1s 出现的弹幕',
+//               color:'#ff0000',
+//               time:1
+//             },
+//                     {
+//               text:'第 1s 出现的弹幕',
+//               color:'#ff0000',
+//               time:1
+//             },
+//                     {
+//               text:'第 1s 出现的弹幕',
+//               color:'#ff0000',
+//               time:1
+//             },
+//                     {
+//               text:'第 2s 出现的弹幕',
+//               color:'#ff0000',
+//               time:2
+//             },
+//                     {
+//               text:'第 2s 出现的弹幕',
+//               color:'#ff0000',
+//               time:2
+//             },
+//                     {
+//               text:'第 3s 出现的弹幕',
+//               color:'#ff0000',
+//               time:3
+//             },
+//           {
+//               text:'第 2s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:2
+//             },
+//                     {
+//               text:'第 3s 出现的弹幕',
+//               color:'#ff0000',
+//               time:3
+//             },
+//           {
+//               text:'第 3s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:3
+//             },
+//                     {
+//               text:'第 3s 出现的弹幕',
+//               color:'#ff0000',
+//               time:3
+//             },
+//           {
+//               text:'第 3s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:3
+//             },
+//                     {
+//               text:'第 3s 出现的弹幕',
+//               color:'#ff0000',
+//               time:3
+//             },
+//           {
+//               text:'第 4s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:4
+//             },
+//           {
+//               text:'第 4s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:4
+//             },
+//           {
+//               text:'第 4s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:4
+//             },
+//           {
+//               text:'第 5s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:5
+//             },
+//           {
+//               text:'第 5s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:5
+//             },
+//           {
+//               text:'第 5s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:5
+//             },
+//           {
+//               text:'第 6s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:6
+//             },
+//           {
+//               text:'第 6s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:6
+//             },
+//           {
+//               text:'第 6s 出现的弹幕',
+//               color:'#ff00ff',
+//               time:6
+//             }
+//         ]
+//       },
+//     bindInputBlur:function(e){
+//       this.inputValue = e.detail.value
+//     },
+//     bindSendDanmu:function(){
+//       this.videoContext.sendDanmu({
+//         text:this.inputValue,
+//         color:getRandomColor(),
+//         fail:console.log
+//       })
+//     },
+//     bindPlay:function(){
+//       this.videoContext.play()
+//     },
+//     bindPause:function(){
+//       this.videoContext.pause()
+//     },
+//     videoErrorCallback:function(e){
+//       console.log('视频错误信息:')
+//       console.log(e.detail.errMsg)
+//     }
+//   })

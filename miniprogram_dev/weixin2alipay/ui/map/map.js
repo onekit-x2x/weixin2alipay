@@ -275,6 +275,13 @@ module.exports = {
 
 /***/ }),
 
+/***/ 3:
+/***/ (function(module, exports) {
+
+module.exports = require("oneutil");
+
+/***/ }),
+
 /***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -607,9 +614,9 @@ Component({
 "use strict";
 
 
-var _PROMISE = __webpack_require__(33);
+var _oneutil = __webpack_require__(3);
 
-var _LngLat2px = __webpack_require__(34);
+var _LngLat2px = __webpack_require__(33);
 
 var _LngLat2px2 = _interopRequireDefault(_LngLat2px);
 
@@ -644,7 +651,7 @@ module.exports = {
       var wx_complete = wx_object.complete;
       wx_object = null;
 
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         if (!wx_id || !wx_src || !wx_bounds) {
           FAIL({
             errMsg: 'addGroundOverlay:err'
@@ -721,7 +728,7 @@ module.exports = {
       var wx_complete = wx_object.complete;
       wx_object = null;
       // //////////
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         if (!wx_markerId || !wx_path || !wx_duration) {
           FAIL({
             errMsg: 'moveAlong:error'
@@ -771,7 +778,7 @@ module.exports = {
       var wx_complete = wx_object.complete;
       wx_object = null;
 
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         if (!wx_longitude || !wx_latitude || !wx_destination) {
           FAIL({
             errMsg: 'openMapApp:error'
@@ -801,7 +808,7 @@ module.exports = {
       var wx_complete = wx_object.complete;
       wx_object = null;
 
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         if (!wx_id) {
           FAIL({
             errMsg: 'removeGroundOverlay:error'
@@ -825,7 +832,7 @@ module.exports = {
       var wx_complete = wx_object.complete;
       wx_object = null;
 
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         if (!wx_markerIds) {
           FAIL({
             errMsg: 'removeMarkers:error'
@@ -873,7 +880,7 @@ module.exports = {
       var wx_complete = wx_object.complete;
       wx_object = null;
 
-      (0, _PROMISE.PROMISE)(function (SUCCESS, FAIL) {
+      (0, _oneutil.PROMISE)(function (SUCCESS, FAIL) {
         if (!wx_id || !wx_src || !wx_bounds) {
           FAIL({
             errMsg: 'updateGroundOverlay:err'
@@ -1044,13 +1051,6 @@ module.exports = {
 /***/ }),
 
 /***/ 33:
-/***/ (function(module, exports) {
-
-module.exports = require("oneutil/PROMISE");
-
-/***/ }),
-
-/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

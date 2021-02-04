@@ -3361,7 +3361,8 @@ var CanvasContext = function () {
     this.alipayCanvasContext = alipayCanvasContext;
   }
 
-  CanvasContext.prototype.arc = function arc(x, y, r, sAngle, eAngle, counterclockwise) {
+  CanvasContext.prototype.arc = function arc(x, y, r, sAngle, eAngle) {
+    var counterclockwise = 0;
     return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise);
   };
 
@@ -3374,6 +3375,7 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.bezierCurveTo = function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
+    this._reset();
     return this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
   };
 
@@ -3382,11 +3384,12 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.clip = function clip() {
-    return this.alipayCanvasContext.createCircularGradient();
+    this.alipayCanvasContext.setFillStyle('#000');
+    return this.alipayCanvasContext.clip();
   };
 
   CanvasContext.prototype.closePath = function closePath() {
-    return this.alipayCanvasContext.createLinearGradient();
+    return this.alipayCanvasContext.closePath();
   };
 
   CanvasContext.prototype.createCircularGradient = function createCircularGradient(x, y, r) {
@@ -3424,7 +3427,8 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.fillText = function fillText(text, x, y) {
-    this.alipayCanvasContext.setFillStyle('#000');
+    this._reset();
+    // this.alipayCanvasContext.setFillStyle('#000')
     return this.alipayCanvasContext.fillText(text, x, y);
   };
 
@@ -3432,8 +3436,8 @@ var CanvasContext = function () {
     return this.alipayCanvasContext.lineTo(x, y);
   };
 
-  CanvasContext.prototype.measureText = function measureText(text) {
-    return this.alipayCanvasContext.measureText(text);
+  CanvasContext.prototype.measureText = function measureText(width) {
+    return this.alipayCanvasContext.measureText(width);
   };
 
   CanvasContext.prototype.moveTo = function moveTo(x, y) {
@@ -3523,7 +3527,7 @@ var CanvasContext = function () {
   //
 
 
-  CanvasContext.prototype.setShadowBlur = function setShadowBlur(offsetX, offsetY, blur, color) {
+  CanvasContext.prototype.setShadow = function setShadow(offsetX, offsetY, blur, color) {
     this.shadowOffsetX = offsetX;
     this.shadowOffsetY = offsetY;
     this.shadowBlur = blur;
@@ -3558,8 +3562,7 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.strokeText = function strokeText(text, x, y) {
-    var maxWidth = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-
+    var maxWidth = 0;
     return this.alipayCanvasContext.strokeText(text, x, y, maxWidth);
   };
 
@@ -3569,6 +3572,17 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.translate = function translate(x, y) {
     return this.alipayCanvasContext.translate(x, y);
+  };
+
+  CanvasContext.prototype._reset = function _reset() {
+    this.alipayCanvasContext.setFillStyle('#000000');
+    this.alipayCanvasContext.setStrokeStyle('#000000');
+    this.alipayCanvasContext.setFontSize(10);
+    this.alipayCanvasContext.setShadow(0, 0, 0, 'rgba(0, 0, 0, 0)');
+    this.alipayCanvasContext.setLineJoin('miter');
+    this.alipayCanvasContext.setLineWidth(1);
+    this.alipayCanvasContext.setMiterLimit(10);
+    this.alipayCanvasContext.clearRect(0, 0, 1000, 1000);
   };
 
   _createClass(CanvasContext, [{

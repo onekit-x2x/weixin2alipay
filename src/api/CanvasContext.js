@@ -18,7 +18,6 @@ export default class CanvasContext {
   }
 
   bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
-    this.alipayCanvasContext.setLineWidth(1)
     return this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
   }
 

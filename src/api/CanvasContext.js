@@ -4,7 +4,8 @@ export default class CanvasContext {
     this.alipayCanvasContext = alipayCanvasContext
   }
 
-  arc(x, y, r, sAngle, eAngle, counterclockwise) {
+  arc(x, y, r, sAngle, eAngle) {
+    const counterclockwise = 0
     return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise)
   }
 
@@ -25,11 +26,11 @@ export default class CanvasContext {
   }
 
   clip() {
-    return this.alipayCanvasContext.createCircularGradient()
+    return this.alipayCanvasContext.clip()
   }
 
   closePath() {
-    return this.alipayCanvasContext.createLinearGradient()
+    return this.alipayCanvasContext.closePath()
   }
 
   createCircularGradient(x, y, r) {
@@ -301,7 +302,8 @@ export default class CanvasContext {
     return this.alipayCanvasContext.strokeRect(x, y, width, height)
   }
 
-  strokeText(text, x, y, maxWidth = 0) {
+  strokeText(text, x, y) {
+    const maxWidth = 0
     return this.alipayCanvasContext.strokeText(text, x, y, maxWidth)
   }
 

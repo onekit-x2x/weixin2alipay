@@ -18,6 +18,7 @@ export default class CanvasContext {
   }
 
   bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
+    this.alipayCanvasContext.setLineWidth(0)
     return this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
   }
 
@@ -26,6 +27,7 @@ export default class CanvasContext {
   }
 
   clip() {
+    this.alipayCanvasContext.setFillStyle('#000')
     return this.alipayCanvasContext.clip()
   }
 
@@ -76,8 +78,8 @@ export default class CanvasContext {
     return this.alipayCanvasContext.lineTo(x, y)
   }
 
-  measureText(text) {
-    return this.alipayCanvasContext.measureText(text)
+  measureText(width) {
+    return this.alipayCanvasContext.measureText(width)
   }
 
   moveTo(x, y) {
@@ -261,7 +263,7 @@ export default class CanvasContext {
     return this._shadowColor || 'black'
   }
 
-  setShadowBlur(offsetX, offsetY, blur, color) {
+  setShadow(offsetX, offsetY, blur, color) {
     this.shadowOffsetX = offsetX
     this.shadowOffsetY = offsetY
     this.shadowBlur = blur

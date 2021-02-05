@@ -28,8 +28,8 @@ export default class VideoContext {
     return this.alipayVideoContext.play()
   }
 
-  playbackRate() {
-    return this.alipayVideoContext.playbackRate()
+  playbackRate(rate) {
+    return this.alipayVideoContext.playbackRate(rate)
   }
 
   requestFullScreen(object) {

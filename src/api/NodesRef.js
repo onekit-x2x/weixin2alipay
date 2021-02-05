@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 export default class NodesRef {
-  constructor(weixinSelectQuery, cmd, selector) {
-    this._selectQuery = weixinSelectQuery
+  constructor(alipayCameraContext, cmd, selector) {
+    this._selectQuery = alipayCameraContext
     this.cmd = cmd
     this.selector = selector
   }

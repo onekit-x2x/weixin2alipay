@@ -2,6 +2,7 @@
 export default class CanvasContext {
   constructor(alipayCanvasContext) {
     this.alipayCanvasContext = alipayCanvasContext
+    this.alipayCanvasContext.setFillStyle('#000')
   }
 
   arc(x, y, r, sAngle, eAngle) {
@@ -69,7 +70,6 @@ export default class CanvasContext {
   }
 
   fillText(text, x, y) {
-    this.alipayCanvasContext.setFillStyle('#000')
     return this.alipayCanvasContext.fillText(text, x, y)
   }
 

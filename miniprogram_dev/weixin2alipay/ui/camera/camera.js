@@ -125,7 +125,10 @@ exports.default = {
     hasClass: function hasClass(className) {},
     getDataset: function getDataset() {},
     callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
+
+    // requestAnimationFrame(callback) {
+
+    // },
     getState: function getState() {},
     getComputedStyle: function getComputedStyle(cssNames) {}
   }

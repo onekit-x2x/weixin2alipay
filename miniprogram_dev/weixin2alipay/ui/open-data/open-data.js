@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -125,7 +125,10 @@ exports.default = {
     hasClass: function hasClass(className) {},
     getDataset: function getDataset() {},
     callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
+
+    // requestAnimationFrame(callback) {
+
+    // },
     getState: function getState() {},
     getComputedStyle: function getComputedStyle(cssNames) {}
   }
@@ -217,10 +220,12 @@ var CanvasContext = function () {
     _classCallCheck(this, CanvasContext);
 
     this.alipayCanvasContext = alipayCanvasContext;
+    this.alipayCanvasContext.setFillStyle('#000');
   }
 
   CanvasContext.prototype.arc = function arc(x, y, r, sAngle, eAngle) {
-    var counterclockwise = 0;
+    var counterclockwise = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+
     return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise);
   };
 
@@ -233,7 +238,6 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.bezierCurveTo = function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
-    this._reset();
     return this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
   };
 
@@ -267,12 +271,13 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.drawImage = function drawImage(imageResource, sx, sy) {
-    var sWidth = 0;
-    var sHeight = 0;
-    var dx = 0;
-    var dy = 0;
-    var dWidth = 0;
-    var dHeight = 0;
+    var sWidth = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : imageResource.width;
+    var sHeight = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : imageResource.height;
+    var dx = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+    var dy = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 0;
+    var dWidth = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : imageResource.width;
+    var dHeight = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : imageResource.height;
+
     return this.alipayCanvasContext.drawImage(imageResource, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
   };
 
@@ -285,8 +290,6 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.fillText = function fillText(text, x, y) {
-    this._reset();
-    // this.alipayCanvasContext.setFillStyle('#000')
     return this.alipayCanvasContext.fillText(text, x, y);
   };
 
@@ -420,7 +423,8 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.strokeText = function strokeText(text, x, y) {
-    var maxWidth = 0;
+    var maxWidth = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
     return this.alipayCanvasContext.strokeText(text, x, y, maxWidth);
   };
 
@@ -430,17 +434,6 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.translate = function translate(x, y) {
     return this.alipayCanvasContext.translate(x, y);
-  };
-
-  CanvasContext.prototype._reset = function _reset() {
-    this.alipayCanvasContext.setFillStyle('#000000');
-    this.alipayCanvasContext.setStrokeStyle('#000000');
-    this.alipayCanvasContext.setFontSize(10);
-    this.alipayCanvasContext.setShadow(0, 0, 0, 'rgba(0, 0, 0, 0)');
-    this.alipayCanvasContext.setLineJoin('miter');
-    this.alipayCanvasContext.setLineWidth(1);
-    this.alipayCanvasContext.setMiterLimit(10);
-    this.alipayCanvasContext.clearRect(0, 0, 1000, 1000);
   };
 
   _createClass(CanvasContext, [{
@@ -645,78 +638,6 @@ module.exports = {
     }
   }
 };
-
-/***/ }),
-
-/***/ 39:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _wx = __webpack_require__(4);
-
-var _wx2 = _interopRequireDefault(_wx);
-
-var _weixin_behavior = __webpack_require__(2);
-
-var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
-
-var _onekit_behavior = __webpack_require__(1);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _wxs_behavior = __webpack_require__(0);
-
-var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-Component({
-  mixins: [_weixin_behavior2.default, _onekit_behavior2.default, _wxs_behavior2.default],
-  data: {},
-  props: {},
-
-  didMount: function didMount() {
-    var that = this;
-    _wx2.default.getOpenData({
-      success: function success(opendata) {
-        console.log('xxx', opendata);
-        switch (that.props.type) {
-          case 'userNickName':
-            that.setData({ userNickName: opendata.nickName });
-            break;
-          case 'userAvatarUrl':
-            that.setData({ userAvatarUrl: opendata.avatarUrl });
-            break;
-          case 'userGender':
-            that.setData({ userGender: opendata.gender });
-            break;
-          case 'userCity':
-            that.setData({ userCity: opendata.city });
-            break;
-          case 'userProvince':
-            that.setData({ userProvince: opendata.province });
-            break;
-          case 'userCountry':
-            that.setData({ userCountry: opendata.country });
-            break;
-          case 'userLanguage':
-            that.setData({ userLanguage: opendata.language });
-            break;
-          default:
-            break;
-        }
-      }
-    });
-  },
-  didUpdate: function didUpdate() {},
-  didUnmount: function didUnmount() {},
-
-  methods: {}
-});
 
 /***/ }),
 
@@ -3337,6 +3258,78 @@ exports.default = wx;
 
 /***/ }),
 
+/***/ 42:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _wx = __webpack_require__(4);
+
+var _wx2 = _interopRequireDefault(_wx);
+
+var _weixin_behavior = __webpack_require__(2);
+
+var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
+
+var _onekit_behavior = __webpack_require__(1);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _wxs_behavior = __webpack_require__(0);
+
+var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+Component({
+  mixins: [_weixin_behavior2.default, _onekit_behavior2.default, _wxs_behavior2.default],
+  data: {},
+  props: {},
+
+  didMount: function didMount() {
+    var that = this;
+    _wx2.default.getOpenData({
+      success: function success(opendata) {
+        console.log('xxx', opendata);
+        switch (that.props.type) {
+          case 'userNickName':
+            that.setData({ userNickName: opendata.nickName });
+            break;
+          case 'userAvatarUrl':
+            that.setData({ userAvatarUrl: opendata.avatarUrl });
+            break;
+          case 'userGender':
+            that.setData({ userGender: opendata.gender });
+            break;
+          case 'userCity':
+            that.setData({ userCity: opendata.city });
+            break;
+          case 'userProvince':
+            that.setData({ userProvince: opendata.province });
+            break;
+          case 'userCountry':
+            that.setData({ userCountry: opendata.country });
+            break;
+          case 'userLanguage':
+            that.setData({ userLanguage: opendata.language });
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  },
+  didUpdate: function didUpdate() {},
+  didUnmount: function didUnmount() {},
+
+  methods: {}
+});
+
+/***/ }),
+
 /***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3359,7 +3352,7 @@ var VideoContext = function () {
   }
 
   VideoContext.prototype.exitFullScreen = function exitFullScreen() {
-    return this.alipayConvasContext.exitFullScreen();
+    return this.alipayVideoContext.exitFullScreen();
   };
 
   VideoContext.prototype.exitPictureInPicture = function exitPictureInPicture(wx_object) {
@@ -3368,7 +3361,7 @@ var VideoContext = function () {
   };
 
   VideoContext.prototype.hideStatusBar = function hideStatusBar() {
-    return this.alipayConvasContext.hideStatusBar();
+    return this.alipayVideoContext.hideStatusBar();
   };
 
   VideoContext.prototype.pause = function pause() {
@@ -3379,16 +3372,16 @@ var VideoContext = function () {
     return this.alipayVideoContext.play();
   };
 
-  VideoContext.prototype.playbackRate = function playbackRate() {
-    return this.alipayVideoContext.playbackRate();
+  VideoContext.prototype.playbackRate = function playbackRate(rate) {
+    return this.alipayVideoContext.playbackRate(rate);
   };
 
   VideoContext.prototype.requestFullScreen = function requestFullScreen(object) {
-    return this.alipayConvasContext.requestFullScreen(object);
+    return this.alipayVideoContext.requestFullScreen(object);
   };
 
   VideoContext.prototype.seek = function seek(position) {
-    return this.alipayConvasContext.seek(position);
+    return this.alipayVideoContext.seek(position);
   };
 
   VideoContext.prototype.sendDanmu = function sendDanmu(data) {
@@ -3625,10 +3618,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 var NodesRef = function () {
-  function NodesRef(weixinSelectQuery, cmd, selector) {
+  function NodesRef(alipayCameraContext, cmd, selector) {
     _classCallCheck(this, NodesRef);
 
-    this._selectQuery = weixinSelectQuery;
+    this._selectQuery = alipayCameraContext;
     this.cmd = cmd;
     this.selector = selector;
   }

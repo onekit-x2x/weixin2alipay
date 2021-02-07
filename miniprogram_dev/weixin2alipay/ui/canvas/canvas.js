@@ -125,7 +125,10 @@ exports.default = {
     hasClass: function hasClass(className) {},
     getDataset: function getDataset() {},
     callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
+
+    // requestAnimationFrame(callback) {
+
+    // },
     getState: function getState() {},
     getComputedStyle: function getComputedStyle(cssNames) {}
   }
@@ -293,10 +296,22 @@ var _weixin_behavior = __webpack_require__(2);
 
 var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
+var _RenderingContext = __webpack_require__(25);
+
+var _RenderingContext2 = _interopRequireDefault(_RenderingContext);
+
+var _Image = __webpack_require__(26);
+
+var _Image2 = _interopRequireDefault(_Image);
+
+var _ImageData = __webpack_require__(27);
+
+var _ImageData2 = _interopRequireDefault(_ImageData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import CanvasContext from '../../api/CanvasContext'
-
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default],
   data: {},
@@ -308,6 +323,7 @@ Component({
 
   didMount: function didMount() {
     var onekitId = this.props.canvasId || this.props.onekitId;
+    this.ctx = my.createCanvasContext(this.data.onekitId);
     this.setData({
       onekitId: onekitId
     });
@@ -316,9 +332,35 @@ Component({
   didUnmount: function didUnmount() {},
 
   methods: {
-    getContext: function getContext() {
-      var alipayContext = my.createCanvasContext(this.props.onekitId);
-      return alipayContext; // new CanvasContext(alipayContext)
+    cancelAnimationFrame: function cancelAnimationFrame(id) {
+      return clearTimeout(id);
+    },
+    createImage: function createImage() {
+      return new _Image2.default();
+    },
+    createImageData: function createImageData() {
+      var array = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var width = arguments[1];
+      var height = arguments[2];
+
+      return new _ImageData2.default(array, width, height);
+    },
+    getContext: function getContext(type) {
+      switch (type) {
+        case '2d':
+          return new _RenderingContext2.default(this.ctx);
+        case 'webGL':
+          console.warn('xxx');
+          return {};
+        default:
+          throw new Error();
+      }
+    },
+    requestAnimationFrame: function requestAnimationFrame(callback) {
+      // (function () {
+      //   return setTimeout(callback, 0)
+      // }())
+      return setTimeout(callback, 0);
     },
     canvas_touchstart: function canvas_touchstart(_ref) {
       var detail = _ref.detail;
@@ -400,8 +442,576 @@ Component({
       // }
     }
   }
-}); /* eslint-disable no-console */
+});
+
+/***/ }),
+
+/***/ 25:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/* eslint-disable no-console */
+/* eslint-disable max-len */
+var CanvasContext = function () {
+  function CanvasContext(alipayCanvasContext) {
+    _classCallCheck(this, CanvasContext);
+
+    this.alipayCanvasContext = alipayCanvasContext;
+  }
+
+  CanvasContext.prototype.arc = function arc(x, y, radius, startAngle, endAngle) {
+    var anticlockwise = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+
+    this.alipayCanvasContext.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.arcTo = function arcTo(x1, y1, x2, y2, radius) {
+    this.alipayCanvasContext.arcTo(x1, y1, x2, y2, radius);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.beginPath = function beginPath() {
+    this.alipayCanvasContext.beginPath();
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.bezierCurveTo = function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
+    this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.clearRect = function clearRect(x, y, width, height) {
+    this.alipayCanvasContext.clearRect(x, y, width, height);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.clip = function clip() {
+    var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+    this.alipayCanvasContext.clip(path);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.closePath = function closePath() {
+    this.alipayCanvasContext.closePath();
+    this.alipayCanvasContext.draw();
+  };
+
+  // CanvasContext.prototype.createImageData = function createImageData(width, height) {
+  //   this.alipayCanvasContext.createImageData(width, height);
+  //   this.alipayCanvasContext.draw();
+  // };
+
+  CanvasContext.prototype.createLinearGradient = function createLinearGradient(x0, y0, x1, y1) {
+    this.alipayCanvasContext.createLinearGradient(x0, y0, x1, y1);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.createPattern = function createPattern(image, repetition) {
+    this.alipayCanvasContext.createPattern(image, repetition);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.createRadialGradient = function createRadialGradient(x0, y0, r0, x1, y1, r1) {
+    this.alipayCanvasContext.createRadialGradient(x0, y0, r0, x1, y1, r1);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.drawImage = function drawImage(image, sx, sy) {
+    var sWidth = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : image.width;
+    var sHeight = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : image.height;
+    var dx = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+    var dy = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 0;
+    var dWidth = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : image.width;
+    var dHeight = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : image.height;
+
+    this.alipayCanvasContext.drawImage(image.src, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.ellipse = function ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle) {
+    var anticlockwise = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : false;
+
+    this.alipayCanvasContext.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.fill = function fill() {
+    var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+    this.alipayCanvasContext.fill(path);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.fillRect = function fillRect(x, y, width, height) {
+    this.alipayCanvasContext.fillRect(x, y, width, height);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.fillText = function fillText(text, x, y) {
+    var maxWidth = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+    this.alipayCanvasContext.fillText(text, x, y, maxWidth);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.getImageData = function getImageData(sx, sy, sw, sh) {
+    this.alipayCanvasContext.lineTo(sx, sy, sw, sh);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.getLineDash = function getLineDash() {
+    this.alipayCanvasContext.getLineDash();
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.isPointInPath = function isPointInPath(x, y) {
+    var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+
+    this.alipayCanvasContext.isPointInPath(path, x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.isPointInStroke = function isPointInStroke(x, y) {
+    var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+
+    this.alipayCanvasContext.isPointInStroke(path, x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.lineTo = function lineTo(x, y) {
+    this.alipayCanvasContext.lineTo(x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.measureText = function measureText(width) {
+    this.alipayCanvasContext.measureText(width);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.moveTo = function moveTo(x, y) {
+    this.alipayCanvasContext.moveTo(x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.putImageData = function putImageData(imagedata, dx, dy) {
+    this.alipayCanvasContext.putImageData(imagedata, dx, dy);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.quadraticCurveTo = function quadraticCurveTo(cpx, cpy, x, y) {
+    this.alipayCanvasContext.quadraticCurveTo(cpx, cpy, x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.rect = function rect(x, y, width, height) {
+    this.alipayCanvasContext.rect(x, y, width, height);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.restore = function restore() {
+    this.alipayCanvasContext.restore();
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.rotate = function rotate(_rotate) {
+    this.alipayCanvasContext.rotate(_rotate);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.save = function save() {
+    this.alipayCanvasContext.save();
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.scale = function scale(x, y) {
+    this.alipayCanvasContext.scale(x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.setLineDash = function setLineDash(segments) {
+    this.alipayCanvasContext.setLineDash(segments);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.setTransform = function setTransform(a, b, c, d, e, f) {
+    this.alipayCanvasContext.setTransform(a, b, c, d, e, f);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.stroke = function stroke() {
+    this.alipayCanvasContext.stroke();
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.strokeRect = function strokeRect(x, y, width, height) {
+    this.alipayCanvasContext.strokeRect(x, y, width, height);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.strokeText = function strokeText(text, x, y) {
+    var maxWidth = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+    this.alipayCanvasContext.strokeText(text, x, y, maxWidth);
+    this.alipayCanvasContext.draw();
+  };
+
+  //
+
+
+  CanvasContext.prototype.transform = function transform(scaleX, skewX, skewY, scaleY, translateX, translateY) {
+    this.alipayCanvasContext.transform(scaleX, skewX, skewY, scaleY, translateX, translateY);
+    this.alipayCanvasContext.draw();
+  };
+
+  CanvasContext.prototype.translate = function translate(x, y) {
+    this.alipayCanvasContext.translate(x, y);
+    this.alipayCanvasContext.draw();
+  };
+
+  _createClass(CanvasContext, [{
+    key: 'fillStyle',
+    set: function set(color) {
+      this._fillStyle = color;
+      this.alipayCanvasContext.setFillStyle(color);
+    },
+    get: function get() {
+      return this._fillStyle;
+    }
+  }, {
+    key: 'font',
+    set: function set(value) {
+      this._font = value;
+    },
+    get: function get() {
+      return this._font;
+    }
+  }, {
+    key: 'globalAlpha',
+    set: function set(alpha) {
+      this._globalAlpha = alpha;
+      this.alipayCanvasContext.setGlobalAlpha(alpha);
+    },
+    get: function get() {
+      return this._globalAlpha;
+    }
+
+    //
+
+  }, {
+    key: 'globalCompositeOperation',
+    set: function set(type) {
+      this._globalCompositeOperation = type;
+    },
+    get: function get() {
+      return this._globalCompositeOperation;
+    }
+
+    //
+
+  }, {
+    key: 'imageSmoothingEnabled',
+    set: function set(value) {
+      this._imageSmoothingEnabled = value;
+    },
+    get: function get() {
+      return this._imageSmoothingEnabled;
+    }
+  }, {
+    key: 'lineCap',
+    set: function set(lineCap) {
+      this._lineCap = lineCap;
+      this.alipayCanvasContext.setLineCap(lineCap);
+    },
+    get: function get() {
+      return this._lineCap;
+    }
+
+    //
+
+  }, {
+    key: 'lineDashOffset',
+    set: function set(offset) {
+      this._offset = offset;
+    },
+    get: function get() {
+      return this._offset;
+    }
+
+    //
+
+  }, {
+    key: 'lineJoin',
+    set: function set(lineJoin) {
+      this._lineJoin = lineJoin;
+    },
+    get: function get() {
+      return this._lineJoin;
+    }
+  }, {
+    key: 'lineWidth',
+    set: function set(lineWidth) {
+      this._lineWidth = lineWidth;
+    },
+    get: function get() {
+      return this._lineWidth;
+    }
+  }, {
+    key: 'miterLimit',
+    set: function set(miterLimit) {
+      this._miterLimit = miterLimit;
+    },
+    get: function get() {
+      return this._miterLimit;
+    }
+  }, {
+    key: 'shadowColor',
+    set: function set(color) {
+      this._shadowColor = color;
+    },
+    get: function get() {
+      return this._hadowColor;
+    }
+
+    //
+
+  }, {
+    key: 'shadowBlur',
+    set: function set(level) {
+      this._shadowBlur = level;
+    },
+    get: function get() {
+      return this._shadowBlur;
+    }
+
+    //
+
+  }, {
+    key: 'shadowOffsetX',
+    set: function set(offset) {
+      this._shadowOffsetX = offset;
+    },
+    get: function get() {
+      return this._shadowOffsetX;
+    }
+
+    //
+
+  }, {
+    key: 'shadowOffsetY',
+    set: function set(offset) {
+      this._shadowOffsetY = offset;
+    },
+    get: function get() {
+      return this._shadowOffsetY;
+    }
+  }, {
+    key: 'strokeStyle',
+    set: function set(color) {
+      this.strokeStyle = color;
+    },
+    get: function get() {
+      return this.strokeStyle;
+    }
+  }, {
+    key: 'textAlign',
+    set: function set(align) {
+      align = 'left' || false || false || false || false;
+      this._textAlign = align;
+    },
+    get: function get() {
+      return this._textAlign;
+    }
+
+    //
+
+  }, {
+    key: 'textBaseline',
+    set: function set(vertical) {
+      vertical = 'top' || false || false || false || false || false;
+      this._textBaseline = vertical;
+    },
+    get: function get() {
+      return this._textBaseline;
+    }
+  }]);
+
+  return CanvasContext;
+}();
+
+exports.default = CanvasContext;
+
+/***/ }),
+
+/***/ 26:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
+var Image = function () {
+  function Image() {
+    _classCallCheck(this, Image);
+  }
+
+  _createClass(Image, [{
+    key: "src",
+    set: function set(src) {
+      var _this = this;
+
+      this._src = src;
+      if (!this.onload) {
+        return;
+      }
+      my.getImageInfo({
+        src: src,
+        success: function success(res) {
+          _this._width = res.width;
+          _this._height = res.height;
+          _this.onload();
+        },
+        fail: function fail(err) {
+          if (_this.onerror) {
+            _this.onerror(err.errMsg);
+          }
+        }
+      });
+    },
+    get: function get() {
+      return this._src;
+    }
+  }, {
+    key: "width",
+    get: function get() {
+      return this._width;
+    }
+  }, {
+    key: "height",
+    get: function get() {
+      return this._height;
+    }
+  }, {
+    key: "onload",
+    set: function set(onload) {
+      this._onload = onload;
+    },
+    get: function get() {
+      return this._onload;
+    }
+  }, {
+    key: "onerror",
+    set: function set(onerror) {
+      this._onerror = onerror;
+    },
+    get: function get() {
+      return this._onerror;
+    }
+  }]);
+
+  return Image;
+}();
+
+exports.default = Image;
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+var ImageData = function () {
+  function ImageData(alipayImageData) {
+    _classCallCheck(this, ImageData);
+
+    this.alipayImageData = alipayImageData;
+    console.log(this.alipayImageData, this.ctx);
+  }
+
+  _createClass(ImageData, [{
+    key: "width",
+    get: function get() {
+      var _this = this;
+
+      this.ctx.getImageData({
+        x: 0,
+        y: 0,
+        width: this.alipayImageData.width,
+        height: this.alipayImageData.height,
+        success: function success(res) {
+          _this._width = res.width;
+          _this._height = res.height;
+          _this._data = res.data;
+        }
+      });
+      return this._width;
+    }
+  }, {
+    key: "height",
+    get: function get() {
+      return this._height;
+    }
+  }, {
+    key: "data",
+    get: function get() {
+      return this._data;
+    }
+  }]);
+
+  return ImageData;
+}();
+
+exports.default = ImageData;
 
 /***/ })
 

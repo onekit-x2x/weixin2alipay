@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -125,7 +125,10 @@ exports.default = {
     hasClass: function hasClass(className) {},
     getDataset: function getDataset() {},
     callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
+
+    // requestAnimationFrame(callback) {
+
+    // },
     getState: function getState() {},
     getComputedStyle: function getComputedStyle(cssNames) {}
   }
@@ -282,7 +285,7 @@ module.exports = require("oneutil");
 
 /***/ }),
 
-/***/ 31:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -300,7 +303,7 @@ var _wxs_behavior = __webpack_require__(0);
 
 var _wxs_behavior2 = _interopRequireDefault(_wxs_behavior);
 
-var _MapContext_behavior = __webpack_require__(32);
+var _MapContext_behavior = __webpack_require__(35);
 
 var _MapContext_behavior2 = _interopRequireDefault(_MapContext_behavior);
 
@@ -608,7 +611,7 @@ Component({
 
 /***/ }),
 
-/***/ 32:
+/***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -616,7 +619,7 @@ Component({
 
 var _oneutil = __webpack_require__(3);
 
-var _LngLat2px = __webpack_require__(33);
+var _LngLat2px = __webpack_require__(36);
 
 var _LngLat2px2 = _interopRequireDefault(_LngLat2px);
 
@@ -1050,7 +1053,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 33:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

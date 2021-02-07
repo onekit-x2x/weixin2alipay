@@ -18,6 +18,7 @@ Component({
 
   didMount() {
     const onekitId = this.props.canvasId || this.props.onekitId
+    this.ctx = my.createCanvasContext(this.data.onekitId)
     this.setData({
       onekitId
     })
@@ -31,13 +32,14 @@ Component({
     createImage() {
       return new Image()
     },
-    createImageData() {
-      return new ImageData()
+    createImageData(array = [], width, height) {
+      return new ImageData(array, width, height)
     },
+    // createPath2D(path) {},
     getContext(type) {
       switch (type) {
         case '2d':
-          return new RenderingContext(my.createCanvasContext(this.data.onekitId))
+          return new RenderingContext(this.ctx)
         case 'webGL':
           console.warn('xxx')
           return {}
@@ -51,6 +53,7 @@ Component({
       // }())
       return setTimeout(callback, 0)
     },
+    // toDataURLtype, encoderOptions {},
 
     canvas_touchstart({
       detail

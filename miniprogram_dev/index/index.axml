@@ -586,7 +586,7 @@
 
 
 <!-- canvasContext -->
-<onekit-canvas canvas-id="myCanvas" type="2d" onekit-style="width: 400px;height: 800px;"></onekit-canvas>
+<!-- <onekit-canvas canvas-id="myCanvas" type="2d" onekit-style="width: 400px;height: 800px;"></onekit-canvas> -->
 
 <!-- mapContext -->
 <!-- <onekit-map 
@@ -692,3 +692,5 @@
     </onekit-view>
   </onekit-view>
 </onekit-view> -->
+
+<onekit-canvas onekit-id="myCanvas" type="2d"></onekit-canvas>

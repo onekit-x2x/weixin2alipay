@@ -30,9 +30,9 @@ export default {
     callMethod(funcName, args) {
 
     },
-    requestAnimationFrame(callback) {
+    // requestAnimationFrame(callback) {
 
-    },
+    // },
     getState() {
 
     },

@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 50);
+/******/ 	return __webpack_require__(__webpack_require__.s = 53);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -125,7 +125,10 @@ exports.default = {
     hasClass: function hasClass(className) {},
     getDataset: function getDataset() {},
     callMethod: function callMethod(funcName, args) {},
-    requestAnimationFrame: function requestAnimationFrame(callback) {},
+
+    // requestAnimationFrame(callback) {
+
+    // },
     getState: function getState() {},
     getComputedStyle: function getComputedStyle(cssNames) {}
   }
@@ -282,7 +285,7 @@ module.exports = require("oneutil");
 
 /***/ }),
 
-/***/ 50:
+/***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -300,7 +303,7 @@ var _weixin_behavior = __webpack_require__(2);
 
 var _weixin_behavior2 = _interopRequireDefault(_weixin_behavior);
 
-var _VideoContext_behavior = __webpack_require__(51);
+var _VideoContext_behavior = __webpack_require__(54);
 
 var _VideoContext_behavior2 = _interopRequireDefault(_VideoContext_behavior);
 
@@ -313,7 +316,6 @@ Component({
   mixins: [_onekit_behavior2.default, _wxs_behavior2.default, _weixin_behavior2.default, _VideoContext_behavior2.default],
   data: {
     pictureinpicture: 'none',
-    isPlay: false,
     currentTime: 0,
     danmus: [[], []]
   },
@@ -402,25 +404,16 @@ Component({
 
   methods: {
     video_play: function video_play() {
-      this.setData({
-        isPlay: true
-      });
       if (this.props.onPlay) {
         this.props.onPlay();
       }
     },
     video_pause: function video_pause() {
-      this.setData({
-        isPlay: false
-      });
       if (this.props.onPause) {
         this.props.onPause();
       }
     },
     video_end: function video_end() {
-      this.setData({
-        isPlay: false
-      });
       if (this.props.onEnded) {
         this.props.onEnded();
       }
@@ -453,9 +446,6 @@ Component({
       }
     },
     video_error: function video_error() {
-      this.setData({
-        isPlay: false
-      });
       if (this.props.onError) {
         this.props.onError({});
       }
@@ -520,7 +510,7 @@ Component({
 
 /***/ }),
 
-/***/ 51:
+/***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

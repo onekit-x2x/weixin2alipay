@@ -5,8 +5,7 @@ export default class CanvasContext {
     this.alipayCanvasContext.setFillStyle('#000')
   }
 
-  arc(x, y, r, sAngle, eAngle) {
-    const counterclockwise = 0
+  arc(x, y, r, sAngle, eAngle, counterclockwise = 0) {
     return this.alipayCanvasContext.arc(x, y, r, sAngle, eAngle, counterclockwise)
   }
 
@@ -51,13 +50,7 @@ export default class CanvasContext {
     return this.alipayCanvasContext.draw(reserve, callback)
   }
 
-  drawImage(imageResource, sx, sy) {
-    const sWidth = 0
-    const sHeight = 0
-    const dx = 0
-    const dy = 0
-    const dWidth = 0
-    const dHeight = 0
+  drawImage(imageResource, sx, sy, sWidth = imageResource.width, sHeight = imageResource.height, dx = 0, dy = 0, dWidth = imageResource.width, dHeight = imageResource.height) {
     return this.alipayCanvasContext.drawImage(imageResource, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
   }
 
@@ -303,8 +296,7 @@ export default class CanvasContext {
     return this.alipayCanvasContext.strokeRect(x, y, width, height)
   }
 
-  strokeText(text, x, y) {
-    const maxWidth = 0
+  strokeText(text, x, y, maxWidth = 0) {
     return this.alipayCanvasContext.strokeText(text, x, y, maxWidth)
   }
 

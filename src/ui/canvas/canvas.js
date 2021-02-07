@@ -3,6 +3,9 @@
 import onekit_behavior from '../../behavior/onekit_behavior'
 import wxs_behavior from '../../behavior/wxs_behavior'
 import weixin_behavior from '../../behavior/weixin_behavior'
+import RenderingContext from '../../api/RenderingContext'
+import Image from '../../api/Image'
+import ImageData from '../../api/ImageData'
 
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
@@ -22,10 +25,33 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    getContext() {
-      const alipayContext = my.createCanvasContext(this.props.onekitId)
-      return alipayContext // new CanvasContext(alipayContext)
+    cancelAnimationFrame(id) {
+      return clearTimeout(id)
     },
+    createImage() {
+      return new Image()
+    },
+    createImageData() {
+      return new ImageData()
+    },
+    getContext(type) {
+      switch (type) {
+        case '2d':
+          return new RenderingContext(my.createCanvasContext(this.data.onekitId))
+        case 'webGL':
+          console.warn('xxx')
+          return {}
+        default:
+          throw new Error()
+      }
+    },
+    requestAnimationFrame(callback) {
+      // (function () {
+      //   return setTimeout(callback, 0)
+      // }())
+      return setTimeout(callback, 0)
+    },
+
     canvas_touchstart({
       detail
     }) {

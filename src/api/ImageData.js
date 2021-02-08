@@ -10,8 +10,8 @@ export default class ImageData {
     this.ctx.getImageData({
       x: 0,
       y: 0,
-      width: this.alipayImageData.width,
-      height: this.alipayImageData.height,
+      width: this.rect.width,
+      height: this.rect.height,
       success: res => {
         this._width = res.width
         this._height = res.height

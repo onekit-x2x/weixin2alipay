@@ -18,7 +18,12 @@ Component({
 
   didMount() {
     const onekitId = this.props.canvasId || this.props.onekitId
-    this.ctx = my.createCanvasContext(this.data.onekitId)
+    my.createSelectorQuery()
+      .select('.onekit-canvas').boundingClientRect().exec((rect) => {
+        this.setData({
+          rect: rect[0]
+        })
+      })
     this.setData({
       onekitId
     })
@@ -32,14 +37,14 @@ Component({
     createImage() {
       return new Image()
     },
-    createImageData(array = [], width, height) {
-      return new ImageData(array, width, height)
+    createImageData() {
+      return new ImageData()
     },
     // createPath2D(path) {},
     getContext(type) {
       switch (type) {
         case '2d':
-          return new RenderingContext(this.ctx)
+          return new RenderingContext(my.createCanvasContext(this.data.onekitId))
         case 'webGL':
           console.warn('xxx')
           return {}

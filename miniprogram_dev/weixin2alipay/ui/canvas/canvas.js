@@ -345,6 +345,8 @@ Component({
 
       return new _ImageData2.default(array, width, height);
     },
+
+    // createPath2D(path) {},
     getContext: function getContext(type) {
       switch (type) {
         case '2d':
@@ -362,6 +364,9 @@ Component({
       // }())
       return setTimeout(callback, 0);
     },
+
+    // toDataURLtype, encoderOptions {},
+
     canvas_touchstart: function canvas_touchstart(_ref) {
       var detail = _ref.detail;
 
@@ -506,10 +511,10 @@ var CanvasContext = function () {
     this.alipayCanvasContext.draw();
   };
 
-  // CanvasContext.prototype.createImageData = function createImageData(width, height) {
-  //   this.alipayCanvasContext.createImageData(width, height);
-  //   this.alipayCanvasContext.draw();
-  // };
+  // createImageData(width, height) {
+  //   this.alipayCanvasContext.createImageData(width, height)
+  //   this.alipayCanvasContext.draw()
+  // }
 
   CanvasContext.prototype.createLinearGradient = function createLinearGradient(x0, y0, x1, y1) {
     this.alipayCanvasContext.createLinearGradient(x0, y0, x1, y1);

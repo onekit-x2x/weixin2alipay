@@ -41,10 +41,10 @@ export default class CanvasContext {
     this.alipayCanvasContext.draw()
   }
 
-  // createImageData(width, height) {
-  //   this.alipayCanvasContext.createImageData(width, height)
-  //   this.alipayCanvasContext.draw()
-  // }
+  createImageData(width, height) {
+    this.alipayCanvasContext.createImageData(width, height)
+    this.alipayCanvasContext.draw()
+  }
 
   createLinearGradient(x0, y0, x1, y1) {
     this.alipayCanvasContext.createLinearGradient(x0, y0, x1, y1)

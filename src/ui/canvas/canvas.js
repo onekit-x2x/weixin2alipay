@@ -5,7 +5,6 @@ import wxs_behavior from '../../behavior/wxs_behavior'
 import weixin_behavior from '../../behavior/weixin_behavior'
 import RenderingContext from '../../api/RenderingContext'
 import Image from '../../api/Image'
-import ImageData from '../../api/ImageData'
 
 Component({
   mixins: [onekit_behavior, wxs_behavior, weixin_behavior],
@@ -18,12 +17,7 @@ Component({
 
   didMount() {
     const onekitId = this.props.canvasId || this.props.onekitId
-    my.createSelectorQuery()
-      .select('.onekit-canvas').boundingClientRect().exec((rect) => {
-        this.setData({
-          rect: rect[0]
-        })
-      })
+    this.ctx = my.createCanvasContext(onekitId)
     this.setData({
       onekitId
     })
@@ -37,25 +31,19 @@ Component({
     createImage() {
       return new Image()
     },
-    createImageData() {
-      return new ImageData()
-    },
     // createPath2D(path) {},
     getContext(type) {
       switch (type) {
         case '2d':
-          return new RenderingContext(my.createCanvasContext(this.data.onekitId))
+          return new RenderingContext(this.ctx)
         case 'webGL':
-          console.warn('xxx')
-          return {}
+          // console.warn('xxx')
+          return 'webGL is not support'
         default:
-          throw new Error()
+          throw new Error('webGL is not support')
       }
     },
     requestAnimationFrame(callback) {
-      // (function () {
-      //   return setTimeout(callback, 0)
-      // }())
       return setTimeout(callback, 0)
     },
     // toDataURLtype, encoderOptions {},

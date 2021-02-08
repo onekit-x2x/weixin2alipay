@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 57);
+/******/ 	return __webpack_require__(__webpack_require__.s = 56);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3197,7 +3197,7 @@ exports.default = VideoContext;
 
 /***/ }),
 
-/***/ 57:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3205,22 +3205,22 @@ exports.default = VideoContext;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GLOBAL = exports.wx = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(58);
+var OnekitApp_1 = __webpack_require__(57);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(59);
+var OnekitBehavior_1 = __webpack_require__(58);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(60);
+var OnekitComponent_1 = __webpack_require__(59);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(61);
+var OnekitPage_1 = __webpack_require__(60);
 exports.OnekitPage = OnekitPage_1.default;
 var wx_1 = __webpack_require__(4);
 exports.wx = wx_1.default;
-var global_1 = __webpack_require__(62);
+var global_1 = __webpack_require__(61);
 exports.GLOBAL = global_1.default;
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3318,7 +3318,7 @@ function OnekitApp(wx_object) {
 
 /***/ }),
 
-/***/ 59:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3445,47 +3445,7 @@ function OnekitBehavior(object) {
 
 /***/ }),
 
-/***/ 6:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var CameraContext = function () {
-  function CameraContext(alipayCameraContext) {
-    _classCallCheck(this, CameraContext);
-
-    this.alipayCameraContext = alipayCameraContext;
-  }
-
-  CameraContext.prototype.takePhoto = function takePhoto(object) {
-    return this.alipayCameraContext.takePhoto(object);
-  };
-
-  CameraContext.prototype.startRecord = function startRecord(object) {
-    return this.alipayCameraContext.startRecord(object);
-  };
-
-  CameraContext.prototype.stopRecord = function stopRecord(object) {
-    return this.alipayCameraContext.stopRecord(object);
-  };
-
-  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
-    return this.alipayCameraContext.onCameraFrame(callback);
-  };
-
-  return CameraContext;
-}();
-
-exports.default = CameraContext;
-
-/***/ }),
-
-/***/ 60:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3686,7 +3646,47 @@ function OnekitComponent(object) {
 
 /***/ }),
 
-/***/ 61:
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CameraContext = function () {
+  function CameraContext(alipayCameraContext) {
+    _classCallCheck(this, CameraContext);
+
+    this.alipayCameraContext = alipayCameraContext;
+  }
+
+  CameraContext.prototype.takePhoto = function takePhoto(object) {
+    return this.alipayCameraContext.takePhoto(object);
+  };
+
+  CameraContext.prototype.startRecord = function startRecord(object) {
+    return this.alipayCameraContext.startRecord(object);
+  };
+
+  CameraContext.prototype.stopRecord = function stopRecord(object) {
+    return this.alipayCameraContext.stopRecord(object);
+  };
+
+  CameraContext.prototype.onCameraFrame = function onCameraFrame(callback) {
+    return this.alipayCameraContext.onCameraFrame(callback);
+  };
+
+  return CameraContext;
+}();
+
+exports.default = CameraContext;
+
+/***/ }),
+
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3867,7 +3867,7 @@ function OnekitPage(wx_object) {
 
 /***/ }),
 
-/***/ 62:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

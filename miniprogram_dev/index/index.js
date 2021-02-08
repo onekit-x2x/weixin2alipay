@@ -1396,16 +1396,29 @@ OnekitPage({
       query.select("#myCanvas").fields({
     node:true
   }).exec((res)=>{
-      canvas = res[0].node
-      canvasCtx = canvas.getContext("2d")
-      var imgData = canvasCtx.createImageData(100,100)
-      for(var i = 0;i < imgData.data.length;i += 4){
-        imgData.data[i + 0] = 0;
-        imgData.data[i + 1] = 255;
-        imgData.data[i + 2] = 0;
-        imgData.data[i + 3] = 255;
-      }
-      canvasCtx.putImageData(imgData,10,10)
+      canvas = res[0].node;
+      canvas.width = res[0].width;
+      canvas.height = res[0].height;
+        canvasCtx = canvas.getContext("2d");
+        // const ctx = canvasCtx.createImageData(200, 100)
+        // console.log(ctx);
+
+        canvasCtx.fillStyle = 'red';
+        canvasCtx.rect(0, 0, 10, 10);
+        canvasCtx.fill();
+        const image = canvas.createImage();
+    image.onload = () => {
+      canvasCtx.drawImage(image,0,0);
+      const ctx = canvasCtx.createImageData(20, 20)
+     console.log(ctx);
+    };
+
+    image.onerror = (err) => {
+      console.log("## image error ##", err);
+    
+    };
+
+    image.src = "https://s3.pstatp.com/toutiao/static/img/logo.271e845.png";
     })
     }
   })

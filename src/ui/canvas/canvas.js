@@ -46,7 +46,15 @@ Component({
     requestAnimationFrame(callback) {
       return setTimeout(callback, 0)
     },
-    // toDataURLtype, encoderOptions {},
+    toDataURL(callback, type = 'image/png', encoderOptions = 0.92) {
+      this.ctx.toDataURL({
+        fileType: type,
+        quality: encoderOptions
+        // eslint-disable-next-line promise/no-callback-in-promise
+      }).then(callback).catch((err) => {
+        throw new Error(err)
+      })
+    },
 
     canvas_touchstart({
       detail

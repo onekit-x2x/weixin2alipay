@@ -9,37 +9,30 @@ export default class CanvasContext {
 
   arc(x, y, radius, startAngle, endAngle, anticlockwise = 0) {
     this.alipayCanvasContext.arc(x, y, radius, startAngle, endAngle, anticlockwise)
-    // this.alipayCanvasContext.draw()
   }
 
   arcTo(x1, y1, x2, y2, radius) {
     this.alipayCanvasContext.arcTo(x1, y1, x2, y2, radius)
-    // this.alipayCanvasContext.draw()
   }
 
   beginPath() {
     this.alipayCanvasContext.beginPath()
-    // this.alipayCanvasContext.draw()
   }
 
   bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
     this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
-    // this.alipayCanvasContext.draw()
   }
 
   clearRect(x, y, width, height) {
     this.alipayCanvasContext.clearRect(x, y, width, height)
-    // this.alipayCanvasContext.draw()
   }
 
   clip(path = '') {
     this.alipayCanvasContext.clip(path)
-    // this.alipayCanvasContext.draw()
   }
 
   closePath() {
     this.alipayCanvasContext.closePath()
-    // this.alipayCanvasContext.draw()
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -55,17 +48,14 @@ export default class CanvasContext {
 
   createLinearGradient(x0, y0, x1, y1) {
     this.alipayCanvasContext.createLinearGradient(x0, y0, x1, y1)
-    // this.alipayCanvasContext.draw()
   }
 
   createPattern(image, repetition) {
     this.alipayCanvasContext.createPattern(image, repetition)
-    // this.alipayCanvasContext.draw()
   }
 
   createRadialGradient(x0, y0, r0, x1, y1, r1) {
     this.alipayCanvasContext.createRadialGradient(x0, y0, r0, x1, y1, r1)
-    // this.alipayCanvasContext.draw()
   }
 
   drawImage(image, sx, sy, sWidth = image.width, sHeight = image.height, dx = 0, dy = 0, dWidth = image.width, dHeight = image.height) {
@@ -75,7 +65,6 @@ export default class CanvasContext {
 
   ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise = false) {
     this.alipayCanvasContext.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise)
-    // this.alipayCanvasContext.draw()
   }
 
   fill() {
@@ -118,13 +107,14 @@ export default class CanvasContext {
       y: sy,
       width: sw,
       height: sh,
+      success: res => {
+        this._res = res
+      }
     })
-    // this.alipayCanvasContext.draw()
   }
 
   getLineDash() {
     this.alipayCanvasContext.getLineDash()
-    // this.alipayCanvasContext.draw()
   }
 
   //
@@ -157,12 +147,10 @@ export default class CanvasContext {
 
   isPointInPath(x, y, path = '') {
     this.alipayCanvasContext.isPointInPath(path, x, y)
-    // this.alipayCanvasContext.draw()
   }
 
   isPointInStroke(x, y, path = '') {
     this.alipayCanvasContext.isPointInStroke(path, x, y)
-    // this.alipayCanvasContext.draw()
   }
 
   //
@@ -195,7 +183,6 @@ export default class CanvasContext {
 
   lineTo(x, y) {
     this.alipayCanvasContext.lineTo(x, y)
-    // this.alipayCanvasContext.draw()
   }
 
   //
@@ -209,7 +196,6 @@ export default class CanvasContext {
 
   measureText(width) {
     this.alipayCanvasContext.measureText(width)
-    // this.alipayCanvasContext.draw()
   }
 
   //
@@ -223,11 +209,13 @@ export default class CanvasContext {
 
   moveTo(x, y) {
     this.alipayCanvasContext.moveTo(x, y)
-    // this.alipayCanvasContext.draw()
   }
 
   putImageData(imagedata, dx, dy) {
-    console.log(imagedata, dx, dy, this.alipayCanvasContext.putImageData())
+    if (!imagedata) {
+      console.log('xxx', this._res)
+      imagedata = this._res
+    }
     this.alipayCanvasContext.putImageData({
       x: dx,
       y: dy,
@@ -235,47 +223,38 @@ export default class CanvasContext {
       height: imagedata.height,
       data: imagedata.data,
     })
-    // this.alipayCanvasContext.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight)
   }
 
   quadraticCurveTo(cpx, cpy, x, y) {
     this.alipayCanvasContext.quadraticCurveTo(cpx, cpy, x, y)
-    // this.alipayCanvasContext.draw()
   }
 
   rect(x, y, width, height) {
     this.alipayCanvasContext.rect(x, y, width, height)
-    // this.alipayCanvasContext.draw()
   }
 
   restore() {
     this.alipayCanvasContext.restore()
-    // this.alipayCanvasContext.draw()
   }
 
   rotate(rotate) {
     this.alipayCanvasContext.rotate(rotate)
-    // this.alipayCanvasContext.draw()
   }
 
   save() {
     this.alipayCanvasContext.save()
-    // this.alipayCanvasContext.draw()
   }
 
   scale(x, y) {
     this.alipayCanvasContext.scale(x, y)
-    // this.alipayCanvasContext.draw()
   }
 
   setLineDash(segments) {
     this.alipayCanvasContext.setLineDash(segments)
-    // this.alipayCanvasContext.draw()
   }
 
   setTransform(a, b, c, d, e, f) {
     this.alipayCanvasContext.setTransform(a, b, c, d, e, f)
-    // this.alipayCanvasContext.draw()
   }
 
   //
@@ -360,11 +339,9 @@ export default class CanvasContext {
 
   transform(scaleX, skewX, skewY, scaleY, translateX, translateY) {
     this.alipayCanvasContext.transform(scaleX, skewX, skewY, scaleY, translateX, translateY)
-    // this.alipayCanvasContext.draw()
   }
 
   translate(x, y) {
     this.alipayCanvasContext.translate(x, y)
-    // this.alipayCanvasContext.draw()
   }
 }

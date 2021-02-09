@@ -348,9 +348,18 @@ Component({
     requestAnimationFrame: function requestAnimationFrame(callback) {
       return setTimeout(callback, 0);
     },
+    toDataURL: function toDataURL(callback) {
+      var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'image/png';
+      var encoderOptions = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0.92;
 
-    // toDataURLtype, encoderOptions {},
-
+      this.ctx.toDataURL({
+        fileType: type,
+        quality: encoderOptions
+        // eslint-disable-next-line promise/no-callback-in-promise
+      }).then(callback).catch(function (err) {
+        throw new Error(err);
+      });
+    },
     canvas_touchstart: function canvas_touchstart(_ref) {
       var detail = _ref.detail;
 
@@ -462,39 +471,32 @@ var CanvasContext = function () {
     var anticlockwise = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
 
     this.alipayCanvasContext.arc(x, y, radius, startAngle, endAngle, anticlockwise);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.arcTo = function arcTo(x1, y1, x2, y2, radius) {
     this.alipayCanvasContext.arcTo(x1, y1, x2, y2, radius);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.beginPath = function beginPath() {
     this.alipayCanvasContext.beginPath();
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.bezierCurveTo = function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
     this.alipayCanvasContext.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.clearRect = function clearRect(x, y, width, height) {
     this.alipayCanvasContext.clearRect(x, y, width, height);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.clip = function clip() {
     var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
     this.alipayCanvasContext.clip(path);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.closePath = function closePath() {
     this.alipayCanvasContext.closePath();
-    // this.alipayCanvasContext.draw()
   };
 
   // eslint-disable-next-line class-methods-use-this
@@ -512,17 +514,14 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.createLinearGradient = function createLinearGradient(x0, y0, x1, y1) {
     this.alipayCanvasContext.createLinearGradient(x0, y0, x1, y1);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.createPattern = function createPattern(image, repetition) {
     this.alipayCanvasContext.createPattern(image, repetition);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.createRadialGradient = function createRadialGradient(x0, y0, r0, x1, y1, r1) {
     this.alipayCanvasContext.createRadialGradient(x0, y0, r0, x1, y1, r1);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.drawImage = function drawImage(image, sx, sy) {
@@ -541,7 +540,6 @@ var CanvasContext = function () {
     var anticlockwise = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : false;
 
     this.alipayCanvasContext.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.fill = function fill() {
@@ -568,18 +566,21 @@ var CanvasContext = function () {
 
 
   CanvasContext.prototype.getImageData = function getImageData(sx, sy, sw, sh) {
+    var _this = this;
+
     this.alipayCanvasContext.getImageData({
       x: sx,
       y: sy,
       width: sw,
-      height: sh
+      height: sh,
+      success: function success(res) {
+        _this._res = res;
+      }
     });
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.getLineDash = function getLineDash() {
     this.alipayCanvasContext.getLineDash();
-    // this.alipayCanvasContext.draw()
   };
 
   //
@@ -589,14 +590,12 @@ var CanvasContext = function () {
     var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
 
     this.alipayCanvasContext.isPointInPath(path, x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.isPointInStroke = function isPointInStroke(x, y) {
     var path = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
 
     this.alipayCanvasContext.isPointInStroke(path, x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   //
@@ -604,7 +603,6 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.lineTo = function lineTo(x, y) {
     this.alipayCanvasContext.lineTo(x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   //
@@ -612,7 +610,6 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.measureText = function measureText(width) {
     this.alipayCanvasContext.measureText(width);
-    // this.alipayCanvasContext.draw()
   };
 
   //
@@ -620,61 +617,52 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.moveTo = function moveTo(x, y) {
     this.alipayCanvasContext.moveTo(x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.putImageData = function putImageData(imagedata, dx, dy) {
-    console.log(imagedata, dx, dy);
+    if (!imagedata) {
+      console.log('xxx', this._res);
+      imagedata = this._res;
+    }
     this.alipayCanvasContext.putImageData({
       x: dx,
       y: dy,
       width: imagedata.width,
       height: imagedata.height,
-      data: imagedata.data,
-          success:console.log,
-            fail:console.error
+      data: imagedata.data
     });
-    // this.alipayCanvasContext.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight)
   };
 
   CanvasContext.prototype.quadraticCurveTo = function quadraticCurveTo(cpx, cpy, x, y) {
     this.alipayCanvasContext.quadraticCurveTo(cpx, cpy, x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.rect = function rect(x, y, width, height) {
     this.alipayCanvasContext.rect(x, y, width, height);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.restore = function restore() {
     this.alipayCanvasContext.restore();
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.rotate = function rotate(_rotate) {
     this.alipayCanvasContext.rotate(_rotate);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.save = function save() {
     this.alipayCanvasContext.save();
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.scale = function scale(x, y) {
     this.alipayCanvasContext.scale(x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.setLineDash = function setLineDash(segments) {
     this.alipayCanvasContext.setLineDash(segments);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.setTransform = function setTransform(a, b, c, d, e, f) {
     this.alipayCanvasContext.setTransform(a, b, c, d, e, f);
-    // this.alipayCanvasContext.draw()
   };
 
   //
@@ -705,12 +693,10 @@ var CanvasContext = function () {
 
   CanvasContext.prototype.transform = function transform(scaleX, skewX, skewY, scaleY, translateX, translateY) {
     this.alipayCanvasContext.transform(scaleX, skewX, skewY, scaleY, translateX, translateY);
-    // this.alipayCanvasContext.draw()
   };
 
   CanvasContext.prototype.translate = function translate(x, y) {
     this.alipayCanvasContext.translate(x, y);
-    // this.alipayCanvasContext.draw()
   };
 
   _createClass(CanvasContext, [{

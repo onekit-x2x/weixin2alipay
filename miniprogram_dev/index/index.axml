@@ -693,4 +693,6 @@
   </onekit-view>
 </onekit-view> -->
 
-<onekit-canvas onekit-id="myCanvas" type="2d" onekit-style="width:750rpx;height:750rpx;"></onekit-canvas>
+<onekit-canvas onekit-id="myCanvas" type="2d" onekit-style="width:50px;height:50px;"></onekit-canvas>
+<onekit-view>-----------------</onekit-view>
+<onekit-image src="{{dataURL}}" onekit-style="width:50px;height:50px;"></onekit-image>

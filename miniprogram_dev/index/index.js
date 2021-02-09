@@ -1420,15 +1420,32 @@ OnekitPage({
 
     // image.src = "https://s3.pstatp.com/toutiao/static/img/logo.271e845.png";
 
-    var imgData=canvasCtx.createImageData(100,100);
-        for (var i=0;i<imgData.data.length;i+=4)
-          {
-          imgData.data[i+0]=255;
-          imgData.data[i+1]=0;
-          imgData.data[i+2]=0;
-          imgData.data[i+3]=255;
-          }
-          canvasCtx.putImageData(imgData,10,10);
+    // var imgData=canvasCtx.createImageData(100,100);
+    //     for (var i=0;i<imgData.data.length;i+=4)
+    //       {
+    //       imgData.data[i+0]=255;
+    //       imgData.data[i+1]=0;
+    //       imgData.data[i+2]=0;
+    //       imgData.data[i+3]=255;
+    //       }
+    //       canvasCtx.putImageData(imgData,10,10);
+
+
+    //
+    canvasCtx = canvas.getContext("2d");
+        canvasCtx.fillStyle = 'red'
+         canvasCtx.rect(0, 0, 50, 50);
+         canvasCtx.fill();
+        // let imageData = canvasCtx.getImageData(60, 60, 200, 100);
+        // console.log(imageData)
+        // canvasCtx.putImageData(imageData, 150, 10);
+
+        //
+        canvas.toDataURL((dataURL)=>{
+
+        console.log(dataURL);
+        this.setData({dataURL})
+        });
     })
     }
   })

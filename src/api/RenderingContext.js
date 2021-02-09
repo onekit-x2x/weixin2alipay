@@ -113,7 +113,12 @@ export default class CanvasContext {
   }
 
   getImageData(sx, sy, sw, sh) {
-    this.alipayCanvasContext.lineTo(sx, sy, sw, sh)
+    this.alipayCanvasContext.getImageData({
+      x: sx,
+      y: sy,
+      width: sw,
+      height: sh,
+    })
     // this.alipayCanvasContext.draw()
   }
 
@@ -222,8 +227,15 @@ export default class CanvasContext {
   }
 
   putImageData(imagedata, dx, dy) {
-    this.alipayCanvasContext.putImageData(imagedata, dx, dy)
-    // this.alipayCanvasContext.draw()
+    console.log(imagedata, dx, dy, this.alipayCanvasContext.putImageData())
+    this.alipayCanvasContext.putImageData({
+      x: dx,
+      y: dy,
+      width: imagedata.width,
+      height: imagedata.height,
+      data: imagedata.data,
+    })
+    // this.alipayCanvasContext.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight)
   }
 
   quadraticCurveTo(cpx, cpy, x, y) {

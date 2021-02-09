@@ -568,7 +568,12 @@ var CanvasContext = function () {
 
 
   CanvasContext.prototype.getImageData = function getImageData(sx, sy, sw, sh) {
-    this.alipayCanvasContext.lineTo(sx, sy, sw, sh);
+    this.alipayCanvasContext.getImageData({
+      x: sx,
+      y: sy,
+      width: sw,
+      height: sh
+    });
     // this.alipayCanvasContext.draw()
   };
 
@@ -619,8 +624,17 @@ var CanvasContext = function () {
   };
 
   CanvasContext.prototype.putImageData = function putImageData(imagedata, dx, dy) {
-    this.alipayCanvasContext.putImageData(imagedata, dx, dy);
-    // this.alipayCanvasContext.draw()
+    console.log(imagedata, dx, dy);
+    this.alipayCanvasContext.putImageData({
+      x: dx,
+      y: dy,
+      width: imagedata.width,
+      height: imagedata.height,
+      data: imagedata.data,
+          success:console.log,
+            fail:console.error
+    });
+    // this.alipayCanvasContext.putImageData(imagedata, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight)
   };
 
   CanvasContext.prototype.quadraticCurveTo = function quadraticCurveTo(cpx, cpy, x, y) {

@@ -212,10 +212,6 @@ export default class CanvasContext {
   }
 
   putImageData(imagedata, dx, dy) {
-    if (!imagedata) {
-      console.log('xxx', this._res)
-      imagedata = this._res
-    }
     this.alipayCanvasContext.putImageData({
       x: dx,
       y: dy,

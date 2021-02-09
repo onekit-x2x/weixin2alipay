@@ -1432,20 +1432,21 @@ OnekitPage({
 
 
     //
-    canvasCtx = canvas.getContext("2d");
-        canvasCtx.fillStyle = 'red'
-         canvasCtx.rect(0, 0, 50, 50);
-         canvasCtx.fill();
-        // let imageData = canvasCtx.getImageData(60, 60, 200, 100);
-        // console.log(imageData)
-        // canvasCtx.putImageData(imageData, 150, 10);
+    // canvasCtx = canvas.getContext("2d");
+    //     canvasCtx.fillStyle = 'red'
+    //      canvasCtx.rect(0, 0, 50, 50);
+    //      canvasCtx.fill();
+    //     canvas.toDataURL((dataURL)=>{
 
-        //
-        canvas.toDataURL((dataURL)=>{
+    //     console.log(dataURL);
+    //     this.setData({dataURL})
+    //     });
 
-        console.log(dataURL);
-        this.setData({dataURL})
-        });
+    canvasCtx.rect(10, 10, 100, 100);
+        canvasCtx.fill();
+        let imageData = canvasCtx.getImageData(imageData,60, 60, 200, 100);
+        console.log(imageData)
+        canvasCtx.putImageData(imageData, 150, 10);
     })
     }
   })
